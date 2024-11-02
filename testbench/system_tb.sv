@@ -35,13 +35,15 @@ module system_tb;
   // dut
 `ifndef MAPPED
   system                              DUT (CLK,nRST,syif);
-
-  // CPU Tracker. Uncomment and change signal names to enable.
   /*
+  // NOTE: All of these signals MUST be passed all the way through
+  // to the write back stage and sampled in the WRITEBACK stage.
+  // This means more signals that would normally be necessary
+  // for correct execution must be passed along to help with debugging.
   cpu_tracker_rv32 cpu_track0 (
     // No need to change this
     .CLK(DUT.CPU.DP.CLK),
-    // Since single cycle, this is just PC enable
+    // WB stall logic
     .wb_stall(~DUT.CPU.DP.pc0_en),
     //dhit signal
     .dhit(DUT.CPU.DP.dpif.dhit),
@@ -81,7 +83,6 @@ module system_tb;
     .dat_addr(DUT.CPU.DP.dpif.dmemaddr)
   );
   */
-
 `else
   system                              DUT (,,,,//for altera debug ports
     CLK,
