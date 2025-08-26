@@ -29,7 +29,7 @@ module register_file_tb;
   // interface
   register_file_if rfif ();
   // test program
-  test PROG ();
+  test PROG (CLK, nRST, rfif);
   // DUT
 `ifndef MAPPED
   register_file DUT(CLK, nRST, rfif);
@@ -51,6 +51,7 @@ endmodule
 
 
 program test (
+  input logic clk,
   output logic nrst,
   register_file_if.tb tbif
 );
@@ -58,41 +59,46 @@ program test (
 task reset_dut;
 begin
   nrst = 0;
-   @(posedge CLK);
+   @(posedge clk);
   nrst = 1;
-  @(posedge CLK);
-
-
+  @(posedge clk);
 end
+endtask
 
 initial begin
   // test 1
   nrst = 0;
-  @(posedge CLK*3);
+  @(posedge clk*3);
 
   // test 2
   reset_dut;
-  tbif.wdata = 32'd1212;
+  tbif.WEN = 1;
+  @(posedge clk*3);
+  tbif.wdat = 32'd1;
   tbif.wsel = 5'd0;
-  @(posedge CLK*3);
+  @(posedge clk*3);
 
   // test 3 : writes
   reset_dut;
-  tbif.wdata = 32'd1;
+  tbif.wdat = 32'd1;
   tbif.wsel = 5'd1;
-  tbif.wdata = 32'd2;
+  @(posedge clk*3);
+  tbif.wdat = 32'd2;
   tbif.wsel = 5'd2;
-  tbif.wdata = 32'd3;
+  @(posedge clk*3);
+  tbif.wdat = 32'd3;
   tbif.wsel = 5'd3;
-  @(posedge CLK*3);
+  @(posedge clk*3);
 
   // test 3: reads
   tbif.rsel1 = 5'd1;
-  @(posedge CLK*3);
-  $display ();
+  @(posedge clk*3);
+  // $display ();
   tbif.rsel2 = 5'd2;
-  @(posedge CLK*3);
-  $display ();
+  @(posedge clk*3);
+  // $display ();
+
+  $finish;
 end
 
 endprogram

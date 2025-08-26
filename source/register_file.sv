@@ -6,12 +6,15 @@ module register_file (
     register_file_if.rf rfif
 );
 
+import cpu_types_pkg::*;
+
 word_t [31:0] register, next_register;
 
 always_comb begin : write
-    if (rfif.wen) begin
+    next_register = register;
+    if (rfif.WEN) begin
         if (rfif.wsel != 0) begin
-            next_register[rfif.wsel] = rfif.wdat;
+            next_register[rfif.wsel] = rfif.wdat; 
         end
     end
 end
