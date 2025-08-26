@@ -7,6 +7,7 @@
 
 // mapped needs this
 `include "register_file_if.vh"
+`include "cpu_types_pkg.vh"
 
 // mapped timing needs this. 1ns is too fast
 `timescale 1 ns / 1 ns
@@ -48,5 +49,50 @@ module register_file_tb;
 
 endmodule
 
-program test;
+
+program test (
+  output logic nrst,
+  register_file_if.tb tbif
+);
+
+task reset_dut;
+begin
+  nrst = 0;
+   @(posedge CLK);
+  nrst = 1;
+  @(posedge CLK);
+
+
+end
+
+initial begin
+  // test 1
+  nrst = 0;
+  @(posedge CLK*3);
+
+  // test 2
+  reset_dut;
+  tbif.wdata = 32'd1212;
+  tbif.wsel = 5'd0;
+  @(posedge CLK*3);
+
+  // test 3 : writes
+  reset_dut;
+  tbif.wdata = 32'd1;
+  tbif.wsel = 5'd1;
+  tbif.wdata = 32'd2;
+  tbif.wsel = 5'd2;
+  tbif.wdata = 32'd3;
+  tbif.wsel = 5'd3;
+  @(posedge CLK*3);
+
+  // test 3: reads
+  tbif.rsel1 = 5'd1;
+  @(posedge CLK*3);
+  $display ();
+  tbif.rsel2 = 5'd2;
+  @(posedge CLK*3);
+  $display ();
+end
+
 endprogram

@@ -31,5 +31,4 @@ always_ff @( posedge clk, negedge nrst ) begin
 end
 
 
-
 endmodule
