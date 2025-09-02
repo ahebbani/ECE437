@@ -19,8 +19,8 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -suppress 7061 -do "view objects; add wave *; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf alu_tb.wlf work.alu_tb 
-# Start time: 14:15:06 on Sep 02,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Start time: 18:34:43 on Sep 02,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.cpu_types_pkg(fast)
 # Loading work.alu_tb_sv_unit(fast)
@@ -37,12 +37,20 @@
 # out: 00000000, Negative: 0, Overflow: 0
 # out: ffffffff, Negative: 1, Overflow: 0
 # out: ffffffff, Negative: 1, Overflow: 0
-# Break in Module test at testbench/alu_tb.sv line 100
+# SLL: 00000010
+# SRL: 00000001
+# SRA: 00000001
+# ** Warning: (vsim-8296) SVA $error messages are being ignored.
+#    Time: 75 ns  Iteration: 1  Region: /alu_tb/PROG/#ublk#502948#57 File: testbench/alu_tb.sv
+# SLT: 00000000
+# SLT: 00000000
+# SLTU: 00000000
+# SLTU: 00000001
+# Break in Module test at testbench/alu_tb.sv line 154
 # 
- run -all
-# Simulation stop requested.
 add wave -position insertpoint sim:/alu_tb/aluif/*
 restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.cpu_types_pkg(fast)
@@ -57,6 +65,13 @@ run -all
 # out: 00000000, Negative: 0, Overflow: 0
 # out: ffffffff, Negative: 1, Overflow: 0
 # out: ffffffff, Negative: 1, Overflow: 0
-# Break in Module test at testbench/alu_tb.sv line 100
-# End time: 14:15:57 on Sep 02,2025, Elapsed time: 0:00:51
+# SLL: 00000010
+# SRL: 00000001
+# SRA: 00000001
+# SLT: 00000000
+# SLT: 00000000
+# SLTU: 00000000
+# SLTU: 00000001
+# Break in Module test at testbench/alu_tb.sv line 154
+# End time: 18:35:29 on Sep 02,2025, Elapsed time: 0:00:46
 # Errors: 0, Warnings: 0

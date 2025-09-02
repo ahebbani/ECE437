@@ -1,189 +1,184 @@
 m255
 K4
 z2
-Z0 !s99 nomlopt
-R0
-R0
-R0
-!s11f vlog 2021.4 2021.10, Oct 13 2021
+!s99 nomlopt
+!s11f MIXED_VERSIONS
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 d/home/ecegridfs/a/437mg063/ece437/processors
+Z0 d/home/ecegridfs/a/437mg063/ece437/processors
 T_opt
-!s110 1756836907
-VkUf[LBkli_]TI9][h65[P3
+!s110 1756852473
+VnT=]lC2O[gIPcSVZQY8eK1
 04 6 4 work alu_tb fast 0
-=1-f48e388b9433-68b7342a-f0373-174a12
+=1-509a4c0c59b5-68b770f9-77cd6-209e7d
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work -L altera_mf_ver -L altera_ver -L cycloneive_ver -suppress 12110,7061
 tCvgOpt 0
 n@_opt
 OL;O;2021.4;73
 valu
-Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z3 DXx4 work 13 cpu_types_pkg 0 22 nVe:F2T>B[UYj0J];CG8g3
-!s110 1756836436
+Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z2 DXx4 work 13 cpu_types_pkg 0 22 nVe:F2T>B[UYj0J];CG8g3
+Z3 !s110 1756852472
 !i10b 1
-!s100 4^HboQ]be9eELDF7WziYX1
-I=E=WLF;^Yage0h27WfUcY2
+!s100 EV;A2R^dBhJka`HeWZ?;F0
+I:`D5hH:jeH;9>^D<DQk[O1
 S1
-R1
-w1756835482
+R0
+w1756852467
 8source/alu.sv
 Fsource/alu.sv
-!i122 0
-L0 4 21
+!i122 8
+L0 4 25
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 Z5 OL;L;2021.4;73
 r1
 !s85 0
 31
-!s108 1756836436.000000
-!s107 include/cpu_types_pkg.vh|include/alu_if.vh|source/alu.sv|
-!s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|-suppress|7061|source/alu.sv|
+Z6 !s108 1756852472.000000
+Z7 !s107 include/cpu_types_pkg.vh|include/alu_if.vh|source/alu.sv|
+Z8 !s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|-suppress|7061|source/alu.sv|
 !i113 0
-Z6 o-suppress 12110 -suppress 7061 +acc -sv12compat -mfcu -lint -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
-Z7 !s92 -suppress 12110 -suppress 7061 +acc -sv12compat -mfcu -lint +incdir+include -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
-Z8 tShow_source 1 ScalarOpts 1 Show_Lint 1 Show_BadOptionWarning 1 Coverage 63 Svlog 1 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0 FsmImplicitTrans 1 CvgOpt 0
+Z9 o-suppress 12110 -suppress 7061 +acc -sv12compat -mfcu -lint -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z10 !s92 -suppress 12110 -suppress 7061 +acc -sv12compat -mfcu -lint +incdir+include -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z11 tShow_source 1 ScalarOpts 1 Show_Lint 1 Show_BadOptionWarning 1 Coverage 63 Svlog 1 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0 FsmImplicitTrans 1 CvgOpt 0
 Yalu_if
-Z9 !s105 alu_tb_sv_unit
-Z10 DXx4 work 14 alu_tb_sv_unit 0 22 VbUb;=czOIG<BW2YLg=B42
+R1
 R2
 R3
-Z11 !s110 1756836903
 !i10b 1
 !s100 <bKZC0kIiNKg<Z2Zh?8Oe2
 IU[Ha86YZLJc?2]3;UXhM>0
 S1
-R1
+R0
 w1756833745
 8include/alu_if.vh
 Z12 Finclude/alu_if.vh
-!i122 6
+!i122 8
 L0 7 0
 R4
 R5
 r1
 !s85 0
 31
-Z13 !s108 1756836903.000000
-Z14 !s107 include/cpu_types_pkg.vh|include/alu_if.vh|testbench/alu_tb.sv|
-Z15 !s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|-suppress|7061|testbench/alu_tb.sv|
-!i113 0
 R6
 R7
 R8
-valu_tb
-R2
-R3
+!i113 0
+R9
 R10
 R11
+valu_tb
+R1
+R2
+Z13 DXx4 work 14 alu_tb_sv_unit 0 22 eKAmRVgCifC>hNPHS;UP`2
+Z14 !s110 1756852439
 R4
 r1
 !s85 0
 !i10b 1
 !s100 z4>]n0?hWhP0?8n?7N2Dh0
 IZTU;85moMPHo6Se:[:4Ef0
-R9
+Z15 !s105 alu_tb_sv_unit
 S1
-R1
-Z16 w1756836899
+R0
+Z16 w1756852435
 Z17 8testbench/alu_tb.sv
 Z18 Ftestbench/alu_tb.sv
-!i122 6
+!i122 7
 L0 10 31
 R5
 31
-R13
-R14
-R15
+Z19 !s108 1756852439.000000
+Z20 !s107 include/cpu_types_pkg.vh|include/alu_if.vh|testbench/alu_tb.sv|
+Z21 !s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|-suppress|7061|testbench/alu_tb.sv|
 !i113 0
-R6
-R7
-R8
-Xalu_tb_sv_unit
-R2
-R3
+R9
+R10
 R11
-VVbUb;=czOIG<BW2YLg=B42
+Xalu_tb_sv_unit
+R1
+R2
+R14
+VeKAmRVgCifC>hNPHS;UP`2
 r1
 !s85 0
 !i10b 1
-!s100 z4o`aVQd3bIb9_dO0?[PQ1
-IVbUb;=czOIG<BW2YLg=B42
+!s100 e2dBL[Vo7GiVoeGF<0UVY0
+IeKAmRVgCifC>hNPHS;UP`2
 !i103 1
 S1
-R1
+R0
 R16
 R17
 R18
 R12
-Z19 Finclude/cpu_types_pkg.vh
-!i122 6
+Z22 Finclude/cpu_types_pkg.vh
+!i122 7
 L0 5 0
 R5
 31
-R13
-R14
-R15
+R19
+R20
+R21
 !i113 0
-R6
-R7
-R8
-Xcpu_types_pkg
-R2
+R9
+R10
 R11
+Xcpu_types_pkg
+R1
+R3
 !i10b 1
 !s100 z`m1=3E62;6[=8cIZ5:M33
 InVe:F2T>B[UYj0J];CG8g3
 S1
-R1
+R0
 w1756227890
 8include/cpu_types_pkg.vh
-R19
-!i122 6
+R22
+!i122 8
 L0 19 0
 VnVe:F2T>B[UYj0J];CG8g3
 R5
 r1
 !s85 0
 31
-R13
-R14
-R15
-!i113 0
 R6
 R7
 R8
-4test
-R2
-R3
+!i113 0
+R9
 R10
 R11
+4test
+R1
+R2
+R13
+R14
 R4
 r1
 !s85 0
 !i10b 1
-!s100 JNzeHF81OZTg1GPS>Wel00
-IR1XmU@R8DOOSZmc8GRB`_2
-R9
+!s100 <:TjIQNC6bH];UhZE@[2S2
+Ihd4kMliN6Y]o6l1SLkOMZ2
+R15
 S1
-R1
+R0
 R16
 R17
 R18
-!i122 6
+!i122 7
 L0 42 0
 R5
 31
-R13
-R14
-R15
+R19
+R20
+R21
 !i113 0
-R6
-R7
-R8
+R9
+R10
+R11

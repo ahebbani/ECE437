@@ -87,7 +87,7 @@ initial begin
     alu_if.opcode = ALU_OR;
     @(posedge clk*3);
     $display ("out: %h, Negative: %b, Overflow: %b", alu_if.out, alu_if.negative, alu_if.overflow);
-    assert(alu_if.out == 32'hFFFFFFFFF) else $error ("OR operation failed");
+    assert(alu_if.out == 32'hFFFFFFFF) else $error ("OR operation failed");
 
     // Test XOR
     alu_if.a = 32'hF0F0F0F0;
@@ -95,61 +95,62 @@ initial begin
     alu_if.opcode = ALU_XOR;
     @(posedge clk*3);
     $display ("out: %h, Negative: %b, Overflow: %b", alu_if.out, alu_if.negative, alu_if.overflow);
-    assert(alu_if.out == 32'hFFFFFFFFF) else $error ("XOR operation failed");
+    assert(alu_if.out == 32'hFFFFFFFF) else $error ("XOR operation failed");
 
     // Test SLL (Shift Left Logical)
-  alu_if.a = 32'h00000001;
-  alu_if.b = 32'h00000004; // shift by 4
-  alu_if.opcode = ALU_SLL;
-  @(posedge clk*3);
-  $display ("SLL: %h", alu_if.out);
-  assert(alu_if.out == 32'h00000010) else $error("SLL operation failed");
+    alu_if.a = 32'h00000001;
+    alu_if.b = 32'h00000004; // shift by 4
+    alu_if.opcode = ALU_SLL;
+    @(posedge clk*3);
+    $display ("SLL: %h", alu_if.out);
+    assert(alu_if.out == 32'h00000010) else $error("SLL operation failed");
 
-  // Test SRL (Shift Right Logical)
-  alu_if.a = 32'h00000010;
-  alu_if.b = 32'h00000004; // shift by 4
-  alu_if.opcode = ALU_SRL;
-  @(posedge clk*3);
-  $display ("SRL: %h", alu_if.out);
-  assert(alu_if.out == 32'h00000001) else $error("SRL operation failed");
+    // Test SRL (Shift Right Logical)
+    alu_if.a = 32'h00000010;
+    alu_if.b = 32'h00000004; // shift by 4
+    alu_if.opcode = ALU_SRL;
+    @(posedge clk*3);
+    $display ("SRL: %h", alu_if.out);
+    assert(alu_if.out == 32'h00000001) else $error("SRL operation failed");
 
-  // Test SRA (Shift Right Arithmetic)
-  alu_if.a = 32'hF0000010; // negative value
-  alu_if.b = 32'h00000004; // shift by 4
-  alu_if.opcode = ALU_SRA;
-  @(posedge clk*3);
-  $display ("SRA: %h", alu_if.out);
-  assert(alu_if.out == 32'hFF000001) else $error("SRA operation failed");
+    // Test SRA (Shift Right Arithmetic)
+    alu_if.a = 32'hF0000010; // negative value
+    alu_if.b = 32'h00000004; // shift by 4
+    alu_if.opcode = ALU_SRA;
+    @(posedge clk*3);
+    $display ("SRA: %h", alu_if.out);
+    assert(alu_if.out == 32'hFF000001) else $error("SRA operation failed");
 
-  // Test SLT (Set Less Than, signed)
-  alu_if.a = 32'h00000001;
-  alu_if.b = 32'h00000002;
-  alu_if.opcode = ALU_SLT;
-  @(posedge clk*3);
-  $display ("SLT: %h", alu_if.out);
-  assert(alu_if.out == 32'h00000001) else $error("SLT operation failed");
+    // Test SLT (Set Less Than, signed)
+    alu_if.a = 32'h00000001;
+    alu_if.b = 32'h00000002;
+    alu_if.opcode = ALU_SLT;
+    @(posedge clk*3);
+    $display ("SLT: %h", alu_if.out);
+    assert(alu_if.out == 32'h00000001) else $error("SLT operation failed");
 
-  alu_if.a = 32'h00000002;
-  alu_if.b = 32'h00000001;
-  alu_if.opcode = ALU_SLT;
-  @(posedge clk*3);
-  $display ("SLT: %h", alu_if.out);
-  assert(alu_if.out == 32'h00000000) else $error("SLT operation failed");
+    alu_if.a = 32'h00000002;
+    alu_if.b = 32'h00000001;
+    alu_if.opcode = ALU_SLT;
+    @(posedge clk*3);
+    $display ("SLT: %h", alu_if.out);
+    assert(alu_if.out == 32'h00000000) else $error("SLT operation failed");
 
-  // Test SLTU (Set Less Than Unsigned)
-  alu_if.a = 32'hFFFFFFFF;
-  alu_if.b = 32'h00000001;
-  alu_if.opcode = ALU_SLTU;
-  @(posedge clk*3);
-  $display ("SLTU: %h", alu_if.out);
-  assert(alu_if.out == 32'h00000000) else $error("SLTU operation failed");
+    // Test SLTU (Set Less Than Unsigned)
+    alu_if.a = 32'hFFFFFFFF;
+    alu_if.b = 32'h00000001;
+    alu_if.opcode = ALU_SLTU;
+    @(posedge clk*3);
+    $display ("SLTU: %h", alu_if.out);
+    assert(alu_if.out == 32'h00000000) else $error("SLTU operation failed");
 
-  alu_if.a = 32'h00000001;
-  alu_if.b = 32'hFFFFFFFF;
-  alu_if.opcode = ALU_SLTU;
-  @(posedge clk*3);
-  $display ("SLTU: %h", alu_if.out);
-  assert(alu_if.out == 32'h00000001) else $error("SLTU operation failed");
+    alu_if.a = 32'h00000001;
+    alu_if.b = 32'hFFFFFFFF;
+    alu_if.opcode = ALU_SLTU;
+    @(posedge clk*3);
+    $display ("SLTU: %h", alu_if.out);
+    assert(alu_if.out == 32'h00000001) else $error("SLTU operation failed");
+
     $finish;
 end
 
