@@ -19,7 +19,7 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -suppress 7061 -do "view objects; do scripts/register_file.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf register_file_tb.wlf work.register_file_tb 
-# Start time: 18:45:26 on Aug 26,2025
+# Start time: 18:53:47 on Aug 26,2025
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.register_file_tb(fast)
@@ -33,5 +33,5 @@
 #  run -all
 # Break in Module test at testbench/register_file_tb.sv line 101
 # 
-# End time: 18:46:04 on Aug 26,2025, Elapsed time: 0:00:38
+# End time: 18:54:59 on Aug 26,2025, Elapsed time: 0:01:12
 # Errors: 0, Warnings: 0

@@ -1,0 +1,465 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "rfif.rdat2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[7]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[8]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[9]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[10]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[11]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[12]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[13]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[14]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[15]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[16]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[17]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[18]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[19]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[20]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[21]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[22]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[23]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[24]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[25]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[26]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[27]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[28]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[29]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[30]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat2[31]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[8]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[9]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[10]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[11]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[12]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[13]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[14]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[15]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[16]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[17]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[18]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[19]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[20]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[21]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[22]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[23]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[24]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[25]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[26]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[27]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[28]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[29]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[30]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rdat1[31]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.rsel1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "nrst",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wsel[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wsel[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wsel[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.WEN",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wsel[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wsel[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[5]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[7]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[8]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[9]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[10]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[11]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[12]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[13]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[14]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[15]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[16]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[17]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[18]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[19]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[20]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[21]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[22]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[23]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[24]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[25]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[26]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[27]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[28]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[29]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[30]",
+					"strict" : false
+				},
+				{
+					"name" : "rfif.wdat[31]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

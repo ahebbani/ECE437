@@ -1,0 +1,319 @@
+Design Assistant report for register_file
+Tue Aug 26 18:55:58 2025
+Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Design Assistant Settings
+  4. Medium Violations
+  5. Information only Violations
+  6. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Tue Aug 26 18:55:58 2025 ;
+; Revision Name                     ; register_file                       ;
+; Top-level Entity Name             ; register_file                       ;
+; Family                            ; Cyclone IV E                        ;
+; Total Critical Violations         ; 0                                   ;
+; Total High Violations             ; 0                                   ;
+; Total Medium Violations           ; 1                                   ;
+; - Rule R102                       ; 1                                   ;
+; Total Information only Violations ; 83                                  ;
+; - Rule T101                       ; 33                                  ;
+; - Rule T102                       ; 50                                  ;
++-----------------------------------+-------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Option                                                                                                                                                               ; Setting      ; To ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Design Assistant mode                                                                                                                                                ; Post-Fitting ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                        ; 25           ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                    ; 30           ;    ;
+; Minimum number of node fan-out                                                                                                                                       ; 30           ;    ;
+; Maximum number of nodes to report                                                                                                                                    ; 50           ;    ;
+; Rule C101: Gated clock should be implemented according to the Intel FPGA standard scheme                                                                             ; On           ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                        ; On           ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                          ; On           ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                   ; On           ;    ;
+; Rule C105: Clock signal should be a global signal                                                                                                                    ; On           ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                         ; On           ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                         ; On           ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                ; On           ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                    ; On           ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                  ; On           ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                            ; On           ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                     ; On           ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                             ; On           ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                             ; On           ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                           ; On           ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                    ; On           ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                         ; On           ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                           ; On           ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                         ; On           ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                      ; On           ;    ;
+; Rule A108: Design should not contain latches                                                                                                                         ; On           ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                             ; On           ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                ; On           ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                              ; On           ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                ; On           ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                        ; On           ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain ; On           ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                              ; On           ;    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Medium Violations                                                                                       ;
++---------------------------------------------------------------------------------------+-----------------+
+; Rule name                                                                             ; Name            ;
++---------------------------------------------------------------------------------------+-----------------+
+; Rule R102: External reset signals should be synchronized using two cascaded registers ; nrst            ;
+;  Reset signal destination node(s) list                                                ; register[25][0] ;
+;  Reset signal destination node(s) list                                                ; register[21][0] ;
+;  Reset signal destination node(s) list                                                ; register[17][0] ;
+;  Reset signal destination node(s) list                                                ; register[29][0] ;
+;  Reset signal destination node(s) list                                                ; register[22][0] ;
+;  Reset signal destination node(s) list                                                ; register[26][0] ;
+;  Reset signal destination node(s) list                                                ; register[18][0] ;
+;  Reset signal destination node(s) list                                                ; register[30][0] ;
+;  Reset signal destination node(s) list                                                ; register[20][0] ;
+;  Reset signal destination node(s) list                                                ; register[24][0] ;
++---------------------------------------------------------------------------------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                    ;
++------------------------------------------------------------------+-------------------+---------+
+; Rule name                                                        ; Name              ; Fan-Out ;
++------------------------------------------------------------------+-------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~1        ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; nrst~inputclkctrl ; 992     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; clk~inputclkctrl  ; 992     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~3        ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~4        ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~5        ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~7        ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~9        ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~10       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~11       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~13       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~15       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~17       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~18       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~20       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~21       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~22       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~23       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~24       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~25       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~26       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~27       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~28       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~29       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~30       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~31       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~32       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~33       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~34       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~35       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~36       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~37       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Decoder0~38       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; nrst~inputclkctrl ; 992     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; clk~inputclkctrl  ; 992     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~23       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~25       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~26       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~24       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~28       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~37       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~13       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~29       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~38       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~32       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~20       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~9        ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~35       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~4        ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~18       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~34       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~36       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~22       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~1        ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~11       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~33       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~3        ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~15       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~5        ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~30       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~17       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~31       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~27       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~21       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~7        ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~10       ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~19       ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~12       ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~8        ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~6        ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~0        ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~2        ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[23][4]   ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[22][23]  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[31][23]  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[19][23]  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[19][4]   ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[27][23]  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[23][23]  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[28][23]  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[16][23]  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[20][23]  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; register[18][23]  ; 2       ;
++------------------------------------------------------------------+-------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Design Assistant
+    Info: Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
+    Info: Copyright (C) 2022  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Tue Aug 26 18:55:57 2025
+Info: Command: quartus_drc --64bit register_file -c register_file
+Info (332104): Reading SDC File: 'register_file.sdc'
+Warning (332174): Ignored filter at register_file.sdc(1): CLK could not be matched with a port File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 1
+Warning (332049): Ignored create_clock at register_file.sdc(1): Argument <targets> is an empty collection File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 1
+    Info (332050): create_clock -name CLK [get_ports {CLK}] -period 100MHz File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 1
+Warning (332174): Ignored filter at register_file.sdc(2): CLOCK_50 could not be matched with a port File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 2
+Warning (332049): Ignored create_clock at register_file.sdc(2): Argument <targets> is an empty collection File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 2
+    Info (332050): create_clock -name CLK_50 [get_ports {CLOCK_50}] -period 100MHz File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 2
+Warning (332174): Ignored filter at register_file.sdc(3): CPUCLK|q could not be matched with a pin File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 3
+Critical Warning (332049): Ignored create_generated_clock at register_file.sdc(3): Argument <targets> is an empty collection File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 3
+    Info (332050): create_generated_clock -divide_by 2 -source [get_ports CLK] -name CPUCLK [get_pins CPUCLK|q] File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 3
+Warning (332049): Ignored create_generated_clock at register_file.sdc(3): Argument -source is an empty collection File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 3
+Warning (332174): Ignored filter at register_file.sdc(4): system:SYS|CPUCLK|q could not be matched with a pin File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 4
+Critical Warning (332049): Ignored create_generated_clock at register_file.sdc(4): Argument <targets> is an empty collection File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 4
+    Info (332050): create_generated_clock -divide_by 2 -source [get_ports CLOCK_50] -name CPUCLK [get_pins system:SYS|CPUCLK|q] File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 4
+Warning (332049): Ignored create_generated_clock at register_file.sdc(4): Argument -source is an empty collection File: /home/ecegridfs/a/437mg063/ece437/processors/._register_file/register_file.sdc Line: 4
+Info (332144): No user constrained base clocks found in the design
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Warning (308023): (Medium) Rule R102: External reset signals should be synchronized using two cascaded registers. Found 1 node(s) related to this rule.
+    Warning (308010): Node  "nrst" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 5
+Info (308046): (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 33 node(s) with highest fan-out.
+    Info (308011): Node  "Decoder0~1" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "nrst~inputclkctrl" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 5
+    Info (308011): Node  "clk~inputclkctrl" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 5
+    Info (308011): Node  "Decoder0~3" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~4" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~5" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~7" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~9" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~10" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~11" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~13" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~15" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~17" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~18" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~20" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~21" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~22" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~23" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~24" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~25" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~26" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~27" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~28" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~29" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~30" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~31" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~32" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~33" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~34" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~35" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info (308011): Node  "nrst~inputclkctrl" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 5
+    Info (308011): Node  "clk~inputclkctrl" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 5
+    Info (308011): Node  "Decoder0~23" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~25" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~26" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~24" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~28" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~37" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~13" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~29" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~38" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~32" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~20" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~9" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~35" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~4" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~18" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~34" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~36" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~22" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~1" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~11" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~33" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~3" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~15" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~5" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~30" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~17" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~31" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308011): Node  "Decoder0~27" File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 17
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308007): Design Assistant information: finished post-fitting analysis of current design -- generated 83 information messages and 1 warning messages
+Info: Quartus Prime Design Assistant was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 638 megabytes
+    Info: Processing ended: Tue Aug 26 18:55:58 2025
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
