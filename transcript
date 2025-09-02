@@ -18,20 +18,45 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# vsim -coverage -suppress 12110 -suppress 7061 -do "view objects; do scripts/register_file.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf register_file_tb.wlf work.register_file_tb 
-# Start time: 18:53:47 on Aug 26,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# vsim -coverage -suppress 12110 -suppress 7061 -do "view objects; add wave *; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf alu_tb.wlf work.alu_tb 
+# Start time: 14:15:06 on Sep 02,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading sv_std.std
-# Loading work.register_file_tb(fast)
 # Loading work.cpu_types_pkg(fast)
-# Loading work.register_file_if(fast__1)
+# Loading work.alu_tb_sv_unit(fast)
+# Loading work.alu_tb(fast)
+# Loading work.alu_if(fast__1)
 # Loading work.test(fast)
-# Loading work.register_file(fast)
+# Loading work.alu(fast)
 # view objects
 # .main_pane.objects.interior.cs.body.tree
-#  do scripts/register_file.do
+#  add wave *
 #  run -all
-# Break in Module test at testbench/register_file_tb.sv line 101
+# Output: 00000003, Negative: 0, Overflow: 0
+# out: 00000002, Negative: 0, Overflow: 0
+# out: 00000000, Negative: 0, Overflow: 0
+# out: ffffffff, Negative: 1, Overflow: 0
+# out: ffffffff, Negative: 1, Overflow: 0
+# Break in Module test at testbench/alu_tb.sv line 100
 # 
-# End time: 18:54:59 on Aug 26,2025, Elapsed time: 0:01:12
+ run -all
+# Simulation stop requested.
+add wave -position insertpoint sim:/alu_tb/aluif/*
+restart
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.cpu_types_pkg(fast)
+# Loading work.alu_tb_sv_unit(fast)
+# Loading work.alu_tb(fast)
+# Loading work.alu_if(fast__1)
+# Loading work.test(fast)
+# Loading work.alu(fast)
+run -all
+# Output: 00000003, Negative: 0, Overflow: 0
+# out: 00000002, Negative: 0, Overflow: 0
+# out: 00000000, Negative: 0, Overflow: 0
+# out: ffffffff, Negative: 1, Overflow: 0
+# out: ffffffff, Negative: 1, Overflow: 0
+# Break in Module test at testbench/alu_tb.sv line 100
+# End time: 14:15:57 on Sep 02,2025, Elapsed time: 0:00:51
 # Errors: 0, Warnings: 0
