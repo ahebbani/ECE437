@@ -1,25 +1,54 @@
-/*
-  Eric Villasenor
-  evillase@gmail.com
+// /*
+//   Eric Villasenor
+//   evillase@gmail.com
 
-  this block is the coherence protocol
-  and artibtration for ram
-*/
+//   this block is the coherence protocol
+//   and artibtration for ram
+// */
 
-// interface include
-`include "cache_control_if.vh"
+// // interface include
+// `include "cache_control_if.vh"
 
-// memory types
-`include "cpu_types_pkg.vh"
+// // memory types
+// `include "cpu_types_pkg.vh"
 
-module memory_control (
-  input CLK, nRST,
-  cache_control_if.cc ccif
-);
-  // type import
-  import cpu_types_pkg::*;
+// module memory_control (
+//   input CLK, nRST,
+//   cache_control_if.cc ccif
+// );
+//   // type import
+//   import cpu_types_pkg::*;
 
-  // number of cpus for cc
-  parameter CPUS = 1;
+//   // number of cpus for cc
+//   parameter CPUS = 1;
 
-endmodule
+//   // iwait depends on iREN and dWEN and dREN and ramstate
+//   // iwait tells the CPU to wait while iload is getting the next instruction
+//   // iwait is high meaning cpu has to wait for next instruction
+//   // iwait is high when :
+//   // ramstate is busy
+//   // dREN is high because when data is being read you cannot process another instruction
+//   // dWEN is high for the same reason
+//   assign ccif.iwait = (ccif.dREN || ccif.dWEN || ccif.ramstate == BUSY);
+
+//   // dwait is low when dREN or dWEN is high
+//   // only wait for data when data is being read or written to
+//   // depends on ramstate?
+//   assign ccif.dwait = dREN || dWEN;
+
+//   // iload loads instruction to the cpu on the next negedge cpu clock cycle of when instruction is asserted
+
+
+//   // dload is asserted on the next negedge cpu clock cycle of daddr when lw instruction
+
+//   // ramstore is same as daddr when store word
+
+//   // ramaddr
+
+//   // ramWEN
+
+//   // ramREN
+
+
+
+// endmodule

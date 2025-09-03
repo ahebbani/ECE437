@@ -1,0 +1,421 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "aluif.zero",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.overflow",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.negative",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[13]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[14]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[15]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[16]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[17]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[18]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[19]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[20]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[21]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[22]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[23]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[24]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[25]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[26]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[27]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[28]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[29]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[30]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.out[31]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.opcode[0]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.opcode[1]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.opcode[2]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.opcode[3]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[23]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[21]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[1]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[22]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[20]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[0]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[19]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[17]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[18]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[16]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[2]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[3]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[29]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[28]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[31]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[30]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[27]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[25]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[26]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[24]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[15]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[13]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[14]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[12]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[11]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[9]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[10]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[8]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[7]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[6]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[5]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[4]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[1]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[0]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[3]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.a[2]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[4]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[31]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[30]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[29]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[28]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[27]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[26]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[25]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[24]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[23]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[22]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[21]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[20]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[19]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[18]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[17]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[16]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[15]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[14]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[13]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[12]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[11]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[10]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[9]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[8]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[7]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[6]",
+					"strict" : false
+				},
+				{
+					"name" : "aluif.b[5]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,3 +1,12 @@
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -suppress 7061 -c -do "run -all; exit;" -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf alu_tb.wlf work.alu_tb 
+# Start time: 19:02:44 on Sep 03,2025
+# ** Note: (vsim-3812) Design is being optimized...
 # //  Questa Sim-64
 # //  Version 2021.4 linux_x86_64 Oct 13 2021
 # //
@@ -12,15 +21,6 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# vsim -coverage -suppress 12110 -suppress 7061 -do "view objects; add wave *; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf alu_tb.wlf work.alu_tb 
-# Start time: 18:34:43 on Sep 02,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.cpu_types_pkg(fast)
 # Loading work.alu_tb_sv_unit(fast)
@@ -28,50 +28,24 @@
 # Loading work.alu_if(fast__1)
 # Loading work.test(fast)
 # Loading work.alu(fast)
-# view objects
-# .main_pane.objects.interior.cs.body.tree
-#  add wave *
-#  run -all
+# Loading cycloneive_ver.cycloneive_io_obuf(fast)
+# Loading cycloneive_ver.cycloneive_io_ibuf(fast)
+# Loading cycloneive_ver.cycloneive_lcell_comb(fast)
+# Loading cycloneive_ver.cycloneive_lcell_comb(fast__1)
+# run -all
 # Output: 00000003, Negative: 0, Overflow: 0
+# Output: 80000001, Negative: 1, Overflow: 1
 # out: 00000002, Negative: 0, Overflow: 0
+# out: 7fffffff, Negative: 0, Overflow: 1
 # out: 00000000, Negative: 0, Overflow: 0
 # out: ffffffff, Negative: 1, Overflow: 0
 # out: ffffffff, Negative: 1, Overflow: 0
 # SLL: 00000010
 # SRL: 00000001
-# SRA: 00000001
-# ** Warning: (vsim-8296) SVA $error messages are being ignored.
-#    Time: 75 ns  Iteration: 1  Region: /alu_tb/PROG/#ublk#502948#57 File: testbench/alu_tb.sv
-# SLT: 00000000
+# SRA: ff000001
+# SLT: 00000001
 # SLT: 00000000
 # SLTU: 00000000
 # SLTU: 00000001
-# Break in Module test at testbench/alu_tb.sv line 154
-# 
-add wave -position insertpoint sim:/alu_tb/aluif/*
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# Loading sv_std.std
-# Loading work.cpu_types_pkg(fast)
-# Loading work.alu_tb_sv_unit(fast)
-# Loading work.alu_tb(fast)
-# Loading work.alu_if(fast__1)
-# Loading work.test(fast)
-# Loading work.alu(fast)
-run -all
-# Output: 00000003, Negative: 0, Overflow: 0
-# out: 00000002, Negative: 0, Overflow: 0
-# out: 00000000, Negative: 0, Overflow: 0
-# out: ffffffff, Negative: 1, Overflow: 0
-# out: ffffffff, Negative: 1, Overflow: 0
-# SLL: 00000010
-# SRL: 00000001
-# SRA: 00000001
-# SLT: 00000000
-# SLT: 00000000
-# SLTU: 00000000
-# SLTU: 00000001
-# Break in Module test at testbench/alu_tb.sv line 154
-# End time: 18:35:29 on Sep 02,2025, Elapsed time: 0:00:46
+# End time: 19:02:45 on Sep 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
