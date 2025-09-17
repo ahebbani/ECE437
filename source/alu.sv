@@ -8,6 +8,7 @@ module alu  (
 import cpu_types_pkg::*;
 
 always_comb begin
+    aluif.out = 32'b0;
     case (aluif.opcode)
         ALU_ADD: aluif.out = aluif.a + aluif.b; // ADD
         ALU_SUB: aluif.out = aluif.a - aluif.b; // SUB

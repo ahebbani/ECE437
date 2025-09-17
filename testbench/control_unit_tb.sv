@@ -1,4 +1,5 @@
 `include "control_unit_if.vh"
+
 `timescale 1 ns / 1 ns
 import cpu_types_pkg::*;
 
@@ -12,7 +13,21 @@ module control_unit_tb;
   control_unit DUT(cuif);
 `else
   control_unit DUT (
-    .cuif(cuif) // Connect the entire interface
+    .\cuif.inst(cuif.inst),
+    .\cuif.branchPCSrc(cuif.branchPCSrc),
+    .\cuif.jumpPCsrc(cuif.jumpPCsrc),
+    .\cuif.MemtoReg(cuif.MemtoReg),
+    .\cuif.RegWEN(cuif.RegWEN),
+    .\cuif.dREN(cuif.dREN),
+    .\cuif.dWEN(cuif.dWEN),
+    .\cuif.iREN(cuif.iREN),
+    .\cuif.ALUSrc(cuif.ALUSrc),
+    .\cuif.halt(cuif.halt),
+    .\cuif.aluop(cuif.aluop),
+    .\cuif.rs1(cuif.rs1),
+    .\cuif.rs2(cuif.rs2),
+    .\cuif.rd(cuif.rd),
+    .\cuif.imm(cuif.imm)
   );
 `endif
 endmodule

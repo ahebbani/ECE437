@@ -54,7 +54,6 @@ endtask
 
 initial begin
 
-
     // Test ADD
     alu_if.a = 32'd1;
     alu_if.b = 32'd2;

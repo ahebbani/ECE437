@@ -23,6 +23,6 @@ always_ff @ (posedge CLK, negedge nRST) begin
 	end
 end
 
-assign ruif.PCEN = ruif.ihit;
+assign ruif.PCEN = (ruif.ihit && ~(ruif.dREN || ruif.dWEN)) || (ruif.dhit && (ruif.dREN || ruif.dWEN));
 
 endmodule

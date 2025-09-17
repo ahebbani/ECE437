@@ -41,7 +41,7 @@ module memory_control (
   assign ccif.iload = ccif.iREN == 1 ? ccif.ramload : '0;
 
   // dload is asserted on the next negedge cpu clock cycle of daddr when lw instruction
-  assign ccif.dload = ccif.ramload;
+  assign ccif.dload = ccif.dREN == 1 ? ccif.ramload : 0;
 
   // ramstore is same as daddr when store word
   assign ccif.ramstore = ccif.dstore;

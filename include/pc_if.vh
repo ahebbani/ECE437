@@ -1,10 +1,10 @@
-`ifndef PROGRAM_COUNTER_IF_VH
-`define PROGRAM_COUNTER_IF_VH
+`ifndef PC_IF_VH
+`define PC_IF_VH
 
 // all types
 `include "cpu_types_pkg.vh"
 
-interface program_counter_if;
+interface pc_if;
   // import types
   import cpu_types_pkg::*;
 

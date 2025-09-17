@@ -1,9 +1,9 @@
 `include "cpu_types_pkg.vh"
-`include "program_counter_if.vh"
+`include "pc_if.vh"
 
-module program_counter(
+module pc(
   input CLK, nRST,
-  program_counter_if.pc pcif
+  pc_if.pc pcif
 );
 
 import cpu_types_pkg::*;

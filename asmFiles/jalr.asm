@@ -12,10 +12,10 @@ test_jalr:
     halt
 
 success:
-    addi t2, 1
+    addi t2, t2, 1
     push t2
     halt
 
 failure:
-    addi t2, ra
-    jalr zero, t2
+    add t2, x0, ra
+    jalr t2
