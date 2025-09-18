@@ -31,3 +31,4 @@ interface register_file_if;
 endinterface
 
 `endif //REGISTER_FILE_IF_VH
+

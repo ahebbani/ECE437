@@ -22,6 +22,8 @@ module system_tb;
 
   // signals
   logic CLK = 1, nRST;
+  logic [31:0] dbg_data_out_tb;
+
 
   // clock
   always #(PERIOD/2) CLK++;
@@ -34,7 +36,7 @@ module system_tb;
 
   // dut
 `ifndef MAPPED
-  system                              DUT (CLK,nRST,syif);
+  system                              DUT (CLK,nRST,syif,14'b0,dbg_data_out_tb);
 
   // CPU Tracker. Uncomment and change signal names to enable.
   // NOTE: All of these signals MUST be passed all the way through
@@ -89,7 +91,9 @@ module system_tb;
     syif.store,
     syif.REN,
     syif.WEN,
-    syif.tbCTRL
+    syif.tbCTRL,
+    14'b0,
+    dbg_data_out_tb
   );
 `endif
 endmodule
@@ -119,6 +123,13 @@ program test(input logic CLK, output logic nRST, system_if.tb syif);
       cycles++;
     end
     $display("Halted at %g time and ran for %d cycles.",$time, (cycles-1)/2);
+
+    // Check if the halt signal is latched properly
+    repeat (20) @(posedge CLK);
+    if (!syif.halt) begin
+      $display("WARNING! Halt signal is not maintained after processor halts!");
+    end
+
     nRST = 0;
     dump_memory();
     $finish;

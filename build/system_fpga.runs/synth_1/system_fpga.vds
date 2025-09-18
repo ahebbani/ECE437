@@ -1,0 +1,517 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Thu Sep 18 00:49:25 2025
+# Process ID: 2516668
+# Current directory: /home/ecegridfs/a/437mg063/ece437/processors/build/system_fpga.runs/synth_1
+# Command line: vivado -log system_fpga.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_fpga.tcl
+# Log file: /home/ecegridfs/a/437mg063/ece437/processors/build/system_fpga.runs/synth_1/system_fpga.vds
+# Journal file: /home/ecegridfs/a/437mg063/ece437/processors/build/system_fpga.runs/synth_1/vivado.jou
+# Running On: ececomp3.ecn.purdue.edu, OS: Linux, CPU Frequency: 2595.084 MHz, CPU Physical cores: 32, Host memory: 539936 MB
+#-----------------------------------------------------------
+source system_fpga.tcl -notrace
+Command: synth_design -top system_fpga -part xc7s50csga324-1 -directive RuntimeOptimized
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 2520335
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2317.289 ; gain = 402.746 ; free physical = 52142 ; free virtual = 290783
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-11067] parameter 'WORD_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:22]
+WARNING: [Synth 8-11067] parameter 'WBYTES' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:23]
+WARNING: [Synth 8-11067] parameter 'OP_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:26]
+WARNING: [Synth 8-11067] parameter 'REG_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:28]
+WARNING: [Synth 8-11067] parameter 'FUNC7_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:29]
+WARNING: [Synth 8-11067] parameter 'FUNC3_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:30]
+WARNING: [Synth 8-11067] parameter 'IMM_W_I' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:31]
+WARNING: [Synth 8-11067] parameter 'IMM_W_U_J' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:32]
+WARNING: [Synth 8-11067] parameter 'AOP_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:35]
+WARNING: [Synth 8-11067] parameter 'ITAG_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:38]
+WARNING: [Synth 8-11067] parameter 'IIDX_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:39]
+WARNING: [Synth 8-11067] parameter 'IBLK_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:40]
+WARNING: [Synth 8-11067] parameter 'IBYT_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:41]
+WARNING: [Synth 8-11067] parameter 'DTAG_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:44]
+WARNING: [Synth 8-11067] parameter 'DIDX_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:45]
+WARNING: [Synth 8-11067] parameter 'DBLK_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:46]
+WARNING: [Synth 8-11067] parameter 'DBYT_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:47]
+WARNING: [Synth 8-11067] parameter 'DWAY_ASS' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:48]
+INFO: [Synth 8-6157] synthesizing module 'system_fpga' [/home/ecegridfs/a/437mg063/ece437/processors/source/system_fpga.sv:31]
+INFO: [Synth 8-6157] synthesizing module 'system_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/system_if.vh:13]
+INFO: [Synth 8-6155] done synthesizing module 'system_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/system_if.vh:13]
+INFO: [Synth 8-6157] synthesizing module 'system' [/home/ecegridfs/a/437mg063/ece437/processors/source/system.sv:17]
+INFO: [Synth 8-6157] synthesizing module 'cpu_ram_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_ram_if.vh:14]
+INFO: [Synth 8-6155] done synthesizing module 'cpu_ram_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_ram_if.vh:14]
+INFO: [Synth 8-6157] synthesizing module 'singlecycle' [/home/ecegridfs/a/437mg063/ece437/processors/source/singlecycle.sv:10]
+	Parameter PC0 bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'datapath_cache_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/datapath_cache_if.vh:13]
+INFO: [Synth 8-6155] done synthesizing module 'datapath_cache_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/datapath_cache_if.vh:13]
+INFO: [Synth 8-6157] synthesizing module 'caches_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:18]
+INFO: [Synth 8-6155] done synthesizing module 'caches_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:18]
+INFO: [Synth 8-6157] synthesizing module 'caches_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:18]
+INFO: [Synth 8-6155] done synthesizing module 'caches_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:18]
+INFO: [Synth 8-6157] synthesizing module 'cache_control_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/cache_control_if.vh:25]
+	Parameter CPUS bound to: 1 - type: integer 
+WARNING: [Synth 8-330] inout connections inferred for interface port 'caches_if' with no modport [/home/ecegridfs/a/437mg063/ece437/processors/source/singlecycle.sv:24]
+WARNING: [Synth 8-330] inout connections inferred for interface port 'caches_if' with no modport [/home/ecegridfs/a/437mg063/ece437/processors/source/singlecycle.sv:24]
+INFO: [Synth 8-6155] done synthesizing module 'cache_control_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/cache_control_if.vh:25]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [/home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv:21]
+	Parameter PC_INIT bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'control_unit_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/control_unit_if.vh:7]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/control_unit_if.vh:7]
+INFO: [Synth 8-6157] synthesizing module 'request_unit_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/request_unit_if.vh:7]
+INFO: [Synth 8-6155] done synthesizing module 'request_unit_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/request_unit_if.vh:7]
+INFO: [Synth 8-6157] synthesizing module 'register_file_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/register_file_if.vh:13]
+INFO: [Synth 8-6155] done synthesizing module 'register_file_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/register_file_if.vh:13]
+INFO: [Synth 8-6157] synthesizing module 'alu_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/alu_if.vh:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/alu_if.vh:7]
+INFO: [Synth 8-6157] synthesizing module 'pc_if' [/home/ecegridfs/a/437mg063/ece437/processors/include/pc_if.vh:7]
+INFO: [Synth 8-6155] done synthesizing module 'pc_if' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/include/pc_if.vh:7]
+INFO: [Synth 8-6157] synthesizing module 'control_unit' [/home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv:5]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv:104]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv:40]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'request_unit' [/home/ecegridfs/a/437mg063/ece437/processors/source/request_unit.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'request_unit' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/request_unit.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'register_file' [/home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'register_file' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'alu' [/home/ecegridfs/a/437mg063/ece437/processors/source/alu.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/alu.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'pc' [/home/ecegridfs/a/437mg063/ece437/processors/source/pc.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'pc' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/pc.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'caches' [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:16]
+	Parameter CPUID bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'caches' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:16]
+INFO: [Synth 8-6157] synthesizing module 'memory_control' [/home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv:16]
+INFO: [Synth 8-6155] done synthesizing module 'memory_control' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv:16]
+INFO: [Synth 8-6155] done synthesizing module 'singlecycle' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/singlecycle.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'ram' [/home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv:15]
+INFO: [Synth 8-3876] $readmem data file 'meminit.mem' is read successfully [/home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv:61]
+INFO: [Synth 8-6155] done synthesizing module 'ram' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv:15]
+INFO: [Synth 8-6155] done synthesizing module 'system' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/system.sv:17]
+INFO: [Synth 8-6157] synthesizing module 'mem_debug_vio' [/home/ecegridfs/a/437mg063/ece437/processors/build/system_fpga.runs/synth_1/.Xil/Vivado-2516668-ececomp3.ecn.purdue.edu/realtime/mem_debug_vio_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'mem_debug_vio' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/build/system_fpga.runs/synth_1/.Xil/Vivado-2516668-ececomp3.ecn.purdue.edu/realtime/mem_debug_vio_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_fpga_clock_div' [/home/ecegridfs/a/437mg063/ece437/processors/source/system_fpga.sv:16]
+	Parameter DIV bound to: 50000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'system_fpga_clock_div' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/system_fpga.sv:16]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/ecegridfs/a/437mg063/ece437/processors/source/system_fpga.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'system_fpga' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/system_fpga.sv:31]
+WARNING: [Synth 8-3848] Net dpif\.datomic in module/entity datapath does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv:23]
+WARNING: [Synth 8-3848] Net cif\.ccwrite in module/entity caches does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:19]
+WARNING: [Synth 8-3848] Net cif\.cctrans in module/entity caches does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:19]
+WARNING: [Synth 8-3848] Net ccif\.ccwait in module/entity memory_control does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv:18]
+WARNING: [Synth 8-3848] Net ccif\.ccinv in module/entity memory_control does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv:18]
+WARNING: [Synth 8-3848] Net ccif\.ccsnoopaddr[0] in module/entity memory_control does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv:18]
+WARNING: [Synth 8-3848] Net cif1\.iwait in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:24]
+WARNING: [Synth 8-3848] Net cif1\.dwait in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:24]
+WARNING: [Synth 8-3848] Net cif1\.iREN in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:24]
+WARNING: [Synth 8-3848] Net cif1\.dREN in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:24]
+WARNING: [Synth 8-3848] Net cif1\.dWEN in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:24]
+WARNING: [Synth 8-3848] Net cif1\.iload in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:25]
+WARNING: [Synth 8-3848] Net cif1\.dload in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:25]
+WARNING: [Synth 8-3848] Net cif1\.dstore in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:25]
+WARNING: [Synth 8-3848] Net cif1\.iaddr in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:26]
+WARNING: [Synth 8-3848] Net cif1\.daddr in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:26]
+WARNING: [Synth 8-3848] Net cif1\.ccwait in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:35]
+WARNING: [Synth 8-3848] Net cif1\.ccinv in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:35]
+WARNING: [Synth 8-3848] Net cif1\.ccwrite in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:36]
+WARNING: [Synth 8-3848] Net cif1\.cctrans in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:36]
+WARNING: [Synth 8-3848] Net cif1\.ccsnoopaddr in module/entity singlecycle does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh:37]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'vio_inst'. This will prevent further optimization [/home/ecegridfs/a/437mg063/ece437/processors/source/system_fpga.sv:99]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'SYS'. This will prevent further optimization [/home/ecegridfs/a/437mg063/ece437/processors/source/system_fpga.sv:98]
+WARNING: [Synth 8-7129] Port ramif\.memREN in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memWEN in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[31] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[30] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[29] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[28] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[27] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[26] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[25] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[24] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[23] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[22] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[21] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[20] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[19] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[18] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[17] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[16] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[15] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[14] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[13] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[12] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[11] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[10] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[9] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[8] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[7] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[6] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[5] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[4] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[3] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[2] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[1] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memaddr[0] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[31] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[30] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[29] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[28] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[27] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[26] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[25] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[24] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[23] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[22] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[21] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[20] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[19] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[18] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[17] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[16] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[15] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[14] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[13] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[12] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[11] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[10] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[9] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[8] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[7] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[6] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[5] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[4] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[3] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[2] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[1] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramif\.memstore[0] in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port halt in module ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccwait[0] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccinv[0] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][31] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][30] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][29] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][28] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][27] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][26] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][25] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][24] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][23] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][22] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][21] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][20] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][19] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][18] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][17] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][16] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][15] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][14] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][13] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][12] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][11] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][10] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][9] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][8] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][7] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][6] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][5] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][4] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][3] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][2] in module memory_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ccif\.ccsnoopaddr[0][1] in module memory_control is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2409.227 ; gain = 494.684 ; free physical = 52043 ; free virtual = 290685
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2424.070 ; gain = 509.527 ; free physical = 52040 ; free virtual = 290681
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2424.070 ; gain = 509.527 ; free physical = 52040 ; free virtual = 290681
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2424.070 ; gain = 0.000 ; free physical = 52038 ; free virtual = 290680
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/ecegridfs/a/437mg063/ece437/processors/build/system_fpga.gen/sources_1/ip/mem_debug_vio/mem_debug_vio/mem_debug_vio_in_context.xdc] for cell 'vio_inst'
+Finished Parsing XDC File [/home/ecegridfs/a/437mg063/ece437/processors/build/system_fpga.gen/sources_1/ip/mem_debug_vio/mem_debug_vio/mem_debug_vio_in_context.xdc] for cell 'vio_inst'
+Parsing XDC File [/home/ecegrid/a/ece437l/tools/vivado_extra/urbana.xdc]
+WARNING: [Vivado 12-507] No nets matched 'BTN_IBUF[3]'. [/home/ecegrid/a/ece437l/tools/vivado_extra/urbana.xdc:82]
+Finished Parsing XDC File [/home/ecegrid/a/ece437l/tools/vivado_extra/urbana.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/home/ecegrid/a/ece437l/tools/vivado_extra/urbana.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/system_fpga_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/ecegrid/a/ece437l/tools/vivado_extra/urbana.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_fpga_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/system_fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/ecegridfs/a/437mg063/ece437/processors/build/generated_clock.xdc]
+Finished Parsing XDC File [/home/ecegridfs/a/437mg063/ece437/processors/build/generated_clock.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2565.820 ; gain = 0.000 ; free physical = 52024 ; free virtual = 290665
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2565.855 ; gain = 0.000 ; free physical = 52025 ; free virtual = 290666
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52012 ; free virtual = 290649
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52012 ; free virtual = 290649
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for vio_inst. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52012 ; free virtual = 290649
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52012 ; free virtual = 290649
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 3     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   21 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 2     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 38    
+	               21 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---RAMs : 
+	             512K Bit	(16384 X 32 bit)          RAMs := 1     
++---Muxes : 
+	  11 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 12    
+	   3 Input   32 Bit        Muxes := 1     
+	   4 Input   32 Bit        Muxes := 1     
+	  11 Input    4 Bit        Muxes := 2     
+	   8 Input    4 Bit        Muxes := 1     
+	   7 Input    4 Bit        Muxes := 1     
+	  32 Input    4 Bit        Muxes := 2     
+	   7 Input    2 Bit        Muxes := 1     
+	  11 Input    2 Bit        Muxes := 3     
+	   2 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 1     
+	  11 Input    1 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 37    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:19 ; elapsed = 00:01:22 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52017 ; free virtual = 290678
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object  | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|SYS         | RAM/mem_reg | 16 K x 32(READ_FIRST)  | W | R | 16 K x 32(WRITE_FIRST) |   | R | Port A and B     | 0      | 16     | 
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52034 ; free virtual = 290691
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object  | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|SYS         | RAM/mem_reg | 16 K x 32(READ_FIRST)  | W | R | 16 K x 32(WRITE_FIRST) |   | R | Port A and B     | 0      | 16     | 
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_8 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_8 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_9 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_9 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_10 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_10 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_11 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_11 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_12 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_12 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_13 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_13 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_14 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_14 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_15 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance SYS/RAM/mem_reg_15 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:24 ; elapsed = 00:01:27 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52020 ; free virtual = 290683
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52029 ; free virtual = 290691
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52028 ; free virtual = 290691
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52029 ; free virtual = 290692
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52029 ; free virtual = 290692
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52029 ; free virtual = 290692
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52029 ; free virtual = 290692
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |mem_debug_vio |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |mem_debug_vio |     1|
+|2     |BUFG          |     2|
+|3     |CARRY4        |    51|
+|4     |LUT1          |     7|
+|5     |LUT2          |    96|
+|6     |LUT3          |   103|
+|7     |LUT4          |   188|
+|8     |LUT5          |   278|
+|9     |LUT6          |   962|
+|10    |MUXF7         |   262|
+|11    |MUXF8         |    72|
+|12    |RAMB36E1      |    16|
+|28    |FDCE          |  1066|
+|29    |FDPE          |     2|
+|30    |FDRE          |    93|
+|31    |IBUF          |    18|
+|32    |OBUF          |    41|
++------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52029 ; free virtual = 290691
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:26 ; elapsed = 00:01:29 . Memory (MB): peak = 2565.855 ; gain = 509.527 ; free physical = 52029 ; free virtual = 290692
+Synthesis Optimization Complete : Time (s): cpu = 00:01:28 ; elapsed = 00:01:31 . Memory (MB): peak = 2565.855 ; gain = 651.312 ; free physical = 52029 ; free virtual = 290692
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2565.855 ; gain = 0.000 ; free physical = 52319 ; free virtual = 290982
+INFO: [Netlist 29-17] Analyzing 401 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2565.855 ; gain = 0.000 ; free physical = 52314 ; free virtual = 290976
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 1408c77b
+INFO: [Common 17-83] Releasing license: Synthesis
+104 Infos, 144 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:32 ; elapsed = 00:01:35 . Memory (MB): peak = 2565.855 ; gain = 975.488 ; free physical = 52314 ; free virtual = 290976
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1933.515; main = 1586.033; forked = 394.368
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4163.359; main = 2565.824; forked = 1629.551
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2589.832 ; gain = 0.000 ; free physical = 52313 ; free virtual = 290976
+INFO: [Common 17-1381] The checkpoint '/home/ecegridfs/a/437mg063/ece437/processors/build/system_fpga.runs/synth_1/system_fpga.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file system_fpga_utilization_synth.rpt -pb system_fpga_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 18 00:51:11 2025...

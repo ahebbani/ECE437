@@ -32,3 +32,4 @@ module register_file_fpga (
   assign LED[13:10] = rfif.rdat2[3:0];
 
 endmodule
+

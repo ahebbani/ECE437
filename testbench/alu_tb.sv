@@ -23,18 +23,16 @@ module alu_tb;
   // DUT
 `ifndef MAPPED
   alu DUT(aluif);
-// `else
-//   alu DUT(
-//     .\aluif.rdat2 (rfif.rdat2),
-//     .\aluif.rdat1 (rfif.rdat1),
-//     .\aluif.wdat (rfif.wdat),
-//     .\aluif.rsel2 (rfif.rsel2),O o
-//     .\aluif.rsel1 (rfif.rsel1),
-//     .\aluif.wsel (rfif.wsel),
-//     .\aluif.WEN (rfif.WEN),
-//     .\nRST (nRST),
-//     .\CLK (CLK)
-//   );
+`else
+  alu DUT(
+    .\aluif.a (aluif.a),
+    .\aluif.b (aluif.b),
+    .\aluif.opcode (aluif.opcode),
+    .\aluif.negative (aluif.negative),
+    .\aluif.overflow (aluif.overflow),
+    .\aluif.zero (aluif.zero),
+    .\aluif.out (aluif.out)
+  );
 `endif
 
 endmodule
@@ -56,7 +54,6 @@ endtask
 
 initial begin
 
-
     // Test ADD
     alu_if.a = 32'd1;
     alu_if.b = 32'd2;
@@ -65,6 +62,14 @@ initial begin
     $display ("Output: %h, Negative: %b, Overflow: %b", alu_if.out, alu_if.negative, alu_if.overflow);
     assert(alu_if.out == 32'd3) else $error ("ADD operation failed");
 
+    // Test ADD overflow
+    alu_if.a = 32'h7FFFFFFF;
+    alu_if.b = 32'd2;
+    alu_if.opcode = ALU_ADD;
+    @(posedge clk*3);
+    $display ("Output: %h, Negative: %b, Overflow: %b", alu_if.out, alu_if.negative, alu_if.overflow);
+    assert(alu_if.overflow == 1) else $error ("ADD operation failed");
+
     // Test SUB
     alu_if.a = 32'd5;
     alu_if.b = 32'd3;
@@ -72,6 +77,14 @@ initial begin
     @(posedge clk*3);
     $display ("out: %h, Negative: %b, Overflow: %b", alu_if.out, alu_if.negative, alu_if.overflow);
     assert(alu_if.out == 32'd2) else $error ("SUB operation failed");
+
+    // Test SUB overflow
+    alu_if.a = 32'h80000000;
+    alu_if.b = 32'd1;
+    alu_if.opcode = ALU_SUB;
+    @(posedge clk*3);
+    $display ("out: %h, Negative: %b, Overflow: %b", alu_if.out, alu_if.negative, alu_if.overflow);
+    assert(alu_if.overflow == 1) else $error ("SUB operation failed");
 
     // Test AND
     alu_if.a = 32'hF0F0F0F0;
