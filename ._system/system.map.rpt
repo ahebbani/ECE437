@@ -1,5 +1,5 @@
 Analysis & Synthesis report for system
-Wed Sep 17 18:46:23 2025
+Thu Sep 18 18:05:12 2025
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
 
 
@@ -60,13 +60,13 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Sep 17 18:46:23 2025           ;
+; Analysis & Synthesis Status        ; Successful - Thu Sep 18 18:05:12 2025           ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Standard Edition ;
 ; Revision Name                      ; system                                          ;
 ; Top-level Entity Name              ; system                                          ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 4,013                                           ;
-;     Total combinational functions  ; 3,020                                           ;
+; Total logic elements               ; 4,014                                           ;
+;     Total combinational functions  ; 3,021                                           ;
 ;     Dedicated logic registers      ; 1,288                                           ;
 ; Total registers                    ; 1288                                            ;
 ; Total pins                         ; 148                                             ;
@@ -246,16 +246,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 4,013      ;
+; Estimated Total logic elements              ; 4,014      ;
 ;                                             ;            ;
-; Total combinational functions               ; 3020       ;
+; Total combinational functions               ; 3021       ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 2129       ;
-;     -- 3 input functions                    ; 692        ;
-;     -- <=2 input functions                  ; 199        ;
+;     -- 4 input functions                    ; 2178       ;
+;     -- 3 input functions                    ; 655        ;
+;     -- <=2 input functions                  ; 188        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 2807       ;
+;     -- normal mode                          ; 2808       ;
 ;     -- arithmetic mode                      ; 213        ;
 ;                                             ;            ;
 ; Total registers                             ; 1288       ;
@@ -269,8 +269,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;            ;
 ; Maximum fan-out node                        ; nRST~input ;
 ; Maximum fan-out                             ; 1133       ;
-; Total fan-out                               ; 18401      ;
-; Average fan-out                             ; 3.93       ;
+; Total fan-out                               ; 18464      ;
+; Average fan-out                             ; 3.95       ;
 +---------------------------------------------+------------+
 
 
@@ -279,7 +279,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |system                                                                                                                                 ; 3020 (132)          ; 1288 (1)                  ; 524288      ; 0            ; 0       ; 0         ; 148  ; 0            ; |system                                                                                                                                                                                                                                                                                                                                            ; system                            ; work         ;
+; |system                                                                                                                                 ; 3021 (131)          ; 1288 (1)                  ; 524288      ; 0            ; 0       ; 0         ; 148  ; 0            ; |system                                                                                                                                                                                                                                                                                                                                            ; system                            ; work         ;
 ;    |ram:RAM|                                                                                                                            ; 167 (65)            ; 110 (38)                  ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|ram:RAM                                                                                                                                                                                                                                                                                                                                    ; ram                               ; work         ;
 ;       |altsyncram:altsyncram_component|                                                                                                 ; 102 (0)             ; 72 (0)                    ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|ram:RAM|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                                                    ; altsyncram                        ; work         ;
 ;          |altsyncram_99f1:auto_generated|                                                                                               ; 102 (0)             ; 72 (0)                    ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated                                                                                                                                                                                                                                                                     ; altsyncram_99f1                   ; work         ;
@@ -288,13 +288,13 @@ https://fpgasoftware.intel.com/eula.
 ;                |decode_jsa:decode5|                                                                                                     ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|altsyncram_fta2:altsyncram1|decode_jsa:decode5                                                                                                                                                                                                                      ; decode_jsa                        ; work         ;
 ;             |sld_mod_ram_rom:mgl_prim2|                                                                                                 ; 98 (76)             ; 70 (61)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                                                                                           ; sld_mod_ram_rom                   ; work         ;
 ;                |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                                     ; 22 (22)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                                                                                        ; sld_rom_sr                        ; work         ;
-;    |singlecycle:CPU|                                                                                                                    ; 2598 (0)            ; 1091 (0)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU                                                                                                                                                                                                                                                                                                                            ; singlecycle                       ; work         ;
+;    |singlecycle:CPU|                                                                                                                    ; 2600 (0)            ; 1091 (0)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU                                                                                                                                                                                                                                                                                                                            ; singlecycle                       ; work         ;
 ;       |caches:CM|                                                                                                                       ; 98 (98)             ; 64 (64)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|caches:CM                                                                                                                                                                                                                                                                                                                  ; caches                            ; work         ;
-;       |datapath:DP|                                                                                                                     ; 2466 (301)          ; 1027 (1)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP                                                                                                                                                                                                                                                                                                                ; datapath                          ; work         ;
-;          |alu:ALU|                                                                                                                      ; 691 (691)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP|alu:ALU                                                                                                                                                                                                                                                                                                        ; alu                               ; work         ;
-;          |control_unit:CTRLU|                                                                                                           ; 123 (123)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU                                                                                                                                                                                                                                                                                             ; control_unit                      ; work         ;
+;       |datapath:DP|                                                                                                                     ; 2468 (302)          ; 1027 (1)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP                                                                                                                                                                                                                                                                                                                ; datapath                          ; work         ;
+;          |alu:ALU|                                                                                                                      ; 690 (690)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP|alu:ALU                                                                                                                                                                                                                                                                                                        ; alu                               ; work         ;
+;          |control_unit:CTRLU|                                                                                                           ; 122 (122)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU                                                                                                                                                                                                                                                                                             ; control_unit                      ; work         ;
 ;          |pc:PC|                                                                                                                        ; 29 (29)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP|pc:PC                                                                                                                                                                                                                                                                                                          ; pc                                ; work         ;
-;          |register_file:REGF|                                                                                                           ; 1317 (1317)         ; 992 (992)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP|register_file:REGF                                                                                                                                                                                                                                                                                             ; register_file                     ; work         ;
+;          |register_file:REGF|                                                                                                           ; 1320 (1320)         ; 992 (992)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP|register_file:REGF                                                                                                                                                                                                                                                                                             ; register_file                     ; work         ;
 ;          |request_unit:REQU|                                                                                                            ; 5 (5)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|datapath:DP|request_unit:REQU                                                                                                                                                                                                                                                                                              ; request_unit                      ; work         ;
 ;       |memory_control:CC|                                                                                                               ; 34 (34)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|singlecycle:CPU|memory_control:CC                                                                                                                                                                                                                                                                                                          ; memory_control                    ; work         ;
 ;    |sld_hub:auto_hub|                                                                                                                   ; 123 (1)             ; 86 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |system|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
@@ -414,7 +414,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |system|ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[4]                                                                                                                                                                                      ;
 ; 26:1               ; 4 bits    ; 68 LEs        ; 44 LEs               ; 24 LEs                 ; Yes        ; |system|ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[2]                                                                                                                                                                                           ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |system|ram:RAM|ramif.ramload[9]                                                                                                                                                                                                                                                                                                                                 ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU|Selector10                                                                                                                                                                                                                                                                                                ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU|Selector9                                                                                                                                                                                                                                                                                                 ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU|Selector25                                                                                                                                                                                                                                                                                                ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU|Selector25                                                                                                                                                                                                                                                                                                ;
 ; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|Mux15                                                                                                                                                                                                                                                                                                                        ;
@@ -424,11 +424,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU|Selector4                                                                                                                                                                                                                                                                                                 ;
 ; 9:1                ; 7 bits    ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; No         ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU|Selector11                                                                                                                                                                                                                                                                                                ;
 ; 11:1               ; 4 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; No         ; |system|singlecycle:CPU|datapath:DP|control_unit:CTRLU|Selector21                                                                                                                                                                                                                                                                                                ;
-; 14:1               ; 7 bits    ; 63 LEs        ; 63 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector12                                                                                                                                                                                                                                                                                                           ;
-; 13:1               ; 8 bits    ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector17                                                                                                                                                                                                                                                                                                           ;
-; 15:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector4                                                                                                                                                                                                                                                                                                            ;
+; 14:1               ; 7 bits    ; 63 LEs        ; 63 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector13                                                                                                                                                                                                                                                                                                           ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector22                                                                                                                                                                                                                                                                                                           ;
+; 15:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector6                                                                                                                                                                                                                                                                                                            ;
 ; 14:1               ; 4 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector24                                                                                                                                                                                                                                                                                                           ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector2                                                                                                                                                                                                                                                                                                            ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector3                                                                                                                                                                                                                                                                                                            ;
 ; 15:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |system|singlecycle:CPU|datapath:DP|alu:ALU|Selector29                                                                                                                                                                                                                                                                                                           ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |system|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |system|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[3]                    ;
@@ -614,20 +614,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SCLR          ; 5                           ;
 ;     ENA SLD           ; 32                          ;
 ;     plain             ; 2                           ;
-; cycloneiii_lcell_comb ; 2897                        ;
+; cycloneiii_lcell_comb ; 2898                        ;
 ;     arith             ; 205                         ;
 ;         2 data inputs ; 49                          ;
 ;         3 data inputs ; 156                         ;
-;     normal            ; 2692                        ;
+;     normal            ; 2693                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 105                         ;
-;         3 data inputs ; 507                         ;
-;         4 data inputs ; 2074                        ;
+;         2 data inputs ; 94                          ;
+;         3 data inputs ; 470                         ;
+;         4 data inputs ; 2123                        ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 28.00                       ;
-; Average LUT depth     ; 21.10                       ;
+; Max LUT depth         ; 30.00                       ;
+; Average LUT depth     ; 21.27                       ;
 +-----------------------+-----------------------------+
 
 
@@ -666,7 +666,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+--------------+
 ; Partition Name   ; Elapsed Time ;
 +------------------+--------------+
-; Top              ; 00:00:07     ;
+; Top              ; 00:00:05     ;
 ; sld_hub:auto_hub ; 00:00:00     ;
 +------------------+--------------+
 
@@ -691,7 +691,7 @@ Info: Running Quartus Prime Analysis & Synthesis
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Wed Sep 17 18:45:50 2025
+    Info: Processing started: Thu Sep 18 18:04:44 2025
 Info: Command: quartus_map --64bit system -c system
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 3 design units, including 2 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/alu.sv
@@ -938,8 +938,8 @@ Warning (10665): Bidirectional port "cache_control_if.ccsnoopaddr[0][2]" at cach
 Warning (10665): Bidirectional port "cache_control_if.ccsnoopaddr[0][1]" at cache_control_if.vh(25) has a one-way connection to bidirectional port "cif0.ccsnoopaddr[1]" File: /home/ecegridfs/a/437mg063/ece437/processors/include/cache_control_if.vh Line: 25
 Warning (10665): Bidirectional port "cache_control_if.ccsnoopaddr[0][0]" at cache_control_if.vh(25) has a one-way connection to bidirectional port "cif0.ccsnoopaddr[0]" File: /home/ecegridfs/a/437mg063/ece437/processors/include/cache_control_if.vh Line: 25
 Info (12128): Elaborating entity "datapath" for hierarchy "singlecycle:CPU|datapath:DP" File: /home/ecegridfs/a/437mg063/ece437/processors/source/singlecycle.sv Line: 27
-Info (10264): Verilog HDL Case Statement information at datapath.sv(81): all case item expressions in this case statement are onehot File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 81
-Warning (10230): Verilog HDL assignment warning at datapath.sv(103): truncated value with size 32 to match size of target (1) File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 103
+Info (10264): Verilog HDL Case Statement information at datapath.sv(76): all case item expressions in this case statement are onehot File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 76
+Warning (10230): Verilog HDL assignment warning at datapath.sv(98): truncated value with size 32 to match size of target (1) File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 98
 Warning (10034): Output port "dpif.datomic" at datapath.sv(24) has no driver File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 24
 Info (12128): Elaborating entity "control_unit_if" for hierarchy "singlecycle:CPU|datapath:DP|control_unit_if:cuif" File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 32
 Warning (12158): Entity "control_unit_if" contains only dangling pins File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 32
@@ -952,8 +952,9 @@ Warning (12158): Entity "alu_if" contains only dangling pins File: /home/ecegrid
 Info (12128): Elaborating entity "pc_if" for hierarchy "singlecycle:CPU|datapath:DP|pc_if:pcif" File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 36
 Warning (12158): Entity "pc_if" contains only dangling pins File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 36
 Info (12128): Elaborating entity "control_unit" for hierarchy "singlecycle:CPU|datapath:DP|control_unit:CTRLU" File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 40
-Warning (10270): Verilog HDL Case Statement warning at control_unit.sv(104): incomplete case statement has no default case item File: /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv Line: 104
-Warning (10230): Verilog HDL assignment warning at control_unit.sv(147): truncated value with size 43 to match size of target (32) File: /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv Line: 147
+Warning (10270): Verilog HDL Case Statement warning at control_unit.sv(44): incomplete case statement has no default case item File: /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv Line: 44
+Warning (10270): Verilog HDL Case Statement warning at control_unit.sv(106): incomplete case statement has no default case item File: /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv Line: 106
+Warning (10230): Verilog HDL assignment warning at control_unit.sv(149): truncated value with size 43 to match size of target (32) File: /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv Line: 149
 Warning (10270): Verilog HDL Case Statement warning at control_unit.sv(40): incomplete case statement has no default case item File: /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv Line: 40
 Info (12128): Elaborating entity "request_unit" for hierarchy "singlecycle:CPU|datapath:DP|request_unit:REQU" File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 41
 Info (12128): Elaborating entity "register_file" for hierarchy "singlecycle:CPU|datapath:DP|register_file:REGF" File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 42
@@ -995,7 +996,7 @@ Info (12128): Elaborating entity "altsyncram_99f1" for hierarchy "ram:RAM|altsyn
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fta2.tdf
     Info (12023): Found entity 1: altsyncram_fta2 File: /home/ecegridfs/a/437mg063/ece437/processors/._system/db/altsyncram_fta2.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_fta2" for hierarchy "ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|altsyncram_fta2:altsyncram1" File: /home/ecegridfs/a/437mg063/ece437/processors/._system/db/altsyncram_99f1.tdf Line: 37
-Critical Warning (127005): Memory depth (16384) in the design file differs from memory depth (63) in the Memory Initialization File "/home/ecegridfs/a/437mg063/ece437/processors/._system/meminit.hex" -- setting initial value for remaining addresses to 0 File: /home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv Line: 88
+Critical Warning (127005): Memory depth (16384) in the design file differs from memory depth (33) in the Memory Initialization File "/home/ecegridfs/a/437mg063/ece437/processors/._system/meminit.hex" -- setting initial value for remaining addresses to 0 File: /home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv Line: 88
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_jsa.tdf
     Info (12023): Found entity 1: decode_jsa File: /home/ecegridfs/a/437mg063/ece437/processors/._system/db/decode_jsa.tdf Line: 23
 Info (12128): Elaborating entity "decode_jsa" for hierarchy "ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|altsyncram_fta2:altsyncram1|decode_jsa:decode4" File: /home/ecegridfs/a/437mg063/ece437/processors/._system/db/altsyncram_fta2.tdf Line: 50
@@ -1020,7 +1021,7 @@ Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "ram:
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: /package/eda/intelFPGA/quartus21.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
 Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "ram:RAM|altsyncram:altsyncram_component|altsyncram_99f1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: /package/eda/intelFPGA/quartus21.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2025.09.17.18:46:09 Progress: Loading sld6c6326ae/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2025.09.18.18:05:00 Progress: Loading sld6c6326ae/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1100,16 +1101,16 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "dbg_addr[11]" File: /home/ecegridfs/a/437mg063/ece437/processors/source/system.sv Line: 22
     Warning (15610): No output dependent on input pin "dbg_addr[12]" File: /home/ecegridfs/a/437mg063/ece437/processors/source/system.sv Line: 22
     Warning (15610): No output dependent on input pin "dbg_addr[13]" File: /home/ecegridfs/a/437mg063/ece437/processors/source/system.sv Line: 22
-Info (21057): Implemented 4300 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4301 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 86 input pins
     Info (21059): Implemented 66 output pins
-    Info (21061): Implemented 4083 logic cells
+    Info (21061): Implemented 4084 logic cells
     Info (21064): Implemented 64 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 273 warnings
-    Info: Peak virtual memory: 525 megabytes
-    Info: Processing ended: Wed Sep 17 18:46:23 2025
-    Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:00:48
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 274 warnings
+    Info: Peak virtual memory: 530 megabytes
+    Info: Processing ended: Thu Sep 18 18:05:12 2025
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:44
 
 
 +------------------------------------------+

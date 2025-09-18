@@ -45,11 +45,6 @@ module datapath (
 
 
   // regfile
-  // assign rfif.WEN = cuif.RegWEN & ( dpif.ihit | dpif.dhit);
-  // always_comb begin
-  //   if (cuif.dREN) rfif.WEN = cuif.RegWEN & dpif.dhit;
-  //   else rfif.WEN = cuif.RegWEN & dpif.ihit;
-  // end
   assign rfif.WEN = cuif.RegWEN && (dpif.ihit || dpif.dhit);
   assign rfif.wsel = cuif.rd;
   assign rfif.rsel1 = cuif.rs1; 

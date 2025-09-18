@@ -39,18 +39,20 @@ always_comb begin
     imm2 = 0;
     casez (opcode_t'(opcode))
         RTYPE: begin
-            cuif.RegWEN = 1;
+            cuif.RegWEN   = 1;
             cuif.MemtoReg = 2'b00;
-            if (funct3 == 3'b000 && funct7 == 7'b0000000) cuif.aluop = ALU_ADD;
-            else if (funct3 == 3'b000 && funct7 == 7'b0100000) cuif.aluop = ALU_SUB; 
-            else if (funct3 == 3'b111 && funct7 == 7'b0000000) cuif.aluop = ALU_AND; 
-            else if (funct3 == 3'b110 && funct7 == 7'b0000000) cuif.aluop = ALU_OR; 
-            else if (funct3 == 3'b100 && funct7 == 7'b0000000) cuif.aluop = ALU_XOR; 
-            else if (funct3 == 3'b001 && funct7 == 7'b0000000) cuif.aluop = ALU_SLL; 
-            else if (funct3 == 3'b101 && funct7 == 7'b0000000) cuif.aluop = ALU_SRL; 
-            else if (funct3 == 3'b101 && funct7 == 7'b0100000) cuif.aluop = ALU_SRA; 
-            else if (funct3 == 3'b010 && funct7 == 7'b0000000) cuif.aluop = ALU_SLT; 
-            else if (funct3 == 3'b011 && funct7 == 7'b0000000) cuif.aluop = ALU_SLTU;
+            casez ({funct7, funct3})
+                10'b0000000_000: cuif.aluop = ALU_ADD;
+                10'b0100000_000: cuif.aluop = ALU_SUB;
+                10'b0000000_111: cuif.aluop = ALU_AND;
+                10'b0000000_110: cuif.aluop = ALU_OR;
+                10'b0000000_100: cuif.aluop = ALU_XOR;
+                10'b0000000_001: cuif.aluop = ALU_SLL;
+                10'b0000000_101: cuif.aluop = ALU_SRL;
+                10'b0100000_101: cuif.aluop = ALU_SRA;
+                10'b0000000_010: cuif.aluop = ALU_SLT;
+                10'b0000000_011: cuif.aluop = ALU_SLTU;
+            endcase
         end
         ITYPE: begin
             cuif.imm = {{20{cuif.inst[31]}}, cuif.inst[31:20]};
