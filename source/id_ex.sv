@@ -1,7 +1,7 @@
 // data path interface
 `include "id_ex_if.vh"
 
-module if_id (
+module id_ex (
     id_ex_if.idex dx
 );
 
@@ -9,26 +9,29 @@ import cpu_types_pkg::*;
 
 // Flush should be high if there is a branch or jump instruction. it removes the previous two instrutions before the execute stage
 // Execute stage will find out whether we are falling through the branch or not
-//
+
+// Passes execution, memory, and writeback signals
 
 always_ff (posedge clk, negedge nrst) begin
     if (~nrst) begin
         dx.pc_out <= 0;
-        dx.inst_out <=0;
+
+        // execution signals
         dx.rdat1_out <= 0;
         dx.rdat2_out <= 0;
         dx.imm_out <= 0;
-        dx.wdat_out <=0;
-        dx.dREN_out <= 0;
-        dx.dWEN_out <=0;
-        dx.iREN_out <= 0;
-        dx.branchPCSrc_out <= 0;
-        dx.jumpPCsrc_out <=0;
-        dx.regWEN_out <= 0;
         dx.ALUSrc1_out <= 0;
         dx.ALUSrc2_out <= 0;
         dx.aluop_out <= 0;
-        dx.MemtoReg_in <= 0;
+        
+        // memory signals
+        dx.dREN_out <= 0;
+        dx.dWEN_out <=0;
+        dx.branchPCSrc_out <= 0;
+        dx.jumpPCsrc_out <=0;
+
+        // writeback signals
+        dx.MemtoReg_out <= 0;
     end
     // else if (dx.flush) begin
     //     dx.pc_out <= 0;
@@ -46,25 +49,27 @@ always_ff (posedge clk, negedge nrst) begin
     //     dx.ALUSrc1_out <= 0;
     //     dx.ALUSrc2_out <= 0;
     //     dx.aluop_out <= 0;
-    //     dx.MemtoReg_in <= 0;
+    //     dx.MemtoReg_out <= 0;
     // end
     else if (dx.ihit) begin
         dx.pc_out <= dx.pc_in;
-        dx.inst_out <= dx.inst_in;
+
+        // execution signals
         dx.rdat1_out <= dx.rdat1_in;
         dx.rdat2_out <= dx.rdat2_in;
         dx.imm_out <= dx.imm_in;
-        dx.wdat_out <= dx.wdat_in;
-        dx.dREN_out <= dx.dREN_in;
-        dx.dWEN_out <= dx.dWEN_in;
-        dx.iREN_out <= dx.iREN_in;
-        dx.branchPCSrc_out <= dx.branchPCSrc_in;
-        dx.jumpPCsrc_out <= dx.jumpPCsrc_in;
-        dx.regWEN_out <= dx.regWEN_in;
         dx.ALUSrc1_out <= dx.ALUSrc1_in;
         dx.ALUSrc2_out <= dx.ALUSrc2_in;
         dx.aluop_out <= dx.aluop_in;
-        dx.MemtoReg_in <= dx.MemtoReg_in;
+
+        // memory signals
+        dx.dREN_out <= dx.dREN_in;
+        dx.dWEN_out <= dx.dWEN_in;
+        dx.branchPCSrc_out <= dx.branchPCSrc_in;
+        dx.jumpPCsrc_out <= dx.jumpPCsrc_in;
+        
+        // writeback signals
+        dx.MemtoReg_out <= dx.MemtoReg_in;
     end
 end
 
