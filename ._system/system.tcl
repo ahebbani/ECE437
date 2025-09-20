@@ -29,10 +29,10 @@ set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437
 set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv
 set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv
 set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/pc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/pipeline.sv
 set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv
 set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv
 set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/request_unit.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/singlecycle.sv
 set_global_assignment -name SYSTEMVERILOG_FILE /home/ecegridfs/a/437mg063/ece437/processors/source/system.sv
 
 #============================================================

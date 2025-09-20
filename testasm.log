@@ -2092,3 +2092,1269 @@ Reading pref.tcl
 # Finished memory dump.
 # End time: 18:04:40 on Sep 18,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
+processing file asmFiles/beq1.asm (1 of 26)
+Target Clock Frequency : 50 MHz
+
+Mapped does not contain updated meminit.hex file... FIXING THIS
+
+quartus_sh --64bit -t system.tclquartus_map --64bit system -c systemInfo: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.1 Build 850 06/23/2022 SJ Standard Edition
+    Info: Copyright (C) 2022  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Sat Sep 20 14:55:34 2025
+Info: Command: quartus_map --64bit system -c system
+Info (20032): Parallel compilation is enabled and will use up to 4 processors
+Info (12021): Found 3 design units, including 2 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/alu.sv
+    Info (12022): Found design unit 1: cpu_types_pkg (SystemVerilog) File: /home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh Line: 19
+    Info (12023): Found entity 1: alu_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/alu_if.vh Line: 7
+    Info (12023): Found entity 2: alu File: /home/ecegridfs/a/437mg063/ece437/processors/source/alu.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv
+    Info (12023): Found entity 1: caches File: /home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv Line: 9
+Info (12021): Found 2 design units, including 2 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv
+    Info (12023): Found entity 1: control_unit_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/control_unit_if.vh Line: 7
+    Info (12023): Found entity 2: control_unit File: /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv Line: 5
+Info (12021): Found 7 design units, including 7 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv
+    Info (12023): Found entity 1: datapath_cache_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/datapath_cache_if.vh Line: 13
+    Info (12023): Found entity 2: request_unit_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/request_unit_if.vh Line: 7
+    Info (12023): Found entity 3: register_file_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/register_file_if.vh Line: 13
+    Info (12023): Found entity 4: caches_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/caches_if.vh Line: 18
+    Info (12023): Found entity 5: cache_control_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/cache_control_if.vh Line: 25
+    Info (12023): Found entity 6: pc_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/pc_if.vh Line: 7
+    Info (12023): Found entity 7: datapath File: /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv Line: 21
+Info (12021): Found 2 design units, including 2 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv
+    Info (12023): Found entity 1: cpu_ram_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/cpu_ram_if.vh Line: 14
+    Info (12023): Found entity 2: memory_control File: /home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv Line: 16
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/pc.sv
+    Info (12023): Found entity 1: pc File: /home/ecegridfs/a/437mg063/ece437/processors/source/pc.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv
+    Info (12023): Found entity 1: ram File: /home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv
+    Info (12023): Found entity 1: register_file File: /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/request_unit.sv
+    Info (12023): Found entity 1: request_unit File: /home/ecegridfs/a/437mg063/ece437/processors/source/request_unit.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/singlecycle.sv
+    Info (12023): Found entity 1: singlecycle File: /home/ecegridfs/a/437mg063/ece437/processors/source/singlecycle.sv Line: 10
+Info (12021): Found 2 design units, including 2 entities, in source file /home/ecegridfs/a/437mg063/ece437/processors/source/system.sv
+    Info (12023): Found entity 1: system_if File: /home/ecegridfs/a/437mg063/ece437/processors/include/system_if.vh Line: 13
+    Info (12023): Found entity 2: system File: /home/ecegridfs/a/437mg063/ece437/processors/source/system.sv Line: 17
+Error (10703): SystemVerilog error at system.sv(46): can't resolve aggregate expression in connection to port 3 on instance "CPU" because the instance has no module binding File: /home/ecegridfs/a/437mg063/ece437/processors/source/system.sv Line: 46
+Info (144001): Generated suppressed messages file /home/ecegridfs/a/437mg063/ece437/processors/._system/system.map.smsg
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 0 warnings
+    Error: Peak virtual memory: 405 megabytes
+    Error: Processing ended: Sat Sep 20 14:55:46 2025
+    Error: Elapsed time: 00:00:12
+    Error: Total CPU time (on all processors): 00:00:18
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED source/alu.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:47 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" source/alu.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface alu_if
+-- Importing package cpu_types_pkg
+-- Compiling module alu
+
+Top level modules:
+	alu
+End time: 14:55:47 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED include/alu_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:47 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" include/alu_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface alu_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 14:55:47 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED source/control_unit.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:47 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" source/control_unit.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface control_unit_if
+-- Importing package cpu_types_pkg
+-- Compiling module control_unit
+
+Top level modules:
+	control_unit
+End time: 14:55:47 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED include/control_unit_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:47 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" include/control_unit_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface control_unit_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 14:55:48 on Sep 20,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED source/datapath.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:48 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" source/datapath.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface datapath_cache_if
+-- Importing package cpu_types_pkg
+-- Compiling interface control_unit_if
+-- Compiling interface request_unit_if
+-- Compiling interface register_file_if
+-- Compiling interface caches_if
+-- Compiling interface cache_control_if
+-- Compiling interface alu_if
+-- Compiling interface pc_if
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+End time: 14:55:48 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED source/memory_control.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:48 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" source/memory_control.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface caches_if
+-- Importing package cpu_types_pkg
+-- Compiling interface cache_control_if
+-- Compiling interface cpu_ram_if
+-- Compiling module memory_control
+
+Top level modules:
+	memory_control
+End time: 14:55:48 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED source/pc.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:48 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" source/pc.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface pc_if
+-- Importing package cpu_types_pkg
+-- Compiling module pc
+
+Top level modules:
+	pc
+End time: 14:55:48 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED include/pc_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:48 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" include/pc_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface pc_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 14:55:48 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:48 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+
+Top level modules:
+	ram
+End time: 14:55:49 on Sep 20,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0, Suppressed Errors: 1
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED include/register_file_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:49 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" include/register_file_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface register_file_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 14:55:49 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED source/request_unit.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:49 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" source/request_unit.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface request_unit_if
+-- Importing package cpu_types_pkg
+-- Compiling module request_unit
+
+Top level modules:
+	request_unit
+End time: 14:55:49 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED include/request_unit_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:49 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" include/request_unit_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface request_unit_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 14:55:49 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED mapped/system.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:49 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" mapped/system.sv 
+-- Compiling module system
+-- Compiling module ram
+-- Compiling module altsyncram_1
+-- Compiling module altsyncram_99f1
+-- Compiling module altsyncram_fta2
+-- Compiling module decode_jsa
+-- Compiling module decode_jsa_1
+-- Compiling module sld_mod_ram_rom
+-- Compiling module sld_rom_sr
+-- Compiling module singlecycle
+-- Compiling module caches
+-- Compiling module datapath
+-- Compiling module alu
+-- Compiling module control_unit
+-- Compiling module pc
+-- Compiling module register_file
+-- Compiling module request_unit
+-- Compiling module memory_control
+
+Top level modules:
+	system
+End time: 14:55:50 on Sep 20,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED testbench/system_tb.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:55:50 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" testbench/system_tb.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface system_if
+-- Importing package cpu_types_pkg
+-- Compiling module system_tb
+-- Compiling program test
+
+Top level modules:
+	system_tb
+End time: 14:55:50 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -suppress 7061 -c -do "run -all; exit;" -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf system_tb.wlf work.system_tb 
+# Start time: 14:55:51 on Sep 20,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: /package/eda/altera/altera15.0/quartus/eda/sim_lib/cycloneive_atoms.v(5684): (vopt-13162) Assignment to 'mem_invalidate' within the always block cannot trigger the same always block.
+# ** Warning: /package/eda/altera/altera15.0/quartus/eda/sim_lib/cycloneive_atoms.v(5684): (vopt-13162) Assignment to 'mem_invalidate' within the always block cannot trigger the same always block.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.singlecycle(fast)
+# Loading work.datapath(fast)
+# Loading work.pc(fast)
+# Loading cycloneive_ver.cycloneive_lcell_comb(fast)
+# Loading cycloneive_ver.cycloneive_lcell_comb(fast__1)
+# Loading altera_ver.dffeas(fast)
+# Loading work.alu(fast)
+# Loading work.register_file(fast)
+# Loading work.request_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.memory_control(fast)
+# Loading work.caches(fast)
+# Loading work.ram(fast)
+# Loading work.altsyncram_1(fast)
+# Loading work.altsyncram_99f1(fast)
+# Loading work.altsyncram_fta2(fast)
+# Loading work.decode_jsa_1(fast)
+# Loading work.decode_jsa(fast)
+# Loading cycloneive_ver.cycloneive_ram_block(fast)
+# Loading cycloneive_ver.cycloneive_ram_pulse_generator(fast)
+# Loading cycloneive_ver.cycloneive_ram_pulse_generator(fast__1)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__1)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__2)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__3)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__4)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__5)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__6)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__7)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__8)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__9)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__10)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__11)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__12)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__13)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__14)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__15)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__16)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__17)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__18)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__19)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__20)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__21)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__22)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__23)
+# Loading cycloneive_ver.cycloneive_ram_block(fast__24)
+# Loading work.sld_mod_ram_rom(fast)
+# Loading work.sld_rom_sr(fast)
+# Loading cycloneive_ver.cycloneive_io_ibuf(fast)
+# Loading cycloneive_ver.cycloneive_clkctrl(fast)
+# Loading cycloneive_ver.cycloneive_io_obuf(fast)
+# Loading cycloneive_ver.cycloneive_jtag(fast)
+# run -all
+# Starting Processor.
+# Halted at 6760 time and ran for        168 cycles.
+# Starting memory dump.
+# Finished memory dump.
+# End time: 14:56:00 on Sep 20,2025, Elapsed time: 0:00:09
+# Errors: 0, Warnings: 2
+10 instructions
+--- memsim.hex	2025-09-20 14:56:00.731546800 -0400
++++ memcpu.hex	2025-09-20 14:56:00.701545643 -0400
+@@ -1,16 +1,37 @@
+-:0400000000200313C6
+-:040001000020039345
+-:04000200000008935F
+-:0400030000010137C0
++:040000000020029347
++:04000100FFC1011327
++:040002000051202366
++:040003000060029304
+ :04000400FFC1011324
+-:04000500005008138C
+-:040006000073086318
++:040005000051202363
++:040006000050029311
+ :04000700FFC1011321
+-:0400080001012023AF
+-:04000900FFFFFFFFF7
+-:04000A000010089347
+-:04000B00FFC101131D
+-:04000C00011120239B
+-:04000D00FFFFFFFFF3
+-:043FFE0000000001BE
++:040008000051202360
++:0400090000300313AD
++:04000A00001003934C
++:04000B000073086313
++:04000C00018000EF80
++:04000D00FFF30313E7
++:04000E00FF5FF06F31
++:04000F000001228347
++:040010000041011397
++:04001100FFFFFFFFEF
++:0400120000012E03B8
++:040013000041011394
++:0400140000012E8336
++:040015000041011392
++:0400160000000F13C4
++:04001700000E8E63E6
++:04001800001EFF9334
++:04001900000F8463ED
++:04001A0001CF0F33D0
++:04001B00001E1E1392
++:04001C00001EDE9351
++:04001D00FE9FF06FE3
++:04001E00FFC101130A
++:04001F0001E12023B8
++:0400200000008067F5
++:043FFD0000000005BB
++:043FFE000000001EA1
++:043FFF000000003C82
+ :00000001FF
+processing file asmFiles/beq2.asm (2 of 26)
+Target Clock Frequency : 50 MHz
+
+Mapped does not contain updated meminit.hex file... FIXING THIS
+
+quartus_sh --64bit -t system.tclquartus_map --64bit system -c systemprocessing file asmFiles/beq1.asm (1 of 24)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED source/caches.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:56:46 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" source/caches.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface datapath_cache_if
+-- Importing package cpu_types_pkg
+-- Compiling interface caches_if
+-- Compiling module caches
+
+Top level modules:
+	caches
+End time: 14:56:46 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@cparch01.ecn.purdue.edu, you forgot some targets.
+	If you need instructions to use this Makefile:
+		'make <module_name>' to build module
+		'make <module_name>_tb' to build module + testbench
+		'make <module_name>.sim' to sim tb on cmd line
+		'make <module_name>.wav' to sim tb with gui
+		'make <module_name>.syn' to synthesize functional net list
+		'make <module_name>.synt' to synthesize timing net list
+	Lint Rules:
+		'make <module_name>.lint' to run the linter on module
+		'make <module_name>_tb.lint' to run the linter on module testbench
+	Clean Rules:
+		'make clean' to clean everything
+		'make clean_sim' to clean simulation logs and work lib
+		'make clean_asm' to clean hex and testasm output
+		'make clean_map' to clean mapped dir
+		'make clean_fpga' to clean fpga dir
+	Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog  +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110 -suppress 7061 +define+MAPPED testbench/system_tb.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 14:56:46 on Sep 20,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 -suppress 7061 "+define+MAPPED" testbench/system_tb.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface system_if
+-- Importing package cpu_types_pkg
+-- Compiling module system_tb
+-- Compiling program test
+
+Top level modules:
+	system_tb
+End time: 14:56:46 on Sep 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -suppress 7061 -c -do "run -all; exit;" -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf system_tb.wlf work.system_tb 
+# Start time: 14:56:47 on Sep 20,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dpifhalt' not found in module 'caches' (1st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_1' not found in module 'caches' (2nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_0' not found in module 'caches' (3rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_3' not found in module 'caches' (4th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_2' not found in module 'caches' (5th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_5' not found in module 'caches' (6th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_4' not found in module 'caches' (7th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_7' not found in module 'caches' (8th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_6' not found in module 'caches' (9th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_9' not found in module 'caches' (10th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_8' not found in module 'caches' (11th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_11' not found in module 'caches' (12th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_10' not found in module 'caches' (13th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_13' not found in module 'caches' (14th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_12' not found in module 'caches' (15th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_15' not found in module 'caches' (16th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_14' not found in module 'caches' (17th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_17' not found in module 'caches' (18th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_16' not found in module 'caches' (19th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_19' not found in module 'caches' (20th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_18' not found in module 'caches' (21st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_21' not found in module 'caches' (22nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_20' not found in module 'caches' (23rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_23' not found in module 'caches' (24th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_22' not found in module 'caches' (25th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_25' not found in module 'caches' (26th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_24' not found in module 'caches' (27th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_27' not found in module 'caches' (28th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_26' not found in module 'caches' (29th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_29' not found in module 'caches' (30th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_28' not found in module 'caches' (31st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_31' not found in module 'caches' (32nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_30' not found in module 'caches' (33rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramWEN' not found in module 'caches' (34th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramREN' not found in module 'caches' (35th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'always1' not found in module 'caches' (36th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_0' not found in module 'caches' (37th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_1' not found in module 'caches' (38th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_2' not found in module 'caches' (39th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_3' not found in module 'caches' (40th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_4' not found in module 'caches' (41st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_5' not found in module 'caches' (42nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_6' not found in module 'caches' (43rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_7' not found in module 'caches' (44th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_8' not found in module 'caches' (45th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_9' not found in module 'caches' (46th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_10' not found in module 'caches' (47th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_11' not found in module 'caches' (48th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_12' not found in module 'caches' (49th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_13' not found in module 'caches' (50th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_14' not found in module 'caches' (51st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_15' not found in module 'caches' (52nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_16' not found in module 'caches' (53rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_17' not found in module 'caches' (54th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_18' not found in module 'caches' (55th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_19' not found in module 'caches' (56th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_20' not found in module 'caches' (57th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_21' not found in module 'caches' (58th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_22' not found in module 'caches' (59th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_23' not found in module 'caches' (60th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_24' not found in module 'caches' (61st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_25' not found in module 'caches' (62nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_26' not found in module 'caches' (63rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_27' not found in module 'caches' (64th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_28' not found in module 'caches' (65th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_29' not found in module 'caches' (66th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_30' not found in module 'caches' (67th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_31' not found in module 'caches' (68th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'iwait' not found in module 'caches' (69th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ccifiwait_0' not found in module 'caches' (70th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_1' not found in module 'caches' (71st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_0' not found in module 'caches' (72nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_2' not found in module 'caches' (73rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_4' not found in module 'caches' (74th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_3' not found in module 'caches' (75th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_5' not found in module 'caches' (76th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_6' not found in module 'caches' (77th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_23' not found in module 'caches' (78th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_22' not found in module 'caches' (79th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'instr_20' not found in module 'caches' (80th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_20' not found in module 'caches' (81st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'instr_21' not found in module 'caches' (82nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_21' not found in module 'caches' (83rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_24' not found in module 'caches' (84th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_14' not found in module 'caches' (85th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_13' not found in module 'caches' (86th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_25' not found in module 'caches' (87th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_26' not found in module 'caches' (88th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_27' not found in module 'caches' (89th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_31' not found in module 'caches' (90th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_30' not found in module 'caches' (91st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_29' not found in module 'caches' (92nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_28' not found in module 'caches' (93rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_12' not found in module 'caches' (94th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_10' not found in module 'caches' (95th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_11' not found in module 'caches' (96th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_19' not found in module 'caches' (97th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'instr_16' not found in module 'caches' (98th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_16' not found in module 'caches' (99th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'instr_15' not found in module 'caches' (100th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_15' not found in module 'caches' (101st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_17' not found in module 'caches' (102nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_18' not found in module 'caches' (103rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_7' not found in module 'caches' (104th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_8' not found in module 'caches' (105th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_9' not found in module 'caches' (106th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector30' not found in module 'caches' (107th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'b' not found in module 'caches' (108th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector0' not found in module 'caches' (109th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector2' not found in module 'caches' (110th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector3' not found in module 'caches' (111th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector9' not found in module 'caches' (112th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector24' not found in module 'caches' (113th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector241' not found in module 'caches' (114th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector242' not found in module 'caches' (115th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector25' not found in module 'caches' (116th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector26' not found in module 'caches' (117th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector27' not found in module 'caches' (118th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector11' not found in module 'caches' (119th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector20' not found in module 'caches' (120th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector10' not found in module 'caches' (121st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector21' not found in module 'caches' (122nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector22' not found in module 'caches' (123rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector28' not found in module 'caches' (124th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector12' not found in module 'caches' (125th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector14' not found in module 'caches' (126th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector16' not found in module 'caches' (127th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector31' not found in module 'caches' (128th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector01' not found in module 'caches' (129th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector1' not found in module 'caches' (130th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector7' not found in module 'caches' (131st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector4' not found in module 'caches' (132nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector6' not found in module 'caches' (133rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector61' not found in module 'caches' (134th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector62' not found in module 'caches' (135th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector8' not found in module 'caches' (136th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector5' not found in module 'caches' (137th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector29' not found in module 'caches' (138th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector13' not found in module 'caches' (139th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector17' not found in module 'caches' (140th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector18' not found in module 'caches' (141st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector15' not found in module 'caches' (142nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector51' not found in module 'caches' (143rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector19' not found in module 'caches' (144th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector23' not found in module 'caches' (145th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector52' not found in module 'caches' (146th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifdhit' not found in module 'caches' (147th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'devpor' not found in module 'caches' (150th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'devclrn' not found in module 'caches' (151st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'devoe' not found in module 'caches' (152nd connection).
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=150, Warnings=0.
+# Error loading design
+# End time: 14:56:48 on Sep 20,2025, Elapsed time: 0:00:01
+# Errors: 150, Warnings: 0
+10 instructions
+--- memsim.hex	2025-09-20 14:56:48.636392836 -0400
++++ memcpu.hex	2025-09-20 14:56:00.701545643 -0400
+@@ -1,16 +1,37 @@
+-:0400000000200313C6
+-:040001000020039345
+-:04000200000008935F
+-:0400030000010137C0
++:040000000020029347
++:04000100FFC1011327
++:040002000051202366
++:040003000060029304
+ :04000400FFC1011324
+-:04000500005008138C
+-:040006000073086318
++:040005000051202363
++:040006000050029311
+ :04000700FFC1011321
+-:0400080001012023AF
+-:04000900FFFFFFFFF7
+-:04000A000010089347
+-:04000B00FFC101131D
+-:04000C00011120239B
+-:04000D00FFFFFFFFF3
+-:043FFE0000000001BE
++:040008000051202360
++:0400090000300313AD
++:04000A00001003934C
++:04000B000073086313
++:04000C00018000EF80
++:04000D00FFF30313E7
++:04000E00FF5FF06F31
++:04000F000001228347
++:040010000041011397
++:04001100FFFFFFFFEF
++:0400120000012E03B8
++:040013000041011394
++:0400140000012E8336
++:040015000041011392
++:0400160000000F13C4
++:04001700000E8E63E6
++:04001800001EFF9334
++:04001900000F8463ED
++:04001A0001CF0F33D0
++:04001B00001E1E1392
++:04001C00001EDE9351
++:04001D00FE9FF06FE3
++:04001E00FFC101130A
++:04001F0001E12023B8
++:0400200000008067F5
++:043FFD0000000005BB
++:043FFE000000001EA1
++:043FFF000000003C82
+ :00000001FF
+processing file asmFiles/beq2.asm (2 of 24)
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -suppress 7061 -c -do "run -all; exit;" -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf system_tb.wlf work.system_tb 
+# Start time: 14:56:49 on Sep 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dpifhalt' not found in module 'caches' (1st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_1' not found in module 'caches' (2nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_0' not found in module 'caches' (3rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_3' not found in module 'caches' (4th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_2' not found in module 'caches' (5th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_5' not found in module 'caches' (6th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_4' not found in module 'caches' (7th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_7' not found in module 'caches' (8th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_6' not found in module 'caches' (9th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_9' not found in module 'caches' (10th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_8' not found in module 'caches' (11th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_11' not found in module 'caches' (12th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_10' not found in module 'caches' (13th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_13' not found in module 'caches' (14th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_12' not found in module 'caches' (15th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_15' not found in module 'caches' (16th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_14' not found in module 'caches' (17th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_17' not found in module 'caches' (18th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_16' not found in module 'caches' (19th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_19' not found in module 'caches' (20th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_18' not found in module 'caches' (21st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_21' not found in module 'caches' (22nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_20' not found in module 'caches' (23rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_23' not found in module 'caches' (24th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_22' not found in module 'caches' (25th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_25' not found in module 'caches' (26th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_24' not found in module 'caches' (27th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_27' not found in module 'caches' (28th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_26' not found in module 'caches' (29th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_29' not found in module 'caches' (30th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_28' not found in module 'caches' (31st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_31' not found in module 'caches' (32nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'daddr_30' not found in module 'caches' (33rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramWEN' not found in module 'caches' (34th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramREN' not found in module 'caches' (35th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'always1' not found in module 'caches' (36th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_0' not found in module 'caches' (37th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_1' not found in module 'caches' (38th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_2' not found in module 'caches' (39th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_3' not found in module 'caches' (40th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_4' not found in module 'caches' (41st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_5' not found in module 'caches' (42nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_6' not found in module 'caches' (43rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_7' not found in module 'caches' (44th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_8' not found in module 'caches' (45th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_9' not found in module 'caches' (46th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_10' not found in module 'caches' (47th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_11' not found in module 'caches' (48th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_12' not found in module 'caches' (49th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_13' not found in module 'caches' (50th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_14' not found in module 'caches' (51st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_15' not found in module 'caches' (52nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_16' not found in module 'caches' (53rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_17' not found in module 'caches' (54th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_18' not found in module 'caches' (55th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_19' not found in module 'caches' (56th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_20' not found in module 'caches' (57th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_21' not found in module 'caches' (58th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_22' not found in module 'caches' (59th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_23' not found in module 'caches' (60th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_24' not found in module 'caches' (61st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_25' not found in module 'caches' (62nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_26' not found in module 'caches' (63rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_27' not found in module 'caches' (64th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_28' not found in module 'caches' (65th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_29' not found in module 'caches' (66th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_30' not found in module 'caches' (67th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ramiframload_31' not found in module 'caches' (68th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'iwait' not found in module 'caches' (69th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'ccifiwait_0' not found in module 'caches' (70th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_1' not found in module 'caches' (71st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_0' not found in module 'caches' (72nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_2' not found in module 'caches' (73rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_4' not found in module 'caches' (74th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_3' not found in module 'caches' (75th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_5' not found in module 'caches' (76th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_6' not found in module 'caches' (77th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_23' not found in module 'caches' (78th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_22' not found in module 'caches' (79th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'instr_20' not found in module 'caches' (80th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_20' not found in module 'caches' (81st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'instr_21' not found in module 'caches' (82nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_21' not found in module 'caches' (83rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_24' not found in module 'caches' (84th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_14' not found in module 'caches' (85th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_13' not found in module 'caches' (86th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_25' not found in module 'caches' (87th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_26' not found in module 'caches' (88th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_27' not found in module 'caches' (89th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_31' not found in module 'caches' (90th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_30' not found in module 'caches' (91st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_29' not found in module 'caches' (92nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_28' not found in module 'caches' (93rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_12' not found in module 'caches' (94th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_10' not found in module 'caches' (95th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_11' not found in module 'caches' (96th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_19' not found in module 'caches' (97th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'instr_16' not found in module 'caches' (98th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_16' not found in module 'caches' (99th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'instr_15' not found in module 'caches' (100th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_15' not found in module 'caches' (101st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_17' not found in module 'caches' (102nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_18' not found in module 'caches' (103rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_7' not found in module 'caches' (104th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_8' not found in module 'caches' (105th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifimemload_9' not found in module 'caches' (106th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector30' not found in module 'caches' (107th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'b' not found in module 'caches' (108th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector0' not found in module 'caches' (109th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector2' not found in module 'caches' (110th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector3' not found in module 'caches' (111th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector9' not found in module 'caches' (112th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector24' not found in module 'caches' (113th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector241' not found in module 'caches' (114th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector242' not found in module 'caches' (115th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector25' not found in module 'caches' (116th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector26' not found in module 'caches' (117th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector27' not found in module 'caches' (118th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector11' not found in module 'caches' (119th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector20' not found in module 'caches' (120th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector10' not found in module 'caches' (121st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector21' not found in module 'caches' (122nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector22' not found in module 'caches' (123rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector28' not found in module 'caches' (124th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector12' not found in module 'caches' (125th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector14' not found in module 'caches' (126th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector16' not found in module 'caches' (127th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector31' not found in module 'caches' (128th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector01' not found in module 'caches' (129th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector1' not found in module 'caches' (130th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector7' not found in module 'caches' (131st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector4' not found in module 'caches' (132nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector6' not found in module 'caches' (133rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector61' not found in module 'caches' (134th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector62' not found in module 'caches' (135th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector8' not found in module 'caches' (136th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector5' not found in module 'caches' (137th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector29' not found in module 'caches' (138th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector13' not found in module 'caches' (139th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector17' not found in module 'caches' (140th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector18' not found in module 'caches' (141st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector15' not found in module 'caches' (142nd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector51' not found in module 'caches' (143rd connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector19' not found in module 'caches' (144th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector23' not found in module 'caches' (145th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'Selector52' not found in module 'caches' (146th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'dcifdhit' not found in module 'caches' (147th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'devpor' not found in module 'caches' (150th connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'devclrn' not found in module 'caches' (151st connection).
+# ** Error (suppressible): mapped/system.sv(21367): (vopt-2912) Port 'devoe' not found in module 'caches' (152nd connection).
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=150, Warnings=0.
+# Error loading design
+# End time: 14:56:50 on Sep 20,2025, Elapsed time: 0:00:01
+# Errors: 150, Warnings: 0
+9 instructions
+--- memsim.hex	2025-09-20 14:56:50.649470411 -0400
++++ memcpu.hex	2025-09-20 14:56:00.701545643 -0400
+@@ -1,16 +1,37 @@
+-:0400000000200313C6
+-:040001000030039335
+-:04000200000008935F
+-:0400030000010137C0
++:040000000020029347
++:04000100FFC1011327
++:040002000051202366
++:040003000060029304
+ :04000400FFC1011324
+-:04000500005008138C
+-:040006000073086318
++:040005000051202363
++:040006000050029311
+ :04000700FFC1011321
+-:0400080001012023AF
+-:04000900FFFFFFFFF7
+-:04000A000010089347
+-:04000B00FFC101131D
+-:04000C00011120239B
+-:04000D00FFFFFFFFF3
+-:043FFE0000000005BA
++:040008000051202360
++:0400090000300313AD
++:04000A00001003934C
++:04000B000073086313
++:04000C00018000EF80
++:04000D00FFF30313E7
++:04000E00FF5FF06F31
++:04000F000001228347
++:040010000041011397
++:04001100FFFFFFFFEF
++:0400120000012E03B8
++:040013000041011394
++:0400140000012E8336
++:040015000041011392
++:0400160000000F13C4
++:04001700000E8E63E6
++:04001800001EFF9334
++:04001900000F8463ED
++:04001A0001CF0F33D0
++:04001B00001E1E1392
++:04001C00001EDE9351
++:04001D00FE9FF06FE3
++:04001E00FFC101130A
++:04001F0001E12023B8
++:0400200000008067F5
++:043FFD0000000005BB
++:043FFE000000001EA1
++:043FFF000000003C82
+ :00000001FF
+processing file asmFiles/bge1.asm (3 of 24)
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -suppress 7061 -c -do "run -all; exit;" -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf system_tb.wlf work.system_tb 
+# Start time: 14:56:51 on Sep 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Break key hit
+# ** Fatal: (SIGINT) Compile interrupted.
+# mapped/system.sv(1): Vopt Compiler exiting
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 14:56:52 on Sep 20,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
