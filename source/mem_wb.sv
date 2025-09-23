@@ -1,5 +1,5 @@
 // data path interface
-`include "id_ex_if.vh"
+`include "mem_wb_if.vh"
 
 module mem_wb (
     mem_wb_if.memwb mwb

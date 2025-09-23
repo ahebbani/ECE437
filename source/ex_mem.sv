@@ -1,5 +1,5 @@
 // data path interface
-`include "id_ex_if.vh"
+`include "ex_mem_if.vh"
 
 module ex_mem (
     ex_mem_if.exmem exm
