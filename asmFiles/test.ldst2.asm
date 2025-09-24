@@ -11,13 +11,29 @@
   
   lui $9, 0xFFFFF
   ori   $4, $0, 0xF00  
+  //need ori to be in WB stage of pipeline when sub is in ID for $4
+  nop
+  nop
+  //
   sub $4, $4, $9
   
   ori   $10, $0, 0x0800
+  //need ori to be in WB stage of pipeline when sub is in ID for $10
+  nop
+  nop
+  //
   sub $10, $10, $9
   
   lui $8, 0xEEF
+  //need lui to be in WB stage of pipeline when srli is in ID for $8
+  nop
+  nop
+  //
   srli $8, $8, 12
+  //need srli to be in WB stage of pipeline when add is in ID for $8
+  nop
+  nop
+  //
   add   $7, $8, $7
   nop
   lw    $11,0($4)
