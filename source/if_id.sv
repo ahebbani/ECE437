@@ -6,6 +6,7 @@
 
 // Carries the instruction from the fetch to the decode stage
 module if_id (
+    input logic CLK, nRST,
     if_id_if.ifid fdf
 );
 

@@ -14,7 +14,7 @@ interface mem_wb_if;
   logic [4:0] rd_out, rd_in;
 
   // control_unit ports
-  modport pc (
+  modport mwr (
 	input pc_in, imm_in, MemtoReg_in, dmemload_in, alu_out_in, rd_in,
 	output pc_out, imm_out, MemtoReg_out, dmemload_out, alu_out_out, rd_out
   );

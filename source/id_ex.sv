@@ -2,6 +2,7 @@
 `include "id_ex_if.vh"
 
 module id_ex (
+    input logic CLK, nRST,
     id_ex_if.idex dx
 );
 

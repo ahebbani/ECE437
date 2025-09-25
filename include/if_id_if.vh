@@ -11,7 +11,7 @@ interface if_id_if;
   word_t pc_out, pc_in, inst_out, inst_in;
 
   // control_unit ports
-  modport pc (
+  modport fdr (
 	input pc_in, inst_in,
 	output pc_out, inst_out
   );

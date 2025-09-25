@@ -34,6 +34,10 @@ module datapath (
   register_file_if rfif();
   alu_if aluif();
   pc_if pcif();
+  if_id_if fdf();
+  id_ex_if dx();
+  ex_mem_if exm();
+  mem_wb_if mwb();
 
   
   //DUT
@@ -42,20 +46,25 @@ module datapath (
   register_file REGF(CLK, nRST, rfif);
   alu ALU(aluif);
   pc PC(CLK, nRST, pcif);
+  if_id_if FDFREG(CLK, nRST, fdf);
+  id_ex_if DXREG(CLK, nRST, dx);
+  ex_mem_if EXMREG(CLK, nRST, exm);
+  mem_wb_if MWBREG(CLK, nRST, mwb);
 
 
-  // regfile
+
+  // regfile - could write the value from the same cycle
   assign rfif.WEN = cuif.RegWEN && (dpif.ihit || dpif.dhit);
-  assign rfif.wsel = cuif.rd;
+  assign rfif.wsel = mwb.rd_out;
   assign rfif.rsel1 = cuif.rs1; 
   assign rfif.rsel2 = cuif.rs2;
   always_comb begin
     rfif.wdat = 0;
-    case (cuif.MemtoReg) 
-      2'b00: rfif.wdat = aluif.out;
-      2'b01: rfif.wdat = dpif.dmemload;
-      2'b10: rfif.wdat = pcif.npc;
-      2'b11: rfif.wdat = cuif.imm;
+    case (mwb.MemtoReg) 
+      2'b00: rfif.wdat = mwb.alu_out_out;
+      2'b01: rfif.wdat = mwb.dmemload_out;
+      2'b10: rfif.wdat = mwb.pc_out;
+      2'b11: rfif.wdat = mwb.imm_out;
     endcase
   end
 
@@ -65,7 +74,7 @@ module datapath (
   assign aluif.b = (cuif.ALUSrc1 == 1) ? cuif.imm : rfif.rdat2;
 
   // request
-  assign ruif.dWEN = cuif.dWEN ;
+  assign ruif.dWEN = cuif.dWEN;
   assign ruif.dREN = cuif.dREN;
   assign ruif.dhit = dpif.dhit;
   assign ruif.ihit = dpif.ihit;

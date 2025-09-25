@@ -2,6 +2,7 @@
 `include "ex_mem_if.vh"
 
 module ex_mem (
+    input logic CLK, nRST,
     ex_mem_if.exmem exm
 );
 
@@ -26,6 +27,7 @@ always_ff (posedge clk, negedge nrst) begin
         // writeback signals        
         exm.imm_out <= 0;
         exm.MemtoReg_out <= 0;
+        exm.rd_out <= 0;
     end
     else if (dx.ihit) begin
         exm.pc_out <= exm.pc_in;
@@ -43,6 +45,7 @@ always_ff (posedge clk, negedge nrst) begin
         // writeback signals        
         exm.imm_out <= exm.imm_in;
         exm.MemtoReg_out <= exm.MemtoReg_in;
+        exm.rd_out <= exm.rd_in;
 
     end
 end

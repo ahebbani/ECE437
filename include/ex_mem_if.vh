@@ -15,7 +15,7 @@ interface ex_mem_if;
   logic [4:0] rd_out, rd_in;
 
   // control_unit ports
-  modport pc (
+  modport xmr (
 	input pc_in, rdat2_in, imm_in, alu_out_in, dREN_in, dWEN_in, branchPCand_in, branchPCadder_in, jumpPCsrc_in, jumpPCadder_in, MemtoReg_in, rd_in
 	output pc_out, rdat1_out, rdat2_out, imm_out, aluop_out, ALUSrc1_out, ALUSrc2_out, dREN_out, dWEN_out, branchPCSrc_out, jumpPCsrc_out, MemtoReg_out, rd_out
   );
