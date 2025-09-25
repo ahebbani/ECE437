@@ -10,7 +10,7 @@ interface control_unit_if;
 
   word_t inst, imm;
   regbits_t rs1, rs2, rd;
-  logic RegWEN, dWEN, dREN, iREN, halt, zero, ALUSrc1, ALUSrc2;
+  logic RegWEN, dWEN, dREN, iREN, halt, ALUSrc1, ALUSrc2;
   aluop_t aluop;
   logic [1:0] MemtoReg, branchPCSrc, jumpPCsrc;
 

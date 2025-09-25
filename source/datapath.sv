@@ -38,6 +38,7 @@ module datapath (
   id_ex_if dx();
   ex_mem_if exm();
   mem_wb_if mwb();
+  hazard_unit_if huif();
 
   
   //DUT
@@ -50,6 +51,7 @@ module datapath (
   id_ex_if DXREG(CLK, nRST, dx);
   ex_mem_if EXMREG(CLK, nRST, exm);
   mem_wb_if MWBREG(CLK, nRST, mwb);
+  hazard_unit_if HU(huif);
 
 
 
@@ -70,12 +72,12 @@ module datapath (
 
   // alu
   assign aluif.opcode = cuif.aluop;
-  assign aluif.a = (cuif.ALUSrc2 == 1) ? pcif.PC : rfif.rdat1;
-  assign aluif.b = (cuif.ALUSrc1 == 1) ? cuif.imm : rfif.rdat2;
+  assign aluif.a = (cuif.ALUSrc2 == 1) ? dx.PC : dx.rdat1;
+  assign aluif.b = (cuif.ALUSrc1 == 1) ? dx.imm : dx.rdat2;
 
   // request
-  assign ruif.dWEN = cuif.dWEN;
-  assign ruif.dREN = cuif.dREN;
+  assign ruif.dWEN = exm.dWEN;
+  assign ruif.dREN = exm.dREN;
   assign ruif.dhit = dpif.dhit;
   assign ruif.ihit = dpif.ihit;
 
@@ -96,7 +98,6 @@ module datapath (
 
   // control
   assign cuif.inst = dpif.imemload;
-  assign cuif.zero = aluif.zero;
 
   //setup datapath outputs
   always_ff @(negedge nRST, posedge CLK) begin
