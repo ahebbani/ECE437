@@ -6,18 +6,18 @@
 
 // Carries the instruction from the fetch to the decode stage
 module if_id (
-    input logic CLK, nRST,
+    input logic clk, nrst,
     if_id_if.ifid fdf
 );
 
 import cpu_types_pkg::*;
 
-always_ff (posedge clk, negedge nrst) begin
+always_ff @(posedge clk, negedge nrst) begin
     if (~nrst) begin
         fdf.pc_out <= 0;
         fdf.inst_out <= 0;
     end
-    else if (fdf.ihit) begin
+    else if (fdf.ihit && ~fdf.stall) begin
         fdf.pc_out <= fdf.pc_in;
         fdf.inst_out <= fdf.inst_in;
     end

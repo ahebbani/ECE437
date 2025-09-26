@@ -2,7 +2,7 @@
 `include "mem_wb_if.vh"
 
 module mem_wb (
-    input logic CLK, nRST,
+    input logic clk, nrst,
     mem_wb_if.memwb mwb
 );
 
@@ -10,7 +10,7 @@ import cpu_types_pkg::*;
 
 // Passes writeback signals
 
-always_ff (posedge clk, negedge nrst) begin
+always_ff @(posedge clk, negedge nrst) begin
     if (~nrst) begin
         mwb.pc_out <= 0;
 
@@ -20,16 +20,30 @@ always_ff (posedge clk, negedge nrst) begin
         mwb.dmemload_out <= 0;
         mwb.alu_out_out <= 0;
         mwb.rd_out <= 0;
+        mwb.RegWEN_out <= 0;
     end
-    else if (dx.ihit) begin
+    else if (mwb.dhit) begin
+        mwb.dmemload_out <= mwb.dmemload_in;
         mwb.pc_out <= exm.pc_in;
 
         // writeback signals        
         mwb.imm_out <= mwb.imm_in;
         mwb.MemtoReg_out <= mwb.MemtoReg_in;
-        mwb.dmemload_out <= mwb.dmemload_in;
         mwb.alu_out_out <= mwb.alu_out_in;
         mwb.rd_out <= mwb.rd_in;
+        mwb.RegWEN_out <= mwb.RegWEN_in;
+    end
+    else if (mwb.ihit) begin
+        mwb.pc_out <= exm.pc_in;
+
+        // writeback signals        
+        mwb.imm_out <= mwb.imm_in;
+        mwb.MemtoReg_out <= mwb.MemtoReg_in;
+        mwb.alu_out_out <= mwb.alu_out_in;
+        mwb.rd_out <= mwb.rd_in;
+        mwb.RegWEN_out <= mwb.RegWEN_in;
+        //mwb.dmemload_out <= mwb.dmemload_in;
+
     end
 end
 

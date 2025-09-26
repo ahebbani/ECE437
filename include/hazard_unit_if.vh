@@ -1,5 +1,5 @@
 `ifndef HAZARD_UNIT_IF_VH
-`define HAZARD_UNIT_VH
+`define HAZARD_UNIT_IF_VH
 
 // all types
 `include "cpu_types_pkg.vh"

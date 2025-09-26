@@ -2,7 +2,7 @@
 `include "id_ex_if.vh"
 
 module id_ex (
-    input logic CLK, nRST,
+    input logic clk, nrst,
     id_ex_if.idex dx
 );
 
@@ -13,7 +13,7 @@ import cpu_types_pkg::*;
 
 // Passes execution, memory, and writeback signals
 
-always_ff (posedge clk, negedge nrst) begin
+always_ff @(posedge clk, negedge nrst) begin
     if (~nrst) begin
         dx.pc_out <= 0;
 
@@ -23,13 +23,16 @@ always_ff (posedge clk, negedge nrst) begin
         dx.imm_out <= 0;
         dx.ALUSrc1_out <= 0;
         dx.ALUSrc2_out <= 0;
-        dx.aluop_out <= 0;
+        dx.aluop_out <= ALU_SLL;
         
         // memory signals
         dx.dREN_out <= 0;
         dx.dWEN_out <=0;
         dx.branchPCSrc_out <= 0;
         dx.jumpPCsrc_out <=0;
+        dx.rd_out <= 0;
+        dx.RegWEN_out <= 0;
+        dx.halt_out <= 0;
 
         // writeback signals
         dx.MemtoReg_out <= 0;
@@ -52,7 +55,7 @@ always_ff (posedge clk, negedge nrst) begin
     //     dx.aluop_out <= 0;
     //     dx.MemtoReg_out <= 0;
     // end
-    else if (dx.ihit) begin
+    else if (dx.ihit && ~dx.stall) begin
         dx.pc_out <= dx.pc_in;
 
         // execution signals
@@ -68,6 +71,9 @@ always_ff (posedge clk, negedge nrst) begin
         dx.dWEN_out <= dx.dWEN_in;
         dx.branchPCSrc_out <= dx.branchPCSrc_in;
         dx.jumpPCsrc_out <= dx.jumpPCsrc_in;
+        dx.rd_out <= dx.rd_in;
+        dx.RegWEN_out <= dx.RegWEN_in;
+        dx.halt_out <= dx.halt_in;
         
         // writeback signals
         dx.MemtoReg_out <= dx.MemtoReg_in;

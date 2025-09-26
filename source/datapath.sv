@@ -14,6 +14,7 @@
 `include "cache_control_if.vh"
 `include "alu_if.vh"
 `include "pc_if.vh"
+`include "hazard_unit_if.vh"
 
 // alu op, mips op, and instruction type
 `include "cpu_types_pkg.vh"
@@ -42,27 +43,28 @@ module datapath (
 
   
   //DUT
+  hazard_unit HU(CLK, nRST, huif);
   control_unit CTRLU(cuif);
   request_unit REQU(CLK, nRST, ruif);
   register_file REGF(CLK, nRST, rfif);
   alu ALU(aluif);
   pc PC(CLK, nRST, pcif);
-  if_id_if FDFREG(CLK, nRST, fdf);
-  id_ex_if DXREG(CLK, nRST, dx);
-  ex_mem_if EXMREG(CLK, nRST, exm);
-  mem_wb_if MWBREG(CLK, nRST, mwb);
-  hazard_unit_if HU(huif);
+  if_id FDFREG(CLK, nRST, fdf);
+  id_ex DXREG(CLK, nRST, dx);
+  ex_mem EXMREG(CLK, nRST, exm);
+  mem_wb MWBREG(CLK, nRST, mwb);
+
 
 
 
   // regfile - could write the value from the same cycle
-  assign rfif.WEN = cuif.RegWEN && (dpif.ihit || dpif.dhit);
+  assign rfif.WEN = mwb.RegWEN_out;
   assign rfif.wsel = mwb.rd_out;
   assign rfif.rsel1 = cuif.rs1; 
   assign rfif.rsel2 = cuif.rs2;
   always_comb begin
     rfif.wdat = 0;
-    case (mwb.MemtoReg) 
+    case (mwb.MemtoReg_out) 
       2'b00: rfif.wdat = mwb.alu_out_out;
       2'b01: rfif.wdat = mwb.dmemload_out;
       2'b10: rfif.wdat = mwb.pc_out;
@@ -71,45 +73,108 @@ module datapath (
   end
 
   // alu
-  assign aluif.opcode = cuif.aluop;
-  assign aluif.a = (cuif.ALUSrc2 == 1) ? dx.PC : dx.rdat1;
-  assign aluif.b = (cuif.ALUSrc1 == 1) ? dx.imm : dx.rdat2;
+  assign aluif.opcode = dx.aluop_out;
+  assign aluif.a = (dx.ALUSrc2_out == 1) ? dx.pc_out : dx.rdat1_out;
+  assign aluif.b = (dx.ALUSrc1_out == 1) ? dx.imm_out : dx.rdat2_out;
+
+  // hazard unit
+  assign fdf.stall = huif.stall;
+  assign dx.stall = huif.stall;
+  assign exm.stall = huif.stall;
 
   // request
-  assign ruif.dWEN = exm.dWEN;
-  assign ruif.dREN = exm.dREN;
-  assign ruif.dhit = dpif.dhit;
-  assign ruif.ihit = dpif.ihit;
+  // assign ruif.dWEN = exm.dWEN_out;
+  // assign ruif.dREN = exm.dREN_out;
+  // assign ruif.dhit = dpif.dhit;
+  // assign ruif.ihit = dpif.ihit;
 
   // pc
-  assign pcif.PCEN = ruif.PCEN;
+  assign pcif.PCEN = dpif.ihit;
+  // assign pcif.PCEN = dpif.ihit;
   always_comb begin
     case (cuif.jumpPCsrc)
-      2'b01: pcif.new_pc = pcif.PC + cuif.imm;
+      2'b01: pcif.new_pc = dx.pc_out + dx.imm_out;
       2'b10: pcif.new_pc = aluif.out & ~32'h1;
       default: begin
-        if (cuif.jumpPCsrc) pcif.new_pc = pcif.PC + cuif.imm;
-        else if (cuif.branchPCSrc == 2'b11 && aluif.zero) pcif.new_pc = pcif.PC + cuif.imm;
-        else if (cuif.branchPCSrc == 2'b10 && ~aluif.zero) pcif.new_pc = pcif.PC + cuif.imm;
+        if (dx.jumpPCsrc_out) pcif.new_pc = dx.pc_out + dx.imm_out;
+        else if (dx.branchPCSrc_out == 2'b11 && aluif.zero) pcif.new_pc = dx.pc_out + dx.imm_out;
+        else if (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) pcif.new_pc = dx.pc_out + dx.imm_out;
         else pcif.new_pc = pcif.npc;
       end
     endcase
   end
 
+assign fdf.pc_in = pcif.PC;
+assign dx.pc_in = fdf.pc_out;
+assign exm.pc_in = dx.pc_out;
+assign mwb.pc_in = exm.pc_out;
+
+
+assign dx.branchPCSrc_in = cuif.branchPCSrc;
+assign dx.jumpPCsrc_in = cuif.jumpPCsrc;
+assign dx.dWEN_in = cuif.dWEN;
+assign exm.dWEN_in = dx.dWEN_out;
+
+assign dx.dREN_in = cuif.dREN;
+assign exm.dREN_in = dx.dREN_out;
+assign dx.ALUSrc1_in = cuif.ALUSrc1;
+assign dx.ALUSrc2_in = cuif.ALUSrc2;
+assign dx.aluop_in = cuif.aluop;
+assign dx.MemtoReg_in = cuif.MemtoReg;
+assign dx.rdat1_in = rfif.rdat1;
+assign dx.rdat2_in = rfif.rdat2;
+assign exm.rdat2_in = dx.rdat2_out;
+assign dx.rd_in = cuif.rd;
+assign exm.rd_in = dx.rd_out;
+assign mwb.rd_in = exm.rd_out;
+
+assign dx.imm_in = cuif.imm;
+assign exm.imm_in = dx.imm_out;
+assign mwb.imm_in = exm.imm_out;
+
+assign dx.RegWEN_in = cuif.RegWEN;
+assign exm.RegWEN_in = dx.RegWEN_out;
+assign mwb.RegWEN_in = exm.RegWEN_out;
+
+assign exm.alu_out_in = aluif.out;
+assign mwb.alu_out_in = exm.alu_out_out;
+
+assign fdf.ihit = dpif.ihit;
+assign dx.ihit = dpif.ihit;
+assign exm.ihit = dpif.ihit;
+assign mwb.ihit = dpif.ihit;
+
+assign exm.dhit = dpif.dhit;
+assign mwb.dhit = dpif.dhit;
+
+assign exm.MemtoReg_in = dx.MemtoReg_out;
+assign mwb.MemtoReg_in = exm.MemtoReg_out;
+
+assign dx.halt_in = cuif.halt;
+assign exm.halt_in = dx.halt_out;
+
+
+always_comb
+begin
+  mwb.dmemload_in = dpif.dmemload;
+  fdf.inst_in = dpif.ihit ? dpif.imemload : '0;
+end
+
   // control
-  assign cuif.inst = dpif.imemload;
+  // assign fdf.inst_in = dpif.imemload;
+  assign cuif.inst = fdf.inst_out;
 
   //setup datapath outputs
   always_ff @(negedge nRST, posedge CLK) begin
     if(~nRST) dpif.halt <= 0;
-    else dpif.halt <= cuif.halt | dpif.halt;
+    else dpif.halt <= exm.halt_out | dpif.halt;
   end
 
-  assign dpif.imemREN = (dpif.halt) ? 0 : cuif.iREN;
+  assign dpif.imemREN = (dpif.halt) ? 0 : 1;
   assign dpif.imemaddr = pcif.PC;
-  assign dpif.dmemREN = ruif.dmemREN;
-  assign dpif.dmemWEN = ruif.dmemWEN;
-  assign dpif.dmemstore = rfif.rdat2;
-  assign dpif.dmemaddr = aluif.out;
+  assign dpif.dmemREN = exm.dmemREN;
+  assign dpif.dmemWEN = exm.dmemWEN;
+  assign dpif.dmemstore = exm.rdat2_out;
+  assign dpif.dmemaddr = exm.alu_out_out;
 
 endmodule

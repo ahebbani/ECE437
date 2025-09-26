@@ -12,38 +12,43 @@
 // if the branch is taken, then flush the previous stages
 // else continue
 
+`include "cpu_types_pkg.vh"
+`include "hazard_unit_if.vh"
+
 module hazard_unit (
     input logic clk, nrst,
     hazard_unit_if.hu huif
 );
+
+import cpu_types_pkg::*;
 
 // Data and control hazard detection
 always_comb begin
     huif.stall = 0;
     huif.flush = 0;
 
-    // Control hazards
-    if (huif.inst_ex == BTYPE) begin
-        if ((huif.branchPCSrc_ex == 2'b11 && huif.zero) ||
-            (huif.branchPCSrc_ex == 2'b10 && ~huif.zero)) begin
-                huif.flush;
-            end
-    end
+    // // Control hazards
+    // if (huif.inst_ex == opcode_t'(BTYPE)) begin
+    //     if ((huif.branchPCSrc_ex == 2'b11 && huif.zero) ||
+    //         (huif.branchPCSrc_ex == 2'b10 && ~huif.zero)) begin
+    //             huif.flush = 1;
+    //         end
+    // end
 
-    // Data hazards
-    // ALU output is forwarded to next ALU
-    if ((huif.inst_ex == RTYPE || huif.inst_ex == ITYPE) &&
-        (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
-        huif.stall = 0;
-    end
-    // Load use hazard
-    else if (huif.inst_ex == ITYPE_LW && 
-            (huif.rs1_id == huid.rd_ex || huif.rs2_id == huif.rd_ex)) begin
-                huif.stall = 1;
-            end
-    else if (huif.inst_ex == STYPE && huif.rs2_id == huif.rd_ex) begin
-        huif.stall = 1;
-    end
+    // // Data hazards
+    // // ALU output is forwarded to next ALU
+    // if ((huif.inst_ex == opcode_t'(RTYPE) || huif.inst_ex == opcode_t'(ITYPE)) &&
+    //     (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
+    //     huif.stall = 0;
+    // end
+    // // Load use hazard
+    // else if (huif.inst_ex == ITYPE_LW && 
+    //         (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
+    //             huif.stall = 1;
+    //         end
+    // else if (huif.inst_ex == STYPE && huif.rs2_id == huif.rd_ex) begin
+    //     huif.stall = 1;
+    // end
 end
 
 endmodule
