@@ -54,8 +54,8 @@ module datapath (
   ex_mem EXMREG(CLK, nRST, exm);
   mem_wb MWBREG(CLK, nRST, mwb);
 
-
-
+  // signals
+  logic branchtaken;
 
   // regfile - could write the value from the same cycle
   assign rfif.WEN = mwb.RegWEN_out;
@@ -89,20 +89,21 @@ module datapath (
   // assign ruif.ihit = dpif.ihit;
 
   // pc
-  assign pcif.PCEN = dpif.ihit;
-  // assign pcif.PCEN = dpif.ihit;
-  always_comb begin
-    case (cuif.jumpPCsrc)
-      2'b01: pcif.new_pc = dx.pc_out + dx.imm_out;
-      2'b10: pcif.new_pc = aluif.out & ~32'h1;
-      default: begin
-        if (dx.jumpPCsrc_out) pcif.new_pc = dx.pc_out + dx.imm_out;
-        else if (dx.branchPCSrc_out == 2'b11 && aluif.zero) pcif.new_pc = dx.pc_out + dx.imm_out;
-        else if (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) pcif.new_pc = dx.pc_out + dx.imm_out;
-        else pcif.new_pc = pcif.npc;
-      end
-    endcase
-  end
+assign pcif.PCEN = dpif.ihit;
+assign branchtaken = (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero);
+always_comb begin
+  case (cuif.jumpPCsrc)
+    2'b01: pcif.new_pc = dx.pc_out + dx.imm_out;
+    2'b10: pcif.new_pc = aluif.out & ~32'h1;
+    default: begin
+      if (dx.jumpPCsrc_out) pcif.new_pc = dx.pc_out + dx.imm_out;
+      else if (branchtaken) pcif.new_pc = dx.pc_out + dx.imm_out;
+      else pcif.new_pc = pcif.npc;
+    end
+  endcase
+end
+
+assign huif.branchtaken = branchtaken;
 
 assign fdf.pc_in = pcif.PC;
 assign dx.pc_in = fdf.pc_out;

@@ -15,12 +15,12 @@ interface hazard_unit_if;
 
   // control_unit ports
   modport hu (
-	input zero, inst_ex, branchPCSrc_ex, rs1_id, rs2_id, rd_ex,
+	input branchtaken, inst_ex, rs1_id, rs2_id, rd_ex,
 	output stall, flush
   );
   // control_unit tb
   modport tb (
-	input zero, inst_ex, branchPCSrc_ex, rs1_id, rs2_id, rd_ex,
+	input branchtaken, inst_ex, rs1_id, rs2_id, rd_ex,
 	output stall, flush
   );
 endinterface
