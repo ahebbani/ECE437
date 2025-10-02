@@ -16,6 +16,9 @@ module hazard_unit_tb;
   // interface instance
   hazard_unit_if huif();
 
+  // Test program connected to the interface
+  test PROG(.clk(CLK), .nrst(nRST), .hu_if(huif));
+
   // DUT
 `ifndef MAPPED
   hazard_unit DUT(.clk(CLK), .nrst(nRST), .huif(huif));
@@ -33,8 +36,7 @@ module hazard_unit_tb;
   );
 `endif
 
-  // Test program connected to the interface
-  test PROG(.clk(CLK), .nrst(nRST), .hu_if(huif));
+  
 
 endmodule
 

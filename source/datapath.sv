@@ -15,6 +15,7 @@
 `include "alu_if.vh"
 `include "pc_if.vh"
 `include "hazard_unit_if.vh"
+`include "forwarding_unit_if.vh"
 
 // alu op, mips op, and instruction type
 `include "cpu_types_pkg.vh"
@@ -40,9 +41,11 @@ module datapath (
   ex_mem_if exm();
   mem_wb_if mwb();
   hazard_unit_if huif();
+  forwarding_unit_if fuif();
 
   
   //DUT
+  forwarding_unit FU(CLK, nRST, fuif);
   hazard_unit HU(CLK, nRST, huif);
   control_unit CTRLU(cuif);
   request_unit REQU(CLK, nRST, ruif);
@@ -103,7 +106,35 @@ always_comb begin
   endcase
 end
 
+// hazard unit
 assign huif.branchtaken = branchtaken;
+assign huif.inst_ex = dx.inst_out;
+assign huif.rs1_id = cuif.rs1;
+assign huif.rs2_id = cuif.rs2;
+assign huif.rd_ex = dx.rd_out;
+assign fdf.stall = huif.stall;
+assign dx.stall = huif.stall;
+assign fdf.flush = huif.flush;
+assign dx.flush = huif.flush;
+
+// forwarding unit
+assign fuif.dxo_rs1 = cuif.rs1;
+assign fuif.dxo_rs2 = cuif.rs2;
+assign fuif.exmo_rd = exm.rd_out;
+assign fuif.mwbo_rd = mwb.rd_out;
+assign fuif.exmo_RegWEN = exm.RegWEN_out;
+assign fuif.mwbo_RegWEN = mwb.RegWEN_out; 
+always_comb begin
+case (fuif.forwardA)
+  2'b01: aluif.a = mwb.alu_out_out;
+  2'b10: aluif.a = exm.alu_out_out;
+endcase
+case (fuif.forwardB)
+  2'b01: aluif.b = mwb.alu_out_out;
+  2'b10: aluif.b = exm.alu_out_out;
+endcase
+end
+
 
 assign fdf.pc_in = pcif.PC;
 assign dx.pc_in = fdf.pc_out;
