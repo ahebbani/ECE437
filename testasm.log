@@ -1,0 +1,2532 @@
+processing file asmFiles/beq1.asm (1 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/alu.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:33 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/alu.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface alu_if
+-- Importing package cpu_types_pkg
+-- Compiling module alu
+
+Top level modules:
+	alu
+End time: 18:22:33 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/alu_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:33 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/alu_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface alu_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:33 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/cache_control_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:33 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/cache_control_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface caches_if
+-- Importing package cpu_types_pkg
+-- Compiling interface cache_control_if
+
+Top level modules:
+	--none--
+End time: 18:22:33 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/caches.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:33 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/caches.sv 
+-- Compiling module caches
+
+Top level modules:
+	caches
+End time: 18:22:33 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/caches_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:33 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/caches_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface caches_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:33 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/control_unit.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:33 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/control_unit.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface control_unit_if
+-- Importing package cpu_types_pkg
+-- Compiling module control_unit
+
+Top level modules:
+	control_unit
+End time: 18:22:34 on Oct 02,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/control_unit_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:34 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/control_unit_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface control_unit_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:34 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/cpu_ram_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:34 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/cpu_ram_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:34 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/cpu_types_pkg.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:34 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/cpu_types_pkg.vh 
+-- Compiling package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:34 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/datapath.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:34 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/datapath.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface datapath_cache_if
+-- Importing package cpu_types_pkg
+-- Compiling interface control_unit_if
+-- Compiling interface request_unit_if
+-- Compiling interface register_file_if
+-- Compiling interface caches_if
+-- Compiling interface cache_control_if
+-- Compiling interface alu_if
+-- Compiling interface pc_if
+-- Compiling interface hazard_unit_if
+-- Compiling interface forwarding_unit_if
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+End time: 18:22:34 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/datapath_cache_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:34 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/datapath_cache_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface datapath_cache_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:34 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ex_mem.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:34 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ex_mem.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface ex_mem_if
+-- Importing package cpu_types_pkg
+-- Compiling module ex_mem
+
+Top level modules:
+	ex_mem
+End time: 18:22:35 on Oct 02,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/ex_mem_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:35 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/ex_mem_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface ex_mem_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:35 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/forwarding_unit.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:35 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/forwarding_unit.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface forwarding_unit_if
+-- Importing package cpu_types_pkg
+-- Compiling module forwarding_unit
+
+Top level modules:
+	forwarding_unit
+End time: 18:22:35 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/forwarding_unit_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:35 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/forwarding_unit_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface forwarding_unit_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:35 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/hazard_unit.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:35 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/hazard_unit.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface hazard_unit_if
+-- Importing package cpu_types_pkg
+-- Compiling module hazard_unit
+
+Top level modules:
+	hazard_unit
+End time: 18:22:35 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/hazard_unit_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:35 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/hazard_unit_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface hazard_unit_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:35 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/id_ex.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:35 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/id_ex.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface id_ex_if
+-- Importing package cpu_types_pkg
+-- Compiling module id_ex
+
+Top level modules:
+	id_ex
+End time: 18:22:35 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/id_ex_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:36 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/id_ex_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface id_ex_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:36 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/if_id.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:36 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/if_id.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface request_unit_if
+-- Importing package cpu_types_pkg
+-- Compiling interface pc_if
+-- Compiling interface if_id_if
+-- Compiling module if_id
+
+Top level modules:
+	if_id
+End time: 18:22:36 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/if_id_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:36 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/if_id_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface if_id_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:36 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/mem_wb.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:36 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/mem_wb.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface mem_wb_if
+-- Importing package cpu_types_pkg
+-- Compiling module mem_wb
+
+Top level modules:
+	mem_wb
+End time: 18:22:36 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/mem_wb_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:36 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/mem_wb_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface mem_wb_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:36 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/memory_control.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:36 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/memory_control.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface caches_if
+-- Importing package cpu_types_pkg
+-- Compiling interface cache_control_if
+-- Compiling interface cpu_ram_if
+-- Compiling module memory_control
+
+Top level modules:
+	memory_control
+End time: 18:22:36 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/pc.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:37 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/pc.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface pc_if
+-- Importing package cpu_types_pkg
+-- Compiling module pc
+
+Top level modules:
+	pc
+End time: 18:22:37 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   include/pc_if.vh
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:37 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 include/pc_if.vh 
+-- Compiling package cpu_types_pkg
+-- Compiling interface pc_if
+-- Importing package cpu_types_pkg
+
+Top level modules:
+	--none--
+End time: 18:22:37 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/pipeline.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:37 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/pipeline.sv 
+-- Compiling module pipeline
+
+Top level modules:
+	pipeline
+End time: 18:22:37 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:37 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:37 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+10 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/beq2.asm (2 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:37 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:37 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+9 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bge1.asm (3 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:38 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:38 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+10 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bge2.asm (4 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:38 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:38 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+9 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bgeu1.asm (5 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:38 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:39 on Oct 02,2025, Elapsed time: 0:00:01
+Errors: 1, Warnings: 0
+9 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bgeu2.asm (6 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:39 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:39 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+10 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/blt1.asm (7 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:39 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:39 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+10 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/blt2.asm (8 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:40 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:40 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+9 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bltu1.asm (9 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:40 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:41 on Oct 02,2025, Elapsed time: 0:00:01
+Errors: 1, Warnings: 0
+10 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bltu2.asm (10 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:41 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:41 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+9 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bne1.asm (11 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:41 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:41 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+10 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bne2.asm (12 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:42 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:42 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+9 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/cfHazard.asm (13 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:42 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:42 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+16 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/count_days.asm (14 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:43 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:43 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+136 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/dataHazard.asm (15 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:43 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:43 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+13 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/fib.asm (16 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:43 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:44 on Oct 02,2025, Elapsed time: 0:00:01
+Errors: 1, Warnings: 0
+161 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/halt.asm (17 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:44 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:44 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+1 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/jal.asm (18 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:44 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:44 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+11 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/jalr.asm (19 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:45 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:45 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+13 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/mergesort.asm (20 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:45 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:45 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+5409 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/mult.asm (21 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:46 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:46 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+33 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/mult_procedure.asm (22 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:46 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:46 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+73 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/search.asm (23 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:47 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:47 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+277 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/strHazard.asm (24 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:47 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:47 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+10 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/test.branchjump1.asm (25 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:48 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:48 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+13 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/test.ldst1.asm (26 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:48 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:48 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+13 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/test.ldst2.asm (27 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:49 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:49 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+27 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/test.loadstore.asm (28 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:49 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
+-- Compiling package cpu_types_pkg
+-- Compiling interface cpu_ram_if
+-- Importing package cpu_types_pkg
+-- Compiling module ram
+** Error (suppressible): source/ram.sv(31): (vlog-7061) Variable 'addr' driven in an always_ff block, may not be driven by any other process. See source/ram.sv(115).
+End time: 18:22:49 on Oct 02,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
+15 instructions
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/test.rtype.asm (29 of 29)
+make[1]: Entering directory '/home/ecegridfs/a/437mg063/ece437/processors'
+
+Hello 437mg063@ececomp3.ecn.purdue.edu, you forgot some targets.
+ If you need instructions to use this Makefile:
+--- Quartus Flow ---
+     'make <module_name>' to build module
+     'make <module_name>_tb' to build module + testbench
+     'make <module_name>.sim' to sim tb on cmd line
+     'make <module_name>.wav' to sim tb with gui
+     'make <module_name>.syn' to synthesize functional net list
+     'make <module_name>.synt' to synthesize timing net list
+
+--- Xilinx/Vivado Flow ---
+     'make <module_name>.simx' to sim tb on cmd line
+     'make <module_name>.wavx' to sim tb with gui
+     'make <module_name>.synx' to synthesize functional net list
+     'make <module_name>.syntx' to synthesize timing net list
+     'make <module_name>.syntxp' to synthesize timing net list on project mode
+
+--- Linter Rules ---
+     'make <module_name>.lint' to run the linter on module
+     'make <module_name>_tb.lint' to run the linter on module testbench
+
+--- Clean Rules ---
+     'make clean' to clean everything
+     'make clean_sim' to clean simulation logs and work lib
+     'make clean_asm' to clean hex and testasm output
+     'make clean_map' to clean mapped dir
+     'make clean_fpga' to clean fpga dir
+ Obviously a testbench file must exist for some options.
+
+make[1]: Leaving directory '/home/ecegridfs/a/437mg063/ece437/processors'
+vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110   source/ram.sv
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:22:50 on Oct 02,2025
+vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 source/ram.sv 
