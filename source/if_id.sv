@@ -17,6 +17,10 @@ always_ff @(posedge clk, negedge nrst) begin
         fdf.pc_out <= 0;
         fdf.inst_out <= 0;
     end
+    else if (fdf.flush) begin
+        fdf.pc_out <= 0;
+        fdf.inst_out <= 0;
+    end
     else if (fdf.ihit && ~fdf.stall) begin
         fdf.pc_out <= fdf.pc_in;
         fdf.inst_out <= fdf.inst_in;

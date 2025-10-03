@@ -29,13 +29,13 @@ always_comb begin
 
     // Control hazard
     // if taking the branch, then flush if/id and id/ex regs
-    if (huif.inst_ex == opcode_t'(BTYPE) && huif.branchtaken) begin 
+    if (huif.inst_ex[6:0] == opcode_t'(BTYPE) && huif.branchtaken) begin 
         huif.flush = 1;
     end
 
     // Load use hazard
     // if doing a load word, and if the next instruction depends on the loaded word, stall the if/id and id/ex regs
-    if (huif.rd_ex != 5'd0 && huif.inst_ex == ITYPE_LW && (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
+    if (huif.rd_ex != 5'd0 && huif.inst_ex[6:0] == ITYPE_LW && (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
         huif.stall = 1; 
     end
 end

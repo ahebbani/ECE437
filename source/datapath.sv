@@ -45,7 +45,7 @@ module datapath (
 
   
   //DUT
-  forwarding_unit FU(CLK, nRST, fuif);
+  forwarding_unit FU(fuif);
   hazard_unit HU(CLK, nRST, huif);
   control_unit CTRLU(cuif);
   request_unit REQU(CLK, nRST, ruif);
@@ -77,19 +77,6 @@ module datapath (
 
   // alu
   assign aluif.opcode = dx.aluop_out;
-  assign aluif.a = (dx.ALUSrc2_out == 1) ? dx.pc_out : dx.rdat1_out;
-  assign aluif.b = (dx.ALUSrc1_out == 1) ? dx.imm_out : dx.rdat2_out;
-
-  // hazard unit
-  assign fdf.stall = huif.stall;
-  assign dx.stall = huif.stall;
-  assign exm.stall = huif.stall;
-
-  // request
-  // assign ruif.dWEN = exm.dWEN_out;
-  // assign ruif.dREN = exm.dREN_out;
-  // assign ruif.dhit = dpif.dhit;
-  // assign ruif.ihit = dpif.ihit;
 
   // pc
 assign pcif.PCEN = dpif.ihit;
@@ -108,6 +95,7 @@ end
 
 // hazard unit
 assign huif.branchtaken = branchtaken;
+assign dx.inst_in = fdf.inst_out;
 assign huif.inst_ex = dx.inst_out;
 assign huif.rs1_id = cuif.rs1;
 assign huif.rs2_id = cuif.rs2;
@@ -128,13 +116,14 @@ always_comb begin
 case (fuif.forwardA)
   2'b01: aluif.a = mwb.alu_out_out;
   2'b10: aluif.a = exm.alu_out_out;
+  default: aluif.a = (dx.ALUSrc2_out == 1) ? dx.pc_out : dx.rdat1_out;
 endcase
 case (fuif.forwardB)
   2'b01: aluif.b = mwb.alu_out_out;
   2'b10: aluif.b = exm.alu_out_out;
+  default: aluif.b = (dx.ALUSrc1_out == 1) ? dx.imm_out : dx.rdat2_out;
 endcase
 end
-
 
 assign fdf.pc_in = pcif.PC;
 assign dx.pc_in = fdf.pc_out;

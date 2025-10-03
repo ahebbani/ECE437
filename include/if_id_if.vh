@@ -9,17 +9,17 @@ interface if_id_if;
   import cpu_types_pkg::*;
 
   word_t pc_out, pc_in, inst_out, inst_in;
-  logic ihit, stall;
+  logic ihit, flush, stall;
 
   // control_unit ports
   modport ifid (
-	input stall, ihit, pc_in, inst_in,
+	input stall, flush, ihit, pc_in, inst_in,
 	output pc_out, inst_out
   );
   // control_unit tb
   modport tb (
 	input  pc_out, inst_out,
-	output stall, ihit, pc_in, inst_in
+	output stall, flush, ihit, pc_in, inst_in
   );
 endinterface
 

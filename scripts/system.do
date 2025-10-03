@@ -48,13 +48,15 @@ add wave -noupdate /system_tb/DUT/CPU/DP/rfif/rsel2
 add wave -noupdate /system_tb/DUT/CPU/DP/rfif/wdat
 add wave -noupdate /system_tb/DUT/CPU/DP/rfif/rdat1
 add wave -noupdate /system_tb/DUT/CPU/DP/rfif/rdat2
-add wave -noupdate -expand /system_tb/DUT/CPU/DP/REGF/register
+add wave -noupdate /system_tb/DUT/CPU/DP/REGF/register
 add wave -noupdate {/system_tb/DUT/CPU/DP/REGF/register[11]}
 add wave -noupdate -expand -group Fetch-Decode /system_tb/DUT/CPU/DP/fdf/pc_out
 add wave -noupdate -expand -group Fetch-Decode /system_tb/DUT/CPU/DP/fdf/pc_in
 add wave -noupdate -expand -group Fetch-Decode /system_tb/DUT/CPU/DP/fdf/inst_out
 add wave -noupdate -expand -group Fetch-Decode /system_tb/DUT/CPU/DP/fdf/inst_in
 add wave -noupdate -expand -group Fetch-Decode /system_tb/DUT/CPU/DP/fdf/ihit
+add wave -noupdate -expand -group Fetch-Decode /system_tb/DUT/CPU/DP/fdf/flush
+add wave -noupdate -expand -group Fetch-Decode /system_tb/DUT/CPU/DP/fdf/stall
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/pc_out
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/pc_in
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/rdat1_out
@@ -82,6 +84,10 @@ add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/MemtoR
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/MemtoReg_in
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/rd_out
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/rd_in
+add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/inst_in
+add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/inst_out
+add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/flush
+add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/stall
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/pc_out
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/pc_in
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/imm_out
@@ -102,21 +108,38 @@ add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/Memto
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/MemtoReg_in
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/rd_out
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/rd_in
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/pc_out
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/pc_in
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/ihit
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/imm_out
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/imm_in
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/alu_out_out
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/alu_out_in
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/dmemload_out
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/dmemload_in
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/MemtoReg_out
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/MemtoReg_in
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/rd_out
-add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/rd_in
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/pc_out
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/pc_in
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/ihit
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/imm_out
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/imm_in
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/alu_out_out
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/alu_out_in
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/dmemload_out
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/dmemload_in
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/MemtoReg_out
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/MemtoReg_in
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/rd_out
+add wave -noupdate -group memory-writeback /system_tb/DUT/CPU/DP/mwb/rd_in
+add wave -noupdate -divider huif
+add wave -noupdate /system_tb/DUT/CPU/DP/huif/stall
+add wave -noupdate /system_tb/DUT/CPU/DP/huif/flush
+add wave -noupdate /system_tb/DUT/CPU/DP/huif/branchtaken
+add wave -noupdate /system_tb/DUT/CPU/DP/huif/inst_ex
+add wave -noupdate /system_tb/DUT/CPU/DP/huif/rs1_id
+add wave -noupdate /system_tb/DUT/CPU/DP/huif/rs2_id
+add wave -noupdate /system_tb/DUT/CPU/DP/huif/rd_ex
+add wave -noupdate -divider fuif
+add wave -noupdate /system_tb/DUT/CPU/DP/fuif/dxo_rs1
+add wave -noupdate /system_tb/DUT/CPU/DP/fuif/dxo_rs2
+add wave -noupdate /system_tb/DUT/CPU/DP/fuif/exmo_rd
+add wave -noupdate /system_tb/DUT/CPU/DP/fuif/mwbo_rd
+add wave -noupdate /system_tb/DUT/CPU/DP/fuif/exmo_RegWEN
+add wave -noupdate /system_tb/DUT/CPU/DP/fuif/mwbo_RegWEN
+add wave -noupdate /system_tb/DUT/CPU/DP/fuif/forwardA
+add wave -noupdate /system_tb/DUT/CPU/DP/fuif/forwardB
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1312589424 ps} 0} {{Cursor 2} {3899 ps} 0}
+WaveRestoreCursors {{Cursor 1} {8326903353 ps} 0} {{Cursor 2} {5923886 ps} 0}
 quietly wave cursor active 2
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 92
@@ -132,4 +155,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {277 ns}
+WaveRestoreZoom {0 ps} {8864130 ps}
