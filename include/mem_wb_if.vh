@@ -12,17 +12,18 @@ interface mem_wb_if;
   word_t dhit, ihit, imm_out, imm_in, alu_out_out, alu_out_in, dmemload_out, dmemload_in;
   logic [1:0] MemtoReg_out, MemtoReg_in;
   logic [4:0] rd_out, rd_in;
-  logic RegWEN_in, RegWEN_out;
+  logic RegWEN_in, RegWEN_out, halt_out, halt_in;
+  logic [31:0] inst_in, inst_out;
 
   // control_unit ports
   modport memwb (
-	input dhit, ihit, pc_in, imm_in, MemtoReg_in, dmemload_in, alu_out_in, rd_in, RegWEN_in,
-	output pc_out, imm_out, MemtoReg_out, dmemload_out, alu_out_out, rd_out,RegWEN_out
+	input inst_in, halt_in, dhit, ihit, pc_in, imm_in, MemtoReg_in, dmemload_in, alu_out_in, rd_in, RegWEN_in,
+	output inst_out, halt_out, pc_out, imm_out, MemtoReg_out, dmemload_out, alu_out_out, rd_out,RegWEN_out
   );
   // control_unit tb
   modport tb (
-	input pc_out, imm_out, MemtoReg_out, dmemload_out, alu_out_out, rd_out,RegWEN_out,
-	output dhit, ihit, pc_in, imm_in, MemtoReg_in, dmemload_in, alu_out_in, rd_in, RegWEN_in
+	input inst_out, halt_out, pc_out, imm_out, MemtoReg_out, dmemload_out, alu_out_out, rd_out,RegWEN_out,
+	output inst_in, halt_in, dhit, ihit, pc_in, imm_in, MemtoReg_in, dmemload_in, alu_out_in, rd_in, RegWEN_in
   );
 endinterface
 

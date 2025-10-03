@@ -19,11 +19,8 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -do "view objects; do scripts/system.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf system_tb.wlf work.system_tb 
-# Start time: 21:11:44 on Oct 02,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-###### source/hazard_unit.sv(38):     if (huif.rd_ex != 5'd0 && huif.inst_ex == ITYPE_LW && (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
-# ** Warning: source/hazard_unit.sv(38): (vopt-2577) Enum type mismatch between operands of '==' expression.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Start time: 12:52:40 on Oct 03,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.system_tb(fast)
 # Loading work.cpu_types_pkg(fast)
@@ -68,5 +65,3 @@
 #  run -all
 # Starting Processor.
 # 
-# End time: 21:14:42 on Oct 02,2025, Elapsed time: 0:02:58
-# Errors: 0, Warnings: 1

@@ -27,6 +27,7 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.dmemREN <= 0;
         exm.dmemWEN <= 0;
         exm.halt_out <= 0;
+        exm.inst_out <= 0;
 
         // writeback signals        
         exm.imm_out <= 0;
@@ -51,6 +52,7 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.dWEN_out <=0;
         exm.rdat2_out <= 0;
         exm.halt_out <= 0;
+        exm.inst_out <= 0;
 
         // writeback signals        
         exm.imm_out <= 0;
@@ -58,7 +60,7 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.rd_out <= 0;
         exm.RegWEN_out <= 0;
     end
-    else if (exm.ihit && ~exm.stall) begin
+    else if (exm.ihit) begin
         exm.pc_out <= exm.pc_in;
         exm.branchPCand_out <= exm.branchPCand_in;
         exm.branchPCadder_out <= exm.branchPCadder_in;
@@ -74,6 +76,7 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.dmemREN <= exm.dREN_in;
         exm.dmemWEN <= exm.dWEN_in;
         exm.halt_out <= exm.halt_in;
+        exm.inst_out <= exm.inst_in;
 
         // writeback signals        
         exm.imm_out <= exm.imm_in;

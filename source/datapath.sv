@@ -130,6 +130,9 @@ assign dx.pc_in = fdf.pc_out;
 assign exm.pc_in = dx.pc_out;
 assign mwb.pc_in = exm.pc_out;
 
+assign exm.inst_in = dx.inst_out;
+assign mwb.inst_in = exm.inst_out;
+
 
 assign dx.branchPCSrc_in = cuif.branchPCSrc;
 assign dx.jumpPCsrc_in = cuif.jumpPCsrc;
@@ -173,6 +176,7 @@ assign mwb.MemtoReg_in = exm.MemtoReg_out;
 
 assign dx.halt_in = cuif.halt;
 assign exm.halt_in = dx.halt_out;
+assign mwb.halt_in = exm.halt_out;
 
 
 always_comb
