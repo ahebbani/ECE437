@@ -18,55 +18,33 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# vsim -coverage -suppress 12110 -do "view objects; do scripts/system.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf system_tb.wlf work.system_tb 
-# Start time: 21:11:44 on Oct 02,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-###### source/hazard_unit.sv(38):     if (huif.rd_ex != 5'd0 && huif.inst_ex == ITYPE_LW && (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
-# ** Warning: source/hazard_unit.sv(38): (vopt-2577) Enum type mismatch between operands of '==' expression.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# vsim -coverage -suppress 12110 -do "view objects; do scripts/hazard_unit.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf hazard_unit_tb.wlf work.hazard_unit_tb 
+# Start time: 13:18:23 on Oct 03,2025
+# ** Note: (vsim-3812) Design is being optimized...
 # Loading sv_std.std
-# Loading work.system_tb(fast)
+# Loading work.hazard_unit_tb(fast)
 # Loading work.cpu_types_pkg(fast)
-# Loading work.system_if(fast__1)
-# Loading work.test(fast)
-# Loading work.system(fast)
-# Loading work.cpu_ram_if(fast__1)
-# Loading work.pipeline(fast)
-# Loading work.datapath_cache_if(fast__1)
-# Loading work.caches_if(fast__1)
-# Loading work.cache_control_if(fast__1)
-# Loading work.datapath(fast)
-# Loading work.control_unit_if(fast__1)
-# Loading work.request_unit_if(fast__1)
-# Loading work.register_file_if(fast__1)
-# Loading work.alu_if(fast__1)
-# Loading work.pc_if(fast__1)
-# Loading work.if_id_if(fast__1)
-# Loading work.id_ex_if(fast__1)
-# Loading work.ex_mem_if(fast__1)
-# Loading work.mem_wb_if(fast__1)
 # Loading work.hazard_unit_if(fast__1)
-# Loading work.forwarding_unit_if(fast__1)
-# Loading work.forwarding_unit(fast)
+# Loading work.test(fast)
 # Loading work.hazard_unit(fast)
-# Loading work.control_unit(fast)
-# Loading work.request_unit(fast)
-# Loading work.register_file(fast)
-# Loading work.alu(fast)
-# Loading work.pc(fast)
-# Loading work.if_id(fast)
-# Loading work.id_ex(fast)
-# Loading work.ex_mem(fast)
-# Loading work.mem_wb(fast)
-# Loading work.caches(fast)
-# Loading work.memory_control(fast)
-# Loading work.ram(fast)
-# Loading altera_mf_ver.altsyncram(fast)
 # view objects
 # .main_pane.objects.interior.cs.body.tree
-#  do scripts/system.do
+#  do scripts/hazard_unit.do
 #  run -all
-# Starting Processor.
+# Case 0: no hazards PASSED
+# Case 1: Load-use rs1 FAILED: pc_en=1 fdf_stall=0 fdf_flush=0 dx_stall=0 dx_flush=0 freeze=0 flush=0
+# Case 2: Load-use rs2 FAILED: pc_en=1 fdf_stall=0 fdf_flush=0 dx_stall=0 dx_flush=0 freeze=0 flush=0
+# Case 3: Load-use rd=x0 -> no hazard PASSED
+# Case 4: MEM wait -> stall/ex bubble FAILED: pc_en=x fdf_stall=1 fdf_flush=0 dx_stall=1 dx_flush=1 freeze=1 flush=0
+# Case 4b: MEM ready -> resume PASSED
+# Case 5: redirect cycle (flush+redirect) PASSED
+# Case 5: remaining bubbles(cycle 1) FAILED: pc_en=1 fdf_stall=0 fdf_flush=0 dx_stall=0 dx_flush=0 freeze=0 flush=0
+# Case 5: remaining bubbles(cycle 2) FAILED: pc_en=1 fdf_stall=0 fdf_flush=0 dx_stall=0 dx_flush=0 freeze=0 flush=0
+# Case 5: remaining bubbles (post-flush) PASSED
+# Case 6: flush dominates (cycle 0) FAILED: pc_en=x fdf_stall=1 fdf_flush=0 dx_stall=1 dx_flush=1 freeze=1 flush=0
+# Case 6: flush dominates (cycle 1) FAILED: pc_en=x fdf_stall=1 fdf_flush=0 dx_stall=1 dx_flush=1 freeze=1 flush=0
+# Case 6: post-flush FAILED: pc_en=x fdf_stall=1 fdf_flush=0 dx_stall=1 dx_flush=1 freeze=1 flush=0
+# Break in Module test at testbench/hazard_unit_tb.sv line 288
 # 
-# End time: 21:14:42 on Oct 02,2025, Elapsed time: 0:02:58
-# Errors: 0, Warnings: 1
+# End time: 13:18:49 on Oct 03,2025, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 0
