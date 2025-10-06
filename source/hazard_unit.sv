@@ -29,7 +29,7 @@ always_comb begin
 
     // Control hazard
     // if taking the branch, then flush if/id and id/ex regs
-    if (huif.inst_ex[6:0] == opcode_t'(BTYPE) && huif.branchtaken) begin 
+    if ((huif.inst_ex[6:0] == opcode_t'(BTYPE) || huif.inst_ex[6:0] == opcode_t'(JAL) || huif.inst_ex[6:0] == opcode_t'(JALR)) && huif.branchtaken) begin
         huif.flush = 1;
     end
 
