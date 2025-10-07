@@ -76,6 +76,7 @@ add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/dREN_i
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/dWEN_out
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/dWEN_in
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/branchPCSrc_out
+add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/aluif/zero
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/branchPCSrc_in
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/jumpPCsrc_out
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/jumpPCsrc_in
@@ -89,6 +90,8 @@ add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/flush
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/stall
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/RegWEN_in
 add wave -noupdate -expand -group Decode-Execute /system_tb/DUT/CPU/DP/dx/RegWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP/dx/halt_in
+add wave -noupdate /system_tb/DUT/CPU/DP/dx/halt_out
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/pc_out
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/pc_in
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/imm_out
@@ -113,6 +116,8 @@ add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/RegWE
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/RegWEN_in
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/inst_in
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/inst_out
+add wave -noupdate /system_tb/DUT/CPU/DP/exm/halt_in
+add wave -noupdate /system_tb/DUT/CPU/DP/exm/halt_out
 add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/pc_out
 add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/pc_in
 add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/ihit
@@ -130,6 +135,8 @@ add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/Reg
 add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/RegWEN_out
 add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/inst_in
 add wave -noupdate -expand -group memory-writeback /system_tb/DUT/CPU/DP/mwb/inst_out
+add wave -noupdate /system_tb/DUT/CPU/DP/mwb/halt_out
+add wave -noupdate /system_tb/DUT/CPU/DP/mwb/halt_in
 add wave -noupdate -divider huif
 add wave -noupdate /system_tb/DUT/CPU/DP/huif/stall
 add wave -noupdate /system_tb/DUT/CPU/DP/huif/flush
@@ -147,10 +154,24 @@ add wave -noupdate /system_tb/DUT/CPU/DP/fuif/exmo_RegWEN
 add wave -noupdate /system_tb/DUT/CPU/DP/fuif/mwbo_RegWEN
 add wave -noupdate /system_tb/DUT/CPU/DP/fuif/forwardA
 add wave -noupdate /system_tb/DUT/CPU/DP/fuif/forwardB
+add wave -noupdate -divider dpif
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/halt
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/ihit
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/imemREN
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/imemload
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/imemaddr
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dhit
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/datomic
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dmemREN
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dmemWEN
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/flushed
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dmemload
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dmemstore
+add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dmemaddr
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {8326903353 ps} 0} {{Cursor 2} {138561 ps} 0}
-quietly wave cursor active 2
-configure wave -namecolwidth 150
+WaveRestoreCursors {{Cursor 1} {908886 ps} 0} {{Cursor 2} {28914116959 ps} 0}
+quietly wave cursor active 1
+configure wave -namecolwidth 262
 configure wave -valuecolwidth 92
 configure wave -justifyvalue left
 configure wave -signalnamewidth 1
@@ -164,4 +185,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {364 ns}
+WaveRestoreZoom {0 ps} {1356201 ps}

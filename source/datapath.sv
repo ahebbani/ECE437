@@ -106,23 +106,25 @@ assign fdf.flush = huif.flush;
 assign dx.flush = huif.flush;
 
 // forwarding unit
-assign fuif.dxo_rs1 = cuif.rs1;
-assign fuif.dxo_rs2 = cuif.rs2;
+assign fuif.dxo_rs1 = dx.rs1_out;
+assign fuif.dxo_rs2 = dx.rs2_out;
 assign fuif.exmo_rd = exm.rd_out;
 assign fuif.mwbo_rd = mwb.rd_out;
 assign fuif.exmo_RegWEN = exm.RegWEN_out;
-assign fuif.mwbo_RegWEN = mwb.RegWEN_out; 
+assign fuif.mwbo_RegWEN = mwb.RegWEN_out;
+assign aluif.a = (dx.ALUSrc2_out == 1) ? dx.pc_out : exm.rdat1_in;
+assign aluif.b = (dx.ALUSrc1_out == 1) ? dx.imm_out : exm.rdat2_in;
 always_comb begin
-case (fuif.forwardA)
-  2'b01: aluif.a = mwb.alu_out_out;
-  2'b10: aluif.a = exm.alu_out_out;
-  default: aluif.a = (dx.ALUSrc2_out == 1) ? dx.pc_out : dx.rdat1_out;
-endcase
-case (fuif.forwardB)
-  2'b01: aluif.b = mwb.alu_out_out;
-  2'b10: aluif.b = exm.alu_out_out;
-  default: aluif.b = (dx.ALUSrc1_out == 1) ? dx.imm_out : dx.rdat2_out;
-endcase
+  exm.rdat1_in = dx.rdat1_out;
+  exm.rdat2_in = dx.rdat2_out;
+  case (fuif.forwardA)
+    2'b01: exm.rdat1_in = mwb.alu_out_out;
+    2'b10: exm.rdat1_in = exm.alu_out_out;
+  endcase
+  case (fuif.forwardB)
+    2'b01: exm.rdat2_in = mwb.alu_out_out;
+    2'b10: exm.rdat2_in = exm.alu_out_out;
+  endcase
 end
 
 assign fdf.pc_in = pcif.PC;
@@ -147,10 +149,11 @@ assign dx.aluop_in = cuif.aluop;
 assign dx.MemtoReg_in = cuif.MemtoReg;
 assign dx.rdat1_in = rfif.rdat1;
 assign dx.rdat2_in = rfif.rdat2;
-assign exm.rdat2_in = dx.rdat2_out;
 assign dx.rd_in = cuif.rd;
 assign exm.rd_in = dx.rd_out;
 assign mwb.rd_in = exm.rd_out;
+assign dx.rs1_in = cuif.rs1;
+assign dx.rs2_in = cuif.rs2;
 
 assign dx.imm_in = cuif.imm;
 assign exm.imm_in = dx.imm_out;
@@ -192,7 +195,7 @@ end
   //setup datapath outputs
   always_ff @(negedge nRST, posedge CLK) begin
     if(~nRST) dpif.halt <= 0;
-    else dpif.halt <= exm.halt_out | dpif.halt;
+    else dpif.halt <= mwb.halt_out | dpif.halt;
   end
 
   assign dpif.imemREN = (dpif.halt) ? 0 : 1;

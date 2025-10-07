@@ -1,0 +1,178 @@
+processing file asmFiles/beq1.asm (1 of 29)
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/beq2.asm (2 of 29)
+diff: memcpu.hex: No such file or directory
+processing file asmFiles/bge1.asm (3 of 29)
+processing file asmFiles/beq1.asm (1 of 29)
+processing file asmFiles/beq2.asm (2 of 29)
+--- memsim.hex	2025-10-06 19:25:42.668751790 -0400
++++ memcpu.hex	2025-10-06 19:25:42.663751597 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bge1.asm (3 of 29)
+processing file asmFiles/bge2.asm (4 of 29)
+--- memsim.hex	2025-10-06 19:25:47.315930885 -0400
++++ memcpu.hex	2025-10-06 19:25:47.310930692 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bgeu1.asm (5 of 29)
+--- memsim.hex	2025-10-06 19:25:49.698022687 -0400
++++ memcpu.hex	2025-10-06 19:25:49.693022494 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bgeu2.asm (6 of 29)
+processing file asmFiles/blt1.asm (7 of 29)
+processing file asmFiles/blt2.asm (8 of 29)
+--- memsim.hex	2025-10-06 19:25:56.553286877 -0400
++++ memcpu.hex	2025-10-06 19:25:56.548286685 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bltu1.asm (9 of 29)
+processing file asmFiles/bltu2.asm (10 of 29)
+--- memsim.hex	2025-10-06 19:26:01.143463775 -0400
++++ memcpu.hex	2025-10-06 19:26:01.138463583 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bne1.asm (11 of 29)
+processing file asmFiles/bne2.asm (12 of 29)
+--- memsim.hex	2025-10-06 19:26:05.757641598 -0400
++++ memcpu.hex	2025-10-06 19:26:05.752641406 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/cfHazard.asm (13 of 29)
+processing file asmFiles/beq1.asm (1 of 29)
+--- memsim.hex	2025-10-06 19:28:18.988776146 -0400
++++ memcpu.hex	2025-10-06 19:28:18.980775838 -0400
+@@ -15,5 +15,5 @@
+ :04000E00FFC101131A
+ :04000F000111202398
+ :04001000FFFFFFFFF0
+-:043FFE0000000001BE
++:043FFF0000000001BD
+ :00000001FF
+processing file asmFiles/beq2.asm (2 of 29)
+--- memsim.hex	2025-10-06 19:28:21.264863867 -0400
++++ memcpu.hex	2025-10-06 19:28:21.259863674 -0400
+@@ -12,5 +12,5 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
++:043FFF0000000001BD
+ :00000001FF
+processing file asmFiles/bge1.asm (3 of 29)
+--- memsim.hex	2025-10-06 19:28:23.655956020 -0400
++++ memcpu.hex	2025-10-06 19:28:23.651955866 -0400
+@@ -12,5 +12,5 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000001BE
++:043FFF0000000001BD
+ :00000001FF
+processing file asmFiles/bge2.asm (4 of 29)
+--- memsim.hex	2025-10-06 19:28:25.977045475 -0400
++++ memcpu.hex	2025-10-06 19:28:25.972045282 -0400
+@@ -12,5 +12,5 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
++:043FFF0000000001BD
+ :00000001FF
+processing file asmFiles/bgeu1.asm (5 of 29)
+--- memsim.hex	2025-10-06 19:28:28.334136318 -0400
++++ memcpu.hex	2025-10-06 19:28:28.330136163 -0400
+@@ -12,5 +12,5 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
++:043FFF0000000001BD
+ :00000001FF
+processing file asmFiles/bgeu2.asm (6 of 29)
+processing file asmFiles/beq1.asm (1 of 29)
+processing file asmFiles/beq2.asm (2 of 29)
+--- memsim.hex	2025-10-06 19:30:56.507846954 -0400
++++ memcpu.hex	2025-10-06 19:30:56.502846761 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bge1.asm (3 of 29)
+processing file asmFiles/bge2.asm (4 of 29)
+--- memsim.hex	2025-10-06 19:31:01.245029526 -0400
++++ memcpu.hex	2025-10-06 19:31:01.240029333 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bgeu1.asm (5 of 29)
+--- memsim.hex	2025-10-06 19:31:03.547118249 -0400
++++ memcpu.hex	2025-10-06 19:31:03.542118056 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bgeu2.asm (6 of 29)
+processing file asmFiles/blt1.asm (7 of 29)
+processing file asmFiles/blt2.asm (8 of 29)
+--- memsim.hex	2025-10-06 19:31:10.423383261 -0400
++++ memcpu.hex	2025-10-06 19:31:10.419383107 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bltu1.asm (9 of 29)
+processing file asmFiles/bltu2.asm (10 of 29)
+--- memsim.hex	2025-10-06 19:31:15.025560629 -0400
++++ memcpu.hex	2025-10-06 19:31:15.020560437 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/bne1.asm (11 of 29)
+processing file asmFiles/bne2.asm (12 of 29)
+--- memsim.hex	2025-10-06 19:31:19.562735493 -0400
++++ memcpu.hex	2025-10-06 19:31:19.557735300 -0400
+@@ -12,5 +12,4 @@
+ :04000B00FFC101131D
+ :04000C00011120239B
+ :04000D00FFFFFFFFF3
+-:043FFE0000000005BA
+ :00000001FF
+processing file asmFiles/cfHazard.asm (13 of 29)

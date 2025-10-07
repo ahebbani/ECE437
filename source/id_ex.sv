@@ -25,6 +25,8 @@ always_ff @(posedge clk, negedge nrst) begin
         dx.ALUSrc2_out <= 0;
         dx.aluop_out <= ALU_SLL;
         dx.inst_out <= 0;
+        dx.rs1_out <= 0;
+        dx.rs2_out <= 0;
 
         // memory signals
         dx.dREN_out <= 0;
@@ -49,6 +51,8 @@ always_ff @(posedge clk, negedge nrst) begin
         dx.ALUSrc2_out <= 0;
         dx.aluop_out <= ALU_SLL;
         dx.inst_out <= 0;
+        dx.rs1_out <= 0;
+        dx.rs2_out <= 0;
 
         // memory signals
         dx.dREN_out <= 0;
@@ -62,7 +66,7 @@ always_ff @(posedge clk, negedge nrst) begin
         // writeback signals
         dx.MemtoReg_out <= 0;
     end
-    else if (dx.ihit && ~dx.stall) begin
+    else if (dx.ihit || dx.dhit) begin
         dx.pc_out <= dx.pc_in;
 
         // execution signals
@@ -73,6 +77,8 @@ always_ff @(posedge clk, negedge nrst) begin
         dx.ALUSrc2_out <= dx.ALUSrc2_in;
         dx.aluop_out <= dx.aluop_in;
         dx.inst_out <= dx.inst_in;
+        dx.rs1_out <= dx.rs1_in;
+        dx.rs2_out <= dx.rs2_in;
 
         // memory signals
         dx.dREN_out <= dx.dREN_in;

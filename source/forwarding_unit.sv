@@ -17,6 +17,19 @@ begin
     fuif.forwardA = '0;
     fuif.forwardB = '0;
 
+    //mem hazard
+    if(fuif.mwbo_RegWEN && (fuif.mwbo_rd != 5'd0))
+    begin
+        if(fuif.mwbo_rd == fuif.dxo_rs1)
+        begin
+            fuif.forwardA = 2'b01;
+        end
+        if (fuif.mwbo_rd == fuif.dxo_rs2)
+        begin
+            fuif.forwardB = 2'b01;
+        end
+    end
+
     //ex hazard
     if(fuif.exmo_RegWEN && (fuif.exmo_rd != 5'd0))
     begin
@@ -27,19 +40,6 @@ begin
         if(fuif.exmo_rd == fuif.dxo_rs2)
         begin
             fuif.forwardB = 2'b10;
-        end
-    end
-
-    //mem hazard
-    if(fuif.mwbo_RegWEN && (fuif.mwbo_rd != 5'd0))
-    begin
-        if((fuif.forwardA == 2'b00) && fuif.mwbo_rd == fuif.dxo_rs1)
-        begin
-            fuif.forwardA = 2'b01;
-        end
-        if ((fuif.forwardB == 2'b00) && fuif.mwbo_rd == fuif.dxo_rs2)
-        begin
-            fuif.forwardB = 2'b01;
         end
     end
 end

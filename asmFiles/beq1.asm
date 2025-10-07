@@ -6,6 +6,9 @@ li x16, 5
 
 beq t1, t2, equal
 push x16
+nop
+nop
+nop
 halt
 
 equal:
