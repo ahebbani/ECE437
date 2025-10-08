@@ -1,0 +1,1702 @@
+processing file asmFiles/beq1.asm (1 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:43 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:43 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:44 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 760 time and ran for         18 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:35:45 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+10 instructions
+processing file asmFiles/beq2.asm (2 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:45 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:45 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:46 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 640 time and ran for         15 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:35:46 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+9 instructions
+processing file asmFiles/bge1.asm (3 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:47 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:47 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:48 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 760 time and ran for         18 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:35:48 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+10 instructions
+processing file asmFiles/bge2.asm (4 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:49 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:49 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:50 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 640 time and ran for         15 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:35:50 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+9 instructions
+processing file asmFiles/bgeu1.asm (5 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:51 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:51 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:51 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 640 time and ran for         15 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:35:52 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+9 instructions
+processing file asmFiles/bgeu2.asm (6 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:52 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:53 on Oct 08,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:53 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 760 time and ran for         18 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:35:54 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+10 instructions
+processing file asmFiles/blt1.asm (7 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:54 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:55 on Oct 08,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:55 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 760 time and ran for         18 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:35:56 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+10 instructions
+processing file asmFiles/blt2.asm (8 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:57 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:57 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:57 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 640 time and ran for         15 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:35:58 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+9 instructions
+processing file asmFiles/bltu1.asm (9 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:35:58 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:35:59 on Oct 08,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:35:59 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 760 time and ran for         18 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:00 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+10 instructions
+processing file asmFiles/bltu2.asm (10 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:00 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:01 on Oct 08,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:01 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 640 time and ran for         15 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:02 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+9 instructions
+processing file asmFiles/bne1.asm (11 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:02 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:03 on Oct 08,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:03 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 760 time and ran for         18 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:04 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+10 instructions
+processing file asmFiles/bne2.asm (12 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:05 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:05 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:06 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 640 time and ran for         15 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:06 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+9 instructions
+processing file asmFiles/cfHazard.asm (13 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:07 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:07 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:08 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 1080 time and ran for         26 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:08 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+16 instructions
+processing file asmFiles/count_days.asm (14 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:09 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:09 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:10 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 64400 time and ran for       1609 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:11 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+136 instructions
+--- memsim.hex	2025-10-08 13:36:11.325390033 -0400
++++ memcpu.hex	2025-10-08 13:36:11.320389840 -0400
+@@ -1,23 +1,22 @@
+-:0400000001700293F6
+-:040001000080031365
+-:040002007E90039356
+-:04000300FFF30313F1
+-:040004007D000E93DA
+-:0400050041D383B3AD
+-:0400060001E00F13F3
+-:04000700FFC1011321
+-:0400080001E12023CF
+-:04000900FFC101131F
+-:04000A00006120234E
+-:04000B00038000EF7F
+-:04000C0000012F833D
+-:04000D00004101139A
+-:04000E0016D00513F0
+-:04000F00FFC1011319
+-:0400100000A1202308
+-:04001100FFC1011317
+-:040012000071202336
+-:04001300018000EF79
++:0400010000000020DB
++:04000200000000609A
++:04000300000000C039
++:0400040000000140B7
++:04000500000001E016
++:04000600000002A054
++:040007000000038072
++:040008000000048070
++:04000900000005A04E
++:04000A0000000019D9
++:04000B0000000840A9
++:04000C00000009C027
++:04000D0000000B6084
++:04000E0000000D20C1
++:04000F0000000F00DE
++:0400100000001100DB
++:0400110000001320B8
++:040012000000156075
++:04001300000017C012
+ :04001400000125833F
+ :040015000041011392
+ :0400160001F286333A
+@@ -38,6 +37,5 @@
+ :04002500FFC1011303
+ :0400260000F12023A2
+ :0400270000008067EE
+-:043FFE0000000019A6
+-:043FFF00000023A5F6
++:043FFE0000000007B8
+ :00000001FF
+processing file asmFiles/dataHazard.asm (15 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:11 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:11 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:12 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 1120 time and ran for         27 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:13 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+13 instructions
+--- memsim.hex	2025-10-08 13:36:13.633478930 -0400
++++ memcpu.hex	2025-10-08 13:36:13.628478737 -0400
+@@ -13,6 +13,6 @@
+ :04000C00000E04637B
+ :04000D0001DE8EB3CF
+ :04000E00FFFFFFFFF2
+-:0403C8000000000928
++:0403C800000000032E
+ :0403C9000000000927
+ :00000001FF
+processing file asmFiles/fib.asm (16 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:13 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:13 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:14 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 72160 time and ran for       1803 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:15 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+161 instructions
+--- memsim.hex	2025-10-08 13:36:15.688558175 -0400
++++ memcpu.hex	2025-10-08 13:36:15.683557982 -0400
+@@ -14,27 +14,5 @@
+ :04000D00FE0814E3F2
+ :04000E00FFFFFFFFF2
+ :0400210000000001DA
+-:0400220000000001D9
+-:0400230000000002D7
+-:0400240000000003D5
+-:0400250000000005D2
+-:0400260000000008CE
+-:040027000000000DC8
+-:0400280000000015BF
+-:0400290000000022B1
+-:04002A00000000379B
+-:04002B000000005978
+-:04002C000000009040
+-:04002D00000000E9E6
+-:04002E000000017954
+-:04002F000000026269
+-:04003000000003DBEE
+-:040031000000063D88
+-:0400320000000A18A8
+-:040033000000105564
+-:0400340000001A6D41
+-:0400350000002AC2DB
+-:040036000000452F52
+-:0400370000006FF165
+ :0403C0000000001623
+ :00000001FF
+processing file asmFiles/halt.asm (17 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:15 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:15 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:16 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 280 time and ran for          6 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:17 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+1 instructions
+processing file asmFiles/jal.asm (18 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:17 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:17 on Oct 08,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:18 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 800 time and ran for         19 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 13:36:19 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+11 instructions
+processing file asmFiles/jalr.asm (19 of 29)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 13:36:19 on Oct 08,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 13:36:20 on Oct 08,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 13:36:20 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.pipeline(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.caches(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
