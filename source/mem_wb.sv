@@ -24,20 +24,7 @@ always_ff @(posedge clk, negedge nrst) begin
         mwb.halt_out <= 0;
         mwb.inst_out <= 0;
     end
-    // else if (mwb.dhit) begin
-        
-    //     mwb.pc_out <= exm.pc_in;
-
-    //     // writeback signals        
-    //     mwb.imm_out <= mwb.imm_in;
-    //     mwb.MemtoReg_out <= mwb.MemtoReg_in;
-    //     mwb.alu_out_out <= mwb.alu_out_in;
-    //     mwb.rd_out <= mwb.rd_in;
-    //     mwb.RegWEN_out <= mwb.RegWEN_in;
-    //     mwb.halt_out <= mwb.halt_in;
-    //     mwb.inst_out <= mwb.inst_in;
-    // end
-    else if (mwb.ihit || mwb.dhit) begin
+    else if (mwb.ihit) begin
         mwb.dmemload_out <= mwb.dmemload_in;
         mwb.pc_out <= mwb.pc_in;
 

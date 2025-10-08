@@ -24,7 +24,7 @@ always_comb begin: read
     rfif.rdat2 = register[rfif.rsel2];
 end
 
-always_ff @( posedge clk, negedge nrst ) begin
+always_ff @( negedge clk, negedge nrst ) begin
     if (!nrst) begin
         register <= '0;
     end

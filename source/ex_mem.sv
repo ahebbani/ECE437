@@ -36,32 +36,12 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.rd_out <= 0;
         exm.RegWEN_out <= 0;
     end
-    // else if (exm.dhit && ~exm.stall) begin
-    //     exm.dmemREN <= 0;
-    //     exm.dmemWEN <= 0;
-
-    //     // exm.pc_out <= 0;
-    //     // exm.branchPCand_out <= 0;
-    //     // exm.branchPCadder_out <= 0;
-    //     // exm.jumpPCadder_out <= 0;
-    //     // exm.jumpPCsrc_out <= 0;
-
-    //     // // memory signals
-    //     // exm.rdat2_out <= 0;
-    //     // exm.alu_out_out <= 0;
-    //     // exm.dREN_out <= 0;
-    //     // exm.dWEN_out <=0;
-    //     // exm.rdat2_out <= 0;
-    //     // exm.halt_out <= 0;
-    //     // exm.inst_out <= 0;
-
-    //     // // writeback signals        
-    //     // exm.imm_out <= 0;
-    //     // exm.MemtoReg_out <= 0;
-    //     // exm.rd_out <= 0;
-    //     // exm.RegWEN_out <= 0;
-    // end
-    else if (exm.ihit || exm.dhit) begin
+    else if (exm.dhit ) begin
+        exm.dmemREN <= 0;
+        exm.dmemWEN <= 0;
+        exm.dmemload <= exm.alu_out_in;
+    end
+    else if (exm.ihit ) begin
         exm.pc_out <= exm.pc_in;
         exm.branchPCand_out <= exm.branchPCand_in;
         exm.branchPCadder_out <= exm.branchPCadder_in;

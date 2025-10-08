@@ -40,7 +40,7 @@ always_ff @(posedge clk, negedge nrst) begin
         // writeback signals
         dx.MemtoReg_out <= 0;
     end
-    else if (dx.flush) begin
+    else if (dx.ihit && (dx.flush || dx.stall)) begin
         dx.pc_out <= 0;
 
         // execution signals
@@ -66,7 +66,7 @@ always_ff @(posedge clk, negedge nrst) begin
         // writeback signals
         dx.MemtoReg_out <= 0;
     end
-    else if (dx.ihit || dx.dhit) begin
+    else if (dx.ihit) begin
         dx.pc_out <= dx.pc_in;
 
         // execution signals

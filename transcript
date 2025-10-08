@@ -19,7 +19,7 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -do "view objects; do scripts/system.do; run -all;" -onfinish stop "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
-# Start time: 20:12:55 on Oct 06,2025
+# Start time: 20:33:51 on Oct 07,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading sv_std.std
 # Loading work.system_tb(fast)
@@ -64,60 +64,11 @@
 #  do scripts/system.do
 #  run -all
 # Starting Processor.
-# Halted at 600 time and ran for         14 cycles.
+# Halted at 1160 time and ran for         28 cycles.
 # Starting memory dump via debug port.
 # Finished memory dump via debug port.
 # Break in Module test at testbench/system_tb.sv line 153
 # 
-add wave -position 131  sim:/system_tb/DUT/CPU/DP/exm/rdat1_out
-add wave -position 132  sim:/system_tb/DUT/CPU/DP/exm/rdat1_in
-run -all
-# Simulation stop requested.
-restart
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# Loading sv_std.std
-# Loading work.system_tb(fast)
-# Loading work.cpu_types_pkg(fast)
-# Loading work.system_if(fast__1)
-# Loading work.test(fast)
-# Loading work.system(fast)
-# Loading work.cpu_ram_if(fast__1)
-# Loading work.pipeline(fast)
-# Loading work.datapath_cache_if(fast__1)
-# Loading work.caches_if(fast__1)
-# Loading work.cache_control_if(fast__1)
-# Loading work.datapath(fast)
-# Loading work.control_unit_if(fast__1)
-# Loading work.request_unit_if(fast__1)
-# Loading work.register_file_if(fast__1)
-# Loading work.alu_if(fast__1)
-# Loading work.pc_if(fast__1)
-# Loading work.if_id_if(fast__1)
-# Loading work.id_ex_if(fast__1)
-# Loading work.ex_mem_if(fast__1)
-# Loading work.mem_wb_if(fast__1)
-# Loading work.hazard_unit_if(fast__1)
-# Loading work.forwarding_unit_if(fast__1)
-# Loading work.forwarding_unit(fast)
-# Loading work.hazard_unit(fast)
-# Loading work.control_unit(fast)
-# Loading work.request_unit(fast)
-# Loading work.register_file(fast)
-# Loading work.alu(fast)
-# Loading work.pc(fast)
-# Loading work.if_id(fast)
-# Loading work.id_ex(fast)
-# Loading work.ex_mem(fast)
-# Loading work.mem_wb(fast)
-# Loading work.caches(fast)
-# Loading work.memory_control(fast)
-# Loading work.ram(fast)
-# Loading work.glbl(fast)
-run -all
-# Starting Processor.
-# Halted at 600 time and ran for         14 cycles.
-# Starting memory dump via debug port.
-# Finished memory dump via debug port.
-# Break in Module test at testbench/system_tb.sv line 153
-# End time: 20:32:34 on Oct 06,2025, Elapsed time: 0:19:39
+# Causality operation skipped due to absence of debug database file
+# End time: 20:44:52 on Oct 07,2025, Elapsed time: 0:11:01
 # Errors: 0, Warnings: 0

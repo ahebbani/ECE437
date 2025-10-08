@@ -79,15 +79,14 @@ module datapath (
   assign aluif.opcode = dx.aluop_out;
 
   // pc
-assign pcif.PCEN = dpif.ihit;
-assign branchtaken = (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero);
+assign pcif.PCEN = dpif.ihit && ~huif.stall;
+assign branchtaken = (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) || dx.jumpPCsrc_out;
 always_comb begin
-  case (cuif.jumpPCsrc)
+  case (dx.jumpPCsrc_out)
     2'b01: pcif.new_pc = dx.pc_out + dx.imm_out;
     2'b10: pcif.new_pc = aluif.out & ~32'h1;
     default: begin
-      if (dx.jumpPCsrc_out) pcif.new_pc = dx.pc_out + dx.imm_out;
-      else if (branchtaken) pcif.new_pc = dx.pc_out + dx.imm_out;
+      if (branchtaken) pcif.new_pc = dx.pc_out + dx.imm_out;
       else pcif.new_pc = pcif.npc;
     end
   endcase
@@ -105,6 +104,7 @@ assign dx.stall = huif.stall;
 assign fdf.flush = huif.flush;
 assign dx.flush = huif.flush;
 
+
 // forwarding unit
 assign fuif.dxo_rs1 = dx.rs1_out;
 assign fuif.dxo_rs2 = dx.rs2_out;
@@ -112,43 +112,56 @@ assign fuif.exmo_rd = exm.rd_out;
 assign fuif.mwbo_rd = mwb.rd_out;
 assign fuif.exmo_RegWEN = exm.RegWEN_out;
 assign fuif.mwbo_RegWEN = mwb.RegWEN_out;
+
 assign aluif.a = (dx.ALUSrc2_out == 1) ? dx.pc_out : exm.rdat1_in;
 assign aluif.b = (dx.ALUSrc1_out == 1) ? dx.imm_out : exm.rdat2_in;
 always_comb begin
   exm.rdat1_in = dx.rdat1_out;
   exm.rdat2_in = dx.rdat2_out;
   case (fuif.forwardA)
-    2'b01: exm.rdat1_in = mwb.alu_out_out;
-    2'b10: exm.rdat1_in = exm.alu_out_out;
+    2'b01: exm.rdat1_in = rfif.wdat; // load use
+    2'b10:begin
+      if (exm.inst_out[6:0] == opcode_t'(LUI)) exm.rdat1_in = exm.imm_out;
+      else if (exm.inst_out[6:0] == opcode_t'(JAL) || exm.inst_out[6:0] == opcode_t'(JALR)) exm.rdat1_in = exm.pc_out + 4;
+      else exm.rdat1_in = exm.alu_out_out;
+    end
   endcase
   case (fuif.forwardB)
-    2'b01: exm.rdat2_in = mwb.alu_out_out;
-    2'b10: exm.rdat2_in = exm.alu_out_out;
+    2'b01: exm.rdat2_in = rfif.wdat;
+    2'b10: begin
+      if (exm.inst_out[6:0] == opcode_t'(LUI)) exm.rdat2_in = exm.imm_out;
+      else if (exm.inst_out[6:0] == opcode_t'(JAL) || exm.inst_out[6:0] == opcode_t'(JALR)) exm.rdat2_in = exm.pc_out + 4;
+      else exm.rdat2_in = exm.alu_out_out;
+    end
   endcase
 end
 
+
+// send pc
 assign fdf.pc_in = pcif.PC;
 assign dx.pc_in = fdf.pc_out;
 assign exm.pc_in = dx.pc_out;
 assign mwb.pc_in = exm.pc_out;
 
+// send instruction
 assign exm.inst_in = dx.inst_out;
 assign mwb.inst_in = exm.inst_out;
-
 
 assign dx.branchPCSrc_in = cuif.branchPCSrc;
 assign dx.jumpPCsrc_in = cuif.jumpPCsrc;
 assign dx.dWEN_in = cuif.dWEN;
 assign exm.dWEN_in = dx.dWEN_out;
-
 assign dx.dREN_in = cuif.dREN;
 assign exm.dREN_in = dx.dREN_out;
 assign dx.ALUSrc1_in = cuif.ALUSrc1;
 assign dx.ALUSrc2_in = cuif.ALUSrc2;
 assign dx.aluop_in = cuif.aluop;
 assign dx.MemtoReg_in = cuif.MemtoReg;
+
+// rdat connections
 assign dx.rdat1_in = rfif.rdat1;
 assign dx.rdat2_in = rfif.rdat2;
+
 assign dx.rd_in = cuif.rd;
 assign exm.rd_in = dx.rd_out;
 assign mwb.rd_in = exm.rd_out;
@@ -184,13 +197,11 @@ assign mwb.halt_in = exm.halt_out;
 
 always_comb
 begin
-  mwb.dmemload_in = dpif.dmemload;
+  mwb.dmemload_in = exm.dmemload;
   fdf.inst_in = dpif.ihit ? dpif.imemload : '0;
 end
 
-  // control
-  // assign fdf.inst_in = dpif.imemload;
-  assign cuif.inst = fdf.inst_out;
+assign cuif.inst = fdf.inst_out;
 
   //setup datapath outputs
   always_ff @(negedge nRST, posedge CLK) begin
