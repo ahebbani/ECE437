@@ -84,7 +84,7 @@ module datapath (
     case (mwb.MemtoReg_out) 
       2'b00: rfif.wdat = mwb.alu_out_out;
       2'b01: rfif.wdat = mwb.dmemload_out;
-      2'b10: rfif.wdat = mwb.pc_out;
+      2'b10: rfif.wdat = mwb.pc_out + 4;
       2'b11: rfif.wdat = mwb.imm_out;
     endcase
   end
