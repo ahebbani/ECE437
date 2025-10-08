@@ -39,7 +39,7 @@ always_ff @(posedge clk, negedge nrst) begin
     else if (exm.dhit ) begin
         exm.dmemREN <= 0;
         exm.dmemWEN <= 0;
-        exm.dmemload <= exm.alu_out_in;
+        exm.dmemaddr <= exm.alu_out_in;
     end
     else if (exm.ihit ) begin
         exm.pc_out <= exm.pc_in;

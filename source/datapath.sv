@@ -265,6 +265,13 @@ end
 // MEM/WB (mwb)
 //-----------------------------------------------------------------------------
 
+word_t dmemload_reg;
+always_ff @(posedge CLK, negedge nRST) begin
+  if (~nRST) dmemload_reg <= 0;
+  else if (dpif.dhit) dmemload_reg <= dpif.dmemload;
+end
+assign mwb.dmemload_in = dmemload_reg;
+
   always_comb
   begin
     //from ex/mem
@@ -276,7 +283,8 @@ end
     mwb.alu_out_in = exm.alu_out_out;
     mwb.MemtoReg_in = exm.MemtoReg_out;
     mwb.halt_in = exm.halt_out;
-    mwb.dmemload_in = exm.dmemload;
+
+    
 
     //from datapath
     mwb.ihit = dpif.ihit;
@@ -290,7 +298,7 @@ end
 //-------------------------------------------------------------------------------
   always_ff @(negedge nRST, posedge CLK) begin
     if(~nRST) dpif.halt <= 0;
-    else dpif.halt <= mwb.halt_out | dpif.halt;
+    else dpif.halt <= exm.halt_out | dpif.halt;
   end
 
   assign dpif.imemREN = (dpif.halt) ? 0 : 1;

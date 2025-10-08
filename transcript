@@ -5,8 +5,8 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
-# Start time: 16:44:06 on Oct 08,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt6
+# Start time: 19:16:30 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2021.4 linux_x86_64 Oct 13 2021
 # //
@@ -61,8 +61,8 @@
 # Loading work.glbl(fast)
 # run -all
 # Starting Processor.
-# Halted at 1720 time and ran for         42 cycles.
+# Halted at 3280 time and ran for         81 cycles.
 # Starting memory dump via debug port.
 # Finished memory dump via debug port.
-# End time: 16:44:07 on Oct 08,2025, Elapsed time: 0:00:01
+# End time: 19:16:31 on Oct 08,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
