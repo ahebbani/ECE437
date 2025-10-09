@@ -146,7 +146,7 @@ end
   assign pcif.PCEN = dpif.ihit && ~huif.stall;
 
   //branch/jump taken logic
-  assign branchtaken = (exm.branchPCSrc_out == 2'b11 && aluif.zero) || (exm.branchPCSrc_out == 2'b10 && ~aluif.zero) || exm.jumpPCsrc_out;
+  assign branchtaken = (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) || dx.jumpPCsrc_out;
 
   //pc new value logic
   always_comb 
@@ -241,8 +241,8 @@ end
   begin
     //from id/ex
     exm.pc_in = dx.pc_out;
-    exm.branchPCSrc_in = dx.branchPCSrc_out;
-    exm.jumpPCsrc_in = dx.jumpPCsrc_in;
+    // exm.branchPCSrc_in = dx.branchPCSrc_out;
+    // exm.jumpPCsrc_in = dx.jumpPCsrc_in;
     exm.inst_in = dx.inst_out;
     exm.dWEN_in = dx.dWEN_out;
     exm.dREN_in = dx.dREN_out;

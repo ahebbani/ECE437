@@ -13,10 +13,6 @@ import cpu_types_pkg::*;
 always_ff @(posedge clk, negedge nrst) begin
     if (~nrst) begin
         exm.pc_out <= 0;
-        exm.branchPCand_out <= 0;
-        exm.branchPCadder_out <= 0;
-        exm.jumpPCadder_out <= 0;
-        exm.jumpPCsrc_out <= 0;
 
         // memory signals
         exm.rdat2_out <= 0;
@@ -43,10 +39,6 @@ always_ff @(posedge clk, negedge nrst) begin
     end
     else if (exm.ihit ) begin
         exm.pc_out <= exm.pc_in;
-        exm.branchPCand_out <= exm.branchPCand_in;
-        exm.branchPCadder_out <= exm.branchPCadder_in;
-        exm.jumpPCadder_out <= exm.jumpPCadder_in;
-        exm.jumpPCsrc_out <= exm.jumpPCsrc_in;
 
         // memory signals
         exm.rdat2_out <= exm.rdat2_in;
