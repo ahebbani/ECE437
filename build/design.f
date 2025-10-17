@@ -13,6 +13,7 @@ source/id_ex.sv
 source/ex_mem.sv
 source/mem_wb.sv
 source/datapath.sv
+source/twobit.sv
 source/caches.sv
 source/memory_control.sv
 source/pipeline.sv

@@ -20,6 +20,7 @@
 `include "id_ex_if.vh"
 `include "ex_mem_if.vh"
 `include "mem_wb_if.vh"
+`include "twobit_if.vh"
 
 // alu op, mips op, and instruction type
 `include "cpu_types_pkg.vh"
@@ -46,7 +47,7 @@ module datapath (
   mem_wb_if mwb();
   hazard_unit_if huif();
   forwarding_unit_if fuif();
-
+  twobit_if bpuif();
   
   //DUT
   forwarding_unit FU(fuif);
@@ -60,10 +61,17 @@ module datapath (
   id_ex DXREG(CLK, nRST, dx);
   ex_mem EXMREG(CLK, nRST, exm);
   mem_wb MWBREG(CLK, nRST, mwb);
+  twobit_bpu BPU(CLK, nRST, bpuif);
 
   // signals
   logic branchtaken;
-
+  logic predict_taken_if;
+  logic [WORD_W-1:0] predict_target_if;
+  logic predict_hit_if;
+  logic is_branch_ex;           // whether EX-stage instr is conditional branch
+  logic actual_taken_ex;        // actual branch outcome in EX
+  word_t actual_target_ex;      // actual target for branch in EX
+  logic mispredict_ex;          // mispredict detection
 
 //-----------------------------------------------------------------------------
 // REGISTER FILE (rfif)
@@ -139,24 +147,52 @@ end
 
 
 //-----------------------------------------------------------------------------
-// PC (pcif) with branch/jump logic
+// Branch Predictor (BPU): lookup in IF, update in EX
+//-----------------------------------------------------------------------------
+  // IF lookup
+  assign bpuif.fetch_pc = pcif.PC;
+  assign predict_taken_if = bpuif.predict_hit && bpuif.predict_taken;
+  assign predict_hit_if = bpuif.predict_hit;
+  assign predict_target_if = bpuif.predict_target;
+  // Determine if current IF instruction is a conditional branch
+  logic is_branch_if;
+  assign is_branch_if = (dpif.ihit && (opcode_t'(dpif.imemload[6:0]) == BTYPE));
+
+//-----------------------------------------------------------------------------
+// PC (pcif) with branch/jump logic and prediction
 //-----------------------------------------------------------------------------
 
   //pc enable
   assign pcif.PCEN = dpif.ihit && ~huif.stall;
 
-  //branch/jump taken logic
-  assign branchtaken = (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) || dx.jumpPCsrc_out;
+  // Determine actual branch properties in EX stage
+  assign is_branch_ex = (dx.inst_out[6:0] == opcode_t'(BTYPE));
+  // actual taken logic for branches only (no jumps)
+  assign actual_taken_ex = is_branch_ex && ( (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) );
+  assign actual_target_ex = dx.pc_out + dx.imm_out;
 
-  //pc new value logic
+  // Mispredict detection (only for conditional branches)
+  // predicted data arrived with instruction via fdf/dx pipeline
+  assign mispredict_ex = is_branch_ex && (
+      (dx.predict_taken_out != actual_taken_ex) ||
+      (dx.predict_taken_out && (dx.predict_target_out != actual_target_ex))
+  );
+
+  //pc new value logic with prediction and mispredict recovery
   always_comb 
   begin
-    case (dx.jumpPCsrc_out)
-      2'b01: pcif.new_pc = dx.pc_out + dx.imm_out;
-      2'b10: pcif.new_pc = aluif.out & ~32'h1;
+    // Default next PC: predicted path at IF, unless mispredict resolved at EX, or a jump (which we do not predict)
+    unique case (dx.jumpPCsrc_out)
+      2'b01: pcif.new_pc = dx.pc_out + dx.imm_out;              // JAL target
+      2'b10: pcif.new_pc = aluif.out & ~32'h1;                  // JALR target
       default: begin
-        if (branchtaken) pcif.new_pc = dx.pc_out + dx.imm_out;
-        else pcif.new_pc = pcif.npc;
+        if (mispredict_ex) begin
+          // Redirect to the correct path
+          pcif.new_pc = actual_taken_ex ? actual_target_ex : (dx.pc_out + 4);
+        end else begin
+          if (is_branch_if && predict_taken_if) pcif.new_pc = predict_target_if;
+          else pcif.new_pc = pcif.npc;
+        end
       end
     endcase
   end
@@ -166,7 +202,7 @@ end
 //-----------------------------------------------------------------------------
 
   //assign huif inputs
-  assign huif.branchtaken = branchtaken;
+  assign huif.branchtaken = mispredict_ex || (dx.inst_out[6:0] == opcode_t'(JAL)) || (dx.inst_out[6:0] == opcode_t'(JALR));
   assign huif.inst_ex = dx.inst_out;
   assign huif.rs1_id = cuif.rs1;
   assign huif.rs2_id = cuif.rs2;
@@ -186,6 +222,9 @@ end
     //from fetch
     fdf.pc_in = pcif.PC;
     fdf.inst_in = dpif.ihit ? dpif.imemload : '0;
+    // pipe predicted info from IF
+    fdf.predict_taken_in = predict_taken_if && (opcode_t'(dpif.imemload[6:0]) == BTYPE); // only for conditional branches
+    fdf.predict_target_in = predict_target_if;
 
     //from datapath
     fdf.ihit = dpif.ihit;
@@ -204,6 +243,8 @@ end
     //from if/id
     dx.pc_in = fdf.pc_out;
     dx.inst_in = fdf.inst_out;
+    dx.predict_taken_in = fdf.predict_taken_out;
+    dx.predict_target_in = fdf.predict_target_out;
 
     //from datapath
     dx.ihit = dpif.ihit;
@@ -233,6 +274,15 @@ end
     dx.flush = huif.flush;
 
   end
+
+//-----------------------------------------------------------------------------
+// Update predictor in EX stage
+//-----------------------------------------------------------------------------
+  assign bpuif.update_en = is_branch_ex && dpif.ihit; // update when making forward progress
+  assign bpuif.update_pc = dx.pc_out;
+  assign bpuif.update_is_branch = is_branch_ex;
+  assign bpuif.update_taken = actual_taken_ex;
+  assign bpuif.update_target = actual_target_ex;
 
 //-----------------------------------------------------------------------------
 // EX/MEM (exm)

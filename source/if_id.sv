@@ -16,14 +16,20 @@ always_ff @(posedge clk, negedge nrst) begin
     if (~nrst) begin
         fdf.pc_out <= 0;
         fdf.inst_out <= 0;
+        fdf.predict_taken_out <= 0;
+        fdf.predict_target_out <= 0;
     end
     else if (fdf.ihit && fdf.flush) begin
         fdf.pc_out <= 0;
         fdf.inst_out <= 0;
+        fdf.predict_taken_out <= 0;
+        fdf.predict_target_out <= 0;
     end
     else if (fdf.ihit && ~fdf.stall) begin
         fdf.pc_out <= fdf.pc_in;
         fdf.inst_out <= fdf.inst_in;
+        fdf.predict_taken_out <= fdf.predict_taken_in;
+        fdf.predict_target_out <= fdf.predict_target_in;
     end
 end
 

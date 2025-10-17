@@ -16,16 +16,19 @@ interface id_ex_if;
   logic [4:0] rd_out, rd_in, rs1_in, rs1_out, rs2_in, rs2_out;
   logic halt_in, halt_out;
   logic [31:0] inst_in, inst_out;
+  // Prediction bits pipelined ID->EX
+  logic predict_taken_out, predict_taken_in;
+  word_t predict_target_out, predict_target_in;
 
   // control_unit ports
   modport idex (
-	input rs1_in, rs2_in, stall, flush, ihit, dhit, pc_in, rdat1_in, rdat2_in, imm_in, aluop_in, ALUSrc1_in, ALUSrc2_in, dREN_in, dWEN_in, branchPCSrc_in, jumpPCsrc_in, MemtoReg_in, rd_in,RegWEN_in, halt_in, inst_in,
-	output rs1_out, rs2_out, pc_out, rdat1_out, rdat2_out, imm_out, aluop_out, ALUSrc1_out, ALUSrc2_out, dREN_out, dWEN_out, branchPCSrc_out, jumpPCsrc_out, MemtoReg_out, rd_out,RegWEN_out, halt_out, inst_out
+	input rs1_in, rs2_in, stall, flush, ihit, dhit, pc_in, rdat1_in, rdat2_in, imm_in, aluop_in, ALUSrc1_in, ALUSrc2_in, dREN_in, dWEN_in, branchPCSrc_in, jumpPCsrc_in, MemtoReg_in, rd_in,RegWEN_in, halt_in, inst_in, predict_taken_in, predict_target_in,
+	output rs1_out, rs2_out, pc_out, rdat1_out, rdat2_out, imm_out, aluop_out, ALUSrc1_out, ALUSrc2_out, dREN_out, dWEN_out, branchPCSrc_out, jumpPCsrc_out, MemtoReg_out, rd_out,RegWEN_out, halt_out, inst_out, predict_taken_out, predict_target_out
   );
   // control_unit tb
   modport tb (
-	input rs1_out, rs2_out, pc_out, rdat1_out, rdat2_out, imm_out, aluop_out, ALUSrc1_out, ALUSrc2_out, dREN_out, dWEN_out, branchPCSrc_out, jumpPCsrc_out, MemtoReg_out, rd_out,RegWEN_out, halt_out, inst_out,
-	output rs1_in, rs2_in, stall, flush, ihit, dhit, pc_in, rdat1_in, rdat2_in, imm_in, aluop_in, ALUSrc1_in, ALUSrc2_in, dREN_in, dWEN_in, branchPCSrc_in, jumpPCsrc_in, MemtoReg_in, rd_in,RegWEN_in, inst_in
+	input rs1_out, rs2_out, pc_out, rdat1_out, rdat2_out, imm_out, aluop_out, ALUSrc1_out, ALUSrc2_out, dREN_out, dWEN_out, branchPCSrc_out, jumpPCsrc_out, MemtoReg_out, rd_out,RegWEN_out, halt_out, inst_out, predict_taken_out, predict_target_out,
+	output rs1_in, rs2_in, stall, flush, ihit, dhit, pc_in, rdat1_in, rdat2_in, imm_in, aluop_in, ALUSrc1_in, ALUSrc2_in, dREN_in, dWEN_in, branchPCSrc_in, jumpPCsrc_in, MemtoReg_in, rd_in,RegWEN_in, inst_in, predict_taken_in, predict_target_in
   );
 endinterface
 

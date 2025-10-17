@@ -39,6 +39,10 @@ always_ff @(posedge clk, negedge nrst) begin
 
         // writeback signals
         dx.MemtoReg_out <= 0;
+
+        // prediction signals
+        dx.predict_taken_out <= 0;
+        dx.predict_target_out <= 0;
     end
     else if (dx.ihit && (dx.flush || dx.stall)) begin
         dx.pc_out <= 0;
@@ -65,6 +69,10 @@ always_ff @(posedge clk, negedge nrst) begin
 
         // writeback signals
         dx.MemtoReg_out <= 0;
+
+        // prediction signals
+        dx.predict_taken_out <= 0;
+        dx.predict_target_out <= 0;
     end
     else if (dx.ihit) begin
         dx.pc_out <= dx.pc_in;
@@ -91,6 +99,10 @@ always_ff @(posedge clk, negedge nrst) begin
         
         // writeback signals
         dx.MemtoReg_out <= dx.MemtoReg_in;
+
+        // prediction signals
+        dx.predict_taken_out <= dx.predict_taken_in;
+        dx.predict_target_out <= dx.predict_target_in;
     end
 end
 
