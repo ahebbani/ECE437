@@ -1,0 +1,142 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+| Date         : Thu Oct  9 18:51:00 2025
+| Host         : cparch13.ecn.purdue.edu running 64-bit Oracle Linux Server release 8.10
+| Command      : report_drc -file system_fpga_drc_opted.rpt -pb system_fpga_drc_opted.pb -rpx system_fpga_drc_opted.rpx
+| Design       : system_fpga
+| Device       : xc7s50csga324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: checkpoint_system_fpga
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 21
++-----------+----------+----------------------------+------------+
+| Rule      | Severity | Description                | Violations |
++-----------+----------+----------------------------+------------+
+| CHECK-3   | Warning  | Report rule limit reached  | 1          |
+| REQP-1839 | Warning  | RAMB36 async control check | 20         |
++-----------+----------+----------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+CHECK-3#1 Warning
+Report rule limit reached  
+REQP-1839 rule limit reached: 20 violations have been found.
+Related violations: <none>
+
+REQP-1839#1 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[11] (net: SYS/RAM/D[12]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.alu_out_out_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#2 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[11] (net: SYS/RAM/D[12]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.dmemREN_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#3 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[11] (net: SYS/RAM/D[12]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.dmemWEN_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#4 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[11] (net: SYS/RAM/D[12]) which is driven by a register (SYS/CPU/DP/PC/pcif\\.PC_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#5 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[11] (net: SYS/RAM/D[12]) which is driven by a register (SYS/CPU/DP/dpif\\.halt_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#6 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[12] (net: SYS/RAM/D[13]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.alu_out_out_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#7 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[12] (net: SYS/RAM/D[13]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.dmemREN_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#8 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[12] (net: SYS/RAM/D[13]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.dmemWEN_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#9 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[12] (net: SYS/RAM/D[13]) which is driven by a register (SYS/CPU/DP/PC/pcif\\.PC_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#10 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[12] (net: SYS/RAM/D[13]) which is driven by a register (SYS/CPU/DP/dpif\\.halt_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#11 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[13] (net: SYS/RAM/D[14]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.alu_out_out_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#12 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[13] (net: SYS/RAM/D[14]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.dmemREN_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#13 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[13] (net: SYS/RAM/D[14]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.dmemWEN_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#14 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[13] (net: SYS/RAM/D[14]) which is driven by a register (SYS/CPU/DP/PC/pcif\\.PC_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#15 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[13] (net: SYS/RAM/D[14]) which is driven by a register (SYS/CPU/DP/dpif\\.halt_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#16 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[14] (net: SYS/RAM/D[15]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.alu_out_out_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#17 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[14] (net: SYS/RAM/D[15]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.dmemREN_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#18 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[14] (net: SYS/RAM/D[15]) which is driven by a register (SYS/CPU/DP/EXMREG/exm\\.dmemWEN_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#19 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[14] (net: SYS/RAM/D[15]) which is driven by a register (SYS/CPU/DP/PC/pcif\\.PC_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#20 Warning
+RAMB36 async control check  
+The RAMB36E1 SYS/RAM/mem_reg_0 has an input control pin SYS/RAM/mem_reg_0/ADDRARDADDR[14] (net: SYS/RAM/D[15]) which is driven by a register (SYS/CPU/DP/dpif\\.halt_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+

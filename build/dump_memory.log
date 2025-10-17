@@ -1,0 +1,86 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Thu Oct  9 18:54:18 2025
+# Process ID: 330172
+# Current directory: /home/ecegridfs/a/437mg063/ece437/processors
+# Command line: vivado -mode batch -source /home/ecegrid/a/ece437l/tools/vivado_extra/dump_memory.tcl -log build/dump_memory.log -journal build/dump_memory.jou
+# Log file: /home/ecegridfs/a/437mg063/ece437/processors/build/dump_memory.log
+# Journal file: /home/ecegridfs/a/437mg063/ece437/processors/build/dump_memory.jou
+# Running On: cparch13.ecn.purdue.edu, OS: Linux, CPU Frequency: 3400.000 MHz, CPU Physical cores: 4, Host memory: 16363 MB
+#-----------------------------------------------------------
+source /home/ecegrid/a/ece437l/tools/vivado_extra/dump_memory.tcl
+# set VIO_OUTPUT_PROBE_NAME "dbg_addr"      ;
+# set VIO_INPUT_PROBE_NAME  "dbg_data_out"  ;
+# set NUM_WORDS       16384
+# set OUTPUT_FILE     "memfpga.mem"
+# set output_dir      ./build
+# set design_top      "system_fpga"
+# open_hw_manager
+open_hw_manager: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1587.301 ; gain = 19.859 ; free physical = 6157 ; free virtual = 18825
+# connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2023.2.0
+  ****** Build date   : Oct 10 2023-00:01:56
+    **** Build number : 2023.2.1696910516
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+# open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/887404240515A
+# set ltxfile [file normalize "$output_dir/$design_top.runs/impl_1/$design_top.ltx"]
+# set_property PROBES.FILE $ltxfile [current_hw_device]
+# set_property FULL_PROBES.FILE $ltxfile [current_hw_device]
+# refresh_hw_device [current_hw_device]
+INFO: [Labtools 27-2302] Device xc7s50 (JTAG device index = 0) is programmed with a design that has 1 VIO core(s).
+INFO: [Labtools 27-1889] Uploading output probe values for VIO core [hw_vio_1]
+# set vio [lindex [get_hw_vios] 0]
+# if {[llength $vio] == 0} {
+#     puts "ERROR: Could not find the VIO core. Ensure the device is programmed and refreshed."
+#     return -code error
+# }
+# puts "INFO: Found VIO core: $vio"
+INFO: Found VIO core: hw_vio_1
+# puts "INFO: Starting memory dump to $OUTPUT_FILE..."
+INFO: Starting memory dump to memfpga.mem...
+# set f [open $OUTPUT_FILE "w"]
+# for {set i 0} {$i < $NUM_WORDS} {set i [expr {$i + 1}]} {
+#     set_property OUTPUT_VALUE [format %04X $i] [get_hw_probes $VIO_OUTPUT_PROBE_NAME -of_objects $vio]
+#     commit_hw_vio $vio
+#     refresh_hw_vio $vio
+#     set result_data [get_property INPUT_VALUE [get_hw_probes $VIO_INPUT_PROBE_NAME -of_objects $vio]]
+#     puts $f $result_data
+# 
+#     # Progress indicator
+#     if {$i > 0 && ($i % 1024) == 0} {
+#         puts "INFO: Progress: $i / $NUM_WORDS"
+#     }
+# }
+INFO: Progress: 1024 / 16384
+INFO: Progress: 2048 / 16384
+INFO: Progress: 3072 / 16384
+INFO: Progress: 4096 / 16384
+INFO: Progress: 5120 / 16384
+INFO: Progress: 6144 / 16384
+INFO: Progress: 7168 / 16384
+INFO: Progress: 8192 / 16384
+INFO: Progress: 9216 / 16384
+INFO: Progress: 10240 / 16384
+INFO: Progress: 11264 / 16384
+INFO: Progress: 12288 / 16384
+INFO: Progress: 13312 / 16384
+INFO: Progress: 14336 / 16384
+INFO: Progress: 15360 / 16384
+# close $f
+# puts "INFO: Memory dump complete. Data saved to $OUTPUT_FILE."
+INFO: Memory dump complete. Data saved to memfpga.mem.
+INFO: [Common 17-206] Exiting Vivado at Thu Oct  9 18:56:17 2025...
