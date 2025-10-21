@@ -13,9 +13,11 @@ module icache (
 
 // Decode imemaddr
 logic [1:0] byte_offset = dcif.imemaddr[1:0];
-logic [4:0] index = dcif.imemaddr[5:2];
+logic [3:0] index = dcif.imemaddr[5:2];
 logic [25:0] tag = dcif.imemaddr[31:6];
 
+// 64 byte direct mapped cache
+icache_frame [15:0] frames;
 
 // FSM
 typedef enum {COMPARE_TAG, ALLOCATE} icache_state;
@@ -24,7 +26,7 @@ icache_state curr_state, next_state;
 case (curr_state)
     COMPARE_TAG: begin
         if (icuif.valid && icuif.hit) begin
-            valid = ;
+            valid = 0;
             tag = ;
         end
         next_state = ;
@@ -38,8 +40,8 @@ case (curr_state)
 endcase
 
 
-// 64 byte direct mapped cache
-word_t [15:0] icache;
+
+
 
 
 endmodule
