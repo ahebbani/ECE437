@@ -5,44 +5,8 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
-# Start time: 20:32:30 on Oct 20,2025
-# ** Note: (vsim-3812) Design is being optimized...
-###### include/cache_control_if.vh(79):       iREN[1] = cif1.iREN;
-# ** Warning: include/cache_control_if.vh(79): (vopt-2576) [BSOB] - Bit-select into 'iREN' is out of bounds.
-###### include/cache_control_if.vh(80):       dREN[1] = cif1.dREN;
-# ** Warning: include/cache_control_if.vh(80): (vopt-2576) [BSOB] - Bit-select into 'dREN' is out of bounds.
-###### include/cache_control_if.vh(81):       dWEN[1] = cif1.dWEN;
-# ** Warning: include/cache_control_if.vh(81): (vopt-2576) [BSOB] - Bit-select into 'dWEN' is out of bounds.
-###### include/cache_control_if.vh(82):       dstore[1] = cif1.dstore;
-# ** Warning: include/cache_control_if.vh(82): (vopt-2696) Index 1 into array dimension 1 of 'dstore' is out of bounds.
-# ** Warning: include/cache_control_if.vh(82): (vopt-2696) Index 1 into array dimension 1 of 'dstore' is out of bounds.
-###### include/cache_control_if.vh(83):       iaddr[1] = cif1.iaddr;
-# ** Warning: include/cache_control_if.vh(83): (vopt-2696) Index 1 into array dimension 1 of 'iaddr' is out of bounds.
-# ** Warning: include/cache_control_if.vh(83): (vopt-2696) Index 1 into array dimension 1 of 'iaddr' is out of bounds.
-###### include/cache_control_if.vh(84):       daddr[1] = cif1.daddr;
-# ** Warning: include/cache_control_if.vh(84): (vopt-2696) Index 1 into array dimension 1 of 'daddr' is out of bounds.
-# ** Warning: include/cache_control_if.vh(84): (vopt-2696) Index 1 into array dimension 1 of 'daddr' is out of bounds.
-###### include/cache_control_if.vh(85):       ccwrite[1] = cif1.ccwrite;
-# ** Warning: include/cache_control_if.vh(85): (vopt-2576) [BSOB] - Bit-select into 'ccwrite' is out of bounds.
-###### include/cache_control_if.vh(86):       cctrans[1] = cif1.cctrans;
-# ** Warning: include/cache_control_if.vh(86): (vopt-2576) [BSOB] - Bit-select into 'cctrans' is out of bounds.
-###### include/cache_control_if.vh(95):       cif1.iwait = iwait[1];
-# ** Warning: include/cache_control_if.vh(95): (vopt-2576) [BSOB] - Bit-select into 'iwait' is out of bounds.
-###### include/cache_control_if.vh(96):       cif1.dwait = dwait[1];
-# ** Warning: include/cache_control_if.vh(96): (vopt-2576) [BSOB] - Bit-select into 'dwait' is out of bounds.
-###### include/cache_control_if.vh(97):       cif1.iload = iload[1];
-# ** Warning: include/cache_control_if.vh(97): (vopt-2696) Index 1 into array dimension 1 of 'iload' is out of bounds.
-###### include/cache_control_if.vh(98):       cif1.dload = dload[1];
-# ** Warning: include/cache_control_if.vh(98): (vopt-2696) Index 1 into array dimension 1 of 'dload' is out of bounds.
-###### include/cache_control_if.vh(99):       cif1.ccwait = ccwait[1];
-# ** Warning: include/cache_control_if.vh(99): (vopt-2576) [BSOB] - Bit-select into 'ccwait' is out of bounds.
-###### include/cache_control_if.vh(100):       cif1.ccinv = ccinv[1];
-# ** Warning: include/cache_control_if.vh(100): (vopt-2576) [BSOB] - Bit-select into 'ccinv' is out of bounds.
-###### include/cache_control_if.vh(101):       cif1.ccsnoopaddr = ccsnoopaddr[1];
-# ** Warning: include/cache_control_if.vh(101): (vopt-2696) Index 1 into array dimension 1 of 'ccsnoopaddr' is out of bounds.
-###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
-# ** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vopt-2605) empty port name in port list.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=19.
+# Start time: 20:48:15 on Oct 20,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2021.4 linux_x86_64 Oct 13 2021
 # //
@@ -100,5 +64,5 @@
 # Halted at 1760 time and ran for         43 cycles.
 # Starting memory dump via debug port.
 # Finished memory dump via debug port.
-# End time: 20:32:31 on Oct 20,2025, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 19
+# End time: 20:48:16 on Oct 20,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
