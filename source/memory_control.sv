@@ -30,12 +30,12 @@ module memory_control (
   // ramstate is busy
   // dREN is high because when data is being read you cannot process another instruction
   // dWEN is high for the same reason
-  assign ccif.iwait = (ccif.dREN || ccif.dWEN || ccif.ramstate == BUSY);
+  assign ccif.iwait = (ccif.dREN || ccif.dWEN || ccif.ramstate != ACCESS);
 
   // dwait is low when dREN or dWEN is high
   // only wait for data when data is being read or written to
   // depends on ramstate?
-  assign ccif.dwait = ~(ccif.dREN || ccif.dWEN) || ccif.ramstate == BUSY;
+  assign ccif.dwait = ~(ccif.dREN || ccif.dWEN) || ccif.ramstate != ACCESS;
 
   // iload loads instruction to the cpu on the next negedge cpu clock cycle of when instruction is asserted
   assign ccif.iload = ccif.iREN == 1 ? ccif.ramload : '0;

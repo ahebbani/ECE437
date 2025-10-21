@@ -11,7 +11,7 @@ import cpu_types_pkg::*;
 // Passes memory and writeback signals
 
 always_ff @(posedge clk, negedge nrst) begin
-    if (~nrst) begin
+    if (~nrst || exm.flush) begin
         exm.pc_out <= 0;
 
         // memory signals
@@ -23,6 +23,7 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.rdat2_out <= 0;
         exm.dmemREN <= 0;
         exm.dmemWEN <= 0;
+        exm.dmemaddr <= 0;
         exm.halt_out <= 0;
         exm.inst_out <= 0;
 

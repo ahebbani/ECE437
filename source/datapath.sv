@@ -143,7 +143,7 @@ end
 //-----------------------------------------------------------------------------
 
   //pc enable
-  assign pcif.PCEN = dpif.ihit && ~huif.stall;
+  assign pcif.PCEN = dpif.ihit && ~huif.stall && ~dpif.halt;
 
   //branch/jump taken logic
   assign branchtaken = (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) || dx.jumpPCsrc_out;
@@ -191,8 +191,10 @@ end
     fdf.ihit = dpif.ihit;
 
     //from hazard unit
-    fdf.flush = huif.flush;
     fdf.stall = huif.stall;
+    // fdf.flush = huif.flush;
+    fdf.flush =  (dpif.halt) ? 1 : huif.flush;
+    
   end
 
 //-----------------------------------------------------------------------------
@@ -230,7 +232,8 @@ end
 
     //from hazard unit
     dx.stall = huif.stall;
-    dx.flush = huif.flush;
+    // dx.flush = huif.flush;
+    dx.flush = (dpif.halt) ? 1 : huif.flush;
 
   end
 
@@ -260,6 +263,7 @@ end
     exm.alu_out_in = aluif.out;
 
     //from hazard unit
+    exm.flush = (dpif.halt) ? 1 : 0;
 
   end
 
