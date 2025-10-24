@@ -1,12 +1,3 @@
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# vsim -coverage -suppress 12110 -c -do "run -all; exit;" -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf dcache_tb.wlf work.dcache_tb 
-# Start time: 11:25:47 on Oct 24,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 2021.4 linux_x86_64 Oct 13 2021
 # //
@@ -21,125 +12,88 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -do "view objects; do scripts/icache.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf icache_tb.wlf work.icache_tb 
+# Start time: 13:57:39 on Oct 24,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading sv_std.std
-# Loading work.dcache_tb(fast)
 # Loading work.cpu_types_pkg(fast)
-# Loading work.caches_if(fast__1)
+# Loading work.icache_tb_sv_unit(fast)
+# Loading work.icache_tb(fast)
 # Loading work.datapath_cache_if(fast__1)
-# Loading work.dcache(fast)
+# Loading work.caches_if(fast__1)
+# Loading work.icache(fast)
 # Loading work.test(fast)
-# run -all
+# view objects
+# .main_pane.objects.interior.cs.body.tree
+#  do scripts/icache.do
+#  run -all
 # TEST 0: Reset
 # Passed 0
-# TEST 1: cold start read miss -> fill -> hit
-# 1 25
+# TEST 1: Compulsory miss -> fill -> hit
+# 1 26
 # Passed 1
 # 2 46
 # Passed 2
-# 3 66
+# TEST 2: Conflict Miss
+# 3 56
 # Passed 3
-# TEST 2: hit same block, diff word
-# 4 86
-# Passed 3
-# 5 106
-# Passed 3
-# TEST 3: write hit
+# 4 76
+# Passed 4
+# 4 106
+# Passed 5
 # 6 126
 # Passed 6
-# 7 146
-# Passed 7
-# 8 166
-# Passed 8
-# TEST 4: write miss
-# 9 196
+# TEST 4: Halt condition
 # Passed 9
-# 10 216
+# Passed 9
+# TEST 5: Back to back misses
 # Passed 10
-# 11 236
 # Passed 11
-# TEST 5: LRU replacement
-# 12 266
 # Passed 12
-# 13 286
 # Passed 13
-# 14 316
-# Passed 14
-# 15 336
-# Passed 15
-# 16 356
-# Passed 16
-# 17 386
-# Passed 17
-# 18 406
-# Passed 18
-# 19 436
-# Passed 19
-# 20 456
-# Passed 20
-# TEST 6: Dirty writeback
-# 21 486
-# Passed 21
-# 22 506
-# Passed 22
-# 23 536
-# Passed 23
-# 24 556
+# TEST 8: Cache Capacity
 # Passed 24
-# 25 576
-# Passed 25
-# 26 606
+# F imemload(25): expected 00000000, got 5555556e
+# Failed 25
 # Passed 26
-# 27 636
 # Passed 27
-# 28 656
 # Passed 28
-# TEST 7: Halt and flush
-# 29 686
 # Passed 29
-# 30 706
 # Passed 30
-# 31 736
 # Passed 31
-# 32 756
-# Passed 32
-# Handling writeback for address 00000008
-# Handling writeback for address 0000000c
-# Handling writeback for address ffffffc8
-# Handling writeback for address ffffffcc
-# Handling writeback for address 0001c010
-# Handling writeback for address 0001c014
-# Handling writeback for address 00020018
-# Handling writeback for address 0002001c
-# Handling writeback for address 00010038
-# Handling writeback for address 0001003c
-# Handling writeback for address 00003100
-# 33 1125
-# Passed 33
-# Expected hits so far: 9
-# PASS: BB_A correctly written back to memory
-# PASS: BB_B correctly written back to memory
-# TEST 8: Hit counter verif
-# PASS: Hit counter correctly written to 0x3100: 9
-# TEST 9: Back-to-back operations
-# 34 1165
+# F imemload(32): expected 00000000, got 8059d14a
+# Failed 32
+# F imemload(33): expected 00000000, got ae27bf0e
+# Failed 33
 # Passed 34
-# 35 1186
 # Passed 35
-# 36 1216
 # Passed 36
-# 37 1236
 # Passed 37
-# 38 1265
 # Passed 38
-# 39 1286
 # Passed 39
-# Expected hits so far: 0
-# TEST 10: Byte offset insensitive
-# 40 1315
+# Passed 39
 # Passed 40
-# 41 1336
 # Passed 41
-# 42 1366
 # Passed 42
-# End time: 11:25:48 on Oct 24,2025, Elapsed time: 0:00:01
+# Passed 43
+# Passed 44
+# Passed 45
+# Passed 46
+# Passed 47
+# Passed 48
+# Passed 49
+# Passed 50
+# Passed 51
+# Passed 52
+# Passed 53
+# Passed 54
+# Break in Module test at testbench/icache_tb.sv line 347
+# 
+# End time: 14:07:44 on Oct 24,2025, Elapsed time: 0:10:05
 # Errors: 0, Warnings: 0

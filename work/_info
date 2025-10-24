@@ -17,8 +17,6 @@ R0
 R0
 R0
 R0
-R0
-R0
 !s11f vlog 2021.4 2021.10, Oct 13 2021
 13
 !s112 1.1
@@ -26,212 +24,259 @@ R0
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 d/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team
+Z1 d/home/ecegridfs/a/437mg063/ece437/processors
 T_opt
-!s110 1761314718
-VhKR:S6zgP0^LEAm:BmZ]F0
-Z2 04 9 4 work dcache_tb fast 0
-=1-b49691d916b5-68fb879e-34956-a2b55
-Z3 !s124 OEM100
-Z4 o-quiet -auto_acc_if_foreign -work work -L altera_mf_ver -L altera_ver -L cycloneive_ver -suppress 12110
-Z5 tCvgOpt 0
+!s110 1761328660
+VB_c]<YDR8`f7Th7>3C>=V0
+04 9 4 work icache_tb fast 0
+=1-509a4c0c591e-68fbbe13-ce8ae-1489b0
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work -L altera_mf_ver -L altera_ver -L cycloneive_ver -suppress 12110
+tCvgOpt 0
 n@_opt
-Z6 OL;O;2021.4;73
-R1
-T_opt1
-!s110 1761316506
-V28X56kn:a@^f[eHQ47@W=3
-R2
-=1-b49691d916b5-68fb8e9a-21180-11cfdb
-R3
-R4
-R5
-n@_opt1
-R6
-R1
-T_opt2
-!s110 1761318452
-VI5g@7VF:RL`=`INC]QI_=0
-R2
-=1-b49691d916b5-68fb9634-382a-18c3eb
-R3
-R4
-R5
-n@_opt2
-R6
-R1
-T_opt3
-!s110 1761318654
-V9Ohm2>lJlXMn;i<gc>n=k0
-R2
-=1-b49691d916b5-68fb96fe-7436a-1a2426
-R3
-R4
-R5
-n@_opt3
-R6
-R1
-T_opt4
-!s110 1761319547
-VGX>8j:fFGi4QgGzHz:fl^2
-R2
-=1-b49691d916b5-68fb9a7b-b5e7f-1e5a44
-R3
-R4
-R5
-n@_opt4
-R6
+OL;O;2021.4;73
 Ycaches_if
-Z7 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z8 DXx4 work 13 cpu_types_pkg 0 22 lG3[RGX=:h]XRCVlzibdA1
-Z9 !s110 1761319546
+Z2 !s105 icache_tb_sv_unit
+Z3 DXx4 work 17 icache_tb_sv_unit 0 22 V?P:9RmICHzzOmJN[cTmc3
+Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z5 DXx4 work 13 cpu_types_pkg 0 22 lG3[RGX=:h]XRCVlzibdA1
+Z6 !s110 1761328656
 !i10b 1
 !s100 HW^P]9A@F3Q;M[b3SmoK_0
 IAFQP^?Y2g7m=DSjSS;?Q00
 S1
 R1
-w1761159127
+Z7 w1761322122
 8include/caches_if.vh
-Finclude/caches_if.vh
-!i122 19
+Z8 Finclude/caches_if.vh
+!i122 25
 L0 18 0
-Z10 VDg1SIo80bB@j0V0VzS_@n1
-Z11 OL;L;2021.4;73
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2021.4;73
 r1
 !s85 0
 31
-Z12 !s108 1761319546.000000
-Z13 !s107 include/caches_if.vh|include/datapath_cache_if.vh|include/cpu_types_pkg.vh|testbench/dcache_tb.sv|
-Z14 !s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|testbench/dcache_tb.sv|
+Z11 !s108 1761328656.000000
+Z12 !s107 include/caches_if.vh|include/datapath_cache_if.vh|include/cpu_types_pkg.vh|testbench/icache_tb.sv|
+Z13 !s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|testbench/icache_tb.sv|
 !i113 0
-Z15 o-suppress 12110 +acc -sv12compat -mfcu -lint -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
-Z16 !s92 -suppress 12110 +acc -sv12compat -mfcu -lint +incdir+include -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
-Z17 tShow_source 1 ScalarOpts 1 Show_Lint 1 Show_BadOptionWarning 1 Coverage 63 Svlog 1 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0 FsmImplicitTrans 1 CvgOpt 0
+Z14 o-suppress 12110 +acc -sv12compat -mfcu -lint -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z15 !s92 -suppress 12110 +acc -sv12compat -mfcu -lint +incdir+include -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z16 tShow_source 1 ScalarOpts 1 Show_Lint 1 Show_BadOptionWarning 1 Coverage 63 Svlog 1 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0 FsmImplicitTrans 1 CvgOpt 0
 Xcpu_types_pkg
-R7
-R9
+R4
+R6
 !i10b 1
 !s100 z`m1=3E62;6[=8cIZ5:M33
 IlG3[RGX=:h]XRCVlzibdA1
 S1
 R1
-w1761159594
+w1757825551
 8include/cpu_types_pkg.vh
-Finclude/cpu_types_pkg.vh
-!i122 19
+Z17 Finclude/cpu_types_pkg.vh
+!i122 25
 L0 19 0
 VlG3[RGX=:h]XRCVlzibdA1
-R11
+R10
 r1
 !s85 0
 31
+R11
 R12
 R13
-R14
 !i113 0
+R14
 R15
 R16
-R17
 Ydatapath_cache_if
-R7
-R8
-R9
+R2
+R3
+R4
+R5
+R6
 !i10b 1
 !s100 YI1J?L^n<[@E`IaXb_lY:0
 IW=JAVWe;d?k`813gEKgL@1
 S1
 R1
-w1760723493
+R7
 8include/datapath_cache_if.vh
-Finclude/datapath_cache_if.vh
-!i122 19
+Z18 Finclude/datapath_cache_if.vh
+!i122 25
 L0 13 0
+R9
 R10
-R11
 r1
 !s85 0
 31
+R11
 R12
 R13
-R14
 !i113 0
+R14
 R15
 R16
-R17
-vdcache
-R7
-R8
-!s110 1761319515
+vhazard_unit
+R4
+R5
+Z19 !s110 1761323399
 !i10b 1
-!s100 PB?3WCY]PhkNO1AM2O49C1
-Il:nMT5AP@_J2LGUmnjD3F0
+!s100 UD=R?K0;Hcm=mPiT<z`]V0
+IbbA<^QFiaOY2gZP7C84<;3
 S1
 R1
-w1761319505
-8source/dcache.sv
-Fsource/dcache.sv
-!i122 17
-L0 22 439
+R7
+8source/hazard_unit.sv
+Fsource/hazard_unit.sv
+!i122 3
+L0 18 26
+R9
 R10
-R11
 r1
 !s85 0
 31
-!s108 1761319515.000000
-!s107 include/caches_if.vh|include/datapath_cache_if.vh|include/cpu_types_pkg.vh|source/dcache.sv|
-!s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|source/dcache.sv|
+Z20 !s108 1761323399.000000
+!s107 include/hazard_unit_if.vh|include/cpu_types_pkg.vh|source/hazard_unit.sv|
+!s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|source/hazard_unit.sv|
 !i113 0
-R15
-R16
-R17
-vdcache_tb
-R7
-R9
-!i10b 1
-!s100 _LMYV9`DUh_aNGIlWHN`]0
-I<Fne^aAK5gaVfHmzj@<FY2
-S1
-R1
-Z18 w1761319544
-Z19 8testbench/dcache_tb.sv
-Z20 Ftestbench/dcache_tb.sv
-!i122 19
-L0 9 55
-R10
-R11
-r1
-!s85 0
-31
-R12
-R13
 R14
-!i113 0
 R15
 R16
-R17
-4test
-R7
-R8
-R9
-!i10b 1
-!s100 63Zi3^>M[kAbD=dM=I9:W0
-IV7iXONXHNB=OWNFn;g4NU0
-S1
-R1
-R18
+Yhazard_unit_if
+R4
+R5
 R19
-R20
-!i122 19
-L0 66 0
+!i10b 1
+!s100 ggMQDT4ag:nV4`TdfB;:d3
+IKdSGfc2GQhQ?idQ2mO5nf1
+S1
+R1
+R7
+8include/hazard_unit_if.vh
+Finclude/hazard_unit_if.vh
+!i122 4
+L0 7 0
+R9
 R10
-R11
 r1
 !s85 0
 31
-R12
-R13
-R14
+R20
+!s107 include/cpu_types_pkg.vh|include/hazard_unit_if.vh|
+!s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|include/hazard_unit_if.vh|
 !i113 0
+R14
 R15
 R16
+vicache
+R4
+R5
+!s110 1761328150
+!i10b 1
+!s100 b^Q1kFHi_Y8R>Vb4n4nEO1
+IjGn8i:SU4^MKYU?Da2Y3l2
+S1
+R1
+w1761328140
+8source/icache.sv
+Fsource/icache.sv
+!i122 22
+L0 5 76
+R9
+R10
+r1
+!s85 0
+31
+!s108 1761328150.000000
+!s107 include/caches_if.vh|include/datapath_cache_if.vh|include/cpu_types_pkg.vh|source/icache.sv|
+!s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|source/icache.sv|
+!i113 0
+R14
+R15
+R16
+vicache_tb
+R4
+R5
+R3
+R6
+R9
+r1
+!s85 0
+!i10b 1
+!s100 ;YS=<0<>PY5C:91:CJO2_0
+IU3OCAdoOObR^EOWfXjL7_0
+R2
+S1
+R1
+Z21 w1761328649
+Z22 8testbench/icache_tb.sv
+Z23 Ftestbench/icache_tb.sv
+!i122 25
+L0 11 36
+R10
+31
+R11
+R12
+R13
+!i113 0
+R14
+R15
+R16
+Xicache_tb_sv_unit
+R4
+R5
+R6
+VV?P:9RmICHzzOmJN[cTmc3
+r1
+!s85 0
+!i10b 1
+!s100 WHQF52?gcPS?[iGZS4TK72
+IV?P:9RmICHzzOmJN[cTmc3
+!i103 1
+S1
+R1
+R21
+R22
+R23
 R17
+R18
+R8
+!i122 25
+L0 9 0
+R10
+31
+R11
+R12
+R13
+!i113 0
+R14
+R15
+R16
+4test
+R4
+R5
+R3
+R6
+R9
+r1
+!s85 0
+!i10b 1
+!s100 NKZV8_WX_F`hHA;l6JLa?2
+I]4Xib1M?;10djR_iF=@ze3
+R2
+S1
+R1
+R21
+R22
+R23
+!i122 25
+L0 49 0
+R10
+31
+R11
+R12
+R13
+!i113 0
+R14
+R15
+R16
