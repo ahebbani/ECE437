@@ -2,7 +2,6 @@
 `include "datapath_cache_if.vh"
 `include "caches_if.vh"
 
-
 /*
   // dcache format widths
   parameter DTAG_W    = 26;
@@ -19,7 +18,6 @@
     logic [DBYT_W-1:0]  bytoff;
   } dcachef_t;
 */
-
 
 module dcache (input logic clk, nrst,
     datapath_cache_if.dcache dcif,
@@ -63,7 +61,9 @@ logic[2:0] setIdx, setIdx_nxt;  //for dirty sweep iteration
 logic way, way_nxt; //way = 0->left, 1->right
 
 logic miss;
-word_t hitCnt, hitCnt_nxt;
+word_t hitCnt, hitCnt_reg;
+logic hit_occur;
+
 
 //latch values for servicing a miss
 logic [2:0] m_setIdx;
@@ -75,16 +75,20 @@ logic active, active_prev;
 assign active = dcif.dmemREN || dcif.dmemWEN;   //pulse high for 1st cycle of request
 
 logic new_req, initial_hit, left_hit, right_hit;
-assign new_req = active && !active_prev;
+//assign new_req = active && !active_prev;
+
+logic jrf, jrf_nxt;
 
 
 always_comb begin       //next state transtions
     state_nxt = state;
     setIdx_nxt = setIdx;
     way_nxt = way;
+    jrf_nxt = jrf;
 
     casez(state)
         IDLE: begin
+            jrf_nxt = 1'b0;
            if(dcif.halt)
            begin
                 setIdx_nxt = 3'b0;
@@ -107,7 +111,11 @@ always_comb begin       //next state transtions
             if(!cif.dwait) state_nxt = RF_1;
         end
         RF_1: begin
-            if(!cif.dwait) state_nxt = IDLE;
+            if(!cif.dwait)
+            begin
+                 state_nxt = IDLE;
+                 jrf_nxt = 1'b1;
+            end
         end
         WB_0: begin
             if(!cif.dwait) state_nxt = WB_1;
@@ -188,7 +196,7 @@ begin
     cif.dstore = 0;
 
     miss = 0;
-    hitCnt_nxt = hitCnt;
+    //hitCnt_nxt = hitCnt;
     mru_nxt = mru;
 
     left_nxt = frames[addr.idx][LEFT];
@@ -196,7 +204,7 @@ begin
 
     left_hit = frames[addr.idx][LEFT].valid && (frames[addr.idx][LEFT].tag == addr.tag);
     right_hit = frames[addr.idx][RIGHT].valid && (frames[addr.idx][RIGHT].tag == addr.tag);
-    initial_hit = new_req && (left_hit || right_hit);
+    //initial_hit = new_req && (left_hit || right_hit);
 
     casez(state)
         IDLE:
@@ -244,10 +252,10 @@ begin
                 end
             end
 
-            if(initial_hit)
-            begin
-                hitCnt_nxt = hitCnt + 1;
-            end
+            // if(initial_hit && !jrf)
+            // begin
+            //     hitCnt_nxt = hitCnt + 1;
+            // end
         end
         WB_0:
         begin
@@ -297,6 +305,10 @@ begin
             dcif.flushed = 1'b1;
         end
     endcase
+
+    hit_occur = (state == IDLE) && !active_prev && (dcif.dmemREN || dcif.dmemWEN) && !jrf && !miss;
+    
+    hitCnt = hitCnt_reg + (hit_occur ? 1 : 0);
 end
 
 
@@ -309,10 +321,11 @@ begin
         setIdx <= '0;
         way <= LEFT;
 
-        hitCnt <= '0;
+        hitCnt_reg <= '0;
         mru <= '0;
 
         active_prev <= '0;
+        jrf <= 1'b0;
     end
     else
     begin
@@ -320,10 +333,17 @@ begin
         setIdx <= setIdx_nxt;
         way <= way_nxt;
 
-        hitCnt <= hitCnt_nxt;
+        //hitCnt <= hitCnt_nxt;
         mru <= mru_nxt;
 
         active_prev <= active;
+        jrf <= jrf_nxt;
+
+        if(hit_occur)
+        begin
+            hitCnt_reg <= hitCnt_reg + 1;
+        end
+
 
         //set refilled way as MRU when done
         if(state == RF_1 && !cif.dwait)
@@ -415,6 +435,11 @@ begin
                 frames[m_setIdx][m_way].dirty <= 1'b0;
             end
 
+        end
+
+        if(state == WB_1 && !cif.dwait) begin
+            frames[m_setIdx][m_way].valid <= 1'b0;
+            frames[m_setIdx][m_way].dirty <= 1'b0;
         end
 
         //halt sweep invalidations

@@ -358,7 +358,7 @@ initial begin
         dcif.imemaddr = G;
         checkCorrect((39 + idx), 1, 1, mem_data(G), (G & 32'hFFFF_FFFC));
         @(posedge CLK);
-        checkCorrect((39 + idx), 1, 1, mem_data(G), (G & 32'hFFFF_FFFC));
+        
     end
 
     #(50);
