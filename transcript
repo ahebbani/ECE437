@@ -19,8 +19,8 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -do "view objects; do scripts/icache.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf icache_tb.wlf work.icache_tb 
-# Start time: 13:57:39 on Oct 24,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Start time: 14:21:32 on Oct 24,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.cpu_types_pkg(fast)
 # Loading work.icache_tb_sv_unit(fast)
@@ -95,5 +95,4 @@
 # Passed 54
 # Break in Module test at testbench/icache_tb.sv line 347
 # 
-# End time: 14:07:44 on Oct 24,2025, Elapsed time: 0:10:05
-# Errors: 0, Warnings: 0
+# Causality operation skipped due to absence of debug database file
