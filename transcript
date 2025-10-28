@@ -1,3 +1,13 @@
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 16:35:18 on Oct 28,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Break key hit
 # //  Questa Sim-64
 # //  Version 2021.4 linux_x86_64 Oct 13 2021
 # //
@@ -12,87 +22,6 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# vsim -coverage -suppress 12110 -do "view objects; do scripts/icache.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf icache_tb.wlf work.icache_tb 
-# Start time: 14:21:32 on Oct 24,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# Loading sv_std.std
-# Loading work.cpu_types_pkg(fast)
-# Loading work.icache_tb_sv_unit(fast)
-# Loading work.icache_tb(fast)
-# Loading work.datapath_cache_if(fast__1)
-# Loading work.caches_if(fast__1)
-# Loading work.icache(fast)
-# Loading work.test(fast)
-# view objects
-# .main_pane.objects.interior.cs.body.tree
-#  do scripts/icache.do
-#  run -all
-# TEST 0: Reset
-# Passed 0
-# TEST 1: Compulsory miss -> fill -> hit
-# 1 26
-# Passed 1
-# 2 46
-# Passed 2
-# TEST 2: Conflict Miss
-# 3 56
-# Passed 3
-# 4 76
-# Passed 4
-# 4 106
-# Passed 5
-# 6 126
-# Passed 6
-# TEST 4: Halt condition
-# Passed 9
-# Passed 9
-# TEST 5: Back to back misses
-# Passed 10
-# Passed 11
-# Passed 12
-# Passed 13
-# TEST 8: Cache Capacity
-# Passed 24
-# F imemload(25): expected 00000000, got 5555556e
-# Failed 25
-# Passed 26
-# Passed 27
-# Passed 28
-# Passed 29
-# Passed 30
-# Passed 31
-# F imemload(32): expected 00000000, got 8059d14a
-# Failed 32
-# F imemload(33): expected 00000000, got ae27bf0e
-# Failed 33
-# Passed 34
-# Passed 35
-# Passed 36
-# Passed 37
-# Passed 38
-# Passed 39
-# Passed 39
-# Passed 40
-# Passed 41
-# Passed 42
-# Passed 43
-# Passed 44
-# Passed 45
-# Passed 46
-# Passed 47
-# Passed 48
-# Passed 49
-# Passed 50
-# Passed 51
-# Passed 52
-# Passed 53
-# Passed 54
-# Break in Module test at testbench/icache_tb.sv line 347
-# 
-# Causality operation skipped due to absence of debug database file
+# Error loading design
+# End time: 16:35:18 on Oct 28,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

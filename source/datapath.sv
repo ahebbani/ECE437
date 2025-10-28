@@ -310,4 +310,20 @@ assign mwb.dmemload_in = dmemload_reg;
   assign dpif.dmemstore = exm.rdat2_out;
   assign dpif.dmemaddr = exm.alu_out_out;
 
+//-----------------------------------------------------------------------------
+// CACHES
+//-------------------------------------------------------------------------------
+
+// assign dcif.imemaddr = dpif.imemaddr;
+// assign dcif.imemREN = dpif.imemREN;
+// assign dpif.ihit = dcif.ihit;
+// assign dpif.imemload = dcif.imemload;
+
+// assign dcif.dmemstore = dpif.dmemstore;
+// assign dcif.dmemWEN = dpif.dmemWEN;
+// assign dcif.dmemREN = dpif.dmemREN;
+// assign dcif.halt = dpif.halt;
+// assign dpif.dmemload = dcif.dmemload;
+// assign dpif.flushed = dcif.flushed;
+
 endmodule
