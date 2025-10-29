@@ -27,7 +27,7 @@ typedef enum {COMPARE_TAG, ALLOCATE} icache_state;
 icache_state curr_state, next_state;
 
 assign dcif.ihit = (cache_mem[addr_fields.idx].valid && cache_mem[addr_fields.idx].tag == addr_fields.tag && dcif.imemREN);
-assign dcif.imemload = (dcif.imemREN) ? cache_mem[addr_fields.idx].data : '0;
+assign dcif.imemload = cache_mem[addr_fields.idx].data;
 
 always_comb begin
     cif.iREN = 0;

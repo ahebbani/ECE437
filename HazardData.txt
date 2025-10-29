@@ -22,63 +22,97 @@ Starting simulation...
 	Core 0
 	PC <-- 00000000
 
-00000000(Core 0): 00500293 ADDI R5, R0, 5
+00000000(Core 0): 
+	I$ MISS: I$[0].tag <-- 0x0
+	00500293 ADDI R5, R0, 5
 	PC <-- 00000004
 	R5 <-- 00000005
 
-00000004(Core 0): 00700313 ADDI R6, R0, 7
+00000004(Core 0): 
+	I$ MISS: I$[1].tag <-- 0x0
+	00700313 ADDI R6, R0, 7
 	PC <-- 00000008
 	R6 <-- 00000007
 
-00000008(Core 0): 006283B3 ADD R7, R5, R6
+00000008(Core 0): 
+	I$ MISS: I$[2].tag <-- 0x0
+	006283B3 ADD R7, R5, R6
 	PC <-- 0000000C
 	R7 <-- 0000000C
 
-0000000C(Core 0): 00638E33 ADD R28, R7, R6
+0000000C(Core 0): 
+	I$ MISS: I$[3].tag <-- 0x0
+	00638E33 ADD R28, R7, R6
 	PC <-- 00000010
 	R28 <-- 00000013
 
-00000010(Core 0): 405E0EB3 SUB R29, R28, R5
+00000010(Core 0): 
+	I$ MISS: I$[4].tag <-- 0x0
+	405E0EB3 SUB R29, R28, R5
 	PC <-- 00000014
 	R29 <-- 0000000E
 
-00000014(Core 0): 00001FB7 LUI R31, 1
+00000014(Core 0): 
+	I$ MISS: I$[5].tag <-- 0x0
+	00001FB7 LUI R31, 1
 	PC <-- 00000018
 	R31 <-- 00001000
 
-00000018(Core 0): F20F8F93 ADDI R31, R31, -224
+00000018(Core 0): 
+	I$ MISS: I$[6].tag <-- 0x0
+	F20F8F93 ADDI R31, R31, -224
 	PC <-- 0000001C
 	R31 <-- 00000F20
 
-0000001C(Core 0): 000FA283 LW R5, 0(R31)
+0000001C(Core 0): 
+	I$ MISS: I$[7].tag <-- 0x0
+	000FA283 LW R5, 0(R31)
 	PC <-- 00000020
 	[word read from 00000F20]
 	R5 <-- 00000003
+	D$ MISS: D$[4][0].tag <-- 0x3C (0)
 
-00000020(Core 0): 00528333 ADD R6, R5, R5
+00000020(Core 0): 
+	I$ MISS: I$[8].tag <-- 0x0
+	00528333 ADD R6, R5, R5
 	PC <-- 00000024
 	R6 <-- 00000006
 
-00000024(Core 0): 004FA383 LW R7, 4(R31)
+00000024(Core 0): 
+	I$ MISS: I$[9].tag <-- 0x0
+	004FA383 LW R7, 4(R31)
 	PC <-- 00000028
 	[word read from 00000F24]
 	R7 <-- 00000009
+	D$[4][0] HIT with Tag = 0x3C (1)
 
-00000028(Core 0): 007FA023 SW R7, 0(R31)
+00000028(Core 0): 
+	I$ MISS: I$[10].tag <-- 0x0
+	007FA023 SW R7, 0(R31)
 	PC <-- 0000002C
+	D$[4][0] HIT with Tag = 0x3C (2)
 	[00000F20] <-- 00000009
 
-0000002C(Core 0): 008FAE03 LW R28, 8(R31)
+0000002C(Core 0): 
+	I$ MISS: I$[11].tag <-- 0x0
+	008FAE03 LW R28, 8(R31)
 	PC <-- 00000030
 	[word read from 00000F28]
 	R28 <-- 00000000
+	D$ MISS: D$[5][0].tag <-- 0x3C (2)
 
-00000030(Core 0): 000E0463 BEQ R28, R0, 56
+00000030(Core 0): 
+	I$ MISS: I$[12].tag <-- 0x0
+	000E0463 BEQ R28, R0, 56
 	PC <-- 00000038
 
-00000038(Core 0): FFFFFFFF HALT
+00000038(Core 0): 
+	I$ MISS: I$[14].tag <-- 0x0
+	FFFFFFFF HALT
 	PC <-- 0000003C
 HALT executed(Core 0).
+Hit count stored to memory
+	[00003100] <-- 00000002
 Done simulating...
 
 Instruction Breakdown:
@@ -93,6 +127,15 @@ Instruction Breakdown:
 	 TOTAL:   13
 
 	PC: 0000003C
+
+ICache:
+	 Accesses:	14
+	 Hits:		0
+	 Hit Rate:	0%
+DCache:
+	 Accesses:	4
+	 Hits:		2
+	 Hit Rate:	50%
 
 General Purpose Registers:
 	R 0: 00000000	R 1: 00000000	R 2: 00000000	R 3: 00000000

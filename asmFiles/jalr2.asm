@@ -1,6 +1,6 @@
 # JALR spam + halt test (no label arithmetic, no pseudo-instructions)
 
-_start:
+start:
     jal   t0, func1        # t0 = return address (points here + 4)
 func1:
     jal   t1, func2        # t1 = return address

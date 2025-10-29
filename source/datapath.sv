@@ -63,6 +63,10 @@ module datapath (
 
   // signals
   logic branchtaken;
+  logic pipe_ctrl;
+  assign pipe_ctrl = (exm.dmemREN || exm.dmemWEN) ? dpif.dhit && dpif.ihit : dpif.ihit;
+
+
 
 
 //-----------------------------------------------------------------------------
@@ -143,7 +147,7 @@ end
 //-----------------------------------------------------------------------------
 
   //pc enable
-  assign pcif.PCEN = dpif.ihit && ~huif.stall;
+  assign pcif.PCEN = pipe_ctrl && ~huif.stall;
 
   //branch/jump taken logic
   assign branchtaken = (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) || dx.jumpPCsrc_out;
@@ -181,6 +185,7 @@ end
   begin
 
     //FOR CU
+    fdf.pipe_ctrl = pipe_ctrl;
     cuif.inst = fdf.inst_out;
     
     //from fetch
@@ -199,9 +204,13 @@ end
 // ID/EX (dx)
 //-----------------------------------------------------------------------------
   
+  logic memaccess;
   always_comb
   begin
+    
+    
     //from if/id
+    dx.pipe_ctrl = pipe_ctrl;
     dx.pc_in = fdf.pc_out;
     dx.inst_in = fdf.inst_out;
 
@@ -239,6 +248,14 @@ end
 //-----------------------------------------------------------------------------
   always_comb
   begin
+    // mem access
+    exm.pipe_ctrl = pipe_ctrl;
+    // if dhit happens before ihit, advance on ihit
+    // if ihit happens before dhit, wait for dhit as well to advance
+    // if ihit and dhit happen at the same time, same thing
+    // if memory is being accessed, then wait until both dhit and ihit
+    
+
     //from id/ex
     exm.pc_in = dx.pc_out;
     // exm.branchPCSrc_in = dx.branchPCSrc_out;
@@ -272,11 +289,12 @@ always_ff @(posedge CLK, negedge nRST) begin
   if (~nRST) dmemload_reg <= 0;
   else if (dpif.dhit) dmemload_reg <= dpif.dmemload;
 end
-assign mwb.dmemload_in = dmemload_reg;
+assign mwb.dmemload_in = (dpif.ihit && dpif.dhit) ? dpif.dmemload : dmemload_reg;
 
   always_comb
   begin
     //from ex/mem
+    mwb.pipe_ctrl = pipe_ctrl;
     mwb.pc_in = exm.pc_out;
     mwb.inst_in = exm.inst_out;
     mwb.rd_in = exm.rd_out;

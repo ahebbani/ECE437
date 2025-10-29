@@ -16,6 +16,7 @@ sub t4, t3, t0  //sub t4:IF, add t3:ID, add t2:EX, ori t1:MEM, ori t0:WB
 
 
 //test loads------------------------------------------------------------------
+
 li t6, 0x0F20
 
 //load, use alu

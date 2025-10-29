@@ -32,12 +32,12 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.rd_out <= 0;
         exm.RegWEN_out <= 0;
     end
-    else if (exm.dhit ) begin
+    else if (exm.dhit) begin
         exm.dmemREN <= 0;
         exm.dmemWEN <= 0;
         exm.dmemaddr <= exm.alu_out_in;
     end
-    else if (exm.ihit ) begin
+    else if (exm.pipe_ctrl) begin
         exm.pc_out <= exm.pc_in;
 
         // memory signals

@@ -24,7 +24,7 @@ always_ff @(posedge clk, negedge nrst) begin
         mwb.halt_out <= 0;
         mwb.inst_out <= 0;
     end
-    else if (mwb.ihit) begin
+    else if (mwb.pipe_ctrl) begin
         mwb.dmemload_out <= mwb.dmemload_in;
         mwb.pc_out <= mwb.pc_in;
 
