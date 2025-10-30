@@ -40,7 +40,8 @@ always_ff @(posedge clk, negedge nrst) begin
         // writeback signals
         dx.MemtoReg_out <= 0;
     end
-    else if (dx.pipe_ctrl && (dx.flush || dx.stall)) begin
+    //else if (dx.pipe_ctrl && dx.stall)
+    else if (dx.pipe_ctrl && (dx.flush | dx.stall)) begin
         dx.pc_out <= 0;
 
         // execution signals
@@ -66,6 +67,33 @@ always_ff @(posedge clk, negedge nrst) begin
         // writeback signals
         dx.MemtoReg_out <= 0;
     end
+    // else if (dx.pipe_ctrl && dx.stall)
+    // begin
+    //     //dx.pc_out <= 0;
+
+    //     // execution signals
+    //     dx.rdat1_out <= 0;
+    //     dx.rdat2_out <= 0;
+    //     dx.imm_out <= 0;
+    //     dx.ALUSrc1_out <= 0;
+    //     dx.ALUSrc2_out <= 0;
+    //     dx.aluop_out <= ALU_SLL;
+    //     dx.inst_out <= 0;
+    //     dx.rs1_out <= 0;
+    //     dx.rs2_out <= 0;
+
+    //     // memory signals
+    //     dx.dREN_out <= 0;
+    //     dx.dWEN_out <=0;
+    //     dx.branchPCSrc_out <= 0;
+    //     dx.jumpPCsrc_out <=0;
+    //     dx.rd_out <= 0;
+    //     dx.RegWEN_out <= 0;
+    //     dx.halt_out <= 0;
+
+    //     // writeback signals
+    //     dx.MemtoReg_out <= 0;
+    // end
     else if (dx.pipe_ctrl) begin
         dx.pc_out <= dx.pc_in;
 

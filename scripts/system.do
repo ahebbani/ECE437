@@ -95,7 +95,8 @@ add wave -noupdate /system_tb/DUT/CPU/DP/dx/halt_out
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/pc_out
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/pc_in
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/imm_out
-add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/imm_in
+add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/rdat1_out
+add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/rdat1_in
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/rdat2_out
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/rdat2_in
 add wave -noupdate -expand -group Execute-Memory /system_tb/DUT/CPU/DP/exm/alu_out_out
@@ -162,7 +163,6 @@ add wave -noupdate /system_tb/DUT/CPU/DP/dpif/imemREN
 add wave -noupdate /system_tb/DUT/CPU/DP/dpif/imemload
 add wave -noupdate /system_tb/DUT/CPU/DP/dpif/imemaddr
 add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dhit
-add wave -noupdate /system_tb/DUT/CPU/DP/dpif/datomic
 add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dmemREN
 add wave -noupdate /system_tb/DUT/CPU/DP/dpif/dmemWEN
 add wave -noupdate /system_tb/DUT/CPU/DP/dpif/flushed
@@ -185,8 +185,6 @@ add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/RIGHT
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/clk
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/nrst
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/frames
-add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/left
-add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/right
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/left_nxt
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/right_nxt
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/mru
@@ -210,16 +208,43 @@ add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/m_tag
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/m_wdata
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/active
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/active_prev
-add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/new_req
-add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/initial_hit
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/left_hit
+add wave -noupdate /system_tb/DUT/CPU/DP/pcif/PCEN
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/right_hit
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/jrf
 add wave -noupdate /system_tb/DUT/CPU/CM/DCACHE/jrf_nxt
+add wave -noupdate -divider dcif
+add wave -noupdate /system_tb/DUT/CPU/dcif/halt
+add wave -noupdate /system_tb/DUT/CPU/dcif/ihit
+add wave -noupdate /system_tb/DUT/CPU/dcif/imemREN
+add wave -noupdate /system_tb/DUT/CPU/dcif/imemload
+add wave -noupdate /system_tb/DUT/CPU/dcif/imemaddr
+add wave -noupdate /system_tb/DUT/CPU/dcif/dhit
+add wave -noupdate /system_tb/DUT/CPU/dcif/dmemREN
+add wave -noupdate /system_tb/DUT/CPU/dcif/dmemWEN
+add wave -noupdate /system_tb/DUT/CPU/dcif/flushed
+add wave -noupdate /system_tb/DUT/CPU/dcif/dmemload
+add wave -noupdate /system_tb/DUT/CPU/dcif/dmemstore
+add wave -noupdate /system_tb/DUT/CPU/dcif/dmemaddr
+add wave -noupdate -divider cif0
+add wave -noupdate /system_tb/DUT/CPU/cif0/iwait
+add wave -noupdate /system_tb/DUT/CPU/cif0/dwait
+add wave -noupdate /system_tb/DUT/CPU/cif0/iREN
+add wave -noupdate /system_tb/DUT/CPU/cif0/dREN
+add wave -noupdate /system_tb/DUT/CPU/cif0/dWEN
+add wave -noupdate /system_tb/DUT/CPU/cif0/iload
+add wave -noupdate /system_tb/DUT/CPU/cif0/dload
+add wave -noupdate /system_tb/DUT/CPU/cif0/dstore
+add wave -noupdate /system_tb/DUT/CPU/cif0/iaddr
+add wave -noupdate /system_tb/DUT/CPU/cif0/daddr
+add wave -noupdate -divider pcif
+add wave -noupdate /system_tb/DUT/CPU/DP/pcif/npc
+add wave -noupdate /system_tb/DUT/CPU/DP/pcif/PC
+add wave -noupdate /system_tb/DUT/CPU/DP/pcif/new_pc
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {251280 ps} 0} {{Cursor 2} {28914116959 ps} 0}
+WaveRestoreCursors {{Cursor 1} {1295191 ps} 0} {{Cursor 2} {28914116959 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 262
+configure wave -namecolwidth 134
 configure wave -valuecolwidth 92
 configure wave -justifyvalue left
 configure wave -signalnamewidth 1
@@ -233,4 +258,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {928490 ps}
+WaveRestoreZoom {1159304 ps} {1769464 ps}

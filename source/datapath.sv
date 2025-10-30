@@ -138,6 +138,7 @@ module datapath (
         else if (exm.inst_out[6:0] == opcode_t'(JAL) || exm.inst_out[6:0] == opcode_t'(JALR)) exm.rdat2_in = exm.pc_out + 4;
         else exm.rdat2_in = exm.alu_out_out;
       end
+      // 2'b11: exm.rdat2_in = dx.rdat2_out;
     endcase
 end
 
@@ -277,6 +278,7 @@ end
     exm.alu_out_in = aluif.out;
 
     //from hazard unit
+    exm.stall = huif.stall;
 
   end
 
@@ -289,10 +291,11 @@ always_ff @(posedge CLK, negedge nRST) begin
   if (~nRST) dmemload_reg <= 0;
   else if (dpif.dhit) dmemload_reg <= dpif.dmemload;
 end
-assign mwb.dmemload_in = (dpif.ihit && dpif.dhit) ? dpif.dmemload : dmemload_reg;
-
+//assign mwb.dmemload_in = (dpif.ihit && dpif.dhit) ? dpif.dmemload : dmemload_reg;
+assign mwb.dmemload_in = (dpif.dhit) ? dpif.dmemload : dmemload_reg;
   always_comb
   begin
+    mwb.stall = huif.stall;
     //from ex/mem
     mwb.pipe_ctrl = pipe_ctrl;
     mwb.pc_in = exm.pc_out;
@@ -329,7 +332,8 @@ assign mwb.dmemload_in = (dpif.ihit && dpif.dhit) ? dpif.dmemload : dmemload_reg
   assign dpif.dmemaddr = exm.alu_out_out;
 
 //-----------------------------------------------------------------------------
-// CACHES
+// CACHES exm.dmemREN <= 0;
+        //exm.dmemWEN <= 0;
 //-------------------------------------------------------------------------------
 
 // assign dcif.imemaddr = dpif.imemaddr;

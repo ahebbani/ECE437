@@ -32,11 +32,6 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.rd_out <= 0;
         exm.RegWEN_out <= 0;
     end
-    else if (exm.dhit) begin
-        exm.dmemREN <= 0;
-        exm.dmemWEN <= 0;
-        exm.dmemaddr <= exm.alu_out_in;
-    end
     else if (exm.pipe_ctrl) begin
         exm.pc_out <= exm.pc_in;
 
@@ -57,6 +52,16 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.MemtoReg_out <= exm.MemtoReg_in;
         exm.rd_out <= exm.rd_in;
         exm.RegWEN_out <= exm.RegWEN_in;
+    end
+    else if (exm.dhit) begin
+        exm.dmemREN <= 0;
+        exm.dmemWEN <= 0;
+        // exm.dmemaddr <= exm.alu_out_in;
+        //exm.inst_out <= '0;
+        //exm.rdat2_out <= '0;
+        //exm.rdat1_out <= '0;
+        //exm.RegWEN_out <= 0;
+        //exm.rd_out <= 0;
     end
 end
 

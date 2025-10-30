@@ -17,31 +17,27 @@ begin
     fuif.forwardA = '0;
     fuif.forwardB = '0;
 
-    //mem hazard
-    if(fuif.mwbo_RegWEN && (fuif.mwbo_rd != 5'd0))
+
+    //forward A
+    if(fuif.mwbo_RegWEN && (fuif.mwbo_rd != 5'd0) && fuif.mwbo_rd == fuif.dxo_rs1)
     begin
-        if(fuif.mwbo_rd == fuif.dxo_rs1)
-        begin
-            fuif.forwardA = 2'b01;
-        end
-        if (fuif.mwbo_rd == fuif.dxo_rs2)
-        begin
-            fuif.forwardB = 2'b01;
-        end
+        fuif.forwardA = 2'b01;
+    end
+    if(fuif.exmo_RegWEN && (fuif.exmo_rd != 5'd0) && fuif.exmo_rd == fuif.dxo_rs1)
+    begin
+        fuif.forwardA = 2'b10;
     end
 
-    //ex hazard
-    if(fuif.exmo_RegWEN && (fuif.exmo_rd != 5'd0))
+    //forward B
+    if (fuif.mwbo_RegWEN && (fuif.mwbo_rd != 5'd0) && fuif.mwbo_rd == fuif.dxo_rs2)
     begin
-        if(fuif.exmo_rd == fuif.dxo_rs1)
-        begin
-            fuif.forwardA = 2'b10;
-        end
-        if(fuif.exmo_rd == fuif.dxo_rs2)
-        begin
-            fuif.forwardB = 2'b10;
-        end
+        fuif.forwardB = 2'b01;
     end
+    if(fuif.exmo_RegWEN && (fuif.exmo_rd != 5'd0) && fuif.exmo_rd == fuif.dxo_rs2)
+    begin
+        fuif.forwardB = 2'b10;
+    end
+
 end
 
 endmodule
