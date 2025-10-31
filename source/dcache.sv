@@ -20,8 +20,8 @@
 */
 
 module dcache (input logic clk, nrst,
-    datapath_cache_if.dcache dcif,
-    caches_if.dcache cif);
+    datapath_cache_if dcif,
+    caches_if cif);
 
 import cpu_types_pkg::*;
 
@@ -41,6 +41,7 @@ logic [SETS-1:0] mru, mru_nxt;
 
 dcachef_t addr;
 assign addr = dcachef_t'(dcif.dmemaddr);
+
 
 
 //FSM
@@ -71,13 +72,29 @@ logic m_way, m_write, m_off;
 logic [25:0] m_tag;
 word_t m_wdata;
 
-logic active, active_prev;
-assign active = dcif.dmemREN || dcif.dmemWEN;   //pulse high for 1st cycle of request
+//logic active, active_prev;
+//assign active = dcif.dmemREN || dcif.dmemWEN;   //pulse high for 1st cycle of request
 
 logic new_req, initial_hit, left_hit, right_hit;
 //assign new_req = active && !active_prev;
 
 logic jrf, jrf_nxt;
+
+logic issued, issued_nxt;
+
+//latches for cp
+logic req_valid, req_valid_nxt;
+//logic resp_ready, resp_ready_nxt;
+logic req_wen, req_wen_nxt;
+word_t req_addr, req_addr_nxt;
+word_t req_wdata, req_wdata_nxt;
+
+// logic cu_valid, cu_valid_nxt;
+// word_t cu_data, cu_data_nxt;
+// logic [2:0] cu_set, cu_set_nxt;
+// logic cu_way, cu_way_nxt;
+// logic cu_word_sel, cu_word_sel_nxt;
+// logic [25:0] cu_tag, cu_tag_nxt;
 
 
 always_comb begin       //next state transtions
@@ -85,18 +102,34 @@ always_comb begin       //next state transtions
     setIdx_nxt = setIdx;
     way_nxt = way;
     jrf_nxt = jrf;
+    issued_nxt = issued;
+
+    // req_valid_nxt = 1'b0;
+    // req_wen_nxt = 1'b0;
+    // req_addr_nxt = '0;
+    // req_wdata_nxt = '0;
+    
+    // cu_valid_nxt = 1'b0;
+    // cu_data_nxt = cu_data;
+    // cu_set_nxt = cu_set;
+    // cu_way_nxt = cu_way;
+    // cu_word_sel_nxt = cu_word_sel;
+    // cu_tag_nxt = cu_tag;
 
     casez(state)
         IDLE: begin
-            jrf_nxt = 1'b0;
+            //req_valid_nxt = 1'b0;
+            issued_nxt = 1'b0;
            if(dcif.halt)
            begin
+                jrf_nxt = 1'b0;
                 setIdx_nxt = 3'b0;
                 way_nxt = LEFT;  //start with left way (doesn't matter tbh)
                 state_nxt = DIRTY;
            end
            else if(miss)
            begin
+            jrf_nxt = 1'b1;
             if(mru[addr.idx] == RIGHT)   //victim = left way
             begin
                 state_nxt = frames[addr.idx][LEFT].dirty ? WB_0 : RF_0;
@@ -105,25 +138,142 @@ always_comb begin       //next state transtions
             begin
                 state_nxt = frames[addr.idx][RIGHT].dirty ? WB_0 : RF_0;
             end
-        end
+           end
+            else
+            begin
+                if(jrf)
+                begin
+                    jrf_nxt = 1'b0;
+                end
+            end
         end
         RF_0: begin
-            if(!cif.dwait) state_nxt = RF_1;
+            // req_valid_nxt = 1'b1;
+            // req_wen_nxt = 1'b0;
+            // req_addr_nxt = {m_tag, m_setIdx, 3'b0};
+            
+            // if(!cif.dwait) 
+            // begin
+            //     // cu_valid_nxt = 1'b1;
+            //     // cu_data_nxt = cif.dload;
+            //     // cu_set_nxt = m_setIdx;
+            //     // cu_way_nxt = m_way;
+            //     // cu_tag_nxt = m_tag;
+            //     // cu_word_sel_nxt = 1'b0;
+                
+            //     state_nxt = RF_1;
+            // end
+
+        if (!issued)
+        begin
+            state_nxt = RF_0;
+            issued_nxt = 1'b1;
+        end 
+        else 
+            begin
+            if (!cif.dwait) 
+            begin
+                state_nxt = RF_1;
+                issued_nxt = 1'b0; 
+            end 
+            else 
+            begin
+                state_nxt = RF_0;
+                issued_nxt = issued;
+            end
+        end
         end
         RF_1: begin
-            if(!cif.dwait)
+            // req_valid_nxt = 1'b1;
+            // req_wen_nxt = 1'b0;
+            // req_addr_nxt = {m_tag, m_setIdx, 3'b100};
+
+            //if(!cif.dwait)
+            //begin
+                // cu_valid_nxt = 1'b1;
+                // cu_data_nxt = cif.dload;
+                // cu_set_nxt = m_setIdx;
+                // cu_way_nxt = m_way;
+                // cu_tag_nxt = m_tag;
+                // cu_word_sel_nxt = 1'b1;
+
+              //  state_nxt = IDLE;
+            //end
+
+            if (!issued)
             begin
-                 state_nxt = IDLE;
-                 jrf_nxt = 1'b1;
+                state_nxt = RF_1;
+                issued_nxt = 1'b1;
+            end 
+            else 
+            begin
+                if (!cif.dwait) 
+                begin
+                    state_nxt = IDLE;
+                    issued_nxt = 1'b0; 
+                end 
+                else 
+                begin
+                    state_nxt = RF_1;
+                    issued_nxt = issued;
+                end
             end
         end
         WB_0: begin
-            if(!cif.dwait) state_nxt = WB_1;
+            // req_valid_nxt = 1'b1;
+            // req_wen_nxt = 1'b1;
+            // req_addr_nxt = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b0};
+            // req_wdata_nxt = frames[m_setIdx][m_way].data[0];
+
+            //if(!cif.dwait) state_nxt = WB_1;
+            if (!issued)
+            begin
+                state_nxt = WB_0;
+                issued_nxt = 1'b1;
+            end 
+            else 
+            begin
+                if (!cif.dwait) 
+                begin
+                    state_nxt = WB_1;
+                    issued_nxt = 1'b0; 
+                end 
+                else 
+                begin
+                    state_nxt = WB_0;
+                    issued_nxt = issued;
+                end
+            end
+            
         end
         WB_1: begin
-            if(!cif.dwait) state_nxt = RF_0;
+            // req_valid_nxt = 1'b1;
+            // req_wen_nxt = 1'b1;
+            // req_addr_nxt = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b100};
+            // req_wdata_nxt = frames[m_setIdx][m_way].data[1];
+
+            //if(!cif.dwait) state_nxt = RF_0;
+            if (!issued)
+            begin
+                state_nxt = WB_1;
+                issued_nxt = 1'b1;
+            end 
+            else 
+            begin
+                if (!cif.dwait) 
+                begin
+                    state_nxt = RF_0;
+                    issued_nxt = 1'b0; 
+                end 
+                else 
+                begin
+                    state_nxt = WB_1;
+                    issued_nxt = issued;
+                end
+            end
         end
         DIRTY: begin
+            issued_nxt = 1'b0;
             if(frames[setIdx][way].dirty)
             begin
                 state_nxt = FL_0;
@@ -151,31 +301,113 @@ always_comb begin       //next state transtions
             end
         end
         FL_0: begin
-            if(!cif.dwait) state_nxt = FL_1;
+            // req_valid_nxt = 1'b1;
+            // req_wen_nxt = 1'b1;
+            // req_addr_nxt = {frames[setIdx][way].tag, setIdx, 3'b0};
+            // req_wdata_nxt = frames[setIdx][way].data[0];
+
+            //if(!cif.dwait) state_nxt = FL_1;
+            if (!issued)
+            begin
+                state_nxt = FL_0;
+                issued_nxt = 1'b1;
+            end 
+            else 
+            begin
+                if (!cif.dwait) 
+                begin
+                    state_nxt = FL_1;
+                    issued_nxt = 1'b0; 
+                end 
+                else 
+                begin
+                    state_nxt = FL_0;
+                    issued_nxt = issued;
+                end
+            end
         end
         FL_1: begin
-            if(!cif.dwait)
+            // req_valid_nxt = 1'b1;
+            // req_wen_nxt = 1'b1;
+            // req_addr_nxt = {frames[setIdx][way].tag, setIdx, 3'b100};
+            // req_wdata_nxt = frames[setIdx][way].data[1];
+
+            // if(!cif.dwait)
+            // begin
+            //     state_nxt = DIRTY;
+
+            //     if(way == LEFT)
+            //     begin
+            //         way_nxt = RIGHT;
+            //     end
+            //     else
+            //     begin
+            //         if(setIdx != (SETS - 1))
+            //         begin
+            //             setIdx_nxt = setIdx + 1;
+            //             way_nxt = LEFT;
+            //         end
+            //     end
+            // end
+
+            if (!issued) 
+            begin
+            state_nxt = FL_1;
+            issued_nxt = 1'b1;
+            end
+            else 
+            begin
+            if (!cif.dwait) 
             begin
                 state_nxt = DIRTY;
+                issued_nxt = 1'b0;
 
-                if(way == LEFT)
+                if(way == LEFT) 
                 begin
                     way_nxt = RIGHT;
-                end
-                else
+                end 
+                else 
                 begin
-                    if(setIdx != (SETS - 1))
+                    if(setIdx != (SETS - 1)) 
                     begin
                         setIdx_nxt = setIdx + 1;
                         way_nxt = LEFT;
                     end
                 end
+            end 
+            else 
+            begin
+                state_nxt = FL_1;
+                issued_nxt = issued;
             end
+    end
         end
         H_CNT: begin
-            if(!cif.dwait) state_nxt = HALT;
+            // req_valid_nxt = 1'b1;
+            // req_wen_nxt = 1'b1;
+            // req_addr_nxt = 32'h3100;
+            // req_wdata_nxt = hitCnt_reg;
+
+           // if(!cif.dwait) state_nxt = HALT;
+           if (!issued) 
+           begin
+                state_nxt = H_CNT;
+                issued_nxt = 1'b1;
+            end 
+            else begin
+                if (!cif.dwait) begin
+                    state_nxt = HALT;
+                    issued_nxt = 1'b0;
+                end 
+                else 
+                begin
+                    state_nxt = H_CNT;
+                    issued_nxt = issued;
+                end
+            end
         end
         HALT: begin
+            issued_nxt = 1'b0;
             state_nxt = HALT;
         end
     endcase
@@ -188,15 +420,9 @@ begin
     
     dcif.dhit = 0;
     dcif.dmemload = '0;
-    dcif.flushed = 0;
-
-    cif.dREN = 0;
-    cif.dWEN = 0;
-    cif.daddr = 0;
-    cif.dstore = 0;
+    dcif.flushed = (state == HALT);
 
     miss = 0;
-    //hitCnt_nxt = hitCnt;
     mru_nxt = mru;
 
     left_nxt = frames[addr.idx][LEFT];
@@ -206,8 +432,7 @@ begin
     right_hit = frames[addr.idx][RIGHT].valid && (frames[addr.idx][RIGHT].tag == addr.tag);
     //initial_hit = new_req && (left_hit || right_hit);
 
-    casez(state)
-        IDLE:
+        if(state == IDLE)
         begin
             //transition on halt (dhit = 0)
             if(dcif.dmemREN)
@@ -251,62 +476,68 @@ begin
                     miss = 1'b1;
                 end
             end
+        end
 
-            // if(initial_hit && !jrf)
-            // begin
-            //     hitCnt_nxt = hitCnt + 1;
-            // end
+    // cif.dREN = 0;
+    // cif.dWEN = 0;
+    // cif.daddr = 0;
+    // cif.dstore = 0;
+
+    req_valid_nxt = 1'b0;
+    req_wen_nxt = 1'b0;
+    req_addr_nxt = '0;
+    req_wdata_nxt = '0;
+    
+    case(state)
+        RF_0: begin
+            req_valid_nxt = 1'b1;
+            req_wen_nxt = 1'b0;
+            req_addr_nxt = {m_tag, m_setIdx, 3'b0};
         end
-        WB_0:
-        begin
-            cif.dWEN = 1'b1;
-            cif.daddr = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b0};
-            cif.dstore = frames[m_setIdx][m_way].data[0];
+        RF_1: begin
+            req_valid_nxt = 1'b1;
+            req_wen_nxt = 1'b0;
+            req_addr_nxt = {m_tag, m_setIdx, 3'b100};
         end
-        WB_1:
-        begin
-            cif.dWEN = 1'b1;
-            cif.daddr = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b100};
-            cif.dstore = frames[m_setIdx][m_way].data[1];
+        WB_0: begin
+            req_valid_nxt = 1'b1;
+            req_wen_nxt = 1'b1; // write
+            req_addr_nxt = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b0};
+            req_wdata_nxt = frames[m_setIdx][m_way].data[0];
         end
-        RF_0:
-        begin
-            cif.dREN = 1'b1;
-            cif.daddr = {m_tag, m_setIdx, 3'b0}; //word 0
+        WB_1: begin
+            req_valid_nxt = 1'b1;
+            req_wen_nxt = 1'b1; // write
+            req_addr_nxt = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b100};
+            req_wdata_nxt = frames[m_setIdx][m_way].data[1];
         end
-        RF_1:
-        begin
-            cif.dREN = 1'b1;
-            cif.daddr = {m_tag, m_setIdx, 3'b100}; //word 1
+        FL_0: begin
+            req_valid_nxt = 1'b1;
+            req_wen_nxt = 1'b1;
+            req_addr_nxt = {frames[setIdx][way].tag, setIdx, 3'b0};
+            req_wdata_nxt = frames[setIdx][way].data[0];
         end
-        DIRTY:
-        begin
+        FL_1: begin
+            req_valid_nxt = 1'b1;
+            req_wen_nxt = 1'b1;
+            req_addr_nxt = {frames[setIdx][way].tag, setIdx, 3'b100};
+            req_wdata_nxt = frames[setIdx][way].data[1];
         end
-        FL_0:
-        begin
-            cif.dWEN = 1'b1;
-            cif.daddr = {frames[setIdx][way].tag, setIdx, 3'b0};
-            cif.dstore = frames[setIdx][way].data[0];
-        end
-        FL_1:
-        begin
-            cif.dWEN = 1'b1;
-            cif.daddr = {frames[setIdx][way].tag, setIdx, 3'b100};
-            cif.dstore = frames[setIdx][way].data[1];
-        end
-        H_CNT:
-        begin
-            cif.dWEN = 1'b1;
-            cif.daddr = 32'h3100;
-            cif.dstore = hitCnt;
-        end
-        HALT:
-        begin
-            dcif.flushed = 1'b1;
+        H_CNT: begin
+            req_valid_nxt = 1'b1;
+            req_wen_nxt = 1'b1;
+            req_addr_nxt = 32'h3100;
+            req_wdata_nxt = hitCnt_reg;
         end
     endcase
 
-    hit_occur = (state == IDLE) && !active_prev && (dcif.dmemREN || dcif.dmemWEN) && !jrf && !miss;
+    cif.dREN = req_valid && !req_wen;
+    cif.dWEN = req_valid && req_wen;
+    cif.daddr = req_addr;
+    cif.dstore = req_wdata;
+
+
+    hit_occur = (state == IDLE) && (dcif.dmemREN || dcif.dmemWEN) && !jrf && !miss;
     
     hitCnt = hitCnt_reg + (hit_occur ? 1 : 0);
 end
@@ -324,20 +555,45 @@ begin
         hitCnt_reg <= '0;
         mru <= '0;
 
-        active_prev <= '0;
         jrf <= 1'b0;
+
+        req_valid <= 1'b0;
+        req_wen <= 1'b0;
+        req_addr <= '0;
+        req_wdata <= '0;
+
+        issued <= 1'b0;
+
+        // cu_valid <= 1'b0;
+        // cu_data <= '0;
+        // cu_set <= '0;
+        // cu_way <= LEFT;
+        // cu_word_sel <= 1'b0;
+        // cu_tag <= '0;
     end
     else
     begin
         state <= state_nxt;
         setIdx <= setIdx_nxt;
         way <= way_nxt;
+        issued <= issued_nxt;
 
         //hitCnt <= hitCnt_nxt;
         mru <= mru_nxt;
 
-        active_prev <= active;
         jrf <= jrf_nxt;
+
+        req_valid <= req_valid_nxt;
+        req_wen <= req_wen_nxt;
+        req_addr <= req_addr_nxt;
+        req_wdata <= req_wdata_nxt;
+        
+        // cu_valid <= cu_valid_nxt;
+        // cu_data <= cu_data_nxt;
+        // cu_set <= cu_set_nxt;
+        // cu_way <= cu_way_nxt;
+        // cu_word_sel <= cu_word_sel_nxt;
+        // cu_tag <= cu_tag_nxt;
 
         if(hit_occur)
         begin
@@ -412,12 +668,48 @@ begin
         end
 
         //refill on acceptance
-        if(state == RF_0 && !cif.dwait)
+        // if(cu_valid)
+        // begin
+        //     frames[cu_set][cu_way].data[cu_word_sel] <= cu_data;
+
+        //     if(cu_word_sel)
+        //     begin
+        //         frames[cu_set][cu_way].tag <= cu_tag;
+        //         frames[cu_set][cu_way].valid <= 1'b1;
+
+        //         if(m_write && cu_way == m_way && cu_set == m_setIdx)
+        //         begin
+        //             frames[cu_set][cu_way].data[m_off] <= m_wdata;
+        //             frames[cu_set][cu_way].dirty <= 1'b1;
+        //         end
+        //         else
+        //         begin
+        //             frames[cu_set][cu_way].dirty <= 1'b0;
+        //         end
+        //     end
+        // end
+        // if(cu_valid) begin
+        //     if(state == RF_0 || state == RF_1) begin
+        //         frames[cu_set][cu_way].data[state == RF_0 ? 0 : 1] <= cu_data;
+                
+        //         if(state == RF_1) begin
+        //             frames[cu_set][cu_way].tag <= cu_tag;
+        //             frames[cu_set][cu_way].valid <= 1'b1;
+        //             if(m_write && cu_way == m_way && cu_set == m_setIdx) begin
+        //                 frames[cu_set][cu_way].data[m_off] <= m_wdata;
+        //                 frames[cu_set][cu_way].dirty <= 1'b1;
+        //             end else begin
+        //                 frames[cu_set][cu_way].dirty <= 1'b0;
+        //             end
+        //         end
+        //     end
+        // end
+        if(state == RF_0 && !cif.dwait && issued)
         begin
             frames[m_setIdx][m_way].data[0] <= cif.dload;
         end
 
-        if(state == RF_1 && !cif.dwait)
+        if(state == RF_1 && !cif.dwait && issued)
         begin
             frames[m_setIdx][m_way].data[1] <= cif.dload;
 

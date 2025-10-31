@@ -1,5 +1,5 @@
 # Auto-generated file list for top-level: system
-# Generated on: Wed Oct  8 20:50:06 2025
+# Generated on: Fri Oct 31 11:00:08 2025
 
 source/forwarding_unit.sv
 source/hazard_unit.sv
@@ -13,6 +13,8 @@ source/id_ex.sv
 source/ex_mem.sv
 source/mem_wb.sv
 source/datapath.sv
+source/icache.sv
+source/dcache.sv
 source/caches.sv
 source/memory_control.sv
 source/pipeline.sv

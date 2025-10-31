@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Oct 31 11:00:14 2025
+# Process ID: 3603483
+# Current directory: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team
+# Command line: vivado -mode batch -source /home/ecegrid/a/ece437l/tools/vivado_extra/bitstream_project_gen.tcl -log build/bitstream_project_gen.log -journal build/bitstream_project_gen.jou -tclargs system 8 timing 5.000
+# Log file: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/bitstream_project_gen.log
+# Journal file: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/bitstream_project_gen.jou
+# Running On: ececomp4.ecn.purdue.edu, OS: Linux, CPU Frequency: 2595.284 MHz, CPU Physical cores: 32, Host memory: 539936 MB
+#-----------------------------------------------------------
+source /home/ecegrid/a/ece437l/tools/vivado_extra/bitstream_project_gen.tcl

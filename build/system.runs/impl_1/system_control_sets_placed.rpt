@@ -1,0 +1,169 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+| Date         : Fri Oct 31 11:02:26 2025
+| Host         : ececomp4.ecn.purdue.edu running 64-bit Oracle Linux Server release 8.10
+| Command      : report_control_sets -verbose -file system_control_sets_placed.rpt
+| Design       : system
+| Device       : xc7s50
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    91 |
+|    Minimum number of control sets                        |    91 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   207 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    91 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    88 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |             120 |           76 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |            4113 |         2005 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+----------------------------------------------------+--------------------+------------------+----------------+--------------+
+|  Clock Signal  |                    Enable Signal                   |  Set/Reset Signal  | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+----------------------------------------------------+--------------------+------------------+----------------+--------------+
+|  CLK_IBUF_BUFG |                                                    | CPU/CM/DCACHE/nRST |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | RAM/count[3]_i_1_n_0                               | CPU/CM/DCACHE/nRST |                1 |              4 |         4.00 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/FSM_sequential_state[3]_i_1_n_0      | CPU/CM/DCACHE/nRST |                3 |              4 |         1.33 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_3[0]            | CPU/CM/DCACHE/nRST |               27 |             32 |         1.19 |
+|  CPUCLK_BUFG   | CPU/pcif\\.PCEN                                    | CPU/CM/DCACHE/nRST |               11 |             32 |         2.91 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_29[0]           | CPU/CM/DCACHE/nRST |               19 |             32 |         1.68 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_28[0]           | CPU/CM/DCACHE/nRST |               26 |             32 |         1.23 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_27[0]           | CPU/CM/DCACHE/nRST |               27 |             32 |         1.19 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_26[0]           | CPU/CM/DCACHE/nRST |               19 |             32 |         1.68 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_25[0]           | CPU/CM/DCACHE/nRST |               19 |             32 |         1.68 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_24[0]           | CPU/CM/DCACHE/nRST |               12 |             32 |         2.67 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_23[0]           | CPU/CM/DCACHE/nRST |                9 |             32 |         3.56 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_22[0]           | CPU/CM/DCACHE/nRST |                9 |             32 |         3.56 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_21[0]           | CPU/CM/DCACHE/nRST |                8 |             32 |         4.00 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_20[0]           | CPU/CM/DCACHE/nRST |               20 |             32 |         1.60 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_2[0]            | CPU/CM/DCACHE/nRST |               21 |             32 |         1.52 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_19[0]           | CPU/CM/DCACHE/nRST |               10 |             32 |         3.20 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_18[0]           | CPU/CM/DCACHE/nRST |               11 |             32 |         2.91 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_17[0]           | CPU/CM/DCACHE/nRST |               12 |             32 |         2.67 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_16[0]           | CPU/CM/DCACHE/nRST |               17 |             32 |         1.88 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_15[0]           | CPU/CM/DCACHE/nRST |               16 |             32 |         2.00 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_14[0]           | CPU/CM/DCACHE/nRST |               11 |             32 |         2.91 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_13[0]           | CPU/CM/DCACHE/nRST |               10 |             32 |         3.20 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_12[0]           | CPU/CM/DCACHE/nRST |                9 |             32 |         3.56 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_11[0]           | CPU/CM/DCACHE/nRST |               18 |             32 |         1.78 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_10[0]           | CPU/CM/DCACHE/nRST |               13 |             32 |         2.46 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_0[0]            | CPU/CM/DCACHE/nRST |               19 |             32 |         1.68 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_1[0]            | CPU/CM/DCACHE/nRST |               22 |             32 |         1.45 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_4[0]            | CPU/CM/DCACHE/nRST |               25 |             32 |         1.28 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_9[0]            | CPU/CM/DCACHE/nRST |                8 |             32 |         4.00 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[4][1][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               20 |             32 |         1.60 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[5][1][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               21 |             32 |         1.52 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[3][1][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               25 |             32 |         1.28 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[4][0][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               18 |             32 |         1.78 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[2][0][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               20 |             32 |         1.60 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[5][0][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               21 |             32 |         1.52 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[2][1][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               24 |             32 |         1.33 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[7][0][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               24 |             32 |         1.33 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[7][1][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               21 |             32 |         1.52 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[6][0][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               23 |             32 |         1.39 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[6][1][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               23 |             32 |         1.39 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[0][0][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               15 |             32 |         2.13 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[3][0][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               18 |             32 |         1.78 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[1][0][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               18 |             32 |         1.78 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[1][1][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               19 |             32 |         1.68 |
+|  CPUCLK_BUFG   | CPU/CM/DCACHE/frames[0][1][data][0][31]_i_1_n_0    | CPU/CM/DCACHE/nRST |               23 |             32 |         1.39 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.dmemWEN_reg_3                  | CPU/CM/DCACHE/nRST |               11 |             32 |         2.91 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/hit_occur                            | CPU/CM/DCACHE/nRST |                8 |             32 |         4.00 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_8[0]            | CPU/CM/DCACHE/nRST |                9 |             32 |         3.56 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_7[0]            | CPU/CM/DCACHE/nRST |               20 |             32 |         1.60 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_6[0]            | CPU/CM/DCACHE/nRST |               19 |             32 |         1.68 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_5[0]            | CPU/CM/DCACHE/nRST |               20 |             32 |         1.60 |
+| ~CPUCLK_BUFG   | CPU/DP/MWBREG/mwb\\.RegWEN_out_reg_30[0]           | CPU/CM/DCACHE/nRST |               21 |             32 |         1.52 |
+|  CLK_IBUF_BUFG | RAM/addr[31]_i_1_n_0                               | CPU/CM/DCACHE/nRST |               10 |             34 |         3.40 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[4]_rep__0_2[0] | CPU/CM/DCACHE/nRST |               31 |             58 |         1.87 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[5]_9[0]        | CPU/CM/DCACHE/nRST |               31 |             58 |         1.87 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[5]_8[0]        | CPU/CM/DCACHE/nRST |               32 |             58 |         1.81 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[5]_7[0]        | CPU/CM/DCACHE/nRST |               34 |             58 |         1.71 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[5]_6[0]        | CPU/CM/DCACHE/nRST |               29 |             58 |         2.00 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[5]_5[0]        | CPU/CM/DCACHE/nRST |               29 |             58 |         2.00 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[5]_12[0]       | CPU/CM/DCACHE/nRST |               34 |             58 |         1.71 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[5]_11[0]       | CPU/CM/DCACHE/nRST |               31 |             58 |         1.87 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[5]_10[0]       | CPU/CM/DCACHE/nRST |               35 |             58 |         1.66 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[4]_rep__0_1[0] | CPU/CM/DCACHE/nRST |               34 |             58 |         1.71 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[3]_rep__0_6[0] | CPU/CM/DCACHE/nRST |               38 |             58 |         1.53 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[3]_rep__0_5[0] | CPU/CM/DCACHE/nRST |               37 |             58 |         1.57 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[3]_rep__0_4[0] | CPU/CM/DCACHE/nRST |               35 |             58 |         1.66 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[3]_rep__0_3[0] | CPU/CM/DCACHE/nRST |               36 |             58 |         1.61 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[3]_rep__0_2[0] | CPU/CM/DCACHE/nRST |               31 |             58 |         1.87 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/exm\\.alu_out_out_reg[3]_rep__0_1[0] | CPU/CM/DCACHE/nRST |               33 |             58 |         1.76 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[5]_3[0]                    | CPU/CM/DCACHE/nRST |               22 |             59 |         2.68 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[5]_2[0]                    | CPU/CM/DCACHE/nRST |               19 |             59 |         3.11 |
+|  CPUCLK_BUFG   | CPU/DP/PC/E[0]                                     | CPU/CM/DCACHE/nRST |               25 |             59 |         2.36 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[4]_2[0]                    | CPU/CM/DCACHE/nRST |               30 |             59 |         1.97 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[4]_0[0]                    | CPU/CM/DCACHE/nRST |               19 |             59 |         3.11 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[4]_1[0]                    | CPU/CM/DCACHE/nRST |               19 |             59 |         3.11 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[4]_3[0]                    | CPU/CM/DCACHE/nRST |               17 |             59 |         3.47 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[4]_4[0]                    | CPU/CM/DCACHE/nRST |               27 |             59 |         2.19 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[4]_5[0]                    | CPU/CM/DCACHE/nRST |               22 |             59 |         2.68 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[4]_6[0]                    | CPU/CM/DCACHE/nRST |               22 |             59 |         2.68 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[4]_7[0]                    | CPU/CM/DCACHE/nRST |               24 |             59 |         2.46 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[5]_0[0]                    | CPU/CM/DCACHE/nRST |               16 |             59 |         3.69 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[5]_1[0]                    | CPU/CM/DCACHE/nRST |               19 |             59 |         3.11 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[5]_6[0]                    | CPU/CM/DCACHE/nRST |               18 |             59 |         3.28 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[5]_5[0]                    | CPU/CM/DCACHE/nRST |               18 |             59 |         3.28 |
+|  CPUCLK_BUFG   | CPU/DP/PC/pcif\\.PC_reg[5]_4[0]                    | CPU/CM/DCACHE/nRST |               19 |             59 |         3.11 |
+|  CPUCLK_BUFG   | CPU/DP/DXREG/E[0]                                  | CPU/CM/DCACHE/nRST |               28 |             66 |         2.36 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/m_setIdx0                            | CPU/CM/DCACHE/nRST |               50 |             80 |         1.60 |
+|  CPUCLK_BUFG   |                                                    | CPU/CM/DCACHE/nRST |               75 |            119 |         1.59 |
+|  CPUCLK_BUFG   | CPU/DP/DXREG/dx\\.rs1_out[4]_i_1_n_0               | CPU/CM/DCACHE/nRST |               61 |            166 |         2.72 |
+|  CPUCLK_BUFG   | CPU/DP/EXMREG/E[0]                                 | CPU/CM/DCACHE/nRST |              117 |            287 |         2.45 |
++----------------+----------------------------------------------------+--------------------+------------------+----------------+--------------+
+
+
