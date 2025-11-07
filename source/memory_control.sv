@@ -58,7 +58,7 @@ module memory_control (
 
 
   // Bus Controller
-  typedef enum { IDLE, SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2, CTOC1, CTOC2, DCTOC1, DCTC2, IFETCH, WRITE1, WRITE2 } bus_states;
+  typedef enum { IDLE, SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2, CTOC1, CTOC2, DCTOC1, DCTOC2, IFETCH, WRITE1, WRITE2 } bus_states;
   bus_states curr_state, next_state;
   logic next_lru, lru;
 
@@ -82,34 +82,36 @@ module memory_control (
   // if either [0, 1] or [1, 0] -> [1, 1] lru stays the same
 
   always_comb begin
+    next_state = curr_state;
+    next_lru   = lru;
     case(curr_state) 
       IDLE: begin
-        if (dWEN[lru]) next_state = SNOOP;
-        else if (dWEN[~lru])begin
+        if (ccif.dWEN[lru]) next_state = SNOOP;
+        else if (ccif.dWEN[~lru])begin
           next_state = SNOOP; 
         end
-        else if (dREN[lru]) next_state = WRITE1;
-        else if (dREN[~lru]) begin
+        else if (ccif.dREN[lru]) next_state = WRITE1;
+        else if (ccif.dREN[~lru]) begin
           next_state = WRITE1;
         end
-        else if (iREN[lru]) next_state = IFETCH;
-        else if (iREN[~lru]) begin
+        else if (ccif.iREN[lru]) next_state = IFETCH;
+        else if (ccif.iREN[~lru]) begin
           next_state = IFETCH;
         end
         else next_state = IDLE;
       end
       SNOOP: next_state = CHECK;
       CHECK: begin
-        if (cctrans && ccwrite) next_state = CTOC1;
-        else if (cctrans && ~ccwrite) next_state = DCTOC1;
-        else if (~cctrans) next_state = MEM_ACCESS1;
+        if (ccif.cctrans[~lru] && ccif.ccwrite[~lru]) next_state = CTOC1;
+        else if (ccif.cctrans[~lru] && ~ccif.ccwrite[~lru]) next_state = DCTOC1;
+        else if (~ccif.cctrans[~lru]) next_state = MEM_ACCESS1;
       end
       MEM_ACCESS1: begin
-        if (ramstate == ACCESS) next_state = MEM_ACCESS2;
+        if (ccif.ramstate == ACCESS) next_state = MEM_ACCESS2;
         else next_state = MEM_ACCESS1;
       end
       MEM_ACCESS2: begin
-        if (ramstate == ACCESS) begin
+        if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
         end
@@ -117,36 +119,36 @@ module memory_control (
       end
       CTOC1: next_state = CTOC2;
       CTOC2: begin
-        if (ramstate == ACCESS) begin
+        if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
         end
         else next_state = CTOC2;
       end
       DCTOC1: begin
-        if (ramstate == ACCESS) next_state = DCTOC2;
+        if (ccif.ramstate == ACCESS) next_state = DCTOC2;
         else next_state = DCTOC1;
       end
       DCTOC2: begin
-        if (ramstate == ACCESS) begin
+        if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
         end
         else next_state = DCTOC2;
       end
       IFETCH: begin
-        if (ramstate == ACCESS) begin
+        if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
         end
         else next_state = IFETCH;
       end
       WRITE1: begin
-        if (ramstate == ACCESS) next_state = WRITE2;
+        if (ccif.ramstate == ACCESS) next_state = WRITE2;
         else next_state = WRITE1;
       end
       WRITE2: begin
-        if (ramstate == ACCESS) begin
+        if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
         end
