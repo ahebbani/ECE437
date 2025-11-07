@@ -61,7 +61,6 @@ module memory_control (
   typedef enum { IDLE, SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2, CTOC1, CTOC2, DCTOC1, DCTC2, IFETCH, WRITE1, WRITE2 } bus_states;
   bus_states curr_state, next_state;
   logic next_lru, lru;
-  logic requesting_core;
 
   // if both cores are requesting dWEN, then prioritize the older one (lru)
   // requesting_core:
@@ -82,31 +81,20 @@ module memory_control (
   // if [1, 0] -> lru = 0
   // if either [0, 1] or [1, 0] -> [1, 1] lru stays the same
 
-  logic [1:0] requesting_core;
-  always_comb begin
-    if (dREN[1] || dWEN[1] || iREN[1]) next_requesting_core[1] = 1;
-    if (dREN[0] || dWEN[0] || iREN[0]) next_requesting_core[0] = 1;
-    if (requesting_core[0] && requesting_core[1]) next_lru = lru;
-    else next_lru = requesting_core[1];
-  end
-
   always_comb begin
     case(curr_state) 
       IDLE: begin
         if (dWEN[lru]) next_state = SNOOP;
         else if (dWEN[~lru])begin
           next_state = SNOOP; 
-          next_lru = ~lru;
         end
         else if (dREN[lru]) next_state = WRITE1;
         else if (dREN[~lru]) begin
           next_state = WRITE1;
-          next_lru = ~lru;
         end
         else if (iREN[lru]) next_state = IFETCH;
         else if (iREN[~lru]) begin
           next_state = IFETCH;
-          next_lru = ~lru;
         end
         else next_state = IDLE;
       end
@@ -123,7 +111,7 @@ module memory_control (
       MEM_ACCESS2: begin
         if (ramstate == ACCESS) begin
           next_state = IDLE;
-          // next_lru = ~lru;
+          next_lru = ~lru;
         end
         else next_state = MEM_ACCESS2;
       end
@@ -131,7 +119,7 @@ module memory_control (
       CTOC2: begin
         if (ramstate == ACCESS) begin
           next_state = IDLE;
-          // next_lru = ~lru;
+          next_lru = ~lru;
         end
         else next_state = CTOC2;
       end
@@ -142,14 +130,14 @@ module memory_control (
       DCTOC2: begin
         if (ramstate == ACCESS) begin
           next_state = IDLE;
-          // next_lru = ~lru;
+          next_lru = ~lru;
         end
         else next_state = DCTOC2;
       end
       IFETCH: begin
         if (ramstate == ACCESS) begin
           next_state = IDLE;
-          // next_lru = ~lru;
+          next_lru = ~lru;
         end
         else next_state = IFETCH;
       end
@@ -160,7 +148,7 @@ module memory_control (
       WRITE2: begin
         if (ramstate == ACCESS) begin
           next_state = IDLE;
-          // next_lru = ~lru;
+          next_lru = ~lru;
         end
         else next_state = WRITE2;
       end
@@ -168,55 +156,93 @@ module memory_control (
   end
 
   always_comb begin
-    case (curr_state)
+    ccif.ccsnoopaddr = 0;
+    ccif.ccwait      = 0;
+    ccif.ccinv       = 0;
+    ccif.dload       = 0;
+    ccif.iload       = 0;
+    ccif.iwait       = 0;
+    ccif.dwait       = 0;
+    ccif.ramaddr     = 0;
+    ccif.ramstore    = 0;
+    ccif.ramREN      = 0;
+    ccif.ramWEN      = 0;
+
+    unique case (curr_state)
       SNOOP: begin
-        ccsnoopaddr[~lru] = daddr[lru];
-        ccwait[~lru] = 1;
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccwait[~lru]      = 1'b1;
       end
       CHECK: begin
-        ccinv[lru] = ccwrite[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
+        ccif.ccwait[~lru] = 1'b1;
       end
       MEM_ACCESS1: begin
-        dload[lru] = ramload;
-        ramaddr = daddr[~lru];
+        ccif.ramREN            = 1'b1;
+        ccif.ramaddr           = ccif.daddr[lru];
+        if (ccif.ramstate == ACCESS) begin
+          ccif.dload[lru]      = ccif.ramload;
+          ccif.dwait[lru]      = 1'b0;
+        end
       end
       MEM_ACCESS2: begin
-        dload[lru] = ramload;
-        ramaddr = daddr[lru];
+        ccif.ramREN            = 1'b1;
+        ccif.ramaddr           = ccif.daddr[lru];
+        if (ccif.ramstate == ACCESS) begin
+          ccif.dload[lru]      = ccif.ramload;
+          ccif.dwait[lru]      = 1'b0;
+        end
       end
       CTOC1: begin
-        dload[lru] = dstore[~lru];
+        ccif.dload[lru]        = ccif.dstore[~lru];
+        ccif.dwait[lru]        = 1'b0;
+        ccif.ccwait[~lru]      = 1'b1;
       end
       CTOC2: begin
-        dload[lru] = dstore[~lru];
+        ccif.dload[lru]        = ccif.dstore[~lru];
+        ccif.dwait[lru]        = 1'b0;
+        ccif.ccwait[~lru]      = 1'b1;
       end
       DCTOC1: begin
-        dload[lru] = dstore[~lru];
-        ramaddr = daddr[lru];
-        ramstore = dstore[lru];
+        ccif.ramWEN            = 1'b1;
+        ccif.ramaddr           = ccif.daddr[lru];
+        ccif.ramstore          = ccif.dstore[~lru];
       end
       DCTOC2: begin
-        dload[lru] = dstore[~lru];
-        ramaddr = daddr[lru];
-        ramstore = dstore[lru];
+        ccif.ramWEN            = 1'b1;
+        ccif.ramaddr           = ccif.daddr[lru];
+        ccif.ramstore          = ccif.dstore[~lru];
       end
       IFETCH: begin
-        iload[lru] = ramload;
-        ramaddr= iaddr[lru]
+        ccif.ramREN            = 1'b1;
+        ccif.ramaddr           = ccif.iaddr[lru];
+        if (ccif.ramstate == ACCESS) begin
+          ccif.iload[lru]      = ccif.ramload;
+          ccif.iwait[lru]      = 1'b0;
+        end
       end
       WRITE1: begin
-        ramaddr = daddr[lru];
-        ramstore = dstore[lru];
+        ccif.ramWEN            = 1'b1;
+        ccif.ramaddr           = ccif.daddr[lru];
+        ccif.ramstore          = ccif.dstore[lru];
+        if (ccif.ramstate == ACCESS) begin
+          ccif.dwait[lru]      = 1'b0;
+        end
       end
       WRITE2: begin
-        ramaddr = daddr[lru];
-        ramstore = dstore[lru];
+        ccif.ramWEN            = 1'b1;
+        ccif.ramaddr           = ccif.daddr[lru];
+        ccif.ramstore          = ccif.dstore[lru];
+        if (ccif.ramstate == ACCESS) begin
+          ccif.dwait[lru]      = 1'b0;
+        end
       end
+      default: ;
     endcase
   end
 
-  always_ff @(posedge clk, negedge nrst) begin
-    if (~nrst) begin
+  always_ff @(posedge CLK, negedge nRST) begin
+    if (~nRST) begin
       curr_state <= IDLE;
       lru <= 0;
     end

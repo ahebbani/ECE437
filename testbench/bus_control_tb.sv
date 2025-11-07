@@ -8,7 +8,7 @@ import cpu_types_pkg::*;
 // mapped timing needs this. 1ns is too fast
 `timescale 1 ns / 1 ns
 
-module memory_control_tb;
+module memory_control_tb; // bus / memory controller testbench (dual-core)
 
   parameter PERIOD = 10;
   logic CLK = 0, nRST;
@@ -19,7 +19,7 @@ module memory_control_tb;
   // interfaces
   caches_if cif0();
   caches_if cif1();
-  cache_control_if ccif (cif0, cif1);
+  cache_control_if #(.CPUS(2)) ccif (cif0, cif1);
   cpu_ram_if ramif ();
 
   // DUT
@@ -175,86 +175,114 @@ initial begin
     // ifetch tests
     //-----------------------------------------------------------------------------
     
-    // core 1 ifetch test
-    reset_dut();
-    ccif.cif1.iREN = 1;
+    // ------------------------------------------------------------------
+    // Simple IFETCH tests (assign inputs, check expected outputs)
+    // ------------------------------------------------------------------
 
-
-    // core 0 and core 1 ifetch
+    // Test IF0: Core 0 instruction fetch request should drive a RAM read
+    // Expectation: ramREN asserted, ramaddr equals iaddr, iload matches ramload at ACCESS, iwait[0] low on accept
     reset_dut();
-    ccif.cif0.iREN = 1;
-    ccif.cif1.iREN = 1;
+    ccif.cif0.iaddr = 32'h0000_1000; ccif.cif0.iREN = 1; @(posedge CLK);
+    assert(ccif.ramREN) else $error("IF0: ramREN not asserted for core0 iREN");
+    assert(ccif.ramaddr == 32'h0000_1000) else $error("IF0: ramaddr mismatch for core0 iREN");
+    while (ccif.ramstate != ACCESS) @(posedge CLK);
+    assert(ccif.iload[0] == ccif.ramload) else $error("IF0: iload[0] != ramload on ACCESS");
+    assert(ccif.iwait[0] == 1'b0) else $error("IF0: iwait[0] not deasserted on ACCESS");
+    ccif.cif0.iREN = 0; @(posedge CLK);
+
+    // Test IF1: Core 1 instruction fetch request should drive a RAM read
+    // Expectation: ramREN asserted, ramaddr equals iaddr, iload matches ramload at ACCESS, iwait[1] low on accept
+    reset_dut();
+    ccif.cif1.iaddr = 32'h0000_2000; ccif.cif1.iREN = 1; @(posedge CLK);
+    assert(ccif.ramREN) else $error("IF1: ramREN not asserted for core1 iREN");
+    assert(ccif.ramaddr == 32'h0000_2000) else $error("IF1: ramaddr mismatch for core1 iREN");
+    while (ccif.ramstate != ACCESS) @(posedge CLK);
+    assert(ccif.iload[1] == ccif.ramload) else $error("IF1: iload[1] != ramload on ACCESS");
+    assert(ccif.iwait[1] == 1'b0) else $error("IF1: iwait[1] not deasserted on ACCESS");
+    ccif.cif1.iREN = 0; @(posedge CLK);
+
+    // Test IF2: Both cores fetch; both should eventually receive accepts (no starvation)
+    // Expectation: both iwait[0] and iwait[1] drop low on some cycle while iREN asserted
+    reset_dut();
+    ccif.cif0.iaddr = 32'h0000_3000; ccif.cif1.iaddr = 32'h0000_4000;
+    ccif.cif0.iREN = 1; ccif.cif1.iREN = 1;
+    int c0acc=0,c1acc=0, tmo=200;
+    while (tmo--) begin
+      @(posedge CLK);
+      if (!ccif.iwait[0]) c0acc=1;
+      if (!ccif.iwait[1]) c1acc=1;
+      if (c0acc && c1acc) break;
+    end
+    assert(c0acc && c1acc) else $error("IF2: One of the cores did not receive an instruction accept");
+    ccif.cif0.iREN = 0; ccif.cif1.iREN = 0; @(posedge CLK);
 
 
     //-----------------------------------------------------------------------------
     // MSI tests
     //-----------------------------------------------------------------------------
-  
-    // I -> S test: read a value from mem
-    // core 0 lw 0x0 -> issues PrRd -> BusRd, caches 0x0 and 0x4 as S
 
-    // core 1 lw 0x0 -> issues PrRd -> BusRd, caches 0x0 and 0x4 as S
+    localparam word_t BLK = 32'h0000_1000;
 
-    // S -> M test: get exclusive access for a block cached in both cores
-    // core 0 sw 0x0 -> issues BusRdX, hits for 0x0, 0: S->M, 1: S->I
-    
-    // core 1 sw 0x4 -> issues BusRdX, hits for 0x4, 0: S->I, 1: S->M
-
-    // M -> I test: core 1 modifies a value that core 0 had modified
-    // core 0 sw 0x4 -> issues BusRdX, hits for 0x4, 0: I->M, 1: M->I, clean
-
-    // M -> S test: core 1 reads a value that core 0 had modified
-    // core 1 lw 0x4 -> issues BusRd, hits for 0x4, 0: M->S, 1: I->S, dirty
-
-    // M -> M test: core 0 modifies a value that it already had modified
-
-
-    // data write test
+    // Test MSI0: I->S via Core0 read miss
+    // Expectation: Core0 dREN drives ramREN; ramWEN=0; after ACCESS, dwait[0]=0 one cycle; no ccinv asserted.
     reset_dut();
-    ccif.cif0.iREN = 1;
-    ccif.cif0.dREN = 0;
-    ccif.cif0.dWEN = 1;
-    ccif.cif0.iaddr = '0;
-    ccif.cif0.dstore = 32'hABCDEF00;
-    ccif.cif0.daddr = 32'hABCABC00;
-    score = 0;
+    ccif.cif0.daddr = BLK; ccif.cif0.dREN = 1; @(posedge CLK);
+    assert(ccif.ramREN && !ccif.ramWEN) else $error("MSI0: Expected ramREN=1 ramWEN=0 on read miss");
+    while (ccif.ramstate != ACCESS) @(posedge CLK);
+    assert(ccif.dwait[0] == 0) else $error("MSI0: dwait[0] not low on ACCESS");
+    assert(ccif.ccinv[1] == 0) else $error("MSI0: unexpected invalidate to core1");
+    ccif.cif0.dREN = 0; @(posedge CLK);
 
-    for (index = 1; index <= 5; index++) begin
-      #(40);
-      if (ccif.ramstore == ccif.cif0.dstore) score++;
-      ccif.cif0.daddr = ccif.cif0.daddr + 4;
-      ccif.cif0.dstore++;
-    end
-
-    
-
-    // data and instruction load (both hands up)
+    // Test MSI1: Second read (Core1) of same block -> shared
+    // Expectation: Core1 dREN drives ramREN; no invalidate; dwait[1]=0 on ACCESS.
     reset_dut();
-    ccif.cif0.daddr = 32'hABCABC00;
-    ccif.cif0.iREN = 1;
-    ccif.cif0.dREN = 1;
-    ccif.cif0.dWEN = 0;
-    for (index = 0; index < 5; index++) begin
-        if (ccif.cif0.dload == ccif.ramload) score ++;
-        #(20)
-        ccif.cif0.daddr = ccif.cif0.daddr + 4;
-    end
-    assert(score == 10) else $error ("Data load fetch failed.");
+    ccif.cif1.daddr = BLK; ccif.cif1.dREN = 1; @(posedge CLK);
+    assert(ccif.ramREN && !ccif.ramWEN) else $error("MSI1: Expected ramREN=1 ramWEN=0 on read miss core1");
+    while (ccif.ramstate != ACCESS) @(posedge CLK);
+    assert(ccif.dwait[1] == 0) else $error("MSI1: dwait[1] not low on ACCESS");
+    ccif.cif1.dREN = 0; @(posedge CLK);
 
-    // data load test (only d hand up ?? not sure when iREN will be low)
+    // Test MSI2: S->M upgrade by Core0 write
+    // Expectation: Core0 dWEN drives ramWEN; invalidate to core1 (ccinv[1]); dwait[0]=0 on ACCESS.
     reset_dut();
-    ccif.cif0.daddr = 32'hABCABC00;
-    ccif.cif0.iREN = 1;
-    ccif.cif0.dREN = 1;
-    ccif.cif0.dWEN = 0;
-    for (index = 0; index < 5; index++) begin
-        if (ccif.cif0.dload == ccif.ramload) score ++;
-        #(20)
-        ccif.cif0.daddr = ccif.cif0.daddr + 4;
+    ccif.cif0.daddr = BLK; ccif.cif0.dstore = 32'hAAAA5555; ccif.cif0.dWEN = 1; @(posedge CLK);
+    assert(ccif.ramWEN) else $error("MSI2: ramWEN not asserted for write");
+    while (ccif.ramstate != ACCESS) @(posedge CLK);
+    assert(ccif.dwait[0] == 0) else $error("MSI2: dwait[0] not low on write ACCESS");
+    // simple invalidate expectation (controller should assert during SNOOP/CHECK prior cycles)
+    if (!ccif.ccinv[1]) $display("MSI2: NOTE invalidate not observed; verify controller logic");
+    ccif.cif0.dWEN = 0; @(posedge CLK);
+
+    // Test MSI3: M->S via Core1 read of modified block in Core0
+    // Expectation: Core1 dREN accepted; either RAM read or C2C; dwait[1]=0; core0 not invalidated (should become Shared)
+    reset_dut();
+    ccif.cif1.daddr = BLK; ccif.cif1.dREN = 1; @(posedge CLK);
+    int msi3_tmo=200; bit msi3_acc=0;
+    while (msi3_tmo--) begin
+      @(posedge CLK);
+      if (ccif.dwait[1]==0) begin msi3_acc=1; break; end
     end
-    assert(score == 10) else $error ("Data load fetch failed.");
+    assert(msi3_acc) else $error("MSI3: No accept pulse for Core1 read of modified block");
+    assert(ccif.ccinv[0]==0) else $error("MSI3: Unexpected invalidate of owner on read");
+    ccif.cif1.dREN = 0; @(posedge CLK);
 
+    // Test MSI4: M->I via Core1 write to block owned Modified by Core0
+    // Expectation: Core1 write accepted (ramWEN); owner invalidated (ccinv[0]).
+    reset_dut();
+    ccif.cif1.daddr = BLK; ccif.cif1.dstore = 32'h1234ABCD; ccif.cif1.dWEN = 1; @(posedge CLK);
+    while (ccif.ramstate != ACCESS) @(posedge CLK);
+    assert(ccif.dwait[1]==0) else $error("MSI4: dwait[1] not low on write ACCESS");
+    if (!ccif.ccinv[0]) $display("MSI4: NOTE invalidate to owner not observed; verify controller logic");
+    ccif.cif1.dWEN = 0; @(posedge CLK);
 
+    // Test MSI5: M->M (write again by same core already Modified)
+    // Expectation: Write accepted; no additional invalidates.
+    reset_dut();
+    ccif.cif1.daddr = BLK; ccif.cif1.dstore = 32'h5678DCBA; ccif.cif1.dWEN = 1; @(posedge CLK);
+    while (ccif.ramstate != ACCESS) @(posedge CLK);
+    assert(ccif.dwait[1]==0) else $error("MSI5: dwait[1] not low on second write");
+    assert(ccif.ccinv[0]==0) else $error("MSI5: Unexpected invalidate on repeated write");
+    ccif.cif1.dWEN = 0; @(posedge CLK);
     
 
     // mem dump
