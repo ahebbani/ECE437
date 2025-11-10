@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Oct 31 13:16:01 2025
+# Process ID: 1258151
+# Current directory: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team
+# Command line: vivado -mode batch -source /home/ecegrid/a/ece437l/tools/vivado_extra/dump_memory.tcl -log build/dump_memory.log -journal build/dump_memory.jou
+# Log file: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/dump_memory.log
+# Journal file: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/dump_memory.jou
+# Running On: cparch16.ecn.purdue.edu, OS: Linux, CPU Frequency: 3400.000 MHz, CPU Physical cores: 4, Host memory: 16363 MB
+#-----------------------------------------------------------
+source /home/ecegrid/a/ece437l/tools/vivado_extra/dump_memory.tcl

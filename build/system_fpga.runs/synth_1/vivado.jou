@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Oct 31 13:08:48 2025
+# Process ID: 1434209
+# Current directory: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/system_fpga.runs/synth_1
+# Command line: vivado -log system_fpga.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_fpga.tcl
+# Log file: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/system_fpga.runs/synth_1/system_fpga.vds
+# Journal file: /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/system_fpga.runs/synth_1/vivado.jou
+# Running On: ececomp5.ecn.purdue.edu, OS: Linux, CPU Frequency: 2595.065 MHz, CPU Physical cores: 32, Host memory: 539929 MB
+#-----------------------------------------------------------
+source system_fpga.tcl -notrace

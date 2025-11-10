@@ -169,7 +169,7 @@ initial begin
         #(20);
         if (ccif.ramload == ccif.cif0.iload) score++;
     end
-    assert(score == 10) else $error ("Instruction fetch failed.");
+    assert(score == 10) else $error ("Instruction fetch failed.");    //why 10 not 5
 
     //-----------------------------------------------------------------------------
     // ifetch tests
