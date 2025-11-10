@@ -20,8 +20,44 @@ add wave -noupdate /memory_control_tb/DUT/ccif/ramstate
 add wave -noupdate /memory_control_tb/DUT/ccif/ramaddr
 add wave -noupdate /memory_control_tb/DUT/ccif/ramstore
 add wave -noupdate /memory_control_tb/DUT/ccif/ramload
+add wave -noupdate -divider cif0
+add wave -noupdate /memory_control_tb/cif0/ccinv
+add wave -noupdate /memory_control_tb/cif0/ccsnoopaddr
+add wave -noupdate /memory_control_tb/cif0/cctrans
+add wave -noupdate /memory_control_tb/cif0/ccwait
+add wave -noupdate /memory_control_tb/cif0/ccwrite
+add wave -noupdate /memory_control_tb/cif0/daddr
+add wave -noupdate /memory_control_tb/cif0/dload
+add wave -noupdate /memory_control_tb/cif0/dREN
+add wave -noupdate /memory_control_tb/cif0/dstore
+add wave -noupdate /memory_control_tb/cif0/dwait
+add wave -noupdate /memory_control_tb/cif0/dWEN
+add wave -noupdate /memory_control_tb/cif0/iaddr
+add wave -noupdate /memory_control_tb/cif0/iload
+add wave -noupdate /memory_control_tb/cif0/iREN
+add wave -noupdate /memory_control_tb/cif0/iwait
+add wave -noupdate -divider cif1
+add wave -noupdate /memory_control_tb/cif1/ccinv
+add wave -noupdate /memory_control_tb/cif1/ccsnoopaddr
+add wave -noupdate /memory_control_tb/cif1/cctrans
+add wave -noupdate /memory_control_tb/cif1/ccwait
+add wave -noupdate /memory_control_tb/cif1/ccwrite
+add wave -noupdate /memory_control_tb/cif1/daddr
+add wave -noupdate /memory_control_tb/cif1/dload
+add wave -noupdate /memory_control_tb/cif1/dREN
+add wave -noupdate /memory_control_tb/cif1/dstore
+add wave -noupdate /memory_control_tb/cif1/dwait
+add wave -noupdate /memory_control_tb/cif1/dWEN
+add wave -noupdate /memory_control_tb/cif1/iaddr
+add wave -noupdate /memory_control_tb/cif1/iload
+add wave -noupdate /memory_control_tb/cif1/iREN
+add wave -noupdate /memory_control_tb/cif1/iwait
+add wave -noupdate /memory_control_tb/DUT/curr_state
+add wave -noupdate /memory_control_tb/DUT/lru
+add wave -noupdate /memory_control_tb/DUT/next_lru
+add wave -noupdate /memory_control_tb/DUT/next_state
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {19663 ps} 0}
+WaveRestoreCursors {{Cursor 1} {14372 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100

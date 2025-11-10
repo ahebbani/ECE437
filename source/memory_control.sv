@@ -86,13 +86,14 @@ module memory_control (
     next_lru   = lru;
     case(curr_state) 
       IDLE: begin
-        if (ccif.dWEN[lru]) next_state = SNOOP;
+        if (ccif.dWEN[lru]) next_state = WRITE1;
         else if (ccif.dWEN[~lru])begin
-          next_state = SNOOP; 
+          next_state = WRITE1; 
+          next_lru = ~lru;
         end
-        else if (ccif.dREN[lru]) next_state = WRITE1;
+        else if (ccif.dREN[lru]) next_state = SNOOP;
         else if (ccif.dREN[~lru]) begin
-          next_state = WRITE1;
+          next_state = SNOOP;
         end
         else if (ccif.iREN[lru]) next_state = IFETCH;
         else if (ccif.iREN[~lru]) begin
@@ -163,8 +164,6 @@ module memory_control (
     ccif.ccinv       = 0;
     ccif.dload       = 0;
     ccif.iload       = 0;
-    ccif.iwait       = 0;
-    ccif.dwait       = 0;
     ccif.ramaddr     = 0;
     ccif.ramstore    = 0;
     ccif.ramREN      = 0;
@@ -184,7 +183,6 @@ module memory_control (
         ccif.ramaddr           = ccif.daddr[lru];
         if (ccif.ramstate == ACCESS) begin
           ccif.dload[lru]      = ccif.ramload;
-          ccif.dwait[lru]      = 1'b0;
         end
       end
       MEM_ACCESS2: begin
@@ -192,17 +190,14 @@ module memory_control (
         ccif.ramaddr           = ccif.daddr[lru];
         if (ccif.ramstate == ACCESS) begin
           ccif.dload[lru]      = ccif.ramload;
-          ccif.dwait[lru]      = 1'b0;
         end
       end
       CTOC1: begin
         ccif.dload[lru]        = ccif.dstore[~lru];
-        ccif.dwait[lru]        = 1'b0;
         ccif.ccwait[~lru]      = 1'b1;
       end
       CTOC2: begin
         ccif.dload[lru]        = ccif.dstore[~lru];
-        ccif.dwait[lru]        = 1'b0;
         ccif.ccwait[~lru]      = 1'b1;
       end
       DCTOC1: begin
@@ -220,26 +215,18 @@ module memory_control (
         ccif.ramaddr           = ccif.iaddr[lru];
         if (ccif.ramstate == ACCESS) begin
           ccif.iload[lru]      = ccif.ramload;
-          ccif.iwait[lru]      = 1'b0;
         end
       end
       WRITE1: begin
         ccif.ramWEN            = 1'b1;
         ccif.ramaddr           = ccif.daddr[lru];
         ccif.ramstore          = ccif.dstore[lru];
-        if (ccif.ramstate == ACCESS) begin
-          ccif.dwait[lru]      = 1'b0;
-        end
       end
       WRITE2: begin
         ccif.ramWEN            = 1'b1;
         ccif.ramaddr           = ccif.daddr[lru];
         ccif.ramstore          = ccif.dstore[lru];
-        if (ccif.ramstate == ACCESS) begin
-          ccif.dwait[lru]      = 1'b0;
-        end
       end
-      default: ;
     endcase
   end
 

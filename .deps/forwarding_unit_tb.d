@@ -1,0 +1,1 @@
+forwarding_unit_tb: cpu_types_pkg.vho forwarding_unit.svo forwarding_unit_if.vho forwarding_unit_tb.svo

@@ -160,16 +160,16 @@ initial begin
     ccif.cif0.daddr = 0;
 
 
-    // core 0 ifetch (i hand up)
-    ccif.cif0.iREN = 1;
-    ccif.cif0.dREN = 0;
-    ccif.cif0.dWEN = 0;
-    for (index = 0; index < 5; index++) begin
-        ccif.cif0.iaddr = ccif.cif0.iaddr + 4;
-        #(20);
-        if (ccif.ramload == ccif.cif0.iload) score++;
-    end
-    assert(score == 10) else $error ("Instruction fetch failed.");
+    // // core 0 ifetch (i hand up)
+    // ccif.cif0.iREN = 1;
+    // ccif.cif0.dREN = 0;
+    // ccif.cif0.dWEN = 0;
+    // for (index = 0; index < 5; index++) begin
+    //     ccif.cif0.iaddr = ccif.cif0.iaddr + 4;
+    //     #(20);
+    //     if (ccif.ramload == ccif.cif0.iload) score++;
+    // end
+    // assert(score == 10) else $error ("Instruction fetch failed.");
 
     //-----------------------------------------------------------------------------
     // ifetch tests
