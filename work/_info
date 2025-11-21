@@ -8,6 +8,10 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
+R0
 !s11f vlog 2021.4 2021.10, Oct 13 2021
 13
 !s112 1.1
@@ -17,10 +21,10 @@ R0
 cModel Technology
 Z1 d/home/ecegridfs/a/437mg063/ece437/processors
 T_opt
-!s110 1762539673
-V2W^bQnNlRMz=T?D]W;dnl0
+!s110 1763516008
+VH?NWCX8T6:]HZGoFd`dc:0
 04 17 4 work memory_control_tb fast 0
-=1-f48e388b9433-690e3898-e1c9a-14214
+=1-509a4c0c58a4-691d1e68-602e8-1d8fb9
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work -L altera_mf_ver -L altera_ver -L cycloneive_ver -suppress 12110
 tCvgOpt 0
@@ -28,26 +32,26 @@ n@_opt
 OL;O;2021.4;73
 Ycache_control_if
 Z2 !s105 memory_control_tb_sv_unit
-Z3 DXx4 work 25 memory_control_tb_sv_unit 0 22 fJ8bEF^HnN[b9F2mkiMXj0
+Z3 DXx4 work 25 memory_control_tb_sv_unit 0 22 ]Y<Ef4aF9V1od:3g1U:Gj1
 Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 Z5 DXx4 work 13 cpu_types_pkg 0 22 lG3[RGX=:h]XRCVlzibdA1
-Z6 !s110 1762539669
+Z6 !s110 1763516005
 !i10b 1
-!s100 TY]VJHPBiBiZ_;2A^`GR?0
-I=gnj3LRVBYoLCJ[9iMPP31
+!s100 SLDFfW_Jo4J6Jfn0z[`_:2
+IfR3TW:zL;TGJ@?5k_o0>K0
 S1
 R1
-w1761694802
+w1762740092
 8include/cache_control_if.vh
 Z7 Finclude/cache_control_if.vh
-!i122 23
+!i122 18
 L0 25 0
 Z8 VDg1SIo80bB@j0V0VzS_@n1
 Z9 OL;L;2021.4;73
 r1
 !s85 0
 31
-Z10 !s108 1762539669.000000
+Z10 !s108 1763516005.000000
 Z11 !s107 include/caches_if.vh|include/cache_control_if.vh|include/cpu_types_pkg.vh|include/cpu_ram_if.vh|testbench/memory_control_tb.sv|
 Z12 !s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|testbench/memory_control_tb.sv|
 !i113 0
@@ -68,7 +72,7 @@ R1
 Z16 w1761322122
 8include/caches_if.vh
 Z17 Finclude/caches_if.vh
-!i122 23
+!i122 18
 L0 18 0
 R8
 R9
@@ -96,7 +100,7 @@ R1
 R16
 8include/cpu_ram_if.vh
 Z18 Finclude/cpu_ram_if.vh
-!i122 23
+!i122 18
 L0 14 0
 R8
 R9
@@ -121,7 +125,7 @@ R1
 w1757825551
 8include/cpu_types_pkg.vh
 Z19 Finclude/cpu_types_pkg.vh
-!i122 23
+!i122 18
 L0 19 0
 VlG3[RGX=:h]XRCVlzibdA1
 R9
@@ -138,23 +142,23 @@ R15
 vmemory_control
 R4
 R5
-!s110 1762536691
+Z20 !s110 1763511494
 !i10b 1
-!s100 D5f]JSki91::Rz=h5nPin2
-Ih<E7[589K2:5`=zV2QUeQ0
+!s100 0WN=icY3o8godG:G6MaA31
+I`IW@oTbPSY>HRLJUPZRSz1
 S1
 R1
-w1762536594
+w1763510076
 8source/memory_control.sv
 Fsource/memory_control.sv
-!i122 18
-L0 16 229
+!i122 4
+L0 16 257
 R8
 R9
 r1
 !s85 0
 31
-!s108 1762536691.000000
+Z21 !s108 1763511494.000000
 !s107 include/cpu_ram_if.vh|include/caches_if.vh|include/cpu_types_pkg.vh|include/cache_control_if.vh|source/memory_control.sv|
 !s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|source/memory_control.sv|
 !i113 0
@@ -175,10 +179,10 @@ I_lz9f>0nz>AEbVfGW:GaW0
 R2
 S1
 R1
-Z20 w1762539659
-Z21 8testbench/memory_control_tb.sv
-Z22 Ftestbench/memory_control_tb.sv
-!i122 23
+Z22 w1763515995
+Z23 8testbench/memory_control_tb.sv
+Z24 Ftestbench/memory_control_tb.sv
+!i122 18
 L0 237 67
 R9
 31
@@ -193,23 +197,23 @@ Xmemory_control_tb_sv_unit
 R4
 R5
 R6
-VfJ8bEF^HnN[b9F2mkiMXj0
+V]Y<Ef4aF9V1od:3g1U:Gj1
 r1
 !s85 0
 !i10b 1
-!s100 9GgnbidRNNX?8Z53_n;@@3
-IfJ8bEF^HnN[b9F2mkiMXj0
+!s100 8N_2=?ag1T@FkQIGZ:;JP2
+I]Y<Ef4aF9V1od:3g1U:Gj1
 !i103 1
 S1
 R1
-R20
-R21
 R22
+R23
+R24
 R18
 R19
 R7
 R17
-!i122 23
+!i122 18
 L0 232 0
 R9
 31
@@ -223,13 +227,13 @@ R15
 vram
 R4
 R5
-!s110 1762534421
+R20
 !i10b 1
-!s100 [_@@HTaDa@filHO`B?N3R2
-IH`:C6@E6MdHmfB3zK5=c]1
+!s100 AoB`]3Vf_]eeGi5fb]M<d3
+I;2Xn[9@2XbWPi1c;nM@7e1
 S1
 R1
-w1761929970
+w1763509733
 8source/ram.sv
 Fsource/ram.sv
 !i122 5
@@ -239,7 +243,7 @@ R9
 r1
 !s85 0
 31
-!s108 1762534421.000000
+R21
 !s107 include/cpu_types_pkg.vh|include/cpu_ram_if.vh|source/ram.sv|
 !s90 +acc|-sv12compat|-mfcu|-lint|+incdir+include|-suppress|12110|source/ram.sv|
 !i113 0
@@ -255,15 +259,15 @@ R8
 r1
 !s85 0
 !i10b 1
-!s100 XU2lZ:Vz?@@5JGzHMJ:_?3
-Ij_bGce==FmkcMmIXB7k<z0
+!s100 9MLlWfV?oaeVT`N<k[K`g1
+I8Z?HJQ@oI6Sn<m[eiQ0l50
 R2
 S1
 R1
-R20
-R21
 R22
-!i122 23
+R23
+R24
+!i122 18
 L0 305 0
 R9
 31

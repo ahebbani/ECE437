@@ -21,7 +21,7 @@ module memory_control (
   import cpu_types_pkg::*;
 
   // number of cpus for cc
-  parameter CPUS = 1;
+  parameter CPUS = 2;
 
   // // iwait depends on iREN and dWEN and dREN and ramstate
   // // iwait tells the CPU to wait while iload is getting the next instruction
@@ -160,74 +160,101 @@ module memory_control (
 
   always_comb begin
     ccif.ccsnoopaddr = 0;
-    ccif.ccwait      = 0;
-    ccif.ccinv       = 0;
-    ccif.dload       = 0;
-    ccif.iload       = 0;
-    ccif.ramaddr     = 0;
-    ccif.ramstore    = 0;
-    ccif.ramREN      = 0;
-    ccif.ramWEN      = 0;
-
-    unique case (curr_state)
+    ccif.ccwait = 0;
+    ccif.ccinv = 0;
+    ccif.dload = 0;
+    ccif.iload = 0;
+    ccif.ramaddr = 0;
+    ccif.ramstore = 0;
+    ccif.ramREN = 0;
+    ccif.ramWEN = 0;
+    case (curr_state)
       SNOOP: begin
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
-        ccif.ccwait[~lru]      = 1'b1;
+        ccif.ccwait[~lru] = 1'b1;
       end
       CHECK: begin
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.ccwait[~lru] = 1'b1;
       end
       MEM_ACCESS1: begin
-        ccif.ramREN            = 1'b1;
-        ccif.ramaddr           = ccif.daddr[lru];
+        ccif.ramREN = 1'b1;
+        ccif.ramaddr = ccif.daddr[lru];
         if (ccif.ramstate == ACCESS) begin
-          ccif.dload[lru]      = ccif.ramload;
+          ccif.dload[lru] = ccif.ramload;
         end
       end
       MEM_ACCESS2: begin
-        ccif.ramREN            = 1'b1;
-        ccif.ramaddr           = ccif.daddr[lru];
+        ccif.ramREN = 1'b1;
+        ccif.ramaddr = ccif.daddr[lru];
         if (ccif.ramstate == ACCESS) begin
-          ccif.dload[lru]      = ccif.ramload;
+          ccif.dload[lru] = ccif.ramload;
         end
       end
       CTOC1: begin
-        ccif.dload[lru]        = ccif.dstore[~lru];
-        ccif.ccwait[~lru]      = 1'b1;
+        ccif.dload[lru] = ccif.dstore[~lru];
+        ccif.ccwait[~lru] = 1'b1;
       end
       CTOC2: begin
-        ccif.dload[lru]        = ccif.dstore[~lru];
-        ccif.ccwait[~lru]      = 1'b1;
+        ccif.dload[lru] = ccif.dstore[~lru];
+        ccif.ccwait[~lru] = 1'b1;
       end
       DCTOC1: begin
-        ccif.ramWEN            = 1'b1;
-        ccif.ramaddr           = ccif.daddr[lru];
-        ccif.ramstore          = ccif.dstore[~lru];
+        ccif.ramWEN = 1'b1;
+        ccif.ramaddr  = ccif.daddr[lru];
+        ccif.ramstore  = ccif.dstore[~lru];
       end
       DCTOC2: begin
-        ccif.ramWEN            = 1'b1;
-        ccif.ramaddr           = ccif.daddr[lru];
-        ccif.ramstore          = ccif.dstore[~lru];
+        ccif.ramWEN = 1'b1;
+        ccif.ramaddr = ccif.daddr[lru];
+        ccif.ramstore = ccif.dstore[~lru];
       end
       IFETCH: begin
-        ccif.ramREN            = 1'b1;
-        ccif.ramaddr           = ccif.iaddr[lru];
+        ccif.ramREN = 1'b1;
+        ccif.ramaddr = ccif.iaddr[lru];
         if (ccif.ramstate == ACCESS) begin
-          ccif.iload[lru]      = ccif.ramload;
+          ccif.iload[lru] = ccif.ramload;
         end
       end
       WRITE1: begin
-        ccif.ramWEN            = 1'b1;
-        ccif.ramaddr           = ccif.daddr[lru];
-        ccif.ramstore          = ccif.dstore[lru];
+        ccif.ramWEN = 1'b1;
+        ccif.ramaddr = ccif.daddr[lru];
+        ccif.ramstore = ccif.dstore[lru];
       end
       WRITE2: begin
-        ccif.ramWEN            = 1'b1;
-        ccif.ramaddr           = ccif.daddr[lru];
-        ccif.ramstore          = ccif.dstore[lru];
+        ccif.ramWEN  = 1'b1;
+        ccif.ramaddr = ccif.daddr[lru];
+        ccif.ramstore = ccif.dstore[lru];
       end
     endcase
+  end
+
+  // iwait, dwait logic
+  always_comb begin
+      ccif.iwait = 1;
+      ccif.dwait = 1;
+
+      case (curr_state)
+          IDLE: begin
+              if (ccif.dWEN[lru] || ccif.dREN[lru]) ccif.dwait[lru] = 1'b0;
+              else if (ccif.dWEN[~lru] || ccif.dREN[~lru]) ccif.dwait[~lru] = 1'b0;
+              else if (ccif.iREN[lru]) ccif.iwait[lru] = 1'b0;
+              else if (ccif.iREN[~lru]) ccif.iwait[~lru] = 1'b0;
+          end
+          IFETCH: begin
+              ccif.iwait[lru] = (ccif.ramstate != ACCESS);
+              ccif.iwait[~lru] = 1'b1;
+          end
+          SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
+          CTOC1, CTOC2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
+          DCTOC1, DCTOC2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
+          WRITE1, WRITE2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
+          default: begin
+              // stall everything
+              ccif.iwait = '1;
+              ccif.dwait = '1;
+          end
+      endcase
   end
 
   always_ff @(posedge CLK, negedge nRST) begin
