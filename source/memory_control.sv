@@ -23,63 +23,48 @@ module memory_control (
   // number of cpus for cc
   parameter CPUS = 2;
 
-  // // iwait depends on iREN and dWEN and dREN and ramstate
-  // // iwait tells the CPU to wait while iload is getting the next instruction
-  // // iwait is high meaning cpu has to wait for next instruction
-  // // iwait is high when :
-  // // ramstate is busy
-  // // dREN is high because when data is being read you cannot process another instruction
-  // // dWEN is high for the same reason
-  // assign ccif.iwait = (ccif.dREN || ccif.dWEN || ccif.ramstate == BUSY);
-
-  // // dwait is low when dREN or dWEN is high
-  // // only wait for data when data is being read or written to
-  // // depends on ramstate?
-  // assign ccif.dwait = ~(ccif.dREN || ccif.dWEN) || ccif.ramstate == BUSY;
-
-  // // iload loads instruction to the cpu on the next negedge cpu clock cycle of when instruction is asserted
-  // assign ccif.iload = ccif.iREN == 1 ? ccif.ramload : '0;
-
-  // // dload is asserted on the next negedge cpu clock cycle of daddr when lw instruction
-  // assign ccif.dload = ccif.dREN == 1 ? ccif.ramload : 0;
-
-  // // ramstore is same as daddr when store word
-  // assign ccif.ramstore = ccif.dstore;
-  
-  // // ramaddr gets ram address of next data if data write or read is asserted
-  // // next instruction if not asserted
-  // assign ccif.ramaddr = (ccif.dREN == 1 || ccif.dWEN == 1) ? ccif.daddr : ccif.iaddr;
-
-  // // ramWEN is the same as data write asserted
-  // assign ccif.ramWEN = ccif.dWEN;
-
-  // // ramREN allows reading of next data or instruction but not writing
-  // assign ccif.ramREN = (ccif.dREN || ccif.iREN) & ~ccif.dWEN;
-
-
   // Bus Controller
   typedef enum { IDLE, SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2, CTOC1, CTOC2, DCTOC1, DCTOC2, IFETCH, WRITE1, WRITE2 } bus_states;
   bus_states curr_state, next_state;
+  /*
+    LRU convention and indexing notes
+
+    - `lru` holds the index of the core that is (or will be) serviced for the
+      current transaction. The controller uses `lru` to refer to the requester
+      (the core being serviced) and `~lru` to refer to the other core (the
+      snooped core).
+
+    - `next_lru` is computed in the combinational next-state logic and is
+      applied to `lru` on the rising clock edge together with the state
+      transition. This ensures that when the controller actually enters the
+      SNOOP/CHECK/CTOC states (after the clock edge) the `lru` value matches
+      the core being serviced.
+
+    - Why this matters: outputs in the SNOOP/CHECK state index signals using
+      `lru` and `~lru`. For example the SNOOP action does:
+         ccsnoopaddr[~lru] = daddr[lru];
+      which places the requester's address (`daddr[lru]`) onto the snoop input
+      of the other core (`ccsnoopaddr[~lru]`). To make this mapping correct the
+      controller must set `next_lru` to the requester before the state change,
+      so that on the next clock `lru` is the requester index.
+
+    Example (step-by-step):
+      - Initial: `lru == 0` (core 0 is the next-to-be-serviced).
+      - Core 1 issues a load (`dREN[1] == 1`). The IDLE logic sees
+        `dREN[~lru]` (i.e. `dREN[1]`) and takes the branch that sets
+        `next_state = SNOOP` and `next_lru = ~lru` (i.e. `1`).
+      - On the rising clock: `curr_state` becomes `SNOOP` and `lru` updates to
+        `1`. Now the SNOOP outputs drive:
+           ccsnoopaddr[~lru] = daddr[lru];
+        which evaluates to `ccsnoopaddr[0] = daddr[1]` — the controller sends
+        core 1's requested address to core 0 to snoop, as intended.
+
+    - Summary: treat `lru` as "the core being serviced" and `~lru` as
+      "the other (snooped) core." Always set `next_lru` when selecting the
+      non-LRU requester so the indices used in SNOOP/CHECK are correct once
+      the FSM enters those states.
+  */
   logic next_lru, lru;
-
-  // if both cores are requesting dWEN, then prioritize the older one (lru)
-  // requesting_core:
-  // [0, 0] neither is requesting
-  // [1, 0] core 0 is requesting
-  // [0, 1] core 1 is requesting
-  // [1, 1] both cores are requesting
-  // if both cores are requesting, set the lru bit
-  // whichever one is being serviced
-  // if [0, 0], lru = 0 -> service core 0 first
-  // if [1, 0], lru = 0 -> service core 0 first
-  // if [0, 1], lru = 1 -> service core 1 first
-  // if [1, 0] -> [1, 1], lru = 0, service core 0, then core 1
-  // if [0, 1] -> [1, 1], lru = 1, service core 1, then core 0
-
-  // NEW lru logic
-  // if [0, 1] -> lru = 1
-  // if [1, 0] -> lru = 0
-  // if either [0, 1] or [1, 0] -> [1, 1] lru stays the same
 
   always_comb begin
     next_state = curr_state;
@@ -94,10 +79,12 @@ module memory_control (
         else if (ccif.dREN[lru]) next_state = SNOOP;
         else if (ccif.dREN[~lru]) begin
           next_state = SNOOP;
+          next_lru = ~lru;
         end
         else if (ccif.iREN[lru]) next_state = IFETCH;
         else if (ccif.iREN[~lru]) begin
           next_state = IFETCH;
+          next_lru = ~lru;
         end
         else next_state = IDLE;
       end
@@ -175,6 +162,7 @@ module memory_control (
       end
       CHECK: begin
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccwait[~lru] = 1'b1;
       end
       MEM_ACCESS1: begin
