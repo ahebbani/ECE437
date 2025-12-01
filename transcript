@@ -19,8 +19,8 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -do "view objects; do scripts/memory_control.do; run -all;" -onfinish stop -L altera_mf_ver -L altera_ver -L cycloneive_ver -wlf memory_control_tb.wlf work.memory_control_tb 
-# Start time: 20:33:28 on Nov 18,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Start time: 14:20:13 on Nov 21,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.cpu_types_pkg(fast)
 # Loading work.memory_control_tb_sv_unit(fast)
@@ -41,13 +41,17 @@
 #  do scripts/memory_control.do
 #  run -all
 # ERROR: cannot read meminit.hex.
-# MSI0: wrong snoop addy
-# MSI1: wrong1
-# MSI1: wrong snoopaddr
-# MSI2: NOTE invalidate not observed; verify controller logic
-# MSI2: wrong1
-# MSI2: kill yourself
+# PASS: IF0 accept handshake (iwait[0]==0 while iREN==1)
+# PASS: IF0 reached RAM ACCESS state.
+# PASS: IF0 RAM read signaled (ramREN=1, ramWEN=0).
+# PASS: IF0 RAM address correct (00001000).
+# FAIL: IF0 - iload=00000000 ramload=bad1bad1 mismatch.
+# PASS: IF0 iwait deasserted at accept/ACCESS.
+# IF1: ramaddr mismatch for core1 iREN
+# IF1: iwait[1] not deasserted on ACCESS
 # Starting memory dump.
 # Finished memory dump.
 # Break in Module test at testbench/memory_control_tb.sv line 628
 # 
+# End time: 20:09:02 on Nov 29,2025, Elapsed time: 197:48:49
+# Errors: 0, Warnings: 3
