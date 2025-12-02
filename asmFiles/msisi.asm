@@ -6,7 +6,7 @@
 org 0x0000
 
 li t0, 0x1000
-li t1, 0x1FE0   //sync var kinda
+li t1, 0x3000   //sync var kinda
 
 lw t2, 0(t0)    //PrRd miss -> BusRd -> S
 
@@ -27,10 +27,10 @@ wait_c1:
     halt
 
 
-org 0x2000
+org 0x200
 
 li t0, 0x1000
-li t1, 0x1FE0
+li t1, 0x3000
 
 //wait until core 0 finishes it's store, sync = 1 when c0 is done
 wait_c0:
@@ -48,3 +48,6 @@ wait_c0:
 
     halt
 
+
+org 0x3000
+    cfw 0x0

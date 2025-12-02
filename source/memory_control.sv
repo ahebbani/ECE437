@@ -85,8 +85,8 @@ module memory_control (
       end
       SNOOP: next_state = CHECK;
       CHECK: begin
-        if (ccif.cctrans[~lru] && ccif.ccwrite[~lru]) next_state = CTOC1;
-        else if (ccif.cctrans[~lru] && ~ccif.ccwrite[~lru]) next_state = DCTOC1;
+        if (ccif.cctrans[~lru] && ~ccif.ccwrite[~lru]) next_state = CTOC1;
+        else if (ccif.cctrans[~lru] && ccif.ccwrite[~lru]) next_state = DCTOC1;
         else if (~ccif.cctrans[~lru]) next_state = MEM_ACCESS1;
       end
       MEM_ACCESS1: begin
@@ -102,11 +102,8 @@ module memory_control (
       end
       CTOC1: next_state = CTOC2;
       CTOC2: begin
-        if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
-        end
-        else next_state = CTOC2;
       end
       DCTOC1: begin
         if (ccif.ramstate == ACCESS) next_state = DCTOC2;
@@ -190,12 +187,20 @@ module memory_control (
       end
       DCTOC1: begin
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
+        ccif.dload[lru] = ccif.dstore[~lru];
+        ccif.ccwait[~lru] = 1'b1;
+
         ccif.ramWEN = 1'b1;
-        ccif.ramaddr  = ccif.daddr[lru];
-        ccif.ramstore  = ccif.dstore[~lru];
+        ccif.ramaddr = ccif.daddr[lru];
+        ccif.ramstore = ccif.dstore[~lru];
       end
       DCTOC2: begin
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
+        ccif.dload[lru] = ccif.dstore[~lru];
+        ccif.ccwait[~lru] = 1'b1;
+
         ccif.ramWEN = 1'b1;
         ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[~lru];
@@ -227,10 +232,6 @@ module memory_control (
 
       case (curr_state)
           IDLE: begin
-              // if (ccif.dWEN[lru] || ccif.dREN[lru]) ccif.dwait[lru] = 1'b0;
-              // else if (ccif.dWEN[~lru] || ccif.dREN[~lru]) ccif.dwait[~lru] = 1'b0;
-              // else if (ccif.iREN[lru]) ccif.iwait[lru] = 1'b0;
-              // else if (ccif.iREN[~lru]) ccif.iwait[~lru] = 1'b0;
           end
           IFETCH: begin
               ccif.iwait[lru] = (ccif.ramstate != ACCESS);
@@ -243,11 +244,6 @@ module memory_control (
              ccif.dwait[~lru] = (ccif.ramstate != ACCESS);
           end
           WRITE1, WRITE2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
-          default: begin
-              // stall everything
-              ccif.iwait = '1;
-              ccif.dwait = '1;
-          end
       endcase
   end
 

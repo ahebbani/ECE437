@@ -19,8 +19,14 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -do "view objects; do scripts/system.do; run -all;" -onfinish stop "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
-# Start time: 20:37:08 on Dec 01,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Start time: 16:28:46 on Dec 02,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "dcache(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "memory_control(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "icache(fast)".
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+# ** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vopt-2605) empty port name in port list.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
 # Loading sv_std.std
 # Loading work.system_tb(fast)
 # Loading work.cpu_types_pkg(fast)
@@ -67,10 +73,6 @@
 #  do scripts/system.do
 #  run -all
 # Starting Processor.
-# Halted at 4280 time and ran for        106 cycles.
-# Starting memory dump via debug port.
-# Finished memory dump via debug port.
-# Break in Module test at testbench/system_tb.sv line 153
 # 
-# End time: 20:49:11 on Dec 01,2025, Elapsed time: 0:12:03
-# Errors: 0, Warnings: 0
+# End time: 17:11:42 on Dec 02,2025, Elapsed time: 0:42:56
+# Errors: 0, Warnings: 1

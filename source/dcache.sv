@@ -49,9 +49,6 @@ logic srh, slh;
 assign srh = frames[saddr.idx][RIGHT].valid && (frames[saddr.idx][RIGHT].tag == saddr.tag);
 assign slh = frames[saddr.idx][LEFT].valid && (frames[saddr.idx][LEFT].tag == saddr.tag);
  
- 
- 
- 
 //FSM
 typedef enum logic[3:0]
 {
@@ -60,7 +57,7 @@ typedef enum logic[3:0]
     WB_0, WB_1,     //writeback victim words
     DIRTY,          //sweep all sets/ways on halt
     FL_0, FL_1,     //writeback dirty frames
-    SNOOP,
+    S_RESP,
     S_WB0, S_WB1,
     HALT          
 }state_t;
@@ -73,6 +70,7 @@ logic way, way_nxt; //way = 0->left, 1->right
 logic miss;
 
 state_t snoop_state, snoop_stateReg;
+logic snoop_way;
  
  
 //latch values for servicing a miss
@@ -94,7 +92,7 @@ always_comb begin       //next state transtions
         IDLE: begin
             if(cif.ccwait)
             begin
-                state_nxt = SNOOP;
+                state_nxt = S_RESP;
                 snoop_stateReg = IDLE;
             end
            else if(dcif.halt)
@@ -118,7 +116,7 @@ always_comb begin       //next state transtions
         RF_0: begin
             if(cif.ccwait)
             begin
-                state_nxt = SNOOP;
+                state_nxt = S_RESP;
                 snoop_stateReg = RF_0;
             end
             else if (!cif.dwait)
@@ -135,7 +133,7 @@ always_comb begin       //next state transtions
         WB_0: begin
             if(cif.ccwait)
             begin
-                state_nxt = SNOOP;
+                state_nxt = S_RESP;
                 snoop_stateReg = WB_0;
             end
                 else if (!cif.dwait)
@@ -153,7 +151,7 @@ always_comb begin       //next state transtions
         DIRTY: begin
             if(cif.ccwait)
             begin
-                state_nxt = SNOOP;
+                state_nxt = S_RESP;
                 snoop_stateReg = DIRTY;
             end
             else if(frames[setIdx][way].dirty)
@@ -185,7 +183,7 @@ always_comb begin       //next state transtions
         FL_0: begin
             if(cif.ccwait)
             begin
-                state_nxt = SNOOP;
+                state_nxt = S_RESP;
                 snoop_stateReg = FL_0;
             end
             else if (!cif.dwait)
@@ -215,7 +213,7 @@ always_comb begin       //next state transtions
         HALT: begin
             state_nxt = HALT;
         end
-        SNOOP:
+        S_RESP:
         begin
             if(srh || slh)
             begin
@@ -314,20 +312,24 @@ begin
         RF_0: begin
             cif.dWEN = 1'b0;
             cif.dREN = 1'b1;
+            cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
             cif.daddr = {m_tag, m_setIdx, 3'b0};
         end
         RF_1: begin
             cif.dWEN = 1'b0;
             cif.dREN = 1'b1;
+            cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
             cif.daddr = {m_tag, m_setIdx, 3'b100};
         end
         WB_0: begin
             cif.dWEN = 1'b1; // write
+            cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
             cif.daddr = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b0};
             cif.dstore = frames[m_setIdx][m_way].data[0];
         end
         WB_1: begin
             cif.dWEN = 1'b1; // write
+            cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
             cif.daddr = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b100};
             cif.dstore = frames[m_setIdx][m_way].data[1];
         end
@@ -344,37 +346,33 @@ begin
     endcase
 
     casez(state)
-        SNOOP: begin
+        S_RESP: begin
             if(srh || slh)
             begin
-                cif.ccwrite = 1'b1;
                 cif.cctrans = 1'b1;
-                cif.ccwrite = 1'b0;
-                if(cif.ccinv)
+
+                if(cif.ccinv)   //BusRDX request, plain cache to cache transfer, make sure to invalidate at same time
                 begin
-                    cif.ccwrite = 1'b1;
+                    cif.ccwrite = 1'b0;
+                end
+                else            //busrd request
+                begin
+                    if(frames[saddr.idx][srh ? RIGHT : LEFT].dirty) //if the frame that you hit was dirty we gotta write back and transfer at same time
+                    begin
+                        cif.ccwrite = 1'b1;
+                    end
+                    else                                            //already in shared, just cache to cache, no invalidations
+                    begin
+                        cif.ccwrite = 1'b0;
+                    end
                 end
             end
         end
         S_WB0: begin
-            if(srh)
-            begin
-                cif.dstore = frames[saddr.idx][RIGHT].data[0];
-            end
-            else
-            begin
-                cif.dstore = frames[saddr.idx][LEFT].data[0];
-            end
+            cif.dstore = frames[saddr.idx][snoop_way].data[0];
         end
         S_WB1: begin
-            if(srh)
-            begin
-                cif.dstore = frames[saddr.idx][RIGHT].data[1];
-            end
-            else
-            begin
-                cif.dstore = frames[saddr.idx][LEFT].data[1];
-            end
+           cif.dstore = frames[saddr.idx][snoop_way].data[1];
         end
     endcase
 end
@@ -389,7 +387,9 @@ begin
         setIdx <= '0;
         way <= LEFT;
  
-        mru <= '0;
+        mru <= '1;
+
+        snoop_way <= '0;
     end
     else
     begin
@@ -403,6 +403,14 @@ begin
         if(state == RF_1 && !cif.dwait)
         begin
             mru[m_setIdx] <= m_way;
+        end
+
+        if(state == S_RESP) //ccwait is high for first time (all snoop info is still valid)
+        begin
+            if(srh || slh)  //if we hit
+            begin
+                snoop_way <= srh ? RIGHT : LEFT; //save the way
+            end
         end
  
     end
@@ -508,17 +516,41 @@ begin
                 frames[setIdx][way].dirty <= 1'b0;
             end
 
-        if(state == SNOOP && cif.ccinv)
+
+
+
+
+        if(state == S_RESP && (srh || slh))
         begin
-            if(srh)
+            if(cif.ccinv)   //if busrdx request M or S -> I
             begin
-                frames[saddr.idx][RIGHT].valid <= 1'b0;
-                frames[saddr.idx][RIGHT].dirty <= 1'b0;
+                if(srh)
+                begin
+                    frames[saddr.idx][RIGHT].valid <= 1'b0;
+                    frames[saddr.idx][RIGHT].dirty <= 1'b0;
+                end
+                else
+                begin
+                    frames[saddr.idx][LEFT].valid <= 1'b0;
+                    frames[saddr.idx][LEFT].dirty <= 1'b0;
+                end
             end
-            else
+            else        //bus rd request
             begin
-                frames[saddr.idx][LEFT].valid <= 1'b0;
-                frames[saddr.idx][LEFT].dirty <= 1'b0;
+                if(srh)    
+                begin
+                    if(frames[saddr.idx][RIGHT].dirty)
+                    begin
+                        frames[saddr.idx][RIGHT].dirty <= 1'b0; // M -> S
+                    end
+                end
+                else 
+                begin
+                    if(frames[saddr.idx][LEFT].dirty) 
+                    begin
+                        frames[saddr.idx][LEFT].dirty <= 1'b0;  // M -> S
+                    end
+                end
             end
         end
     end
