@@ -63,7 +63,7 @@ module memory_control (
 
   always_comb begin
     next_state = curr_state;
-    next_lru   = lru;
+    next_lru = lru;
     case(curr_state) 
       IDLE: begin
         if (ccif.dWEN[lru]) next_state = WRITE1;

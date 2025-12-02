@@ -81,6 +81,10 @@ word_t m_wdata;
  
  
 logic left_hit, right_hit;
+
+
+
+
  
  
 always_comb begin       //next state transtions
@@ -289,17 +293,31 @@ begin
             begin
                 if(left_hit)
                 begin
-                    dcif.dhit = 1'b1;
-                    left_nxt.data[addr.blkoff] = dcif.dmemstore;
-                    left_nxt.dirty = 1'b1; 
-                    mru_nxt[addr.idx] = LEFT;
+                    if(frames[addr.idx][LEFT].dirty)
+                    begin
+                        dcif.dhit = 1'b1;
+                        left_nxt.data[addr.blkoff] = dcif.dmemstore;
+                        left_nxt.dirty = 1'b1; 
+                        mru_nxt[addr.idx] = LEFT;
+                    end
+                    else 
+                    begin
+                        miss = 1'b1;
+                    end
                 end
                 else if(right_hit)
                 begin
-                    dcif.dhit = 1'b1;
-                    right_nxt.data[addr.blkoff] = dcif.dmemstore;
-                    right_nxt.dirty = 1'b1; 
-                    mru_nxt[addr.idx] = RIGHT;
+                    if(frames[addr.idx][RIGHT].dirty)
+                    begin
+                        dcif.dhit = 1'b1;
+                        right_nxt.data[addr.blkoff] = dcif.dmemstore;
+                        right_nxt.dirty = 1'b1; 
+                        mru_nxt[addr.idx] = RIGHT;
+                    end
+                    else
+                    begin
+                        miss = 1'b1;
+                    end
                 end
                 else
                 begin
