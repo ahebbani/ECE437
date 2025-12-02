@@ -10,8 +10,8 @@ import cpu_types_pkg::*;
 
 always_ff @(posedge CLK, negedge nRST) begin
 
-	if(nRST == 0) pcif.PC <= '0; 
-	else 
+	if(nRST == 0) pcif.PC <= pcif.pc_init; 
+	else
 	begin
 		if(pcif.PCEN) pcif.PC <= pcif.new_pc;	
 	end

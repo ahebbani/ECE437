@@ -40,7 +40,7 @@ module memory_control (
       SNOOP/CHECK/CTOC states (after the clock edge) the `lru` value matches
       the core being serviced.
 
-    - Why this matters: outputs in the SNOOP/CHECK state index signals using
+    - outputs in the SNOOP/CHECK state index signals using
       `lru` and `~lru`. For example the SNOOP action does:
          ccsnoopaddr[~lru] = daddr[lru];
       which places the requester's address (`daddr[lru]`) onto the snoop input
@@ -48,7 +48,7 @@ module memory_control (
       controller must set `next_lru` to the requester before the state change,
       so that on the next clock `lru` is the requester index.
 
-    Example (step-by-step):
+    Example:
       - Initial: `lru == 0` (core 0 is the next-to-be-serviced).
       - Core 1 issues a load (`dREN[1] == 1`). The IDLE logic sees
         `dREN[~lru]` (i.e. `dREN[1]`) and takes the branch that sets
@@ -58,11 +58,6 @@ module memory_control (
            ccsnoopaddr[~lru] = daddr[lru];
         which evaluates to `ccsnoopaddr[0] = daddr[1]` — the controller sends
         core 1's requested address to core 0 to snoop, as intended.
-
-    - Summary: treat `lru` as "the core being serviced" and `~lru` as
-      "the other (snooped) core." Always set `next_lru` when selecting the
-      non-LRU requester so the indices used in SNOOP/CHECK are correct once
-      the FSM enters those states.
   */
   logic next_lru, lru;
 
@@ -180,19 +175,27 @@ module memory_control (
         end
       end
       CTOC1: begin
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
         ccif.ccwait[~lru] = 1'b1;
+        //ccif.dwait = 0;
       end
       CTOC2: begin
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
         ccif.ccwait[~lru] = 1'b1;
+        //ccif.dwait = 0;
       end
       DCTOC1: begin
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ramWEN = 1'b1;
         ccif.ramaddr  = ccif.daddr[lru];
         ccif.ramstore  = ccif.dstore[~lru];
       end
       DCTOC2: begin
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ramWEN = 1'b1;
         ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[~lru];
@@ -219,23 +222,26 @@ module memory_control (
 
   // iwait, dwait logic
   always_comb begin
-      ccif.iwait = 1;
-      ccif.dwait = 1;
+      ccif.iwait = '1;
+      ccif.dwait = '1;
 
       case (curr_state)
           IDLE: begin
-              if (ccif.dWEN[lru] || ccif.dREN[lru]) ccif.dwait[lru] = 1'b0;
-              else if (ccif.dWEN[~lru] || ccif.dREN[~lru]) ccif.dwait[~lru] = 1'b0;
-              else if (ccif.iREN[lru]) ccif.iwait[lru] = 1'b0;
-              else if (ccif.iREN[~lru]) ccif.iwait[~lru] = 1'b0;
+              // if (ccif.dWEN[lru] || ccif.dREN[lru]) ccif.dwait[lru] = 1'b0;
+              // else if (ccif.dWEN[~lru] || ccif.dREN[~lru]) ccif.dwait[~lru] = 1'b0;
+              // else if (ccif.iREN[lru]) ccif.iwait[lru] = 1'b0;
+              // else if (ccif.iREN[~lru]) ccif.iwait[~lru] = 1'b0;
           end
           IFETCH: begin
               ccif.iwait[lru] = (ccif.ramstate != ACCESS);
               ccif.iwait[~lru] = 1'b1;
           end
-          SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
-          CTOC1, CTOC2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
-          DCTOC1, DCTOC2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
+          MEM_ACCESS1, MEM_ACCESS2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
+          CTOC1, CTOC2: ccif.dwait = '0;
+          DCTOC1, DCTOC2: begin
+             ccif.dwait[lru] = (ccif.ramstate != ACCESS);
+             ccif.dwait[~lru] = (ccif.ramstate != ACCESS);
+          end
           WRITE1, WRITE2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
           default: begin
               // stall everything

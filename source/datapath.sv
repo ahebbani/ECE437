@@ -149,6 +149,7 @@ end
 
   //pc enable
   assign pcif.PCEN = pipe_ctrl && ~huif.stall;
+  assign pcif.pc_init = PC_INIT;
 
   //branch/jump taken logic
   assign branchtaken = (dx.branchPCSrc_out == 2'b11 && aluif.zero) || (dx.branchPCSrc_out == 2'b10 && ~aluif.zero) || dx.jumpPCsrc_out;

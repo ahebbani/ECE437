@@ -10,16 +10,17 @@ interface pc_if;
 
   word_t npc, PC, new_pc;
   logic PCEN;
+  word_t pc_init;
 
   // control_unit ports
   modport pc (
-	input PCEN, new_pc,
+	input PCEN, new_pc, pc_init,
 	output PC, npc
   );
   // control_unit tb
   modport tb (
 	input PC, npc,
-	output PCEN, new_pc
+	output PCEN, new_pc, pc_init
   );
 endinterface
 
