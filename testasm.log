@@ -1,504 +1,473 @@
+processing file asmFiles/test.coherence1.asm (1 of 2)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:14:12 on Dec 04,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 18:14:12 on Dec 04,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 18:14:13 on Dec 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.multicore(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.datapath(fast__1)
+# Loading work.caches(fast)
+# Loading work.icache(fast)
+# Loading work.dcache(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 5520 time and ran for        137 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 18:14:14 on Dec 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+12 instructions
+processing file asmFiles/test.coherence2.asm (2 of 2)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:14:14 on Dec 04,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 18:14:14 on Dec 04,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 18:14:15 on Dec 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.multicore(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.datapath(fast__1)
+# Loading work.caches(fast)
+# Loading work.icache(fast)
+# Loading work.dcache(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 6520 time and ran for        162 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 18:14:16 on Dec 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+8 instructions
+processing file asmFiles/dual.mergesort.asm (1 of 1)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:14:26 on Dec 04,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 18:14:26 on Dec 04,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 18:14:27 on Dec 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.multicore(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.datapath(fast__1)
+# Loading work.caches(fast)
+# Loading work.icache(fast)
+# Loading work.dcache(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 340160 time and ran for       8503 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 18:14:28 on Dec 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+3173 instructions
 processing file asmFiles/dual.llsc.asm (1 of 1)
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/alu.sv
 QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:06:58 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/alu.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface alu_if
--- Importing package cpu_types_pkg
--- Compiling module alu
+Start time: 18:14:41 on Dec 04,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
 
 Top level modules:
-	alu
-End time: 21:06:59 on Dec 03,2025, Elapsed time: 0:00:01
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
+	glbl
+End time: 18:14:41 on Dec 04,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
 
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
+# 2021.4
 
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/alu_if.vh
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 18:14:42 on Dec 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.multicore(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.datapath(fast__1)
+# Loading work.caches(fast)
+# Loading work.icache(fast)
+# Loading work.dcache(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 11440 time and ran for        285 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 18:14:43 on Dec 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+17 instructions
+--- memsim.hex	2025-12-04 18:14:44.041039317 -0500
++++ memcpu.hex	2025-12-04 18:14:44.037039164 -0500
+@@ -15,9 +15,9 @@
+ :04000E0018B2A42F51
+ :04000F0000B52423F1
+ :04001000FFFFFFFFF0
+-:0400200000000002DA
++:0400200000000001DB
+ :0400220000000001D9
+-:0400240000000002D6
++:0400240000000001D7
+ :0400260000000001D5
+ :040080000000223723
+ :04008100FC02021368
+processing file asmFiles/example.asm (1 of 1)
 QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:06:59 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/alu_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface alu_if
--- Importing package cpu_types_pkg
+Start time: 18:15:01 on Dec 04,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
 
 Top level modules:
-	--none--
-End time: 21:06:59 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
+	glbl
+End time: 18:15:01 on Dec 04,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 18:15:02 on Dec 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.multicore(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.datapath(fast__1)
+# Loading work.caches(fast)
+# Loading work.icache(fast)
+# Loading work.dcache(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 13480 time and ran for        336 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 18:15:03 on Dec 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+33 instructions
+--- memsim.hex	2025-12-04 18:15:03.366780302 -0500
++++ memcpu.hex	2025-12-04 18:15:03.361780111 -0500
+@@ -40,7 +40,8 @@
+ :04008E0000012083CA
+ :04008F000041011318
+ :040090000000806785
+-:0400C1000000000338
++:0400C000000000013B
++:0400C100000000013A
+ :041FFE000000020CD1
+ :043FFE000000000CB3
+ :00000001FF
+processing file asmFiles/example.asm (1 of 1)
 make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
 
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/cache_control_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:06:59 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/cache_control_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface caches_if
--- Importing package cpu_types_pkg
--- Compiling interface cache_control_if
-
-Top level modules:
-	--none--
-End time: 21:06:59 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/caches.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:06:59 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/caches.sv 
--- Compiling module caches
-
-Top level modules:
-	caches
-End time: 21:06:59 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/caches_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:06:59 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/caches_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface caches_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:00 on Dec 03,2025, Elapsed time: 0:00:01
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/control_unit.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:00 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/control_unit.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface control_unit_if
--- Importing package cpu_types_pkg
--- Compiling module control_unit
-
-Top level modules:
-	control_unit
-End time: 21:07:00 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/control_unit_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:00 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/control_unit_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface control_unit_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:00 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/cpu_ram_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:00 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/cpu_ram_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface cpu_ram_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:00 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/cpu_types_pkg.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:00 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/cpu_types_pkg.vh 
--- Compiling package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:01 on Dec 03,2025, Elapsed time: 0:00:01
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/datapath.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:01 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/datapath.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface datapath_cache_if
--- Importing package cpu_types_pkg
--- Compiling interface control_unit_if
--- Compiling interface request_unit_if
--- Compiling interface register_file_if
--- Compiling interface caches_if
--- Compiling interface cache_control_if
--- Compiling interface alu_if
--- Compiling interface pc_if
--- Compiling interface hazard_unit_if
--- Compiling interface forwarding_unit_if
--- Compiling interface if_id_if
--- Compiling interface id_ex_if
--- Compiling interface ex_mem_if
--- Compiling interface mem_wb_if
--- Compiling module datapath
-
-Top level modules:
-	datapath
-End time: 21:07:01 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/datapath_cache_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:01 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/datapath_cache_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface datapath_cache_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:01 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
+Hello 437mg108@cparch02.ecn.purdue.edu, you forgot some targets.
  If you need instructions to use this Makefile:
 --- Quartus Flow ---
      'make <module_name>' to build module
@@ -530,7 +499,7 @@ Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
 make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
 vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/dcache.sv
 QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:01 on Dec 03,2025
+Start time: 18:45:18 on Dec 04,2025
 vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/dcache.sv 
 -- Compiling package cpu_types_pkg
 -- Compiling interface datapath_cache_if
@@ -540,1128 +509,10 @@ vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+U
 
 Top level modules:
 	dcache
-End time: 21:07:01 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/ex_mem.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:01 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/ex_mem.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface ex_mem_if
--- Importing package cpu_types_pkg
--- Compiling module ex_mem
-
-Top level modules:
-	ex_mem
-End time: 21:07:02 on Dec 03,2025, Elapsed time: 0:00:01
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/ex_mem_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:02 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/ex_mem_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface ex_mem_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:02 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/forwarding_unit.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:02 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/forwarding_unit.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface forwarding_unit_if
--- Importing package cpu_types_pkg
--- Compiling module forwarding_unit
-
-Top level modules:
-	forwarding_unit
-End time: 21:07:02 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/forwarding_unit_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:02 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/forwarding_unit_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface forwarding_unit_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:02 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/hazard_unit.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:02 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/hazard_unit.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface hazard_unit_if
--- Importing package cpu_types_pkg
--- Compiling module hazard_unit
-
-Top level modules:
-	hazard_unit
-End time: 21:07:02 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/hazard_unit_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:03 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/hazard_unit_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface hazard_unit_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:03 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/icache.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:03 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/icache.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface datapath_cache_if
--- Importing package cpu_types_pkg
--- Compiling interface caches_if
--- Compiling module icache
-
-Top level modules:
-	icache
-End time: 21:07:03 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/id_ex.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:03 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/id_ex.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface id_ex_if
--- Importing package cpu_types_pkg
--- Compiling module id_ex
-
-Top level modules:
-	id_ex
-End time: 21:07:03 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/id_ex_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:03 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/id_ex_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface id_ex_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:03 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/if_id.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:04 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/if_id.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface request_unit_if
--- Importing package cpu_types_pkg
--- Compiling interface pc_if
--- Compiling interface if_id_if
--- Compiling module if_id
-
-Top level modules:
-	if_id
-End time: 21:07:04 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/if_id_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:04 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/if_id_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface if_id_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:04 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/mem_wb.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:04 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/mem_wb.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface mem_wb_if
--- Importing package cpu_types_pkg
--- Compiling module mem_wb
-
-Top level modules:
-	mem_wb
-End time: 21:07:04 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/mem_wb_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:04 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/mem_wb_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface mem_wb_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:04 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/memory_control.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:05 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/memory_control.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface caches_if
--- Importing package cpu_types_pkg
--- Compiling interface cache_control_if
--- Compiling interface cpu_ram_if
--- Compiling module memory_control
-
-Top level modules:
-	memory_control
-End time: 21:07:05 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/multicore.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:05 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/multicore.sv 
--- Compiling module multicore
-
-Top level modules:
-	multicore
-End time: 21:07:05 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/pc.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:05 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/pc.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface pc_if
--- Importing package cpu_types_pkg
--- Compiling module pc
-
-Top level modules:
-	pc
-End time: 21:07:05 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/pc_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:05 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/pc_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface pc_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:05 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/ram.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:06 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/ram.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface cpu_ram_if
--- Importing package cpu_types_pkg
--- Compiling module ram
-
-Top level modules:
-	ram
-End time: 21:07:06 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/register_file.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:06 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/register_file.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface register_file_if
--- Importing package cpu_types_pkg
--- Compiling module register_file
-
-Top level modules:
-	register_file
-End time: 21:07:06 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/register_file_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:06 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/register_file_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface register_file_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:06 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/request_unit.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:06 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/request_unit.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface request_unit_if
--- Importing package cpu_types_pkg
--- Compiling module request_unit
-
-Top level modules:
-	request_unit
-End time: 21:07:06 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/request_unit_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:07 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/request_unit_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface request_unit_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:07 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  source/system.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:07 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim source/system.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface system_if
--- Importing package cpu_types_pkg
--- Compiling module system
-
-Top level modules:
-	system
-End time: 21:07:07 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  include/system_if.vh
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:07 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim include/system_if.vh 
--- Compiling package cpu_types_pkg
--- Compiling interface system_if
--- Importing package cpu_types_pkg
-
-Top level modules:
-	--none--
-End time: 21:07:07 on Dec 03,2025, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-make[1]: Entering directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-
-Hello 437mg108@cparch15.ecn.purdue.edu, you forgot some targets.
- If you need instructions to use this Makefile:
---- Quartus Flow ---
-     'make <module_name>' to build module
-     'make <module_name>_tb' to build module + testbench
-     'make <module_name>.sim' to sim tb on cmd line
-     'make <module_name>.wav' to sim tb with gui
-     'make <module_name>.syn' to synthesize functional net list
-     'make <module_name>.synt' to synthesize timing net list
-
---- Xilinx/Vivado Flow ---
-     'make <module_name>.simx' to sim tb on cmd line
-     'make <module_name>.wavx' to sim tb with gui
-     'make <module_name>.synx' to synthesize functional net list
-     'make <module_name>.syntx' to synthesize timing net list
-     'make <module_name>.syntxp' to synthesize timing net list on project mode
-
---- Linter Rules ---
-     'make <module_name>.lint' to run the linter on module
-     'make <module_name>_tb.lint' to run the linter on module testbench
-
---- Clean Rules ---
-     'make clean' to clean everything
-     'make clean_sim' to clean simulation logs and work lib
-     'make clean_asm' to clean hex and testasm output
-     'make clean_map' to clean mapped dir
-     'make clean_fpga' to clean fpga dir
- Obviously a testbench file must exist for some options.
-
-make[1]: Leaving directory '/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team'
-vlog +acc -sv12compat -mfcu -lint +incdir+include -suppress 12110  +define+USE_VIVADO -L unisim  testbench/system_tb.sv
-QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:07 on Dec 03,2025
-vlog "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim testbench/system_tb.sv 
--- Compiling package cpu_types_pkg
--- Compiling interface system_if
--- Importing package cpu_types_pkg
--- Compiling module system_tb
--- Compiling program test
-
-Top level modules:
-	system_tb
-End time: 21:07:07 on Dec 03,2025, Elapsed time: 0:00:00
+End time: 18:45:18 on Dec 04,2025, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
-Start time: 21:07:07 on Dec 03,2025
+Start time: 18:45:18 on Dec 04,2025
 vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
 -- Compiling module glbl
 ###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
@@ -1669,7 +520,7 @@ vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110
 
 Top level modules:
 	glbl
-End time: 21:07:08 on Dec 03,2025, Elapsed time: 0:00:01
+End time: 18:45:18 on Dec 04,2025, Elapsed time: 0:00:00
 Errors: 0, Warnings: 1
 Reading pref.tcl
 
@@ -1682,7 +533,7 @@ Reading pref.tcl
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
-# Start time: 21:07:09 on Dec 03,2025
+# Start time: 18:45:19 on Dec 04,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vopt-143) Recognized 1 FSM in module "dcache(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "memory_control(fast)".
@@ -1747,23 +598,185 @@ Reading pref.tcl
 # Loading work.glbl(fast)
 # run -all
 # Starting Processor.
-# Halted at 10760 time and ran for        268 cycles.
+# Halted at 14000 time and ran for        349 cycles.
 # Starting memory dump via debug port.
 # Finished memory dump via debug port.
-# End time: 21:07:10 on Dec 03,2025, Elapsed time: 0:00:01
+# End time: 18:45:21 on Dec 04,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 1
+33 instructions
+processing file asmFiles/dual.llsc.asm (1 of 1)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:45:28 on Dec 04,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 18:45:28 on Dec 04,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 18:45:29 on Dec 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.multicore(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.datapath(fast__1)
+# Loading work.caches(fast)
+# Loading work.icache(fast)
+# Loading work.dcache(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 9080 time and ran for        226 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 18:45:30 on Dec 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
 17 instructions
---- memsim.hex	2025-12-03 21:07:11.030880870 -0500
-+++ memcpu.hex	2025-12-03 21:07:11.024880639 -0500
-@@ -15,9 +15,9 @@
- :04000E0018B2A42F51
- :04000F0000B52423F1
- :04001000FFFFFFFFF0
--:0400200000000002DA
-+:0400200000000001DB
- :0400220000000001D9
--:0400240000000002D6
-+:0400240000000001D7
- :0400260000000001D5
- :040080000000223723
- :04008100FC02021368
+processing file asmFiles/dual.mergesort.asm (1 of 1)
+QuestaSim-64 vlog 2021.4 Compiler 2021.10 Oct 13 2021
+Start time: 18:45:41 on Dec 04,2025
+vlog -work work "+acc" -sv12compat -mfcu -lint "+incdir+include" -suppress 12110 "+define+USE_VIVADO" -L unisim /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v 
+-- Compiling module glbl
+###### /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): module glbl ();
+** Warning: /package/eda/xilinx/Vivado/2023.2/data/verilog/src/glbl.v(6): (vlog-2605) empty port name in port list.
+
+Top level modules:
+	glbl
+End time: 18:45:41 on Dec 04,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2021.4
+
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 18:45:42 on Dec 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# //  Questa Sim-64
+# //  Version 2021.4 linux_x86_64 Oct 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.system_tb(fast)
+# Loading work.cpu_types_pkg(fast)
+# Loading work.system_if(fast__1)
+# Loading work.test(fast)
+# Loading work.system(fast)
+# Loading work.cpu_ram_if(fast__1)
+# Loading work.multicore(fast)
+# Loading work.datapath_cache_if(fast__1)
+# Loading work.caches_if(fast__1)
+# Loading work.cache_control_if(fast__1)
+# Loading work.datapath(fast)
+# Loading work.control_unit_if(fast__1)
+# Loading work.request_unit_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.alu_if(fast__1)
+# Loading work.pc_if(fast__1)
+# Loading work.if_id_if(fast__1)
+# Loading work.id_ex_if(fast__1)
+# Loading work.ex_mem_if(fast__1)
+# Loading work.mem_wb_if(fast__1)
+# Loading work.hazard_unit_if(fast__1)
+# Loading work.forwarding_unit_if(fast__1)
+# Loading work.forwarding_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.control_unit(fast)
+# Loading work.request_unit(fast)
+# Loading work.register_file(fast)
+# Loading work.alu(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.id_ex(fast)
+# Loading work.ex_mem(fast)
+# Loading work.mem_wb(fast)
+# Loading work.datapath(fast__1)
+# Loading work.caches(fast)
+# Loading work.icache(fast)
+# Loading work.dcache(fast)
+# Loading work.memory_control(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# run -all
+# Starting Processor.
+# Halted at 295440 time and ran for       7385 cycles.
+# Starting memory dump via debug port.
+# Finished memory dump via debug port.
+# End time: 18:45:43 on Dec 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+3173 instructions

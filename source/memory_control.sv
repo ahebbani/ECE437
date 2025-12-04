@@ -20,11 +20,18 @@ module memory_control (
   // type import
   import cpu_types_pkg::*;
 
+  int cycle;
+
+always_ff @(posedge CLK or negedge nRST) begin
+    if(!nRST) cycle <= 0;
+    else cycle <= cycle + 1;
+end
+
   // number of cpus for cc
   parameter CPUS = 2;
 
   // Bus Controller
-  typedef enum { IDLE, SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2, CTOC1, CTOC2, DCTOC1, DCTOC2, IFETCH, WRITE1, WRITE2, SC_SNOOP, SC_CHECK } bus_states;
+  typedef enum { IDLE, SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2, CTOC1, CTOC2, DCTOC1, DCTOC2, IFETCH, WRITE1, WRITE2 } bus_states;
   bus_states curr_state, next_state;
   /*
     LRU convention and indexing notes
@@ -66,15 +73,7 @@ module memory_control (
     next_lru = lru;
     case(curr_state) 
       IDLE: begin
-        //for sc check
-        if(ccif.dWEN[lru] && ccif.dREN[lru]) next_state = SC_SNOOP;
-        else if(ccif.dWEN[~lru] && ccif.dREN[~lru])
-        begin
-            next_state = SC_SNOOP;
-            next_lru = ~lru;
-        end
-
-        else if (ccif.dWEN[lru]) next_state = WRITE1;
+        if (ccif.dWEN[lru]) next_state = WRITE1;
         else if (ccif.dWEN[~lru])begin
           next_state = WRITE1; 
           next_lru = ~lru;
@@ -142,13 +141,6 @@ module memory_control (
         end
         else next_state = WRITE2;
       end
-      SC_SNOOP: begin
-          next_state = SC_CHECK;
-      end 
-      SC_CHECK: begin
-        next_state = IDLE;
-        next_lru = ~lru;
-      end
     endcase
   end
 
@@ -201,6 +193,7 @@ module memory_control (
         //ccif.dwait = 0;
       end
       DCTOC1: begin
+
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
@@ -211,6 +204,7 @@ module memory_control (
         ccif.ramstore = ccif.dstore[~lru];
       end
       DCTOC2: begin
+
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
@@ -231,22 +225,12 @@ module memory_control (
         ccif.ramWEN = 1'b1;
         ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[lru];
+
       end
       WRITE2: begin
         ccif.ramWEN  = 1'b1;
         ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[lru];
-      end
-      SC_SNOOP: begin
-        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
-        ccif.ccwait[~lru] = 1'b1; //get into S_RESP asap
-      end
-      SC_CHECK: begin
-        //hold snoop values:
-        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
-        ccif.ccwait[~lru] = 1'b1;
-        //let the resp cache know it's a store (write)
-        ccif.ccinv[~lru] = ccif.ccwrite[lru];
       end
     endcase
   end
@@ -270,7 +254,6 @@ module memory_control (
              ccif.dwait[~lru] = (ccif.ramstate != ACCESS);
           end
           WRITE1, WRITE2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
-          SC_CHECK: ccif.dwait = '0; //set both caches dwait to zero, lets the resp cache know to not do any writeback
       endcase
   end
 

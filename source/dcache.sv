@@ -24,6 +24,7 @@ module dcache (input logic clk, nrst,
     caches_if cif);
  
 import cpu_types_pkg::*;
+
  
 localparam int WAYS = 2;
 localparam int SETS = 8;
@@ -59,7 +60,7 @@ typedef enum logic[3:0]
     FL_0, FL_1,     //writeback dirty frames
     S_RESP,
     S_WB0, S_WB1,
-    SC_INV,     //to wait for other cache's invalidation
+    SC_INV0, SC_INV1,     //to wait for other cache's invalidation
     HALT          
 }state_t;
  
@@ -86,8 +87,8 @@ logic left_hit, right_hit;
 /****************************************
   RESERVATION SET (LR/SC)
 ****************************************/
-logic rs_valid;
-dcachef_t rs_addr, rs_addr_nxt, sc_addr;
+logic rs_valid, rs_valid_nxt;
+dcachef_t rs_addr, rs_addr_nxt, sc_addr, rs_addr_nxt_tmp;
 
 logic sc_success;
 //block granularity
@@ -95,8 +96,12 @@ logic sc_success;
 logic set_rs, inv_rs, sc_ret, sc_serve;
 
 
-logic atomic_active, atomic_pending;
-assign atomic_active = atomic_pending || (state == IDLE && dcif.datomic && (dcif.dmemWEN || dcif.dmemREN));
+// logic atomic_active, atomic_pending;
+// logic lr_pending, sc_pending;
+// assign atomic_active = lr_pending || sc_pending;
+
+logic sc_do_write;
+word_t sc_wdata;
  
 always_comb begin       //next state transtions
     state_nxt = state;
@@ -116,10 +121,16 @@ always_comb begin       //next state transtions
                 way_nxt = LEFT;  //start with left way (doesn't matter tbh)
                 state_nxt = DIRTY;
            end
-           else if(sc_serve)
+
+
+           else if(dcif.datomic && dcif.dmemWEN && !sc_ret)
            begin
-                state_nxt = SC_INV;
+                if (rs_valid && (addr.tag == rs_addr.tag) && (addr.idx == rs_addr.idx)) begin
+                    state_nxt = SC_INV0;
+                end 
            end
+
+
            else if(miss)
            begin
             if(mru[addr.idx] == RIGHT)   //victim = left way
@@ -234,7 +245,7 @@ always_comb begin       //next state transtions
         end
         S_RESP:
         begin
-            if((srh || slh) && cif.dwait)  //we weren't just doing the init sc invalidation
+            if((srh || slh))
             begin
                 state_nxt = S_WB0;
             end
@@ -255,12 +266,21 @@ always_comb begin       //next state transtions
                 state_nxt = snoop_stateReg;
             end
         end
-        SC_INV: begin
+
+
+
+        SC_INV0: begin
             if(cif.ccwait)
             begin
                 state_nxt = S_RESP;
-                snoop_stateReg = SC_INV;
+                snoop_stateReg = SC_INV0;
             end
+            if(!cif.dwait)
+            begin
+                state_nxt = SC_INV1;
+            end
+        end
+        SC_INV1: begin
             if(!cif.dwait)
             begin
                 state_nxt = IDLE;
@@ -312,7 +332,7 @@ begin
                     dcif.dmemload = frames[addr.idx][LEFT].data[addr.blkoff];
                     mru_nxt[addr.idx] = LEFT;
 
-                    if(atomic_active)
+                    if(dcif.datomic) 
                     begin
                         rs_addr_nxt = addr; 
                         set_rs = 1'b1;
@@ -324,7 +344,7 @@ begin
                     dcif.dmemload = frames[addr.idx][RIGHT].data[addr.blkoff];
                     mru_nxt[addr.idx] = RIGHT;
 
-                    if(atomic_active)
+                    if(dcif.datomic)
                     begin
                         rs_addr_nxt = addr; 
                         set_rs = 1'b1;
@@ -339,64 +359,58 @@ begin
             //STORE/SC
             else if(dcif.dmemWEN)
             begin
-                if(atomic_active)    
+
+
+                if(dcif.datomic)    
                 begin
-                    if(sc_ret) //telling us we have completed sc, can send back values now
+                    if (~(rs_valid && (addr.tag == rs_addr.tag) && (addr.idx == rs_addr.idx))) begin
+                        dcif.dhit = 1'b1;
+                        dcif.dmemload = 32'd1;
+                    end
+                    else if(sc_ret) //done with other cache inv/wb
                     begin
-                        if(!sc_success) //other cache is inv, we check success now
+                        if(!sc_success) 
                         begin
-                            dcif.dhit = 1'b1;   //let the dp know we are done here, no store completed
+                            dcif.dhit = 1'b1;
                             dcif.dmemload = 32'd1;
                         end
-                        else    //go ahead like regular store, except send a 0 to be returned in rd
+                        else if(sc_success) 
                         begin
-                            if(left_hit)
+                            inv_rs = 1'b1;
+
+                         if(left_hit)
                             begin
-                                if(frames[addr.idx][LEFT].dirty)
-                                begin
                                     dcif.dhit = 1'b1;
                                     dcif.dmemload = 32'd0;  //store is completed, return a 0
-                                    left_nxt.data[addr.blkoff] = dcif.dmemstore;
+
+                                    left_nxt.data[addr.blkoff] = sc_wdata;
                                     left_nxt.dirty = 1'b1; 
                                     mru_nxt[addr.idx] = LEFT;
-
-                                    //invalidate our reservation set on a sc sucess
-                                    inv_rs = 1'b1;
-                                end
-                                else 
-                                begin
-                                    miss = 1'b1;
-                                end
                             end
                             else if(right_hit)
                             begin
-                                if(frames[addr.idx][RIGHT].dirty) 
-                                begin
                                     dcif.dhit = 1'b1;
                                     dcif.dmemload = 32'd0;  //store is completed, return a 0
-                                    right_nxt.data[addr.blkoff] = dcif.dmemstore;
+                                    right_nxt.data[addr.blkoff] = sc_wdata;
                                     right_nxt.dirty = 1'b1; 
                                     mru_nxt[addr.idx] = RIGHT;
 
-                                    //invalidate our reservation set on a sc sucess
-                                    inv_rs = 1'b1;
-                                end
-                                else
-                                begin
-                                    miss = 1'b1;
-                                end
                             end
                             else
                             begin
-                                miss = 1'b1;
+                                dcif.dhit = 1'b1;   //cache block isn't valid in our cache
+                                dcif.dmemload = 32'd1;
                             end
                         end
                     end
                     else    //first time seeing the dcif.datomic instr
                     begin
-                        sc_serve = 1'b1;
+                            sc_serve = 1'b1;
                     end
                 end
+
+
+
                 else        //regular store
                 begin
                     if(left_hit)
@@ -407,10 +421,6 @@ begin
                             left_nxt.data[addr.blkoff] = dcif.dmemstore;
                             left_nxt.dirty = 1'b1; 
                             mru_nxt[addr.idx] = LEFT;
-
-                            if (rs_valid && (addr.tag == rs_addr.tag) && (addr.idx == rs_addr.idx)) begin
-                                inv_rs = 1'b1;
-                            end
                         end
                         else 
                         begin
@@ -425,11 +435,6 @@ begin
                             right_nxt.data[addr.blkoff] = dcif.dmemstore;
                             right_nxt.dirty = 1'b1; 
                             mru_nxt[addr.idx] = RIGHT;
-
-                            if (rs_valid && (addr.tag == rs_addr.tag) && (addr.idx == rs_addr.idx)) 
-                            begin
-                                inv_rs = 1'b1;
-                            end
                         end
                         else
                         begin
@@ -452,6 +457,7 @@ begin
             cif.daddr = {m_tag, m_setIdx, 3'b0};
         end
         RF_1: begin
+
             cif.dWEN = 1'b0;
             cif.dREN = 1'b1;
             cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
@@ -479,12 +485,16 @@ begin
             cif.daddr = {frames[setIdx][way].tag, setIdx, 3'b100};
             cif.dstore = frames[setIdx][way].data[1];
         end
-        SC_INV: begin
-            //set both high, this is how we know in memcontrol that we are doing 
-            //sc invalidation specifically
+
+
+        SC_INV0: begin
             cif.dREN = 1'b1;
-            cif.dWEN = 1'b1;
-            cif.ccwrite = 1'b1;     //we know for sure the instr is a store
+            cif.ccwrite = 1'b1;
+            cif.daddr = sc_addr;
+        end
+        SC_INV1: begin
+            cif.dREN = 1'b1;
+            cif.ccwrite = 1'b1;
             cif.daddr = sc_addr;
         end
     endcase
@@ -545,6 +555,7 @@ begin
     else
     begin
         state <= state_nxt;
+        
         setIdx <= setIdx_nxt;
         way <= way_nxt;
  
@@ -591,7 +602,11 @@ begin
             m_write <= dcif.dmemWEN;
             m_off <= addr.blkoff;
             m_wdata <= dcif.dmemstore;
+            if (left_hit) m_way <= 1'b0;
+            else if (right_hit) m_way <= 1'b1;
         end
+
+
     end
 end
  
@@ -638,7 +653,7 @@ begin
             frames[m_setIdx][m_way].tag <= m_tag;
             frames[m_setIdx][m_way].valid <= 1'b1;
  
-            if(m_write)
+            if(m_write) 
             begin
                 frames[m_setIdx][m_way].data[m_off] <= m_wdata;
                 frames[m_setIdx][m_way].dirty <= 1'b1;
@@ -667,7 +682,7 @@ begin
                 frames[setIdx][way].dirty <= 1'b0;
             end
 
-        if(state == S_RESP && (srh || slh))
+        if(state == S_RESP && (srh || slh)) 
         begin
             if(cif.ccinv)   //if busrdx request M or S -> I
             begin
@@ -704,68 +719,52 @@ begin
 end
  
 
-//RESERVATION SET UPDATE AND LR SC STUFF
 always_ff @(posedge clk or negedge nrst)
 begin
     if(!nrst)
     begin
         rs_valid <= 1'b0;
-        rs_addr  <= '0;
+        rs_addr <= '0;
 
-        sc_addr <= '0;
-        sc_ret <= 1'b0;
+        sc_addr  <= '0;
+        sc_ret  <= 1'b0;
         sc_success <= 1'b0;
+        sc_do_write<= 1'b0;
+        sc_wdata   <= '0;
 
-        atomic_pending <= '0;
     end
     else
     begin
-        if(inv_rs && (state == IDLE || state == S_RESP))
+        sc_ret <= 1'b0;
+        sc_do_write <= 1'b0;
+        sc_success <= 1'b0;
+
+        if(inv_rs)
         begin
             rs_valid <= 1'b0;
         end
-        else if(set_rs && state == IDLE)
+
+        if(set_rs && state == IDLE)
         begin
             rs_valid <= 1'b1;
-            rs_addr <= rs_addr_nxt;
+            rs_addr <= addr;
         end
 
-        if(state == IDLE && state_nxt == SC_INV)    //if we are beginning snoop to sc invalidate
+        if(state == IDLE && state_nxt == SC_INV0)
         begin
             sc_addr <= addr;
+            sc_wdata <= dcif.dmemstore;
         end
 
-        if((state == SC_INV || (state == RF_1)) && state_nxt == IDLE)    //if we are returning
+        if(state == SC_INV1 && state_nxt == IDLE)
         begin
             sc_ret <= 1'b1;
-
-            if(state == SC_INV) //if we are going back from invalidations, hold the success value through the rest
-            begin
-                //I also don't know if addr will always be accurate here
-                sc_success <= rs_valid && (sc_addr.tag == rs_addr.tag) && (sc_addr.idx == rs_addr.idx);
-            end
-            else if(state == RF_1)  //SHOULD I CHECK AGAIN
-            begin
-                sc_success <= rs_valid && (m_tag == rs_addr.tag) && (m_setIdx == rs_addr.idx);
-            end
-        end
-        else
-        begin
-            sc_ret <= 1'b0;
-            sc_success <= 1'b0;
+            sc_success <= rs_valid && (sc_addr.tag == rs_addr.tag) && (sc_addr.idx == rs_addr.idx);
+            sc_do_write <= rs_valid && (sc_addr.tag == rs_addr.tag) && (sc_addr.idx == rs_addr.idx);
         end
 
-
-        // latch start of atomic instruction
-        if(state == IDLE && dcif.datomic && (dcif.dmemWEN || dcif.dmemREN) && !dcif.dhit)
-        begin
-            atomic_pending <= 1'b1;
-        end
-        else if(dcif.dhit && atomic_pending)
-        begin
-            atomic_pending <= 1'b0;
-        end
     end
 end
+
  
 endmodule 
