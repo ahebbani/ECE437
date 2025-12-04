@@ -235,6 +235,8 @@ end
     dx.rs1_in = cuif.rs1;
     dx.rs2_in = cuif.rs2;
 
+    dx.atomic_in = cuif.atomic; //atomic
+
     //from register file
     dx.rdat1_in = rfif.rdat1;
     dx.rdat2_in = rfif.rdat2;
@@ -270,6 +272,7 @@ end
     exm.RegWEN_in = dx.RegWEN_out;
     exm.MemtoReg_in = dx.MemtoReg_out;
     exm.halt_in = dx.halt_out;
+    exm.atomic_in = dx.atomic_out;
     
     //from datapath
     exm.ihit = dpif.ihit;
@@ -331,6 +334,8 @@ assign mwb.dmemload_in = (dpif.dhit) ? dpif.dmemload : dmemload_reg;
   assign dpif.dmemWEN = exm.dmemWEN;
   assign dpif.dmemstore = exm.rdat2_out;
   assign dpif.dmemaddr = exm.alu_out_out;
+
+  assign dpif.datomic = exm.atomic_out; //to caches in memory stage
 
 //-----------------------------------------------------------------------------
 // CACHES exm.dmemREN <= 0;

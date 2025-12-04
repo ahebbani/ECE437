@@ -10,7 +10,7 @@ import cpu_types_pkg::*;
 
 logic [6:0] funct7, opcode, imm2;
 logic [2:0] funct3;
-logic [4:0] imm1;
+logic [4:0] imm1, funct5_atom;
 
 
 // Break up instruction
@@ -20,6 +20,7 @@ assign cuif.rs1 = cuif.inst[19:15];
 assign funct3 = cuif.inst[14:12];
 assign cuif.rd = cuif.inst[11:7];
 assign opcode = cuif.inst[6:0];
+assign funct5_atom = cuif.inst[31:27]; //top 5 bits
 
 // Decode
 always_comb begin
@@ -35,6 +36,9 @@ always_comb begin
     cuif.aluop = ALU_SLL; 
     cuif.halt = 0;
     cuif.imm = 32'b0;
+    
+    cuif.atomic = 1'b0; //default not atomic
+
     imm1 = 0;
     imm2 = 0;
     casez (opcode_t'(opcode))
@@ -151,6 +155,34 @@ always_comb begin
         end
         HALT: begin
             cuif.halt = 1;
+        end
+        LR_SC: begin
+            casez(funct5_atom)
+                LR: begin
+                    //kinda like lw with offset 0, but atomic
+                    cuif.MemtoReg = 2'b01;  //comes from dmemload
+                    cuif.RegWEN = 1'b1;    
+                    cuif.dWEN = 0; 
+                    cuif.dREN = 1'b1;       //loading/reading
+                    cuif.ALUSrc1 = 1'b1;    //port b = imm 
+                    cuif.ALUSrc2 = 0;       //port a  = rdat1
+                    cuif.aluop = ALU_ADD;   //addr = rdat1+imm(0)
+                    cuif.imm = 32'b0;   //no immediate
+                    cuif.atomic = 1'b1;
+                end
+                SC: begin
+                    //like sw with offset 0, writes 0/1 to reg via dmemload
+                    cuif.MemtoReg = 2'b01;  //comes from dmemload
+                    cuif.RegWEN = 1'b1;    //rd gets success value
+                    cuif.dWEN = 1'b1;       //storing/writing
+                    cuif.dREN = 0;       
+                    cuif.ALUSrc1 = 1'b1;    //port b = imm 
+                    cuif.ALUSrc2 = 0;       //port a  = rdat1
+                    cuif.aluop = ALU_ADD;   //addr = rdat1+imm(0)
+                    cuif.imm = 32'b0;   //no immediate
+                    cuif.atomic = 1'b1;
+                end
+            endcase
         end
     endcase
 end

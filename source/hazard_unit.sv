@@ -35,7 +35,7 @@ always_comb begin
 
     // Load use hazard
     // if doing a load word, and if the next instruction depends on the loaded word, stall the if/id and id/ex regs
-    if (huif.rd_ex != 5'd0 && huif.inst_ex[6:0] == ITYPE_LW && (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
+    if (huif.rd_ex != 5'd0 && (huif.inst_ex[6:0] == ITYPE_LW || huif.inst_ex[6:0] == LR_SC) && (huif.rs1_id == huif.rd_ex || huif.rs2_id == huif.rd_ex)) begin
         huif.stall = 1; 
     end
 end

@@ -26,6 +26,8 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.halt_out <= 0;
         exm.inst_out <= 0;
 
+        exm.atomic_out <= 0;
+
         // writeback signals        
         exm.imm_out <= 0;
         exm.MemtoReg_out <= 0;
@@ -46,6 +48,8 @@ always_ff @(posedge clk, negedge nrst) begin
         exm.dmemWEN <= exm.dWEN_in;
         exm.halt_out <= exm.halt_in;
         exm.inst_out <= exm.inst_in;
+
+        exm.atomic_out <= exm.atomic_in;
 
         // writeback signals        
         exm.imm_out <= exm.imm_in;
