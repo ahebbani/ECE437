@@ -31,7 +31,7 @@ end
   parameter CPUS = 2;
 
   // Bus Controller
-  typedef enum { IDLE, SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2, CTOC1, CTOC2, DCTOC1, DCTOC2, IFETCH, WRITE1, WRITE2 } bus_states;
+  typedef enum { IDLE, SNOOP, CHECK, MEM_ACCESS1, MEM_ACCESS2, CTOC1, CTOC2, DCTOC1, DCTOC2, IFETCH, WRITE1, WRITE2, WAIT, MEM_ACCESS05, MEM_ACCESS15, CTOC05, CTOC15, DCTOC05, DCTOC15, WRITE05, WRITE15} bus_states;
   bus_states curr_state, next_state;
   /*
     LRU convention and indexing notes
@@ -73,9 +73,9 @@ end
     next_lru = lru;
     case(curr_state) 
       IDLE: begin
-        if (ccif.dWEN[lru]) next_state = WRITE1;
+        if (ccif.dWEN[lru]) next_state = WRITE05;
         else if (ccif.dWEN[~lru])begin
-          next_state = WRITE1; 
+          next_state = WRITE05; 
           next_lru = ~lru;
         end
         else if (ccif.dREN[lru]) next_state = SNOOP;
@@ -90,15 +90,22 @@ end
         end
         else next_state = IDLE;
       end
-      SNOOP: next_state = CHECK;
+      SNOOP: next_state = WAIT;
+      WAIT: next_state = CHECK;
       CHECK: begin
-        if (ccif.cctrans[~lru] && ~ccif.ccwrite[~lru]) next_state = CTOC1;
-        else if (ccif.cctrans[~lru] && ccif.ccwrite[~lru]) next_state = DCTOC1;
-        else if (~ccif.cctrans[~lru]) next_state = MEM_ACCESS1;
+        if (ccif.cctrans[~lru] && ~ccif.ccwrite[~lru]) next_state = CTOC05;
+        else if (ccif.cctrans[~lru] && ccif.ccwrite[~lru]) next_state = DCTOC05;
+        else if (~ccif.cctrans[~lru]) next_state = MEM_ACCESS05;
+      end
+      MEM_ACCESS05: begin
+          next_state = MEM_ACCESS1;
       end
       MEM_ACCESS1: begin
-        if (ccif.ramstate == ACCESS) next_state = MEM_ACCESS2;
+        if (ccif.ramstate == ACCESS) next_state = MEM_ACCESS15;
         else next_state = MEM_ACCESS1;
+      end
+      MEM_ACCESS15: begin
+        next_state = MEM_ACCESS2;
       end
       MEM_ACCESS2: begin
         if (ccif.ramstate == ACCESS) begin
@@ -107,14 +114,26 @@ end
         end
         else next_state = MEM_ACCESS2;
       end
-      CTOC1: next_state = CTOC2;
+      CTOC05: begin
+        next_state = CTOC1;
+      end
+      CTOC1: next_state = CTOC15;
+      CTOC15: begin
+        next_state = CTOC2;
+      end
       CTOC2: begin
           next_state = IDLE;
           next_lru = ~lru;
       end
+      DCTOC05: begin
+        next_state = DCTOC1;
+      end
       DCTOC1: begin
-        if (ccif.ramstate == ACCESS) next_state = DCTOC2;
+        if (ccif.ramstate == ACCESS) next_state = DCTOC15;
         else next_state = DCTOC1;
+      end
+      DCTOC15: begin
+        next_state = DCTOC2;
       end
       DCTOC2: begin
         if (ccif.ramstate == ACCESS) begin
@@ -130,9 +149,15 @@ end
         end
         else next_state = IFETCH;
       end
+      WRITE05: begin
+          next_state = WRITE1;
+      end
       WRITE1: begin
-        if (ccif.ramstate == ACCESS) next_state = WRITE2;
+        if (ccif.ramstate == ACCESS) next_state = WRITE15;
         else next_state = WRITE1;
+      end
+      WRITE15: begin
+        next_state = WRITE2;
       end
       WRITE2: begin
         if (ccif.ramstate == ACCESS) begin
@@ -156,6 +181,11 @@ end
     ccif.ramWEN = 0;
     case (curr_state)
       SNOOP: begin
+        //ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccwait[~lru] = 1'b1;
+      end
+      WAIT: begin
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccwait[~lru] = 1'b1;
       end
@@ -178,12 +208,22 @@ end
           ccif.dload[lru] = ccif.ramload;
         end
       end
+      CTOC05: begin
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
+        ccif.ccwait[~lru] = 1'b1;
+      end
       CTOC1: begin
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
         ccif.ccwait[~lru] = 1'b1;
         //ccif.dwait = 0;
+      end
+      CTOC15: begin
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
+        ccif.ccwait[~lru] = 1'b1;
       end
       CTOC2: begin
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
@@ -192,8 +232,12 @@ end
         ccif.ccwait[~lru] = 1'b1;
         //ccif.dwait = 0;
       end
+      DCTOC05: begin
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
+        ccif.ccwait[~lru] = 1'b1;
+      end
       DCTOC1: begin
-
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
@@ -203,8 +247,12 @@ end
         ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[~lru];
       end
+      DCTOC15: begin
+        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        ccif.ccinv[~lru] = ccif.ccwrite[lru];
+        ccif.ccwait[~lru] = 1'b1;
+      end
       DCTOC2: begin
-
         ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
@@ -225,7 +273,6 @@ end
         ccif.ramWEN = 1'b1;
         ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[lru];
-
       end
       WRITE2: begin
         ccif.ramWEN  = 1'b1;
@@ -254,6 +301,7 @@ end
              ccif.dwait[~lru] = (ccif.ramstate != ACCESS);
           end
           WRITE1, WRITE2: ccif.dwait[lru] = (ccif.ramstate != ACCESS);
+          CHECK: ccif.dwait[~lru] = '0;
       endcase
   end
 

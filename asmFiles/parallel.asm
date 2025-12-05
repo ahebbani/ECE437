@@ -12,7 +12,7 @@
 mainp0:
   push x1
   li x31, 256            
-  li x20, 0x1234 # seed
+  li x20, 0x55 # seed
   li x22, 0 
 
 genRand:

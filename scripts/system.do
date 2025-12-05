@@ -9,7 +9,7 @@ add wave -noupdate /system_tb/DUT/CPU/CC/lru
 add wave -noupdate /system_tb/DUT/CPU/CC/next_lru
 add wave -noupdate -divider CIF0
 add wave -noupdate /system_tb/DUT/CPU/dcif0/datomic
-add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/frames
+add wave -noupdate -expand -subitemconfig {{/system_tb/DUT/CPU/CM0/DCACHE/frames[0]} -expand {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][1]} -expand {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][1].data} -expand {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][0]} -expand {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][0].data} -expand} /system_tb/DUT/CPU/CM0/DCACHE/frames
 add wave -noupdate /system_tb/DUT/CPU/CM0/cif/iwait
 add wave -noupdate /system_tb/DUT/CPU/CM0/cif/dwait
 add wave -noupdate /system_tb/DUT/CPU/CM0/cif/iREN
@@ -35,7 +35,7 @@ add wave -noupdate -divider CIF1
 add wave -noupdate /system_tb/DUT/CPU/dcif1/datomic
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/state_nxt
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/state
-add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/frames
+add wave -noupdate -expand -subitemconfig {{/system_tb/DUT/CPU/CM1/DCACHE/frames[7]} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[7][1]} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[7][1].data} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[7][0]} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[7][0].data} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[0]} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[0][1]} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[0][0]} -expand} /system_tb/DUT/CPU/CM1/DCACHE/frames
 add wave -noupdate /system_tb/DUT/CPU/CM1/cif/iwait
 add wave -noupdate /system_tb/DUT/CPU/CM1/cif/dwait
 add wave -noupdate /system_tb/DUT/CPU/CM1/cif/iREN
@@ -57,7 +57,7 @@ add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/setIdx_nxt
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/setIdx
 add wave -noupdate -divider CCIF
 add wave -noupdate /system_tb/DUT/CPU/ccif/iwait
-add wave -noupdate /system_tb/DUT/CPU/ccif/dwait
+add wave -noupdate -expand /system_tb/DUT/CPU/ccif/dwait
 add wave -noupdate /system_tb/DUT/CPU/ccif/iREN
 add wave -noupdate /system_tb/DUT/CPU/ccif/dREN
 add wave -noupdate /system_tb/DUT/CPU/ccif/dWEN
@@ -109,7 +109,7 @@ add wave -noupdate /system_tb/DUT/CPU/DP0/dpif/dmemstore
 add wave -noupdate /system_tb/DUT/CPU/DP0/dpif/dmemaddr
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/setIdx
 add wave -noupdate -divider {REG FILE 0}
-add wave -noupdate /system_tb/DUT/CPU/DP0/REGF/register
+add wave -noupdate -expand /system_tb/DUT/CPU/DP0/REGF/register
 add wave -noupdate /system_tb/DUT/CPU/DP0/rfif/WEN
 add wave -noupdate /system_tb/DUT/CPU/DP0/rfif/wsel
 add wave -noupdate /system_tb/DUT/CPU/DP0/rfif/rsel1
@@ -150,13 +150,12 @@ add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/LEFT
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/RIGHT
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/clk
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/nrst
-add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/frames
+add wave -noupdate -expand -subitemconfig {{/system_tb/DUT/CPU/CM0/DCACHE/frames[0]} -expand {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][1]} -expand {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][1].data} -expand {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][0]} -expand {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][0].data} -expand} /system_tb/DUT/CPU/CM0/DCACHE/frames
+add wave -noupdate -expand -subitemconfig {{/system_tb/DUT/CPU/CM0/DCACHE/frames[0][0].data} -expand} {/system_tb/DUT/CPU/CM0/DCACHE/frames[0][0]}
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/left_nxt
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/right_nxt
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/mru
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/mru_nxt
-add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/addr
-add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/saddr
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/srh
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/slh
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/state
@@ -186,8 +185,6 @@ add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/set_rs
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/inv_rs
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/sc_ret
 add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/sc_serve
-add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/atomic_active
-add wave -noupdate /system_tb/DUT/CPU/CM0/DCACHE/atomic_pending
 add wave -noupdate -divider {DCACHE 1}
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/WAYS
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/SETS
@@ -195,13 +192,11 @@ add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/LEFT
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/RIGHT
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/clk
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/nrst
-add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/frames
+add wave -noupdate -expand -subitemconfig {{/system_tb/DUT/CPU/CM1/DCACHE/frames[0]} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[0][1]} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[0][1].data} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[0][0]} -expand {/system_tb/DUT/CPU/CM1/DCACHE/frames[0][0].data} -expand} /system_tb/DUT/CPU/CM1/DCACHE/frames
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/left_nxt
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/right_nxt
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/mru
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/mru_nxt
-add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/addr
-add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/saddr
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/srh
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/slh
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/state
@@ -231,11 +226,180 @@ add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/set_rs
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/inv_rs
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/sc_ret
 add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/sc_serve
-add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/atomic_active
-add wave -noupdate /system_tb/DUT/CPU/CM1/DCACHE/atomic_pending
+add wave -noupdate -divider {exm 0}
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/pc_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/pc_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/dmemaddr
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/imm_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/imm_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/rdat1_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/rdat1_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/rdat2_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/rdat2_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/alu_out_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/alu_out_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/pipe_ctrl
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/stall
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/dhit
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/dmemREN
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/dmemWEN
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/ihit
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/branchPCand_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/branchPCand_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/branchPCadder_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/branchPCadder_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/jumpPCsrc_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/jumpPCsrc_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/jumpPCadder_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/jumpPCadder_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/dREN_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/dREN_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/dWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/dWEN_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/RegWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/RegWEN_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/MemtoReg_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/MemtoReg_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/rd_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/rd_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/halt_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/halt_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/atomic_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/atomic_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/inst_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/exm/inst_out
+add wave -noupdate -divider {mwb 0}
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/pc_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/pc_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/dhit
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/ihit
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/imm_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/imm_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/alu_out_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/alu_out_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/dmemload_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/dmemload_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/MemtoReg_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/MemtoReg_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/rd_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/rd_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/stall
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/pipe_ctrl
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/RegWEN_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/RegWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/halt_out
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/halt_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/inst_in
+add wave -noupdate /system_tb/DUT/CPU/DP0/mwb/inst_out
+add wave -noupdate -divider {exm 1}
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/pc_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/pc_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dmemaddr
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/imm_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/imm_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rdat1_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rdat1_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rdat2_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rdat2_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/alu_out_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/alu_out_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/pipe_ctrl
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/stall
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dhit
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dmemREN
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dmemWEN
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/ihit
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/branchPCand_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/branchPCand_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/branchPCadder_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/branchPCadder_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/jumpPCsrc_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/jumpPCsrc_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/jumpPCadder_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/jumpPCadder_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dREN_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dREN_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dWEN_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/RegWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/RegWEN_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/MemtoReg_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/MemtoReg_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rd_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rd_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/halt_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/halt_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/atomic_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/atomic_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/inst_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/inst_out
+add wave -noupdate -divider {mwb 0}
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/pc_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/pc_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/dhit
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/ihit
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/imm_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/imm_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/alu_out_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/alu_out_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/dmemload_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/dmemload_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/MemtoReg_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/MemtoReg_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/rd_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/rd_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/stall
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/pipe_ctrl
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/RegWEN_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/RegWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/halt_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/halt_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/inst_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/mwb/inst_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/pc_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/pc_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dmemaddr
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/imm_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/imm_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rdat1_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rdat1_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rdat2_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rdat2_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/alu_out_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/alu_out_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/pipe_ctrl
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/stall
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dhit
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dmemREN
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dmemWEN
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/ihit
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/branchPCand_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/branchPCand_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/branchPCadder_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/branchPCadder_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/jumpPCsrc_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/jumpPCsrc_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/jumpPCadder_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/jumpPCadder_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dREN_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dREN_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/dWEN_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/RegWEN_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/RegWEN_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/MemtoReg_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/MemtoReg_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rd_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/rd_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/halt_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/halt_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/atomic_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/atomic_out
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/inst_in
+add wave -noupdate /system_tb/DUT/CPU/DP1/exm/inst_out
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {661421481 ps} 0} {{Cursor 2} {28914116959 ps} 0}
-quietly wave cursor active 1
+WaveRestoreCursors {{Cursor 1} {6810191 ps} 1} {{Cursor 2} {6846496 ps} 0} {{Cursor 3} {7420000 ps} 1}
+quietly wave cursor active 2
 configure wave -namecolwidth 230
 configure wave -valuecolwidth 92
 configure wave -justifyvalue left
@@ -250,4 +414,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {659884239 ps} {666869251 ps}
+WaveRestoreZoom {4142900 ps} {9016900 ps}

@@ -1,12 +1,3 @@
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
-# vsim -coverage -suppress 12110 -c -do "run -all; exit;" "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
-# Start time: 19:15:57 on Dec 04,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2021.4 linux_x86_64 Oct 13 2021
 # //
@@ -21,6 +12,15 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
+# vsim -coverage -suppress 12110 -do "view objects; do scripts/system.do; run -all;" -onfinish stop "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
+# Start time: 16:42:47 on Dec 05,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.system_tb(fast)
 # Loading work.cpu_types_pkg(fast)
@@ -62,10 +62,57 @@
 # Loading work.memory_control(fast)
 # Loading work.ram(fast)
 # Loading work.glbl(fast)
-# run -all
+# view objects
+# .main_pane.objects.interior.cs.body.tree
+#  do scripts/system.do
+#  run -all
 # Starting Processor.
-# Halted at 13240 time and ran for        330 cycles.
+# Halted at 11120 time and ran for        277 cycles.
 # Starting memory dump via debug port.
 # Finished memory dump via debug port.
-# End time: 19:15:58 on Dec 04,2025, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
+# Break in Module test at testbench/system_tb.sv line 153
+# 
+add wave -position insertpoint  \
+sim:/system_tb/DUT/CPU/DP1/exm/pc_out \
+sim:/system_tb/DUT/CPU/DP1/exm/pc_in \
+sim:/system_tb/DUT/CPU/DP1/exm/dmemaddr \
+sim:/system_tb/DUT/CPU/DP1/exm/imm_out \
+sim:/system_tb/DUT/CPU/DP1/exm/imm_in \
+sim:/system_tb/DUT/CPU/DP1/exm/rdat1_out \
+sim:/system_tb/DUT/CPU/DP1/exm/rdat1_in \
+sim:/system_tb/DUT/CPU/DP1/exm/rdat2_out \
+sim:/system_tb/DUT/CPU/DP1/exm/rdat2_in \
+sim:/system_tb/DUT/CPU/DP1/exm/alu_out_out \
+sim:/system_tb/DUT/CPU/DP1/exm/alu_out_in \
+sim:/system_tb/DUT/CPU/DP1/exm/pipe_ctrl \
+sim:/system_tb/DUT/CPU/DP1/exm/stall \
+sim:/system_tb/DUT/CPU/DP1/exm/dhit \
+sim:/system_tb/DUT/CPU/DP1/exm/dmemREN \
+sim:/system_tb/DUT/CPU/DP1/exm/dmemWEN \
+sim:/system_tb/DUT/CPU/DP1/exm/ihit \
+sim:/system_tb/DUT/CPU/DP1/exm/branchPCand_out \
+sim:/system_tb/DUT/CPU/DP1/exm/branchPCand_in \
+sim:/system_tb/DUT/CPU/DP1/exm/branchPCadder_out \
+sim:/system_tb/DUT/CPU/DP1/exm/branchPCadder_in \
+sim:/system_tb/DUT/CPU/DP1/exm/jumpPCsrc_out \
+sim:/system_tb/DUT/CPU/DP1/exm/jumpPCsrc_in \
+sim:/system_tb/DUT/CPU/DP1/exm/jumpPCadder_out \
+sim:/system_tb/DUT/CPU/DP1/exm/jumpPCadder_in \
+sim:/system_tb/DUT/CPU/DP1/exm/dREN_out \
+sim:/system_tb/DUT/CPU/DP1/exm/dREN_in \
+sim:/system_tb/DUT/CPU/DP1/exm/dWEN_out \
+sim:/system_tb/DUT/CPU/DP1/exm/dWEN_in \
+sim:/system_tb/DUT/CPU/DP1/exm/RegWEN_out \
+sim:/system_tb/DUT/CPU/DP1/exm/RegWEN_in \
+sim:/system_tb/DUT/CPU/DP1/exm/MemtoReg_out \
+sim:/system_tb/DUT/CPU/DP1/exm/MemtoReg_in \
+sim:/system_tb/DUT/CPU/DP1/exm/rd_out \
+sim:/system_tb/DUT/CPU/DP1/exm/rd_in \
+sim:/system_tb/DUT/CPU/DP1/exm/halt_in \
+sim:/system_tb/DUT/CPU/DP1/exm/halt_out \
+sim:/system_tb/DUT/CPU/DP1/exm/atomic_in \
+sim:/system_tb/DUT/CPU/DP1/exm/atomic_out \
+sim:/system_tb/DUT/CPU/DP1/exm/inst_in \
+sim:/system_tb/DUT/CPU/DP1/exm/inst_out
+# Causality operation skipped due to absence of debug database file
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/scripts/system.do
