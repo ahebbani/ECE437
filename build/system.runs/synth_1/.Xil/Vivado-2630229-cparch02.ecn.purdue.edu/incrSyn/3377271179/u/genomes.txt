@@ -1,0 +1,3 @@
+multicore__GB0
+multicore__GB1
+system__GC0
