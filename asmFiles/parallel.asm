@@ -4,38 +4,39 @@
 #----------------------------------------------------------
 # Core 1
 #----------------------------------------------------------
-  org   0x0000              # first processor p0
-  li    x2, 0xFFFC          # stack (sp=x2)
-  jal   mainp0              # go to program
+  org 0x0000 
+  li x2, 0xFFFC  
+  jal mainp0 
   halt
 
 mainp0:
-  push  x1                  # save return address (ra=x1)
-  li    x31, 256            # set max rands to 256 (t6=x31)
-  li    x20, 0x1234     # seed (s4=x20)
-  li    x22, 0              # random counter (s6=x22)
+  push x1
+  li x31, 256            
+  li x20, 0x1234 # seed
+  li x22, 0 
+
 genRand:
   # generate random number
-  or    x12, x0, x20        # set argument to previous value (a2=x12)
-  jal   crc32               # generate random
-  or    x21, x0, x10        # temp register to result of crc32 (s5=x21)
+  or x12, x0, x20       
+  jal crc32        
+  or x21, x0, x10 
 
   # push result
-  ori   x10, x0, l1         # move lock to argument register (a0=x10)
-  jal   lock                # acquire the lock
-  or    x10, x0, x21        # set argument 0 (a0) to value of random
-  jal   pushVal             # push argument 0 to stack
-  ori   x10, x0, l1         # move lock to argument register
-  jal   unlock              # release lock
+  ori   x10, x0, l1        
+  jal   lock   
+  or    x10, x0, x21 
+  jal   pushVal 
+  ori   x10, x0, l1  
+  jal   unlock 
 
   # seed = result
-  or    x20, x0, x21        # set seed reg to random value result
+  or x20, x0, x21      
 
   # if not done, go to generate
-  addi  x22, x22, 1
-  bne   x22, x31, genRand   # branch as long as counter is not equal to 256
+  addi x22, x22, 1
+  bne x22, x31, genRand 
 
-  pop   x1                  # get return address
+  pop x1 
   ret
 
 l1:
@@ -45,49 +46,49 @@ l1:
 #----------------------------------------------------------
 # Core 2
 #----------------------------------------------------------
-  org   0x0200               # second processor p1 (matches simulator expectation)
-  li    x2, 0x7FFC           # stack
-  jal   mainp1               # go to program
+  org 0x0200 
+  li x2, 0x7FFC 
+  jal mainp1 
   halt
 
 mainp1:
-  push  x1                  # save return address
-  li    x30, 256            # t5=x30
-  li    x23, 0              # counter (use x23)
+  push  x1  
+  li x30, 256 
+  li x23, 0 
 
   # initialize results
-  li    x8, 0x0000FFFF      # Min init to 0xFFFF (lower 16 bits)
-  li    x9, 0x00000000      # Max init to 0x0000
-  li    x18, 0              # Sum init
-  li    x25, 0x0000FFFF     # mask for lower 16 bits
+  li x8, 0x0000FFFF 
+  li x9, 0x00000000 
+  li x18, 0 
+  li x25, 0x0000FFFF
 
 popNextVal:
   # verify there are values in the stack
   jal   checkStack
 
   # obtain locks and pop values
-  ori   x10, x0, l1         # move lock to argument register
-  jal   lock                # acquire the lock
-  jal   popVal              # pop top value from stack
-  or    x22, x0, x10        # popped value
-  ori   x10, x0, l1         # move lock to argument register
-  jal   unlock              # release lock
+  ori x10, x0, l1 
+  jal lock 
+  jal popVal 
+  or x22, x0, x10
+  ori x10, x0, l1 
+  jal unlock 
 
   # min calculation on lower 16 bits
-  and   x24, x22, x25       # val16 = popped & 0xFFFF
-  and   x12, x8, x25        # a2 = current min (masked)
-  or    x13, x0, x24        # a3 = val16
-  jal   min
-  or    x8, x0, x10         # update min
+  and x24, x22, x25 
+  and x12, x8, x25 
+  or x13, x0, x24 
+  jal min
+  or x8, x0, x10 
 
   # max calculation on lower 16 bits
-  and   x12, x9, x25        # a2 = current max (masked)
-  or    x13, x0, x24        # a3 = val16
-  jal   max
-  or    x9, x0, x10         # update max
+  and x12, x9, x25 
+  or x13, x0, x24 
+  jal max
+  or x9, x0, x10 
 
   # compute sum and store in s2
-  add   x18, x18, x24       # sum += val16
+  add   x18, x18, x24  
 
   # increment counter and branch
   addi  x23, x23, 1
@@ -96,12 +97,12 @@ popNextVal:
   # final calculation for average and remainder
   # average = sum >> 8 (divide by 256)
   li    x5, 8
-  srl   x18, x18, x5        # avg in x18
+  srl   x18, x18, x5 
   # average is in s2 and remainder in s3
 
   # Keep results in registers: x8=min, x9=max, x18=avg
 
-  pop   x1                  # get return address
+  pop   x1 
   halt
 
 res:
