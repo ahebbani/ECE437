@@ -1,0 +1,5 @@
+set_property SRC_FILE_INFO {cfile:/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/generated_clock.xdc rfile:../../../../../generated_clock.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
+create_clock -period 5.000 -name MAIN -waveform {0.000 2.500} [get_ports CLK]
+set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
+create_generated_clock -name CPUCLK -source [get_ports CLK] -divide_by 2 [get_nets CPUCLK]

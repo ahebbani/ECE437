@@ -24,7 +24,7 @@ module ram (
   // import types
   import cpu_types_pkg::*;
 
-  parameter BAD = 32'hBAD1BAD1, LAT = 2;
+  parameter BAD = 32'hBAD1BAD1, LAT = 10;
 
   logic [3:0]   count;
   ramstate_t    rstate;
