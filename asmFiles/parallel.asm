@@ -53,7 +53,7 @@ l1:
 
 mainp1:
   push  x1  
-  li x30, 256 
+  li x30, 256
   li x23, 0 
 
   # initialize results

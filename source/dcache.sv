@@ -102,11 +102,32 @@ logic set_rs, inv_rs, sc_ret, sc_serve;
 
 logic sc_do_write;
 word_t sc_wdata;
+
+logic next_dREN, next_dWEN;
+word_t next_daddr, next_dstore;
+
+always_ff @( posedge clk, negedge nrst) begin
+    if (~nrst) begin
+        cif.daddr <= 0;
+        cif.dREN <= 0;
+        cif.dWEN <= 0;
+        cif.dstore <= 0;
+    end else begin
+        cif.daddr <= next_daddr;
+        cif.dREN <= next_dREN;
+        cif.dWEN <= next_dWEN;
+        cif.dstore <= next_dstore;
+    end
+end
  
 always_comb begin       //next state transtions
     state_nxt = state;
     setIdx_nxt = setIdx;
     way_nxt = way;
+    next_dREN = cif.dREN;
+    next_dWEN = cif.dWEN;
+    next_daddr = cif.daddr;
+    next_dstore = cif.dstore;
     // snoop_stateReg = IDLE;
 
     casez(state)
@@ -128,6 +149,8 @@ always_comb begin       //next state transtions
            begin
                 if (rs_valid && (addr.tag == rs_addr.tag) && (addr.idx == rs_addr.idx)) begin
                     state_nxt = SC_INV0;
+                    next_dREN = 1;
+                    next_daddr = addr;
                 end 
            end
 
@@ -136,39 +159,70 @@ always_comb begin       //next state transtions
            begin
             if(mru[addr.idx] == RIGHT)   //victim = left way
             begin
-                state_nxt = frames[addr.idx][LEFT].dirty ? WB_0 : RF_0;
+                if (frames[addr.idx][LEFT].dirty) begin
+                    state_nxt = WB_0;
+                    next_dWEN = 1;
+                    next_daddr = {frames[addr.idx][LEFT].tag, addr.idx, 3'b000};
+                    next_dstore = frames[addr.idx][LEFT].data[0];
+                end else begin
+                    state_nxt = RF_0;
+                    next_dREN = 1;
+                    next_daddr = {addr.tag, addr.idx, 3'b000};
+                end
             end
             else                //victim = right way
             begin
-                state_nxt = frames[addr.idx][RIGHT].dirty ? WB_0 : RF_0;
+                if (frames[addr.idx][RIGHT].dirty) begin
+                    state_nxt = WB_0;
+                    next_dWEN = 1;
+                    next_daddr = {frames[addr.idx][RIGHT].tag, addr.idx, 3'b000};
+                    next_dstore = frames[addr.idx][RIGHT].data[0];
+                end else begin
+                    state_nxt = RF_0;
+                    next_dREN = 1;
+                    next_daddr = {addr.tag, addr.idx, 3'b000};
+                end
             end
            end
         end
         RF_0: begin
             if(cif.ccwait)
             begin
+                next_dREN = 0;
+                next_dWEN = 0;
+                next_daddr = 0;
+                next_dstore = 0;
                 state_nxt = S_RESP;
                 // snoop_stateReg = RF_0;
             end
             else if (!cif.dwait)
             begin
                 state_nxt = RF_1;
+                next_daddr = {cif.daddr[31:3], 3'b100};
             end
         end
         RF_1: begin
                 if (!cif.dwait)
                 begin
+                    next_dREN = 0;
+                    next_daddr = 0;
                     state_nxt = IDLE;
                 end
         end
         WB_0: begin
             if(cif.ccwait)
             begin
+                next_dREN = 0;
+                next_dWEN = 0;
+                next_daddr = 0;
+                next_dstore = 0;
                 state_nxt = S_RESP;
                 // snoop_stateReg = WB_0;
             end
                 else if (!cif.dwait)
                 begin
+                    next_daddr = {cif.daddr[31:3], 3'b100};
+                    next_dstore = frames[addr.idx][~mru[addr.idx]].data[1];
                     state_nxt = WB_1;
                 end
             
@@ -176,18 +230,29 @@ always_comb begin       //next state transtions
         WB_1: begin
             if (!cif.dwait)
                 begin
+                    next_dWEN = 0;
+                    next_dREN = 1;
+                    next_daddr = {addr.tag, addr.idx, 3'b000};
+                    next_dstore = 0;
                     state_nxt = RF_0;
                 end
         end
         DIRTY: begin
             if(cif.ccwait)
             begin
+                next_dREN = 0;
+                next_dWEN = 0;
+                next_daddr = 0;
+                next_dstore = 0;
                 state_nxt = S_RESP;
                 // snoop_stateReg = DIRTY;
             end
             else if(frames[setIdx][way].dirty)
             begin
                 state_nxt = FL_0;
+                next_dWEN = 1;
+                next_daddr = {frames[setIdx][way].tag, setIdx, 3'b000};
+                next_dstore = frames[setIdx][way].data[0];
             end
             else    //clean pathway
             begin
@@ -214,11 +279,17 @@ always_comb begin       //next state transtions
         FL_0: begin
             if(cif.ccwait)
             begin
+                next_dREN = 0;
+                next_dWEN = 0;
+                next_daddr = 0;
+                next_dstore = 0;
                 state_nxt = S_RESP;
                 // snoop_stateReg = FL_0;
             end
             else if (!cif.dwait)
                 begin
+                    next_daddr = {cif.daddr[31:3], 3'b100};
+                    next_dstore = frames[setIdx][way].data[1];
                     state_nxt = FL_1;
                 end
         end
@@ -226,6 +297,9 @@ always_comb begin       //next state transtions
             if (!cif.dwait)
             begin
                 state_nxt = DIRTY;
+                next_dWEN = 0;
+                next_daddr = 0;
+                next_dstore = 0;
  
                 if(way == LEFT)
                 begin
@@ -249,6 +323,8 @@ always_comb begin       //next state transtions
             if((srh || slh))
             begin
                 state_nxt = S_WB0;
+                next_dWEN = 1;
+                next_dstore = frames[saddr.idx][srh].data[0];
             end
             else
             begin
@@ -258,12 +334,15 @@ always_comb begin       //next state transtions
         S_WB0: begin
             if(!cif.dwait)
             begin 
+                next_dstore = frames[saddr.idx][snoop_way].data[1];
                 state_nxt = S_WB1;
             end
         end 
         S_WB1: begin
             if(!cif.dwait)
             begin 
+                next_dWEN = 0;
+                next_dstore = 0;
                 state_nxt = IDLE;
             end
         end
@@ -273,6 +352,10 @@ always_comb begin       //next state transtions
         SC_INV0: begin
             if(cif.ccwait)
             begin
+                next_dREN = 0;
+                next_dWEN = 0;
+                next_daddr = 0;
+                next_dstore = 0;
                 state_nxt = S_RESP;
                 // snoop_stateReg = SC_INV0;
             end
@@ -284,6 +367,8 @@ always_comb begin       //next state transtions
         SC_INV1: begin
             if(!cif.dwait)
             begin
+                next_dREN = 0;
+                next_daddr = 0;
                 state_nxt = IDLE;
             end
         end
@@ -303,10 +388,10 @@ begin
     cif.cctrans = 1'b0;
     cif.ccwrite = 1'b0;
 
-    cif.daddr = '0;
-    cif.dstore = '0;
-    cif.dWEN = 1'b0;
-    cif.dREN = 1'b0;
+    // cif.daddr = '0;
+    // cif.dstore = '0;
+    // cif.dWEN = 1'b0;
+    // cif.dREN = 1'b0;
  
     left_nxt = frames[addr.idx][LEFT];
     right_nxt = frames[addr.idx][RIGHT];
@@ -452,51 +537,51 @@ begin
  
     case(state)
         RF_0: begin
-            cif.dWEN = 1'b0;
-            cif.dREN = 1'b1;
+            // cif.dWEN = 1'b0;
+            // cif.dREN = 1'b1;
             cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
-            cif.daddr = {m_tag, m_setIdx, 3'b0};
+            // cif.daddr = {m_tag, m_setIdx, 3'b0};
         end
         RF_1: begin
 
-            cif.dWEN = 1'b0;
-            cif.dREN = 1'b1;
+            // cif.dWEN = 1'b0;
+            // cif.dREN = 1'b1;
             cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
-            cif.daddr = {m_tag, m_setIdx, 3'b100};
+            // cif.daddr = {m_tag, m_setIdx, 3'b100};
         end
         WB_0: begin
-            cif.dWEN = 1'b1; // write
+            // cif.dWEN = 1'b1; // write
             cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
-            cif.daddr = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b0};
-            cif.dstore = frames[m_setIdx][m_way].data[0];
+            // cif.daddr = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b0};
+            // cif.dstore = frames[m_setIdx][m_way].data[0];
         end
         WB_1: begin
-            cif.dWEN = 1'b1; // write
+            // cif.dWEN = 1'b1; // write
             cif.ccwrite = m_write;  //tell the controller whether the miss was rdx or rd
-            cif.daddr = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b100};
-            cif.dstore = frames[m_setIdx][m_way].data[1];
+            // cif.daddr = {frames[m_setIdx][m_way].tag, m_setIdx, 3'b100};
+            // cif.dstore = frames[m_setIdx][m_way].data[1];
         end
         FL_0: begin
-            cif.dWEN = 1'b1;
-            cif.daddr = {frames[setIdx][way].tag, setIdx, 3'b0};
-            cif.dstore = frames[setIdx][way].data[0];
+            // cif.dWEN = 1'b1;
+            // cif.daddr = {frames[setIdx][way].tag, setIdx, 3'b0};
+            // cif.dstore = frames[setIdx][way].data[0];
         end
         FL_1: begin
-            cif.dWEN = 1'b1;
-            cif.daddr = {frames[setIdx][way].tag, setIdx, 3'b100};
-            cif.dstore = frames[setIdx][way].data[1];
+            // cif.dWEN = 1'b1;
+            // cif.daddr = {frames[setIdx][way].tag, setIdx, 3'b100};
+            // cif.dstore = frames[setIdx][way].data[1];
         end
 
 
         SC_INV0: begin
-            cif.dREN = 1'b1;
+            // cif.dREN = 1'b1;
             cif.ccwrite = 1'b1;
-            cif.daddr = sc_addr;
+            // cif.daddr = sc_addr;
         end
         SC_INV1: begin
-            cif.dREN = 1'b1;
+            // cif.dREN = 1'b1;
             cif.ccwrite = 1'b1;
-            cif.daddr = sc_addr;
+            // cif.daddr = sc_addr;
         end
     endcase
 
@@ -531,10 +616,10 @@ begin
             
         end
         S_WB0: begin
-            cif.dstore = frames[saddr.idx][snoop_way].data[0];
+            // cif.dstore = frames[saddr.idx][snoop_way].data[0];
         end
         S_WB1: begin
-           cif.dstore = frames[saddr.idx][snoop_way].data[1];
+        //    cif.dstore = frames[saddr.idx][snoop_way].data[1];
         end
     endcase
 end

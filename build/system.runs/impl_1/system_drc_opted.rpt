@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Sat Dec  6 13:08:24 2025
-| Host         : ececomp2.ecn.purdue.edu running 64-bit Oracle Linux Server release 8.10
+| Date         : Sat Dec  6 14:54:38 2025
+| Host         : cparch08.ecn.purdue.edu running 64-bit Oracle Linux Server release 8.10
 | Command      : report_drc -file system_drc_opted.rpt -pb system_drc_opted.pb -rpx system_drc_opted.rpx
 | Design       : system
 | Device       : xc7s50csga324-1
@@ -40,10 +40,11 @@ Table of Contents
 -----------------
 LUTLP-1#1 Critical Warning
 Combinatorial Loop Alert  
-6 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. If the loop is known and understood, this DRC can be bypassed by acknowledging the condition and setting the following XDC constraint on any one of the nets in the loop: 'set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets <myHier/myNet>]'. One net in the loop is CPU/CC/ccif\\.ccsnoopaddr_reg[0][5]_rep__0_5. Please evaluate your design. The cells in the loop are: CPU/CC/ccif\\.ramaddr[31]_i_22, CPU/CC/frames[4][0][dirty]_i_4,
-CPU/CC/frames[6][0][dirty]_i_9__0, CPU/CM0/DCACHE/ccif\\.ramaddr[31]_i_15,
-CPU/CM1/DCACHE/frames[4][0][dirty]_i_12
-CPU/CM1/DCACHE/frames[4][0][dirty]_i_9.
+6 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. If the loop is known and understood, this DRC can be bypassed by acknowledging the condition and setting the following XDC constraint on any one of the nets in the loop: 'set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets <myHier/myNet>]'. One net in the loop is CPU/CC/ccif\\.ccinv[0]. Please evaluate your design. The cells in the loop are: CPU/CC/frames[4][0][dirty]_i_5__0, CPU/CC/frames[4][0][dirty]_i_7,
+CPU/CM0/DCACHE/frames[4][0][dirty]_i_10,
+CPU/CM0/DCACHE/frames[4][0][dirty]_i_11,
+CPU/CM1/DCACHE/ccif\\.ramaddr[31]_i_16
+CPU/CM1/DCACHE/ccif\\.ramaddr[31]_i_17.
 Related violations: <none>
 
 NSTD-1#1 Critical Warning

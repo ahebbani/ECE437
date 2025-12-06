@@ -11,6 +11,7 @@
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source system.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1569.070 ; gain = 65.867 ; free physical = 1969 ; free virtual = 15410
 Command: synth_design -top system -part xc7s50csga324-1 -directive RuntimeOptimized
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
@@ -18,9 +19,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 54244
+INFO: [Synth 8-7075] Helper process launched with PID 3817421
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2306.297 ; gain = 406.598 ; free physical = 25395 ; free virtual = 193117
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2303.844 ; gain = 405.629 ; free physical = 967 ; free virtual = 14408
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-11067] parameter 'WORD_W' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:22]
 WARNING: [Synth 8-11067] parameter 'WBYTES' declared inside package 'cpu_types_pkg' shall be treated as localparam [/home/ecegridfs/a/437mg063/ece437/processors/include/cpu_types_pkg.vh:23]
@@ -154,9 +155,9 @@ INFO: [Synth 8-6155] done synthesizing module 'icache' (0#1) [/home/ecegridfs/a/
 INFO: [Synth 8-6157] synthesizing module 'dcache' [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:22]
 WARNING: [Synth 8-330] inout connections inferred for interface port 'datapath_cache_if' with no modport [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:18]
 WARNING: [Synth 8-330] inout connections inferred for interface port 'caches_if' with no modport [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:18]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:112]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:453]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:503]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:133]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:538]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:588]
 INFO: [Synth 8-6155] done synthesizing module 'dcache' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:22]
 INFO: [Synth 8-6155] done synthesizing module 'caches' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:9]
 INFO: [Synth 8-6157] synthesizing module 'caches__parameterized0' [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:9]
@@ -170,9 +171,9 @@ INFO: [Synth 8-6155] done synthesizing module 'icache__parameterized0' (0#1) [/h
 INFO: [Synth 8-6157] synthesizing module 'dcache__parameterized0' [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:22]
 WARNING: [Synth 8-330] inout connections inferred for interface port 'datapath_cache_if' with no modport [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:18]
 WARNING: [Synth 8-330] inout connections inferred for interface port 'caches_if' with no modport [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:18]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:112]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:453]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:503]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:133]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:538]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:588]
 INFO: [Synth 8-6155] done synthesizing module 'dcache__parameterized0' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:22]
 INFO: [Synth 8-6155] done synthesizing module 'caches__parameterized0' (0#1) [/home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv:9]
 INFO: [Synth 8-6157] synthesizing module 'memory_control' [/home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv:16]
@@ -210,13 +211,17 @@ WARNING: [Synth 8-3848] Net ruif\.dREN in module/entity datapath__parameterized0
 WARNING: [Synth 8-3848] Net ruif\.dhit in module/entity datapath__parameterized0 does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/request_unit_if.vh:11]
 WARNING: [Synth 8-3848] Net ruif\.ihit in module/entity datapath__parameterized0 does not have driver. [/home/ecegridfs/a/437mg063/ece437/processors/include/request_unit_if.vh:11]
 WARNING: [Synth 8-6014] Unused sequential element miss_addr_reg was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/icache.sv:65]
-WARNING: [Synth 8-6014] Unused sequential element rs_addr_reg[blkoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:728]
-WARNING: [Synth 8-6014] Unused sequential element rs_addr_reg[bytoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:728]
-WARNING: [Synth 8-6014] Unused sequential element sc_do_write_reg was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:733]
+WARNING: [Synth 8-6014] Unused sequential element rs_addr_reg[blkoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:813]
+WARNING: [Synth 8-6014] Unused sequential element rs_addr_reg[bytoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:813]
+WARNING: [Synth 8-6014] Unused sequential element sc_addr_reg[blkoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:815]
+WARNING: [Synth 8-6014] Unused sequential element sc_addr_reg[bytoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:815]
+WARNING: [Synth 8-6014] Unused sequential element sc_do_write_reg was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:818]
 WARNING: [Synth 8-6014] Unused sequential element miss_addr_reg was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/icache.sv:65]
-WARNING: [Synth 8-6014] Unused sequential element rs_addr_reg[blkoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:728]
-WARNING: [Synth 8-6014] Unused sequential element rs_addr_reg[bytoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:728]
-WARNING: [Synth 8-6014] Unused sequential element sc_do_write_reg was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:733]
+WARNING: [Synth 8-6014] Unused sequential element rs_addr_reg[blkoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:813]
+WARNING: [Synth 8-6014] Unused sequential element rs_addr_reg[bytoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:813]
+WARNING: [Synth 8-6014] Unused sequential element sc_addr_reg[blkoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:815]
+WARNING: [Synth 8-6014] Unused sequential element sc_addr_reg[bytoff] was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:815]
+WARNING: [Synth 8-6014] Unused sequential element sc_do_write_reg was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv:818]
 WARNING: [Synth 8-6014] Unused sequential element cycle_reg was removed.  [/home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv:26]
 WARNING: [Synth 8-7129] Port ramif\.memREN in module ram is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ramif\.memWEN in module ram is either unconnected or has no load
@@ -320,18 +325,18 @@ WARNING: [Synth 8-7129] Port ccif\.cif0\.iload[5] in module memory_control is ei
 WARNING: [Synth 8-7129] Port ccif\.cif0\.iload[4] in module memory_control is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2506.266 ; gain = 606.566 ; free physical = 25171 ; free virtual = 192899
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2507.812 ; gain = 609.598 ; free physical = 760 ; free virtual = 14204
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2521.109 ; gain = 621.410 ; free physical = 25153 ; free virtual = 192881
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2522.656 ; gain = 624.441 ; free physical = 747 ; free virtual = 14191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2521.109 ; gain = 621.410 ; free physical = 25153 ; free virtual = 192881
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2522.656 ; gain = 624.441 ; free physical = 747 ; free virtual = 14191
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.13 . Memory (MB): peak = 2521.109 ; gain = 0.000 ; free physical = 25324 ; free virtual = 193052
+Netlist sorting complete. Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2522.656 ; gain = 0.000 ; free physical = 747 ; free virtual = 14191
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -340,26 +345,26 @@ Parsing XDC File [/home/ecegridfs/a/437mg063/ece437/processors/build/generated_c
 Finished Parsing XDC File [/home/ecegridfs/a/437mg063/ece437/processors/build/generated_clock.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2661.859 ; gain = 0.000 ; free physical = 25098 ; free virtual = 192828
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2663.406 ; gain = 0.000 ; free physical = 663 ; free virtual = 14107
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.38 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2661.895 ; gain = 0.000 ; free physical = 25295 ; free virtual = 193024
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2663.441 ; gain = 0.000 ; free physical = 669 ; free virtual = 14113
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2661.895 ; gain = 762.195 ; free physical = 25263 ; free virtual = 192997
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2663.441 ; gain = 765.227 ; free physical = 671 ; free virtual = 14115
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2661.895 ; gain = 762.195 ; free physical = 25262 ; free virtual = 192995
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2663.441 ; gain = 765.227 ; free physical = 671 ; free virtual = 14115
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2661.895 ; gain = 762.195 ; free physical = 25262 ; free virtual = 192996
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2663.441 ; gain = 765.227 ; free physical = 671 ; free virtual = 14115
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'curr_state_reg' in module 'icache'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'dcache'
@@ -436,7 +441,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'curr_state_reg' using encoding 'sequential' in module 'memory_control'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2661.895 ; gain = 762.195 ; free physical = 25236 ; free virtual = 192973
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 2663.441 ; gain = 765.227 ; free physical = 666 ; free virtual = 14113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -450,23 +455,23 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input     32 Bit         XORs := 2     
 +---Registers : 
-	               32 Bit    Registers := 210   
+	               32 Bit    Registers := 214   
 	               26 Bit    Registers := 70    
 	                8 Bit    Registers := 2     
 	                5 Bit    Registers := 10    
 	                4 Bit    Registers := 3     
 	                3 Bit    Registers := 4     
-	                2 Bit    Registers := 13    
-	                1 Bit    Registers := 154   
+	                2 Bit    Registers := 11    
+	                1 Bit    Registers := 156   
 +---RAMs : 
 	             512K Bit	(16384 X 32 bit)          RAMs := 1     
 +---Muxes : 
-	  12 Input   32 Bit        Muxes := 11    
-	   2 Input   32 Bit        Muxes := 604   
+	  12 Input   32 Bit        Muxes := 9     
+	   2 Input   32 Bit        Muxes := 624   
 	   4 Input   32 Bit        Muxes := 2     
 	   3 Input   32 Bit        Muxes := 6     
-	   9 Input   32 Bit        Muxes := 2     
-	   2 Input   26 Bit        Muxes := 100   
+	  14 Input   32 Bit        Muxes := 6     
+	   2 Input   26 Bit        Muxes := 98    
 	   2 Input    8 Bit        Muxes := 32    
 	   2 Input    5 Bit        Muxes := 6     
 	  11 Input    4 Bit        Muxes := 2     
@@ -479,17 +484,16 @@ Detailed RTL Component Info :
 	  14 Input    4 Bit        Muxes := 6     
 	  42 Input    4 Bit        Muxes := 2     
 	  12 Input    3 Bit        Muxes := 2     
-	   2 Input    3 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 5     
 	  14 Input    3 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 16    
 	   7 Input    2 Bit        Muxes := 4     
 	  12 Input    2 Bit        Muxes := 8     
 	   4 Input    2 Bit        Muxes := 5     
-	   2 Input    1 Bit        Muxes := 2158  
+	   2 Input    1 Bit        Muxes := 2176  
 	  12 Input    1 Bit        Muxes := 24    
 	   4 Input    1 Bit        Muxes := 34    
-	  14 Input    1 Bit        Muxes := 6     
-	   9 Input    1 Bit        Muxes := 4     
+	  14 Input    1 Bit        Muxes := 16    
 	   5 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -508,7 +512,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:01:02 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 24382 ; free virtual = 192206
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:11 ; elapsed = 00:01:14 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 529 ; free virtual = 13999
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -529,7 +533,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:03 ; elapsed = 00:01:05 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 24418 ; free virtual = 192243
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:14 ; elapsed = 00:01:18 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 528 ; free virtual = 13998
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -590,7 +594,7 @@ INFO: [Synth 8-7052] The timing for the instance RAM/mem_reg_14 (implemented as 
 INFO: [Synth 8-7052] The timing for the instance RAM/mem_reg_15 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance RAM/mem_reg_15 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:43 ; elapsed = 00:01:46 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 23643 ; free virtual = 191517
+Finished Technology Mapping : Time (s): cpu = 00:02:06 ; elapsed = 00:02:10 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 486 ; free virtual = 13956
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -608,37 +612,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:47 ; elapsed = 00:01:50 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 23604 ; free virtual = 191482
+Finished IO Insertion : Time (s): cpu = 00:02:10 ; elapsed = 00:02:14 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 520 ; free virtual = 13991
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:47 ; elapsed = 00:01:50 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 23605 ; free virtual = 191482
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:10 ; elapsed = 00:02:14 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 520 ; free virtual = 13991
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:47 ; elapsed = 00:01:50 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 23610 ; free virtual = 191488
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:11 ; elapsed = 00:02:15 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 517 ; free virtual = 13988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:47 ; elapsed = 00:01:50 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 23610 ; free virtual = 191487
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:11 ; elapsed = 00:02:15 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 517 ; free virtual = 13988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:48 ; elapsed = 00:01:50 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 23604 ; free virtual = 191482
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:11 ; elapsed = 00:02:15 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 517 ; free virtual = 13987
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:48 ; elapsed = 00:01:50 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 23605 ; free virtual = 191482
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:11 ; elapsed = 00:02:15 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 517 ; free virtual = 13988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -657,44 +661,44 @@ Report Cell Usage:
 |1     |BUFG     |     2|
 |2     |CARRY4   |   166|
 |3     |LUT1     |     8|
-|4     |LUT2     |   438|
-|5     |LUT3     |  1554|
-|6     |LUT4     |  1219|
-|7     |LUT5     |  1423|
-|8     |LUT6     |  8040|
-|9     |MUXF7    |  2131|
-|10    |MUXF8    |   569|
+|4     |LUT2     |   451|
+|5     |LUT3     |  1609|
+|6     |LUT4     |   645|
+|7     |LUT5     |  1383|
+|8     |LUT6     |  8143|
+|9     |MUXF7    |  1641|
+|10    |MUXF8    |   343|
 |11    |RAMB36E1 |    16|
-|27    |FDCE     |  8518|
-|28    |FDPE     |    27|
+|27    |FDCE     |  8627|
+|28    |FDPE     |    23|
 |29    |IBUF     |    83|
 |30    |OBUF     |    65|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:48 ; elapsed = 00:01:50 . Memory (MB): peak = 2736.844 ; gain = 837.145 ; free physical = 23606 ; free virtual = 191483
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:11 ; elapsed = 00:02:15 . Memory (MB): peak = 2735.391 ; gain = 837.176 ; free physical = 517 ; free virtual = 13988
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 1 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:44 ; elapsed = 00:01:47 . Memory (MB): peak = 2736.844 ; gain = 696.359 ; free physical = 23603 ; free virtual = 191480
-Synthesis Optimization Complete : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 2736.852 ; gain = 837.145 ; free physical = 23601 ; free virtual = 191478
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:07 ; elapsed = 00:02:12 . Memory (MB): peak = 2735.391 ; gain = 696.391 ; free physical = 517 ; free virtual = 13988
+Synthesis Optimization Complete : Time (s): cpu = 00:02:11 ; elapsed = 00:02:15 . Memory (MB): peak = 2735.398 ; gain = 837.176 ; free physical = 516 ; free virtual = 13987
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.13 . Memory (MB): peak = 2736.852 ; gain = 0.000 ; free physical = 23918 ; free virtual = 191795
-INFO: [Netlist 29-17] Analyzing 2882 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.11 . Memory (MB): peak = 2735.398 ; gain = 0.000 ; free physical = 805 ; free virtual = 14276
+INFO: [Netlist 29-17] Analyzing 2166 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2768.859 ; gain = 0.000 ; free physical = 23992 ; free virtual = 191863
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2767.406 ; gain = 0.000 ; free physical = 803 ; free virtual = 14274
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: b8887ee8
+Synth Design complete | Checksum: fb422c57
 INFO: [Common 17-83] Releasing license: Synthesis
-183 Infos, 167 Warnings, 1 Critical Warnings and 0 Errors encountered.
+183 Infos, 171 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:55 ; elapsed = 00:01:56 . Memory (MB): peak = 2768.895 ; gain = 1199.340 ; free physical = 24178 ; free virtual = 192048
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2015.062; main = 1689.509; forked = 335.297
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4363.875; main = 2768.863; forked = 1627.027
+synth_design: Time (s): cpu = 00:02:19 ; elapsed = 00:02:22 . Memory (MB): peak = 2767.441 ; gain = 1198.371 ; free physical = 803 ; free virtual = 14274
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2184.656; main = 1844.174; forked = 388.591
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4361.941; main = 2767.410; forked = 1626.547
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2792.871 ; gain = 0.000 ; free physical = 24171 ; free virtual = 192043
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2791.418 ; gain = 0.000 ; free physical = 802 ; free virtual = 14274
 INFO: [Common 17-1381] The checkpoint '/home/ecegridfs/a/437mg063/ece437/processors/build/system.runs/synth_1/system.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_utilization_synth.rpt -pb system_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Dec  6 13:07:45 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Dec  6 14:53:42 2025...
