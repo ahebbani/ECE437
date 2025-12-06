@@ -22,10 +22,10 @@ module memory_control (
 
   int cycle;
 
-always_ff @(posedge CLK or negedge nRST) begin
-    if(!nRST) cycle <= 0;
-    else cycle <= cycle + 1;
-end
+  always_ff @(posedge CLK or negedge nRST) begin
+      if(!nRST) cycle <= 0;
+      else cycle <= cycle + 1;
+  end
 
   // number of cpus for cc
   parameter CPUS = 2;
@@ -67,43 +67,81 @@ end
         core 1's requested address to core 0 to snoop, as intended.
   */
   logic next_lru, lru;
+  word_t [1:0] next_ccsnoopaddr;
+  logic next_ramREN, next_ramWEN;
+  word_t next_ramaddr;
 
   always_comb begin
     next_state = curr_state;
     next_lru = lru;
+    next_ccsnoopaddr = ccif.ccsnoopaddr;
+    next_ramaddr = ccif.ramaddr;
+    next_ramREN = ccif.ramREN;
+    next_ramWEN = ccif.ramWEN;
     case(curr_state) 
       IDLE: begin
-        if (ccif.dWEN[lru]) next_state = WRITE1;
+        if (ccif.dWEN[lru]) begin
+          next_state = WRITE1;
+          next_ramWEN = 1;
+          next_ramaddr = ccif.daddr[lru];
+        end
         else if (ccif.dWEN[~lru])begin
           next_state = WRITE1; 
+          next_ramWEN = 1;
+          next_ramaddr = ccif.daddr[~lru];
           next_lru = ~lru;
         end
-        else if (ccif.dREN[lru]) next_state = SNOOP;
+        else if (ccif.dREN[lru]) begin
+          next_state = SNOOP;
+          next_ccsnoopaddr[~lru] = ccif.daddr[lru];
+        end
         else if (ccif.dREN[~lru]) begin
           next_state = SNOOP;
           next_lru = ~lru;
+          next_ccsnoopaddr[lru] = ccif.daddr[~lru];
         end
-        else if (ccif.iREN[lru]) next_state = IFETCH;
+        else if (ccif.iREN[lru]) begin
+          next_state = IFETCH;
+          next_ramREN = 1;
+          next_ramaddr = ccif.iaddr[lru];
+        end
         else if (ccif.iREN[~lru]) begin
           next_state = IFETCH;
+          next_ramREN = 1;
+          next_ramaddr = ccif.iaddr[~lru];
           next_lru = ~lru;
         end
         else next_state = IDLE;
       end
       SNOOP: next_state = CHECK;
       CHECK: begin
-        if (ccif.cctrans[~lru] && ~ccif.ccwrite[~lru]) next_state = CTOC1;
-        else if (ccif.cctrans[~lru] && ccif.ccwrite[~lru]) next_state = DCTOC1;
-        else if (~ccif.cctrans[~lru]) next_state = MEM_ACCESS1;
+        if (ccif.cctrans[~lru] && ~ccif.ccwrite[~lru]) begin
+          next_state = CTOC1;
+        end
+        else if (ccif.cctrans[~lru] && ccif.ccwrite[~lru]) begin
+          next_state = DCTOC1;
+          next_ramWEN = 1;
+          next_ramaddr = ccif.daddr[lru];
+        end
+        else if (~ccif.cctrans[~lru]) begin
+          next_state = MEM_ACCESS1;
+          next_ramREN = 1;
+          next_ramaddr = ccif.daddr[lru];
+        end
       end
       MEM_ACCESS1: begin
-        if (ccif.ramstate == ACCESS) next_state = MEM_ACCESS2;
+        if (ccif.ramstate == ACCESS) begin
+          next_state = MEM_ACCESS2;
+          next_ramaddr = {ccif.ramaddr[31:3], 3'b100};
+        end
         else next_state = MEM_ACCESS1;
       end
       MEM_ACCESS2: begin
         if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
+          next_ramREN = 0;
+          next_ramaddr = 0;
         end
         else next_state = MEM_ACCESS2;
       end
@@ -113,13 +151,18 @@ end
           next_lru = ~lru;
       end
       DCTOC1: begin
-        if (ccif.ramstate == ACCESS) next_state = DCTOC2;
+        if (ccif.ramstate == ACCESS) begin
+          next_state = DCTOC2;
+          next_ramaddr = {ccif.ramaddr[31:3], 3'b100};
+        end
         else next_state = DCTOC1;
       end
       DCTOC2: begin
         if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
+          next_ramWEN = 0;
+          next_ramaddr = 0;
         end
         else next_state = DCTOC2;
       end
@@ -127,17 +170,24 @@ end
         if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
+          next_ramREN = 0;
+          next_ramaddr = 0;
         end
         else next_state = IFETCH;
       end
       WRITE1: begin
-        if (ccif.ramstate == ACCESS) next_state = WRITE2;
+        if (ccif.ramstate == ACCESS) begin
+          next_state = WRITE2;
+          next_ramaddr = {ccif.ramaddr[31:3], 3'b100};
+        end
         else next_state = WRITE1;
       end
       WRITE2: begin
         if (ccif.ramstate == ACCESS) begin
           next_state = IDLE;
           next_lru = ~lru;
+          next_ramWEN = 0;
+          next_ramaddr = 0;
         end
         else next_state = WRITE2;
       end
@@ -145,48 +195,48 @@ end
   end
 
   always_comb begin
-    ccif.ccsnoopaddr = 0;
+    // ccif.ccsnoopaddr = 0;
     ccif.ccwait = 0;
     ccif.ccinv = 0;
     ccif.dload = 0;
     ccif.iload = 0;
-    ccif.ramaddr = 0;
     ccif.ramstore = 0;
-    ccif.ramREN = 0;
-    ccif.ramWEN = 0;
+    // ccif.ramaddr = 0;
+    // ccif.ramREN = 0;
+    // ccif.ramWEN = 0;
     case (curr_state)
       SNOOP: begin
-        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        // ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccwait[~lru] = 1'b1;
       end
       CHECK: begin
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
-        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        // ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccwait[~lru] = 1'b1;
       end
       MEM_ACCESS1: begin
-        ccif.ramREN = 1'b1;
-        ccif.ramaddr = ccif.daddr[lru];
+        // ccif.ramREN = 1'b1;
+        // ccif.ramaddr = ccif.daddr[lru];
         if (ccif.ramstate == ACCESS) begin
           ccif.dload[lru] = ccif.ramload;
         end
       end
       MEM_ACCESS2: begin
-        ccif.ramREN = 1'b1;
-        ccif.ramaddr = ccif.daddr[lru];
+        // ccif.ramREN = 1'b1;
+        // ccif.ramaddr = ccif.daddr[lru];
         if (ccif.ramstate == ACCESS) begin
           ccif.dload[lru] = ccif.ramload;
         end
       end
       CTOC1: begin
-        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        // ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
         ccif.ccwait[~lru] = 1'b1;
         //ccif.dwait = 0;
       end
       CTOC2: begin
-        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        // ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
         ccif.ccwait[~lru] = 1'b1;
@@ -194,42 +244,42 @@ end
       end
       DCTOC1: begin
 
-        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        // ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
         ccif.ccwait[~lru] = 1'b1;
 
-        ccif.ramWEN = 1'b1;
-        ccif.ramaddr = ccif.daddr[lru];
+        // ccif.ramWEN = 1'b1;
+        // ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[~lru];
       end
       DCTOC2: begin
 
-        ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
+        // ccif.ccsnoopaddr[~lru] = ccif.daddr[lru];
         ccif.ccinv[~lru] = ccif.ccwrite[lru];
         ccif.dload[lru] = ccif.dstore[~lru];
         ccif.ccwait[~lru] = 1'b1;
 
-        ccif.ramWEN = 1'b1;
-        ccif.ramaddr = ccif.daddr[lru];
+        // ccif.ramWEN = 1'b1;
+        // ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[~lru];
       end
       IFETCH: begin
-        ccif.ramREN = 1'b1;
-        ccif.ramaddr = ccif.iaddr[lru];
+        // ccif.ramREN = 1'b1;
+        // ccif.ramaddr = ccif.iaddr[lru];
         if (ccif.ramstate == ACCESS) begin
           ccif.iload[lru] = ccif.ramload;
         end
       end
       WRITE1: begin
-        ccif.ramWEN = 1'b1;
-        ccif.ramaddr = ccif.daddr[lru];
+        // ccif.ramWEN = 1'b1;
+        // ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[lru];
 
       end
       WRITE2: begin
-        ccif.ramWEN  = 1'b1;
-        ccif.ramaddr = ccif.daddr[lru];
+        // ccif.ramWEN  = 1'b1;
+        // ccif.ramaddr = ccif.daddr[lru];
         ccif.ramstore = ccif.dstore[lru];
       end
     endcase
@@ -261,10 +311,18 @@ end
     if (~nRST) begin
       curr_state <= IDLE;
       lru <= 0;
+      ccif.ccsnoopaddr <= '0;
+      ccif.ramaddr <= 0;
+      ccif.ramREN <= 0;
+      ccif.ramWEN <= 0;
     end
     else begin
       curr_state <= next_state;
       lru <= next_lru;
+      ccif.ccsnoopaddr <= next_ccsnoopaddr;
+      ccif.ramaddr <= next_ramaddr;
+      ccif.ramREN <= next_ramREN;
+      ccif.ramWEN <= next_ramWEN;
     end
   end
 

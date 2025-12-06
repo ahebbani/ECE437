@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/system.runs/synth_1/system.tcl"
+  variable script "/home/ecegridfs/a/437mg063/ece437/processors/build/system.runs/synth_1/system.tcl"
   variable category "vivado_synth"
 }
 
@@ -76,36 +76,36 @@ create_project -in_memory -part xc7s50csga324-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/system.cache/wt [current_project]
-set_property parent.project_path /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/system.xpr [current_project]
+set_property webtalk.parent_dir /home/ecegridfs/a/437mg063/ece437/processors/build/system.cache/wt [current_project]
+set_property parent.project_path /home/ecegridfs/a/437mg063/ece437/processors/build/system.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-set_property include_dirs /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/include [current_fileset]
+set_property include_dirs /home/ecegridfs/a/437mg063/ece437/processors/include [current_fileset]
 set_property verilog_define USE_VIVADO [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_mem /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/meminit.mem
+read_mem /home/ecegridfs/a/437mg063/ece437/processors/meminit.mem
 read_verilog -library xil_defaultlib -sv {
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/alu.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/caches.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/control_unit.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/datapath.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/dcache.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/ex_mem.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/forwarding_unit.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/hazard_unit.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/icache.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/id_ex.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/if_id.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/mem_wb.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/memory_control.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/multicore.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/pc.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/ram.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/register_file.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/request_unit.sv
-  /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/source/system.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/alu.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/caches.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/control_unit.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/datapath.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/dcache.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/ex_mem.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/forwarding_unit.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/hazard_unit.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/icache.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/id_ex.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/if_id.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/mem_wb.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/memory_control.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/multicore.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/pc.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/ram.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/register_file.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/request_unit.sv
+  /home/ecegridfs/a/437mg063/ece437/processors/source/system.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -116,8 +116,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/generated_clock.xdc
-set_property used_in_implementation false [get_files /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/generated_clock.xdc]
+read_xdc /home/ecegridfs/a/437mg063/ece437/processors/build/generated_clock.xdc
+set_property used_in_implementation false [get_files /home/ecegridfs/a/437mg063/ece437/processors/build/generated_clock.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

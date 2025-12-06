@@ -262,6 +262,7 @@ Starting simulation...
 0000020C(Core 1): FFFFFFFF HALT
 	PC <-- 00000210
 HALT executed(Core 1).
+{sim:/system_tb/DUT/CPU/DP0/REGF/register[4]}
 
 0000004C(Core 0): 0063A023 SW R6, 0(R7)
 	PC <-- 00000050

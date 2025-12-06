@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/build/system.runs/synth_1'
+HD_PWD='/home/ecegridfs/a/437mg063/ece437/processors/build/system.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
