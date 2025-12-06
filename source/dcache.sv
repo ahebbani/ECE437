@@ -28,11 +28,18 @@ import cpu_types_pkg::*;
  
 localparam int WAYS = 2;
 localparam int SETS = 8;
-localparam int LEFT = 0;
-localparam int RIGHT = 1;
+localparam logic LEFT = 0;
+localparam logic RIGHT = 1;
  
 dcache_frame frames[SETS-1:0][WAYS-1:0];
 dcache_frame left, right, left_nxt, right_nxt;
+
+int cycle;
+always_ff @(posedge clk or negedge nrst) begin
+    if(!nrst) cycle <= 0;
+    else cycle <= cycle + 1;
+end
+
  
 //one bit LRU per set
  
@@ -48,6 +55,15 @@ logic addr_blkoff;
 logic [1:0] addr_bytoff;
 
 assign {addr_tag, addr_idx, addr_blkoff, addr_bytoff} = dcif.dmemaddr;
+
+always_comb begin
+    if (cycle > 165 && cycle < 175) begin
+        $display("cycle: %d, dmemaddr %d, blk %d", cycle, 
+                                dcif.dmemaddr, addr_blkoff);
+    end
+
+    if (dcif.dmemaddr == 772) $display("ACCESS 0x304: cycle: %d, blk: %d", cycle, addr_blkoff);
+end
 
 
 //dcachef_t saddr;
@@ -356,6 +372,11 @@ begin
     rs_addr_nxt = rs_addr;
 
     sc_serve = 1'b0;
+    // dcif.dmemload = frames[addr_idx][right_hit].data[addr_blkoff];
+    // if (cycle > 150 && cycle < 180) begin
+    //     $display("cycle: %d, dmemload %d, addr %d, side %d, blk %d", cycle, 
+    //                         frames[addr_idx][LEFT].data[addr_blkoff], addr_idx, right_hit, addr_blkoff);
+    // end
 
         if(state == IDLE)
         begin
@@ -368,6 +389,8 @@ begin
                     dcif.dhit = 1'b1;
                     dcif.dmemload = frames[addr_idx][LEFT].data[addr_blkoff];
                     mru_nxt[addr_idx] = LEFT;
+                    $display("@cycle: %d, dmemload %d, addr %d, side %d, blk %d, dhit: %d, left_hit: %d", cycle, 
+                            frames[addr_idx][LEFT].data[addr_blkoff], addr_idx, right_hit, addr_blkoff, dcif.dhit, left_hit);
 
                     if(dcif.datomic) 
                     begin
@@ -378,7 +401,7 @@ begin
                 else if(right_hit)
                 begin
                     dcif.dhit = 1'b1;
-                    dcif.dmemload = frames[addr_idx][RIGHT].data[addr_blkoff];
+                    // dcif.dmemload = frames[addr_idx][RIGHT].data[addr_blkoff];
                     mru_nxt[addr_idx] = RIGHT;
 
                     if(dcif.datomic)

@@ -19,8 +19,9 @@
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # ** Note: Multiple occurrences of ini variable ToggleWidthLimit are found, only first occurence will be considered.
 # vsim -coverage -suppress 12110 -do "view objects; do scripts/system.do; run -all;" -onfinish stop "+define+USE_VIVADO" -L unisim -wlf system_tb.wlf work.system_tb glbl 
-# Start time: 16:42:47 on Dec 05,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 18:54:54 on Dec 05,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 1 FSM in module "dcache(fast)".
 # Loading sv_std.std
 # Loading work.system_tb(fast)
 # Loading work.cpu_types_pkg(fast)
@@ -67,52 +68,90 @@
 #  do scripts/system.do
 #  run -all
 # Starting Processor.
+# @cycle:          80, dmemload          0, addr 0, side 0, blk 0, dhit: 1, left_hit: 1
+# @cycle:          80, dmemload          0, addr 0, side 0, blk 0, dhit: 1, left_hit: 1
+# @cycle:          88, dmemload          0, addr 0, side 0, blk 0, dhit: 1, left_hit: 1
+# @cycle:          88, dmemload          0, addr 0, side 0, blk 0, dhit: 1, left_hit: 1
+# @cycle:         136, dmemload          0, addr 0, side 0, blk 0, dhit: 1, left_hit: 1
+# @cycle:         136, dmemload          0, addr 0, side 0, blk 0, dhit: 1, left_hit: 1
+# ACCESS 0x304: cycle:         143, blk: 1
+# ACCESS 0x304: cycle:         144, blk: 1
+# ACCESS 0x304: cycle:         145, blk: 1
+# ACCESS 0x304: cycle:         146, blk: 1
+# ACCESS 0x304: cycle:         147, blk: 1
+# ACCESS 0x304: cycle:         148, blk: 1
+# ACCESS 0x304: cycle:         149, blk: 1
+# ACCESS 0x304: cycle:         150, blk: 1
+# ACCESS 0x304: cycle:         151, blk: 1
+# ACCESS 0x304: cycle:         152, blk: 1
+# ACCESS 0x304: cycle:         153, blk: 1
+# ACCESS 0x304: cycle:         154, blk: 1
+# ACCESS 0x304: cycle:         155, blk: 1
+# ACCESS 0x304: cycle:         156, blk: 1
+# ACCESS 0x304: cycle:         157, blk: 1
+# ACCESS 0x304: cycle:         158, blk: 1
+# ACCESS 0x304: cycle:         159, blk: 1
+# ACCESS 0x304: cycle:         160, blk: 1
+# ACCESS 0x304: cycle:         161, blk: 1
+# ACCESS 0x304: cycle:         162, blk: 1
+# ACCESS 0x304: cycle:         163, blk: 1
+# @cycle:         163, dmemload          0, addr 0, side 0, blk 1, dhit: 1, left_hit: 1
+# @cycle:         163, dmemload          0, addr 0, side 0, blk 1, dhit: 1, left_hit: 1
+# cycle:         166, dmemaddr          0, blk 0
+# cycle:         166, dmemaddr        772, blk 1
+# ACCESS 0x304: cycle:         166, blk: 1
+# cycle:         167, dmemaddr          0, blk 0
+# cycle:         167, dmemaddr        772, blk 1
+# ACCESS 0x304: cycle:         167, blk: 1
+# cycle:         168, dmemaddr          1, blk 0
+# cycle:         168, dmemaddr        772, blk 1
+# ACCESS 0x304: cycle:         168, blk: 1
+# cycle:         169, dmemaddr          1, blk 0
+# cycle:         169, dmemaddr        772, blk 1
+# ACCESS 0x304: cycle:         169, blk: 1
+# cycle:         170, dmemaddr          1, blk 0
+# cycle:         170, dmemaddr        772, blk 1
+# ACCESS 0x304: cycle:         170, blk: 1
+# @cycle:         170, dmemload          0, addr 0, side 0, blk 1, dhit: 1, left_hit: 1
+# cycle:         171, dmemaddr          1, blk 0
+# cycle:         171, dmemaddr          0, blk 0
+# cycle:         172, dmemaddr        772, blk 1
+# ACCESS 0x304: cycle:         172, blk: 1
+# cycle:         172, dmemaddr          0, blk 0
+# cycle:         173, dmemaddr        772, blk 1
+# ACCESS 0x304: cycle:         173, blk: 1
+# cycle:         173, dmemaddr          0, blk 0
+# cycle:         174, dmemaddr        772, blk 1
+# ACCESS 0x304: cycle:         174, blk: 1
+# cycle:         174, dmemaddr          0, blk 0
+# ACCESS 0x304: cycle:         175, blk: 1
+# ACCESS 0x304: cycle:         176, blk: 1
+# ACCESS 0x304: cycle:         177, blk: 1
+# ACCESS 0x304: cycle:         178, blk: 1
+# ACCESS 0x304: cycle:         179, blk: 1
+# ACCESS 0x304: cycle:         180, blk: 1
+# ACCESS 0x304: cycle:         181, blk: 1
+# ACCESS 0x304: cycle:         182, blk: 1
+# ACCESS 0x304: cycle:         183, blk: 1
+# ACCESS 0x304: cycle:         184, blk: 1
+# ACCESS 0x304: cycle:         185, blk: 1
+# ACCESS 0x304: cycle:         185, blk: 1
+# ACCESS 0x304: cycle:         186, blk: 1
+# ACCESS 0x304: cycle:         186, blk: 1
+# ACCESS 0x304: cycle:         187, blk: 1
+# ACCESS 0x304: cycle:         188, blk: 1
+# ACCESS 0x304: cycle:         189, blk: 1
+# ACCESS 0x304: cycle:         190, blk: 1
+# ACCESS 0x304: cycle:         191, blk: 1
+# ACCESS 0x304: cycle:         192, blk: 1
+# ACCESS 0x304: cycle:         193, blk: 1
+# ACCESS 0x304: cycle:         194, blk: 1
+# ACCESS 0x304: cycle:         195, blk: 1
+# ACCESS 0x304: cycle:         196, blk: 1
+# @cycle:         211, dmemload         12, addr 7, side 0, blk 0, dhit: 1, left_hit: 1
+# @cycle:         231, dmemload        524, addr 7, side 0, blk 0, dhit: 1, left_hit: 1
 # Halted at 11120 time and ran for        277 cycles.
 # Starting memory dump via debug port.
 # Finished memory dump via debug port.
 # Break in Module test at testbench/system_tb.sv line 153
 # 
-add wave -position insertpoint  \
-sim:/system_tb/DUT/CPU/DP1/exm/pc_out \
-sim:/system_tb/DUT/CPU/DP1/exm/pc_in \
-sim:/system_tb/DUT/CPU/DP1/exm/dmemaddr \
-sim:/system_tb/DUT/CPU/DP1/exm/imm_out \
-sim:/system_tb/DUT/CPU/DP1/exm/imm_in \
-sim:/system_tb/DUT/CPU/DP1/exm/rdat1_out \
-sim:/system_tb/DUT/CPU/DP1/exm/rdat1_in \
-sim:/system_tb/DUT/CPU/DP1/exm/rdat2_out \
-sim:/system_tb/DUT/CPU/DP1/exm/rdat2_in \
-sim:/system_tb/DUT/CPU/DP1/exm/alu_out_out \
-sim:/system_tb/DUT/CPU/DP1/exm/alu_out_in \
-sim:/system_tb/DUT/CPU/DP1/exm/pipe_ctrl \
-sim:/system_tb/DUT/CPU/DP1/exm/stall \
-sim:/system_tb/DUT/CPU/DP1/exm/dhit \
-sim:/system_tb/DUT/CPU/DP1/exm/dmemREN \
-sim:/system_tb/DUT/CPU/DP1/exm/dmemWEN \
-sim:/system_tb/DUT/CPU/DP1/exm/ihit \
-sim:/system_tb/DUT/CPU/DP1/exm/branchPCand_out \
-sim:/system_tb/DUT/CPU/DP1/exm/branchPCand_in \
-sim:/system_tb/DUT/CPU/DP1/exm/branchPCadder_out \
-sim:/system_tb/DUT/CPU/DP1/exm/branchPCadder_in \
-sim:/system_tb/DUT/CPU/DP1/exm/jumpPCsrc_out \
-sim:/system_tb/DUT/CPU/DP1/exm/jumpPCsrc_in \
-sim:/system_tb/DUT/CPU/DP1/exm/jumpPCadder_out \
-sim:/system_tb/DUT/CPU/DP1/exm/jumpPCadder_in \
-sim:/system_tb/DUT/CPU/DP1/exm/dREN_out \
-sim:/system_tb/DUT/CPU/DP1/exm/dREN_in \
-sim:/system_tb/DUT/CPU/DP1/exm/dWEN_out \
-sim:/system_tb/DUT/CPU/DP1/exm/dWEN_in \
-sim:/system_tb/DUT/CPU/DP1/exm/RegWEN_out \
-sim:/system_tb/DUT/CPU/DP1/exm/RegWEN_in \
-sim:/system_tb/DUT/CPU/DP1/exm/MemtoReg_out \
-sim:/system_tb/DUT/CPU/DP1/exm/MemtoReg_in \
-sim:/system_tb/DUT/CPU/DP1/exm/rd_out \
-sim:/system_tb/DUT/CPU/DP1/exm/rd_in \
-sim:/system_tb/DUT/CPU/DP1/exm/halt_in \
-sim:/system_tb/DUT/CPU/DP1/exm/halt_out \
-sim:/system_tb/DUT/CPU/DP1/exm/atomic_in \
-sim:/system_tb/DUT/CPU/DP1/exm/atomic_out \
-sim:/system_tb/DUT/CPU/DP1/exm/inst_in \
-sim:/system_tb/DUT/CPU/DP1/exm/inst_out
-# Causality operation skipped due to absence of debug database file
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ecegridfs/a/437mg108/ece437/pipelinePartner/processors-team/scripts/system.do
